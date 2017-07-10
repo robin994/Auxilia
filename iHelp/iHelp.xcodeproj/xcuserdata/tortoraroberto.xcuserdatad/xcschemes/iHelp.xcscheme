@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BD2482551F0F9F5B0044847E"
+               BlueprintIdentifier = "CE4656C21F0FD325004E3868"
                BuildableName = "iHelp.app"
                BlueprintName = "iHelp"
                ReferencedContainer = "container:iHelp.xcodeproj">
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BD2482691F0F9F5B0044847E"
+               BlueprintIdentifier = "CE4656D61F0FD325004E3868"
                BuildableName = "iHelpTests.xctest"
                BlueprintName = "iHelpTests"
                ReferencedContainer = "container:iHelp.xcodeproj">
@@ -42,7 +42,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BD2482741F0F9F5B0044847E"
+               BlueprintIdentifier = "CE4656E11F0FD325004E3868"
                BuildableName = "iHelpUITests.xctest"
                BlueprintName = "iHelpUITests"
                ReferencedContainer = "container:iHelp.xcodeproj">
@@ -52,7 +52,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BD2482551F0F9F5B0044847E"
+            BlueprintIdentifier = "CE4656C21F0FD325004E3868"
             BuildableName = "iHelp.app"
             BlueprintName = "iHelp"
             ReferencedContainer = "container:iHelp.xcodeproj">
@@ -75,7 +75,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BD2482551F0F9F5B0044847E"
+            BlueprintIdentifier = "CE4656C21F0FD325004E3868"
             BuildableName = "iHelp.app"
             BlueprintName = "iHelp"
             ReferencedContainer = "container:iHelp.xcodeproj">
@@ -94,7 +94,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BD2482551F0F9F5B0044847E"
+            BlueprintIdentifier = "CE4656C21F0FD325004E3868"
             BuildableName = "iHelp.app"
             BlueprintName = "iHelp"
             ReferencedContainer = "container:iHelp.xcodeproj">

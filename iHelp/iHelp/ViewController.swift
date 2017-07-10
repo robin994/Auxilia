@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  iHelp
 //
-//  Created by Cirillo Stefano on 07/07/17.
-//  Copyright © 2017 Cirillo Stefano. All rights reserved.
+//  Created by Tortora Roberto on 07/07/2017.
+//  Copyright © 2017 robin994. All rights reserved.
 //
 
 import UIKit
@@ -20,7 +20,6 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    //commit di prova
-    
+
 }
 

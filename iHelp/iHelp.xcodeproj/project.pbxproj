@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CE39537E1F136485006BFBCA /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = CE39537D1F136485006BFBCA /* logo.png */; };
+		CE3953831F13655C006BFBCA /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3953821F13655C006BFBCA /* logo.png */; };
 		CE4656C71F0FD325004E3868 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4656C61F0FD325004E3868 /* AppDelegate.swift */; };
 		CE4656C91F0FD325004E3868 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4656C81F0FD325004E3868 /* ViewController.swift */; };
 		CE4656CC1F0FD325004E3868 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE4656CA1F0FD325004E3868 /* Main.storyboard */; };
@@ -15,7 +15,6 @@
 		CE4656D11F0FD325004E3868 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE4656CF1F0FD325004E3868 /* LaunchScreen.storyboard */; };
 		CE4656DC1F0FD325004E3868 /* iHelpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4656DB1F0FD325004E3868 /* iHelpTests.swift */; };
 		CE4656E71F0FD325004E3868 /* iHelpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4656E61F0FD325004E3868 /* iHelpUITests.swift */; };
-		CE4656F91F0FD3E7004E3868 /* logo-2.png in Resources */ = {isa = PBXBuildFile; fileRef = CE4656F81F0FD3E7004E3868 /* logo-2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		CE39537D1F136485006BFBCA /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		CE3953821F13655C006BFBCA /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = SOURCE_ROOT; };
 		CE4656C31F0FD325004E3868 /* iHelp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iHelp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4656C61F0FD325004E3868 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE4656C81F0FD325004E3868 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -50,7 +49,6 @@
 		CE4656E21F0FD325004E3868 /* iHelpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iHelpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4656E61F0FD325004E3868 /* iHelpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iHelpUITests.swift; sourceTree = "<group>"; };
 		CE4656E81F0FD325004E3868 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CE4656F81F0FD3E7004E3868 /* logo-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo-2.png"; path = "../../Downloads/logo-2.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +76,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE3953811F1364F2006BFBCA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CE3953821F13655C006BFBCA /* logo.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		CE4656BA1F0FD325004E3868 = {
 			isa = PBXGroup;
 			children = (
@@ -85,8 +91,6 @@
 				CE4656DA1F0FD325004E3868 /* iHelpTests */,
 				CE4656E51F0FD325004E3868 /* iHelpUITests */,
 				CE4656C41F0FD325004E3868 /* Products */,
-				CE4656F81F0FD3E7004E3868 /* logo-2.png */,
-				CE39537D1F136485006BFBCA /* logo.png */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +107,7 @@
 		CE4656C51F0FD325004E3868 /* iHelp */ = {
 			isa = PBXGroup;
 			children = (
+				CE3953811F1364F2006BFBCA /* Resources */,
 				CE4656C61F0FD325004E3868 /* AppDelegate.swift */,
 				CE4656C81F0FD325004E3868 /* ViewController.swift */,
 				CE4656CA1F0FD325004E3868 /* Main.storyboard */,
@@ -242,8 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE4656D11F0FD325004E3868 /* LaunchScreen.storyboard in Resources */,
-				CE39537E1F136485006BFBCA /* logo.png in Resources */,
-				CE4656F91F0FD3E7004E3868 /* logo-2.png in Resources */,
+				CE3953831F13655C006BFBCA /* logo.png in Resources */,
 				CE4656CE1F0FD325004E3868 /* Assets.xcassets in Resources */,
 				CE4656CC1F0FD325004E3868 /* Main.storyboard in Resources */,
 			);

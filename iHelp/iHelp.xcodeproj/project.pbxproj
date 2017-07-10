@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CE3953831F13655C006BFBCA /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3953821F13655C006BFBCA /* logo.png */; };
+		CE39538D1F137AED006BFBCA /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE39538C1F137AED006BFBCA /* HealthKit.framework */; };
 		CE4656C71F0FD325004E3868 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4656C61F0FD325004E3868 /* AppDelegate.swift */; };
 		CE4656C91F0FD325004E3868 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4656C81F0FD325004E3868 /* ViewController.swift */; };
 		CE4656CC1F0FD325004E3868 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE4656CA1F0FD325004E3868 /* Main.storyboard */; };
@@ -36,6 +37,8 @@
 
 /* Begin PBXFileReference section */
 		CE3953821F13655C006BFBCA /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = SOURCE_ROOT; };
+		CE3953891F13664E006BFBCA /* iHelp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iHelp.entitlements; sourceTree = "<group>"; };
+		CE39538C1F137AED006BFBCA /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		CE4656C31F0FD325004E3868 /* iHelp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iHelp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4656C61F0FD325004E3868 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE4656C81F0FD325004E3868 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE39538D1F137AED006BFBCA /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +88,14 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		CE3953841F136645006BFBCA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE39538C1F137AED006BFBCA /* HealthKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CE4656BA1F0FD325004E3868 = {
 			isa = PBXGroup;
 			children = (
@@ -91,7 +103,9 @@
 				CE4656DA1F0FD325004E3868 /* iHelpTests */,
 				CE4656E51F0FD325004E3868 /* iHelpUITests */,
 				CE4656C41F0FD325004E3868 /* Products */,
+				CE3953841F136645006BFBCA /* Frameworks */,
 			);
+			indentWidth = 4;
 			sourceTree = "<group>";
 		};
 		CE4656C41F0FD325004E3868 /* Products */ = {
@@ -107,6 +121,7 @@
 		CE4656C51F0FD325004E3868 /* iHelp */ = {
 			isa = PBXGroup;
 			children = (
+				CE3953891F13664E006BFBCA /* iHelp.entitlements */,
 				CE3953811F1364F2006BFBCA /* Resources */,
 				CE4656C61F0FD325004E3868 /* AppDelegate.swift */,
 				CE4656C81F0FD325004E3868 /* ViewController.swift */,
@@ -200,12 +215,29 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0830;
-				ORGANIZATIONNAME = robin994;
+				ORGANIZATIONNAME = "The Round Table";
 				TargetAttributes = {
 					CE4656C21F0FD325004E3868 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = K8WJKQA676;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 0;
+							};
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.Siri = {
+								enabled = 0;
+							};
+							com.apple.Wallet = {
+								enabled = 0;
+							};
+						};
 					};
 					CE4656D61F0FD325004E3868 = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -427,6 +459,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iHelp/iHelp.entitlements;
 				DEVELOPMENT_TEAM = K8WJKQA676;
 				INFOPLIST_FILE = iHelp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -440,6 +473,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iHelp/iHelp.entitlements;
 				DEVELOPMENT_TEAM = K8WJKQA676;
 				INFOPLIST_FILE = iHelp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -196,7 +196,7 @@
 				TargetAttributes = {
 					CE4656C21F0FD325004E3868 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = PTH65GSUAS;
+						DevelopmentTeam = K8WJKQA676;
 						ProvisioningStyle = Automatic;
 					};
 					CE4656D61F0FD325004E3868 = {
@@ -419,10 +419,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = PTH65GSUAS;
+				DEVELOPMENT_TEAM = K8WJKQA676;
 				INFOPLIST_FILE = iHelp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = TheRoundTable.iHelp;
+				PRODUCT_BUNDLE_IDENTIFIER = it.unisa.iosfoundation.trt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -432,10 +432,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = PTH65GSUAS;
+				DEVELOPMENT_TEAM = K8WJKQA676;
 				INFOPLIST_FILE = iHelp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = TheRoundTable.iHelp;
+				PRODUCT_BUNDLE_IDENTIFIER = it.unisa.iosfoundation.trt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -518,6 +518,7 @@
 				CE4656ED1F0FD325004E3868 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CE4656EE1F0FD325004E3868 /* Build configuration list for PBXNativeTarget "iHelpTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +527,7 @@
 				CE4656F01F0FD325004E3868 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CE4656F11F0FD325004E3868 /* Build configuration list for PBXNativeTarget "iHelpUITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +536,7 @@
 				CE4656F31F0FD325004E3868 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

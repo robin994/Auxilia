@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE1A5EA71F13EC350086939D /* IconTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = CE1A5EA61F13EC350086939D /* IconTemplate.png */; };
 		CE3953831F13655C006BFBCA /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3953821F13655C006BFBCA /* logo.png */; };
-		CE39538D1F137AED006BFBCA /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE39538C1F137AED006BFBCA /* HealthKit.framework */; };
 		CE4656C71F0FD325004E3868 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4656C61F0FD325004E3868 /* AppDelegate.swift */; };
 		CE4656C91F0FD325004E3868 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4656C81F0FD325004E3868 /* ViewController.swift */; };
 		CE4656CC1F0FD325004E3868 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE4656CA1F0FD325004E3868 /* Main.storyboard */; };
@@ -16,6 +16,10 @@
 		CE4656D11F0FD325004E3868 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE4656CF1F0FD325004E3868 /* LaunchScreen.storyboard */; };
 		CE4656DC1F0FD325004E3868 /* iHelpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4656DB1F0FD325004E3868 /* iHelpTests.swift */; };
 		CE4656E71F0FD325004E3868 /* iHelpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4656E61F0FD325004E3868 /* iHelpUITests.swift */; };
+		CE53F0841F14B773001EAC96 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE53F0831F14B773001EAC96 /* HealthKit.framework */; };
+		CE53F0861F14B810001EAC96 /* ReportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE53F0851F14B810001EAC96 /* ReportCell.swift */; };
+		CEA64B7C1F14B3500047C04C /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA64B7B1F14B3500047C04C /* Report.swift */; };
+		CEA64B7E1F14B3FB0047C04C /* ReportStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA64B7D1F14B3FB0047C04C /* ReportStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,9 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE1A5EA61F13EC350086939D /* IconTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IconTemplate.png; sourceTree = "<group>"; };
 		CE3953821F13655C006BFBCA /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = SOURCE_ROOT; };
 		CE3953891F13664E006BFBCA /* iHelp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iHelp.entitlements; sourceTree = "<group>"; };
-		CE39538C1F137AED006BFBCA /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		CE4656C31F0FD325004E3868 /* iHelp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iHelp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4656C61F0FD325004E3868 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE4656C81F0FD325004E3868 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -52,6 +56,10 @@
 		CE4656E21F0FD325004E3868 /* iHelpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iHelpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4656E61F0FD325004E3868 /* iHelpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iHelpUITests.swift; sourceTree = "<group>"; };
 		CE4656E81F0FD325004E3868 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE53F0831F14B773001EAC96 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		CE53F0851F14B810001EAC96 /* ReportCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCell.swift; sourceTree = "<group>"; };
+		CEA64B7B1F14B3500047C04C /* Report.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
+		CEA64B7D1F14B3FB0047C04C /* ReportStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE39538D1F137AED006BFBCA /* HealthKit.framework in Frameworks */,
+				CE53F0841F14B773001EAC96 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +91,7 @@
 		CE3953811F1364F2006BFBCA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CE1A5EA61F13EC350086939D /* IconTemplate.png */,
 				CE3953821F13655C006BFBCA /* logo.png */,
 			);
 			name = Resources;
@@ -91,7 +100,7 @@
 		CE3953841F136645006BFBCA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CE39538C1F137AED006BFBCA /* HealthKit.framework */,
+				CE53F0831F14B773001EAC96 /* HealthKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -121,6 +130,7 @@
 		CE4656C51F0FD325004E3868 /* iHelp */ = {
 			isa = PBXGroup;
 			children = (
+				CE53F0851F14B810001EAC96 /* ReportCell.swift */,
 				CE3953891F13664E006BFBCA /* iHelp.entitlements */,
 				CE3953811F1364F2006BFBCA /* Resources */,
 				CE4656C61F0FD325004E3868 /* AppDelegate.swift */,
@@ -129,6 +139,8 @@
 				CE4656CD1F0FD325004E3868 /* Assets.xcassets */,
 				CE4656CF1F0FD325004E3868 /* LaunchScreen.storyboard */,
 				CE4656D21F0FD325004E3868 /* Info.plist */,
+				CEA64B7B1F14B3500047C04C /* Report.swift */,
+				CEA64B7D1F14B3FB0047C04C /* ReportStore.swift */,
 			);
 			path = iHelp;
 			sourceTree = "<group>";
@@ -281,6 +293,7 @@
 				CE4656D11F0FD325004E3868 /* LaunchScreen.storyboard in Resources */,
 				CE3953831F13655C006BFBCA /* logo.png in Resources */,
 				CE4656CE1F0FD325004E3868 /* Assets.xcassets in Resources */,
+				CE1A5EA71F13EC350086939D /* IconTemplate.png in Resources */,
 				CE4656CC1F0FD325004E3868 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,7 +320,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE4656C91F0FD325004E3868 /* ViewController.swift in Sources */,
+				CEA64B7E1F14B3FB0047C04C /* ReportStore.swift in Sources */,
 				CE4656C71F0FD325004E3868 /* AppDelegate.swift in Sources */,
+				CEA64B7C1F14B3500047C04C /* Report.swift in Sources */,
+				CE53F0861F14B810001EAC96 /* ReportCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +482,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = it.unisa.iosfoundation.trt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -480,6 +497,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = it.unisa.iosfoundation.trt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

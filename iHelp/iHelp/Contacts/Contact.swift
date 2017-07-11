@@ -9,5 +9,13 @@
 import UIKit
 
 class Contact: NSObject {
-
+    var name: String
+    var number: String
+    var reportKey: String
+    
+    init(name: String, number: String) {
+        self.name = name
+        self.number = number
+        reportKey = UUID().uuidString
+    }
 }

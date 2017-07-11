@@ -7,45 +7,92 @@
 //
 
 import UIKit
+import ContactsUI
 
-class ContactTableView: UITableViewController {
-
+class ContactTableView: UITableViewController, CNContactPickerDelegate {
+    
+    var contactStore: ContactStore!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        contactStore = ContactStore()
+        contactStore.createEmptyReport()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    //Function to add new contact to the list
+    @IBAction func addContact(_ sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "Add new contact", message: "Select the source", preferredStyle: .actionSheet)
+        let addContact = UIAlertAction(title: "Contacts", style: UIAlertActionStyle.default) {
+            UIAlertAction in
+            NSLog("Contact Pressed")
+            let cnPicker = CNContactPickerViewController()
+            cnPicker.delegate = self
+            self.present(cnPicker, animated: true, completion: nil)
+        }
+        let addNewContact = UIAlertAction(title: "Add new contact", style: UIAlertActionStyle.default) {
+            UIAlertAction in
+            NSLog("New Contact Pressed")
+            
+                // DA COMPLETARE 
+            
+            }
+            
+            
+            
+        }
+        
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) {
+            UIAlertAction in
+            NSLog("Cancel Pressed")
+        }
+        alert.addAction(addContact)
+        alert.addAction(addNewContact)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
+        contactStore.addContact(contact: Contact.init(name: contact.givenName.description, number: contact.phoneNumbers.description))
+    }
+    
+    func contactPickerDidCancel(_ picker: CNContactPickerViewController) {
+        print("Cancel Contact Picker")
+    }
+    
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return contactStore.array.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ContactCell", for: indexPath) as! ContactCell
+        let currenctContact = contactStore.array[indexPath.row]
+        cell.contactName.text = currenctContact.name
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -55,17 +102,18 @@ class ContactTableView: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            
+            contactStore.removeContact(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.

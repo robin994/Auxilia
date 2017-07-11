@@ -20,6 +20,11 @@
 		CE53F0861F14B810001EAC96 /* ReportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE53F0851F14B810001EAC96 /* ReportCell.swift */; };
 		CEA64B7C1F14B3500047C04C /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA64B7B1F14B3500047C04C /* Report.swift */; };
 		CEA64B7E1F14B3FB0047C04C /* ReportStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA64B7D1F14B3FB0047C04C /* ReportStore.swift */; };
+		CEFC73051F14C618008C769A /* ReportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC73041F14C618008C769A /* ReportTableViewController.swift */; };
+		CEFC73091F14D317008C769A /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC73081F14D317008C769A /* Contact.swift */; };
+		CEFC730B1F14D38D008C769A /* ContactStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC730A1F14D38D008C769A /* ContactStore.swift */; };
+		CEFC730D1F14D3EE008C769A /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC730C1F14D3EE008C769A /* ContactCell.swift */; };
+		CEFC730F1F14D520008C769A /* ContactTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC730E1F14D520008C769A /* ContactTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +65,11 @@
 		CE53F0851F14B810001EAC96 /* ReportCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCell.swift; sourceTree = "<group>"; };
 		CEA64B7B1F14B3500047C04C /* Report.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		CEA64B7D1F14B3FB0047C04C /* ReportStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportStore.swift; sourceTree = "<group>"; };
+		CEFC73041F14C618008C769A /* ReportTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTableViewController.swift; sourceTree = "<group>"; };
+		CEFC73081F14D317008C769A /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		CEFC730A1F14D38D008C769A /* ContactStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactStore.swift; sourceTree = "<group>"; };
+		CEFC730C1F14D3EE008C769A /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
+		CEFC730E1F14D520008C769A /* ContactTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,7 +140,9 @@
 		CE4656C51F0FD325004E3868 /* iHelp */ = {
 			isa = PBXGroup;
 			children = (
-				CE53F0851F14B810001EAC96 /* ReportCell.swift */,
+				CE4656D21F0FD325004E3868 /* Info.plist */,
+				CEFC73071F14D2F0008C769A /* Contacts */,
+				CEFC73061F14D236008C769A /* Report */,
 				CE3953891F13664E006BFBCA /* iHelp.entitlements */,
 				CE3953811F1364F2006BFBCA /* Resources */,
 				CE4656C61F0FD325004E3868 /* AppDelegate.swift */,
@@ -138,9 +150,6 @@
 				CE4656CA1F0FD325004E3868 /* Main.storyboard */,
 				CE4656CD1F0FD325004E3868 /* Assets.xcassets */,
 				CE4656CF1F0FD325004E3868 /* LaunchScreen.storyboard */,
-				CE4656D21F0FD325004E3868 /* Info.plist */,
-				CEA64B7B1F14B3500047C04C /* Report.swift */,
-				CEA64B7D1F14B3FB0047C04C /* ReportStore.swift */,
 			);
 			path = iHelp;
 			sourceTree = "<group>";
@@ -161,6 +170,28 @@
 				CE4656E81F0FD325004E3868 /* Info.plist */,
 			);
 			path = iHelpUITests;
+			sourceTree = "<group>";
+		};
+		CEFC73061F14D236008C769A /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				CEA64B7B1F14B3500047C04C /* Report.swift */,
+				CEA64B7D1F14B3FB0047C04C /* ReportStore.swift */,
+				CE53F0851F14B810001EAC96 /* ReportCell.swift */,
+				CEFC73041F14C618008C769A /* ReportTableViewController.swift */,
+			);
+			path = Report;
+			sourceTree = "<group>";
+		};
+		CEFC73071F14D2F0008C769A /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				CEFC73081F14D317008C769A /* Contact.swift */,
+				CEFC730A1F14D38D008C769A /* ContactStore.swift */,
+				CEFC730C1F14D3EE008C769A /* ContactCell.swift */,
+				CEFC730E1F14D520008C769A /* ContactTableView.swift */,
+			);
+			path = Contacts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,11 +350,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEFC730D1F14D3EE008C769A /* ContactCell.swift in Sources */,
 				CE4656C91F0FD325004E3868 /* ViewController.swift in Sources */,
+				CEFC730F1F14D520008C769A /* ContactTableView.swift in Sources */,
+				CEFC73051F14C618008C769A /* ReportTableViewController.swift in Sources */,
 				CEA64B7E1F14B3FB0047C04C /* ReportStore.swift in Sources */,
 				CE4656C71F0FD325004E3868 /* AppDelegate.swift in Sources */,
 				CEA64B7C1F14B3500047C04C /* Report.swift in Sources */,
 				CE53F0861F14B810001EAC96 /* ReportCell.swift in Sources */,
+				CEFC730B1F14D38D008C769A /* ContactStore.swift in Sources */,
+				CEFC73091F14D317008C769A /* Contact.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,13 +13,13 @@ class Contact: NSObject {
     var name: String
     var surname: String
     var number: [CNLabeledValue<CNPhoneNumber>]
-    var reportKey: String
+    var contactKey: String
     var contact: CNContact
     init(contact: CNContact) {
         self.name = contact.givenName
         self.surname = contact.familyName
         self.number = contact.phoneNumbers
         self.contact = contact
-        reportKey = UUID().uuidString
+        self.contactKey = contact.identifier
     }
 }

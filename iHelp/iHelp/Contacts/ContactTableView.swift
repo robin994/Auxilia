@@ -8,14 +8,17 @@
 
 import UIKit
 import ContactsUI
+import CoreData
 
 class ContactTableView: UITableViewController, CNContactPickerDelegate {
     
     var contactStore: ContactStore!
+    var savedContacts: [NSManagedObject] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         contactStore = ContactStore()
+            
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -34,7 +37,7 @@ class ContactTableView: UITableViewController, CNContactPickerDelegate {
     
     //Function to add new contact to the list
     @IBAction func addContact(_ sender: UIBarButtonItem) {
-        let alert = UIAlertController(title: "Add new contact", message: "Select the source", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Add new contact", message: "Select the source", preferredStyle: .alert)
         let addContact = UIAlertAction(title: "Contacts", style: UIAlertActionStyle.default) {
             UIAlertAction in
             NSLog("Contact Pressed")

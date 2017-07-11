@@ -13,7 +13,9 @@ class ContactStore: NSObject {
     var array:[Contact] = []
     
     
+    
     func addContact(contact : Contact) {
+        
         if !array.contains(contact) {
             array.append(contact)
         }

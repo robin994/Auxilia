@@ -16,7 +16,6 @@ class ContactTableView: UITableViewController, CNContactPickerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         contactStore = ContactStore()
-        contactStore.createEmptyReport()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -47,12 +46,11 @@ class ContactTableView: UITableViewController, CNContactPickerDelegate {
             UIAlertAction in
             NSLog("New Contact Pressed")
             
-                // DA COMPLETARE 
+                // DA COMPLETARE
+            let cnPicker = CNContactPickerViewController()
             
-            }
-            
-            
-            
+            cnPicker.delegate = self
+            self.present(cnPicker, animated: true, completion: nil)
         }
         
         
@@ -67,7 +65,7 @@ class ContactTableView: UITableViewController, CNContactPickerDelegate {
     }
     
     func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
-        contactStore.addContact(contact: Contact.init(name: contact.givenName.description, number: contact.phoneNumbers.description))
+        contactStore.addContact(contact: Contact.init(contact: contact))
     }
     
     func contactPickerDidCancel(_ picker: CNContactPickerViewController) {
@@ -88,8 +86,8 @@ class ContactTableView: UITableViewController, CNContactPickerDelegate {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContactCell", for: indexPath) as! ContactCell
-        let currenctContact = contactStore.array[indexPath.row]
-        cell.contactName.text = currenctContact.name
+        let currentContact = contactStore.array[indexPath.row]
+        cell.contactName.text = "\(currentContact.name) \(currentContact.surname)"
         return cell
     }
     
@@ -130,14 +128,29 @@ class ContactTableView: UITableViewController, CNContactPickerDelegate {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        switch segue.identifier {
+        case "show"? :
+            if let currentindex = tableView.indexPathForSelectedRow?.row {
+                let currentContact = contactStore.array[currentindex]
+                let dstView = segue.destination as! ContactDetailViewController
+                dstView.currentContact = currentContact
+            }
+        default :
+            if let currentindex = tableView.indexPathForSelectedRow?.row {
+                let currentContact = contactStore.array[currentindex]
+                let dstView = segue.destination as! ContactDetailViewController
+                dstView.currentContact = currentContact
+            }
+        }
+
     }
-    */
+    
 
 }

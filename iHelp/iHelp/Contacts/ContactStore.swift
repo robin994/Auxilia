@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Contacts
 
 class ContactStore: NSObject {
     var array:[Contact] = []
@@ -16,11 +17,6 @@ class ContactStore: NSObject {
         if !array.contains(contact) {
             array.append(contact)
         }
-    }
-    
-    func createEmptyReport() {
-        let contact = Contact.init(name: "Empty", number: "666666666")
-        array.append(contact)
     }
     
     func removeContact(at: Int) {

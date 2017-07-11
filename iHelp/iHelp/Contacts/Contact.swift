@@ -7,15 +7,19 @@
 //
 
 import UIKit
+import Contacts
 
 class Contact: NSObject {
     var name: String
-    var number: String
+    var surname: String
+    var number: [CNLabeledValue<CNPhoneNumber>]
     var reportKey: String
-    
-    init(name: String, number: String) {
-        self.name = name
-        self.number = number
+    var contact: CNContact
+    init(contact: CNContact) {
+        self.name = contact.givenName
+        self.surname = contact.familyName
+        self.number = contact.phoneNumbers
+        self.contact = contact
         reportKey = UUID().uuidString
     }
 }

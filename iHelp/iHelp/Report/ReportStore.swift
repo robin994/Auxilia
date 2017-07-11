@@ -17,12 +17,12 @@ class ReportStore: NSObject {
     }
     
     func createEmptyReport() {
-        let report = Report.init(name: "Empty")
+        let report = Report.init(name: "Empty", isMine: false)
         array.append(report)
     }
     
-    func removeReport(report : Report) {
-        array.remove(at: array.index(of: report)!)
+    func removeReport(at: Int) {
+        array.remove(at: at)
     }
     
     func sortByNameCresc() {

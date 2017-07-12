@@ -16,8 +16,7 @@ class ReportTableViewController: UITableViewController {
         super.viewDidLoad()
         
         reportStore = ReportStore()
-        reportStore.addReport(report: Report(name:"Giacchino", isMine: false))
-        reportStore.addReport(report: Report(name:"You", isMine: true))
+
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -34,6 +33,10 @@ class ReportTableViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func addReport(toAdd: Report) {
+        reportStore.addReport(report: toAdd)
     }
 
     // MARK: - Table view data source

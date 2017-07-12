@@ -16,10 +16,6 @@ class ReportStore: NSObject {
         array.append(report)
     }
     
-    func createEmptyReport() {
-        let report = Report.init(name: "Empty", isMine: false)
-        array.append(report)
-    }
     
     func removeReport(at: Int) {
         array.remove(at: at)

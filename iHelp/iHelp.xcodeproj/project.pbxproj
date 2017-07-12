@@ -27,6 +27,8 @@
 		CE954EBE1F16329E00A9A95D /* SOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE954EBD1F16329E00A9A95D /* SOS.swift */; };
 		CEA64B7C1F14B3500047C04C /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA64B7B1F14B3500047C04C /* Report.swift */; };
 		CEA64B7E1F14B3FB0047C04C /* ReportStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA64B7D1F14B3FB0047C04C /* ReportStore.swift */; };
+		CECA12881F16864E00A1ABA7 /* ReportsHistory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA12861F16864E00A1ABA7 /* ReportsHistory+CoreDataClass.swift */; };
+		CECA12891F16864E00A1ABA7 /* ReportsHistory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA12871F16864E00A1ABA7 /* ReportsHistory+CoreDataProperties.swift */; };
 		CEFC73051F14C618008C769A /* ReportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC73041F14C618008C769A /* ReportTableViewController.swift */; };
 		CEFC73091F14D317008C769A /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC73081F14D317008C769A /* Contact.swift */; };
 		CEFC730B1F14D38D008C769A /* ContactStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC730A1F14D38D008C769A /* ContactStore.swift */; };
@@ -79,6 +81,8 @@
 		CE954EBD1F16329E00A9A95D /* SOS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SOS.swift; sourceTree = "<group>"; };
 		CEA64B7B1F14B3500047C04C /* Report.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		CEA64B7D1F14B3FB0047C04C /* ReportStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportStore.swift; sourceTree = "<group>"; };
+		CECA12861F16864E00A1ABA7 /* ReportsHistory+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReportsHistory+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CECA12871F16864E00A1ABA7 /* ReportsHistory+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReportsHistory+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CEFC73041F14C618008C769A /* ReportTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTableViewController.swift; sourceTree = "<group>"; };
 		CEFC73081F14D317008C769A /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		CEFC730A1F14D38D008C769A /* ContactStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactStore.swift; sourceTree = "<group>"; };
@@ -133,6 +137,8 @@
 		CE4656BA1F0FD325004E3868 = {
 			isa = PBXGroup;
 			children = (
+				CECA12861F16864E00A1ABA7 /* ReportsHistory+CoreDataClass.swift */,
+				CECA12871F16864E00A1ABA7 /* ReportsHistory+CoreDataProperties.swift */,
 				CE6F836A1F15341500899CB8 /* EmergencyContact+CoreDataClass.swift */,
 				CE6F836B1F15341500899CB8 /* EmergencyContact+CoreDataProperties.swift */,
 				CE4656C51F0FD325004E3868 /* iHelp */,
@@ -389,6 +395,8 @@
 				CE4656C71F0FD325004E3868 /* AppDelegate.swift in Sources */,
 				CE6F836D1F15341500899CB8 /* EmergencyContact+CoreDataProperties.swift in Sources */,
 				CEA64B7C1F14B3500047C04C /* Report.swift in Sources */,
+				CECA12881F16864E00A1ABA7 /* ReportsHistory+CoreDataClass.swift in Sources */,
+				CECA12891F16864E00A1ABA7 /* ReportsHistory+CoreDataProperties.swift in Sources */,
 				CE954EBE1F16329E00A9A95D /* SOS.swift in Sources */,
 				CE6F836C1F15341500899CB8 /* EmergencyContact+CoreDataClass.swift in Sources */,
 				CE53F0861F14B810001EAC96 /* ReportCell.swift in Sources */,

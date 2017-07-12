@@ -6,7 +6,13 @@
         <attribute name="number" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="surname" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="ReportsHistory" representedClassName=".ReportsHistory" syncable="YES">
+        <attribute name="contactIdentifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="message" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
         <element name="EmergencyContact" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="ReportsHistory" positionX="-63" positionY="9" width="128" height="90"/>
     </elements>
 </model>

@@ -109,7 +109,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Emergency Contact" id="94N-Wi-B6B">
-                        <barButtonItem key="leftBarButtonItem" title="SOS" id="Xy9-2Z-KXF"/>
+                        <barButtonItem key="leftBarButtonItem" title="SOS" id="Xy9-2Z-KXF">
+                            <connections>
+                                <action selector="callSOS:" destination="aPl-5h-gSY" id="3F2-Ho-Ttw"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="goI-ro-D37">
                             <connections>
                                 <action selector="addContact:" destination="aPl-5h-gSY" id="cic-Bq-HVv"/>

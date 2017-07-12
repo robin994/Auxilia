@@ -72,6 +72,10 @@ class ContactTableView: UITableViewController, CNContactPickerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func callSOS(_ sender: UIBarButtonItem) {
+        present(SOS.callSOS(), animated: true, completion: nil)
+    }
+    
     func getCNContact( _ identifier: String, keysToFetch: [CNKeyDescriptor] ) -> CNContact? {
         let contactStore = CNContactStore()
         do {

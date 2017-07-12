@@ -58,7 +58,7 @@ class ContactTableView: UITableViewController, CNContactPickerDelegate {
         for contact in contacts {
             contactStore.addContact(contact: Contact(contact: getCNContact(contact.contactIdentifier!, keysToFetch: keysToFetch)!))
         }
-        print(contacts.description)
+        //print(contacts.description)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -98,6 +98,7 @@ class ContactTableView: UITableViewController, CNContactPickerDelegate {
     func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
         contactStore.addContact(contact: Contact.init(contact: contact))
         PersistanceManager.newEmergencyContact(toAdd: Contact.init(contact: contact))
+          
     }
     
     func contactPickerDidCancel(_ picker: CNContactPickerViewController) {
@@ -123,7 +124,7 @@ class ContactTableView: UITableViewController, CNContactPickerDelegate {
         
         
         cell.imageContact.clipsToBounds = true
-        cell.imageContact.layer.borderWidth=1.0;
+        cell.imageContact.layer.borderWidth=0.5;
         cell.imageContact.layer.masksToBounds = true;
         cell.imageContact.layer.cornerRadius = cell.imageContact.frame.height / 2
         cell.imageContact.layer.borderColor = UIColor.gray.cgColor;
@@ -149,7 +150,11 @@ class ContactTableView: UITableViewController, CNContactPickerDelegate {
         if editingStyle == .delete {
             
             
-            PersistanceManager.removeEmergencyContact(toRemove: contactStore.array[indexPath.row] )
+        if PersistanceManager.removeEmergencyContact(toRemove: contactStore.array[indexPath.row] )  {
+                NSLog("Contatto rimosso con successo")
+        } else {
+            NSLog("Contatto non rimosso")
+        }
             contactStore.removeContact(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {

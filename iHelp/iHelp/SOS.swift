@@ -14,6 +14,8 @@ class SOS: NSObject {
         let okAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default) {
             UIAlertAction in
             NSLog("OK Pressed")
+            
+            
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) {

@@ -21,7 +21,7 @@ class PersistanceManager {
     }
     
     
-    static func newEmergencyContact(toAdd: Contact) -> EmergencyContact {
+    static func newEmergencyContact(toAdd: Contact) {
      
         let context = getContext()
  
@@ -29,7 +29,6 @@ class PersistanceManager {
         contact.contactIdentifier = toAdd.contactKey
         contact.name = toAdd.name
         contact.number = toAdd.contact.phoneNumbers.first!.value.stringValue
-        return contact
         
     }
     

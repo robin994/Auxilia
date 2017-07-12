@@ -20,24 +20,25 @@ class PersistanceManager {
         return appDelegate.persistentContainer.viewContext
     }
     
-    static func newEmergencyContact(toAdd: Contact) -> Contact {
+    
+    static func newEmergencyContact(toAdd: Contact) -> EmergencyContact {
+     
         let context = getContext()
-        
-        let contact = NSEntityDescription.insertNewObject(forEntityName: name, into: context) as! Contact
-        contact.contact = toAdd.contact
+ 
+        let contact = NSEntityDescription.insertNewObject(forEntityName: name, into: context) as! EmergencyContact
+        contact.contactIdentifier = toAdd.contactKey
         contact.name = toAdd.name
-        contact.number = toAdd.number
-        contact.contactKey = toAdd.contactKey
+        contact.number = toAdd.contact.phoneNumbers.first!.value.stringValue
         return contact
         
     }
-    /*
-    static func fetchData() -> [Contact] {
-        var contacts = [Contact]()
+
+    static func fetchData() -> [EmergencyContact] {
+        var contacts = [EmergencyContact]()
         
         let context = getContext()
         
-        let fetchRequest = NSFetchRequest<Contact>(entityName: name)
+        let fetchRequest = NSFetchRequest<EmergencyContact>(entityName: name)
         
         do {
             try contacts = context.fetch(fetchRequest)
@@ -46,8 +47,8 @@ class PersistanceManager {
         }
         
         return contacts
-    }
-    */
+    } 
+
     static func saveContext() {
         let context = getContext()
         

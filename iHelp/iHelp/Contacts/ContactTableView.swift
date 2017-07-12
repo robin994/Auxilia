@@ -37,34 +37,9 @@ class ContactTableView: UITableViewController, CNContactPickerDelegate {
     
     //Function to add new contact to the list
     @IBAction func addContact(_ sender: UIBarButtonItem) {
-        let alert = UIAlertController(title: "Add new contact", message: "Select the source", preferredStyle: .alert)
-        let addContact = UIAlertAction(title: "Contacts", style: UIAlertActionStyle.default) {
-            UIAlertAction in
-            NSLog("Contact Pressed")
-            let cnPicker = CNContactPickerViewController()
-            cnPicker.delegate = self
-            self.present(cnPicker, animated: true, completion: nil)
-        }
-        let addNewContact = UIAlertAction(title: "Add new contact", style: UIAlertActionStyle.default) {
-            UIAlertAction in
-            NSLog("New Contact Pressed")
-            
-                // DA COMPLETARE
-            let cnPicker = CNContactPickerViewController()
-            
-            cnPicker.delegate = self
-            self.present(cnPicker, animated: true, completion: nil)
-        }
-        
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) {
-            UIAlertAction in
-            NSLog("Cancel Pressed")
-        }
-        alert.addAction(addContact)
-        alert.addAction(addNewContact)
-        alert.addAction(cancelAction)
-        present(alert, animated: true, completion: nil)
+        let cnPicker = CNContactPickerViewController()
+        cnPicker.delegate = self
+        self.present(cnPicker, animated: true, completion: nil)
     }
     
     func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
@@ -91,6 +66,17 @@ class ContactTableView: UITableViewController, CNContactPickerDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContactCell", for: indexPath) as! ContactCell
         let currentContact = contactStore.array[indexPath.row]
         cell.contactName.text = "\(currentContact.name) \(currentContact.surname)"
+        
+        
+        cell.imageContact.clipsToBounds = true
+        cell.imageContact.layer.borderWidth=1.0;
+        cell.imageContact.layer.masksToBounds = true;
+        cell.imageContact.layer.cornerRadius = cell.imageContact.frame.height / 2
+        cell.imageContact.layer.borderColor = UIColor.gray.cgColor;
+        if currentContact.contact.imageData != nil {
+            cell.imageContact.image = UIImage(data: currentContact.contact.imageData!)
+        }
+        
         return cell
     }
     

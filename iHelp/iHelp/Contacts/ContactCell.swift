@@ -22,4 +22,5 @@ class ContactCell: UITableViewCell {
     }
 
     @IBOutlet weak var contactName: UILabel!
+    @IBOutlet weak var imageContact: UIImageView!
 }

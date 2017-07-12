@@ -32,6 +32,18 @@ class PersistanceManager {
         return contact
         
     }
+    
+    static func removeEmergencyContact(toRemove: Contact) -> Bool {
+        let context = getContext()
+        let datas: [EmergencyContact] = fetchData()
+        for data in datas {
+            if (data.contactIdentifier == toRemove.contactKey) {
+                context.delete(data)
+                return true
+            }
+        }
+        return false
+    }
 
     static func fetchData() -> [EmergencyContact] {
         var contacts = [EmergencyContact]()

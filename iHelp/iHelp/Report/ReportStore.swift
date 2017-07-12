@@ -13,14 +13,23 @@ class ReportStore: NSObject {
     
     
     func addReport(report : Report) {
+        PersistanceManager.newReportHistory(toAdd: report)
         array.append(report)
     }
     
-    
-    func removeReport(at: Int) {
-        array.remove(at: at)
+    func reloadSavedReports() -> [ReportsHistory] {
+        return PersistanceManager.fetchDataReportHistory()
     }
     
+    func removeReport(at: Int) {
+        if PersistanceManager.removeReportHistory(toRemove: array[at]) {
+            array.remove(at: at)
+            NSLog("Report rimosso con successo")
+        } else {
+            NSLog("Report non rimosso")
+        }
+    }
+
     func sortByNameCresc() {
         array = array.sorted { $0.name < $1.name }
     }

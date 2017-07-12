@@ -13,50 +13,29 @@ class ContactStore: NSObject {
     var array:[Contact] = []
     var myContactStore: CNContactStore!
     
-    let keysToFetch: [CNKeyDescriptor] = [
-        CNContactBirthdayKey as CNKeyDescriptor,
-        CNContactDatesKey as CNKeyDescriptor,
-        CNContactDepartmentNameKey as CNKeyDescriptor,
-        CNContactEmailAddressesKey as CNKeyDescriptor,
-        CNContactFamilyNameKey as CNKeyDescriptor,
-        CNContactGivenNameKey as CNKeyDescriptor,
-        CNContactIdentifierKey as CNKeyDescriptor,
-        CNContactImageDataAvailableKey as CNKeyDescriptor,
-        CNContactImageDataKey as CNKeyDescriptor,
-        CNContactInstantMessageAddressesKey as CNKeyDescriptor,
-        CNContactJobTitleKey as CNKeyDescriptor,
-        CNContactMiddleNameKey as CNKeyDescriptor,
-        CNContactNamePrefixKey as CNKeyDescriptor,
-        CNContactNameSuffixKey as CNKeyDescriptor,
-        CNContactNicknameKey as CNKeyDescriptor,
-        CNContactNonGregorianBirthdayKey as CNKeyDescriptor,
-        CNContactNoteKey as CNKeyDescriptor,
-        CNContactOrganizationNameKey as CNKeyDescriptor,
-        CNContactPhoneNumbersKey as CNKeyDescriptor,
-        CNContactPhoneticFamilyNameKey as CNKeyDescriptor,
-        CNContactPhoneticGivenNameKey as CNKeyDescriptor,
-        CNContactPhoneticMiddleNameKey as CNKeyDescriptor,
-        CNContactPhoneticOrganizationNameKey as CNKeyDescriptor,
-        CNContactPostalAddressesKey as CNKeyDescriptor,
-        CNContactPreviousFamilyNameKey as CNKeyDescriptor,
-        CNContactRelationsKey as CNKeyDescriptor,
-        CNContactSocialProfilesKey as CNKeyDescriptor,
-        CNContactThumbnailImageDataKey as CNKeyDescriptor,
-        CNContactTypeKey as CNKeyDescriptor,
-        CNContactUrlAddressesKey as CNKeyDescriptor,
-        ]
     
+    func isInside(_ first: Contact ) -> Bool {
+        for second in array {
+            if (first.contact.identifier == second.contact.identifier) {
+                return true
+            }
+        }
+        return false
+    }
     
     func addContact(contact : Contact) {
-        
-        if !array.contains(contact) {
+        NSLog("Richiesta aggiunta contatto")
+        if !isInside(contact) {
             PersistanceManager.newEmergencyContact(toAdd: contact)
             array.append(contact)
+            NSLog("Aggiunto contatto")
         }
     }
     
     func removeContact(at: Int) {
-        if PersistanceManager.removeEmergencyContact(toRemove: self.array[at] )  {
+        if array.count >= at && at <= 0  {
+            NSLog("rimosso contatto: \(array[at].name)")
+            PersistanceManager.removeEmergencyContact(toRemove: array[at])
             array.remove(at: at)
             NSLog("Contatto rimosso con successo")
         } else {
@@ -78,8 +57,43 @@ class ContactStore: NSObject {
         array.insert(foo, at: to)
     }
     
-    func getCNContact( _ identifier: String, keysToFetch: [CNKeyDescriptor] ) -> CNContact? {
+    static func getCNContact( _ identifier: String) -> CNContact? {
         let contactStore = CNContactStore()
+        
+        let keysToFetch: [CNKeyDescriptor] = [
+            CNContactBirthdayKey as CNKeyDescriptor,
+            CNContactDatesKey as CNKeyDescriptor,
+            CNContactDepartmentNameKey as CNKeyDescriptor,
+            CNContactEmailAddressesKey as CNKeyDescriptor,
+            CNContactFamilyNameKey as CNKeyDescriptor,
+            CNContactGivenNameKey as CNKeyDescriptor,
+            CNContactIdentifierKey as CNKeyDescriptor,
+            CNContactImageDataAvailableKey as CNKeyDescriptor,
+            CNContactImageDataKey as CNKeyDescriptor,
+            CNContactInstantMessageAddressesKey as CNKeyDescriptor,
+            CNContactJobTitleKey as CNKeyDescriptor,
+            CNContactMiddleNameKey as CNKeyDescriptor,
+            CNContactNamePrefixKey as CNKeyDescriptor,
+            CNContactNameSuffixKey as CNKeyDescriptor,
+            CNContactNicknameKey as CNKeyDescriptor,
+            CNContactNonGregorianBirthdayKey as CNKeyDescriptor,
+            CNContactNoteKey as CNKeyDescriptor,
+            CNContactOrganizationNameKey as CNKeyDescriptor,
+            CNContactPhoneNumbersKey as CNKeyDescriptor,
+            CNContactPhoneticFamilyNameKey as CNKeyDescriptor,
+            CNContactPhoneticGivenNameKey as CNKeyDescriptor,
+            CNContactPhoneticMiddleNameKey as CNKeyDescriptor,
+            CNContactPhoneticOrganizationNameKey as CNKeyDescriptor,
+            CNContactPostalAddressesKey as CNKeyDescriptor,
+            CNContactPreviousFamilyNameKey as CNKeyDescriptor,
+            CNContactRelationsKey as CNKeyDescriptor,
+            CNContactSocialProfilesKey as CNKeyDescriptor,
+            CNContactThumbnailImageDataKey as CNKeyDescriptor,
+            CNContactTypeKey as CNKeyDescriptor,
+            CNContactUrlAddressesKey as CNKeyDescriptor,
+            ]
+        
+        
         do {
             let cNContact = try contactStore.unifiedContact( withIdentifier: identifier, keysToFetch: keysToFetch )
             return cNContact
@@ -90,9 +104,11 @@ class ContactStore: NSObject {
         }
     }
     
-    func reloadSavedData(_ contacts: [EmergencyContact]) {
+    func reloadSavedData() {
+        NSLog("Ricarico dati dal database")
+        let contacts = PersistanceManager.fetchDataEmergencyContact()
         for contact in contacts {
-            self.addContact(contact: Contact(contact: getCNContact(contact.contactIdentifier!, keysToFetch: keysToFetch)!))
+            self.addContact(contact: Contact(contact: ContactStore.getCNContact(contact.contactIdentifier!)!))
         }
     }
 }

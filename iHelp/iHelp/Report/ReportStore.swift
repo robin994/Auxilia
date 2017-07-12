@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Contacts
 
 class ReportStore: NSObject {
     var array:[Report] = []
@@ -17,8 +18,13 @@ class ReportStore: NSObject {
         array.append(report)
     }
     
-    func reloadSavedReports() -> [ReportsHistory] {
-        return PersistanceManager.fetchDataReportHistory()
+    func reloadSavedReports() {
+        for report in PersistanceManager.fetchDataReportHistory() {
+            let contact = ContactStore.getCNContact(report.contactIdentifier!)
+            array.append(Report(name: report.name!, isMine: report.isMine, contact: contact!, message: report.message!))
+        }
+
+        
     }
     
     func removeReport(at: Int) {

@@ -26,6 +26,8 @@
 	<true/>
 	<key>NSContactsUsageDescription</key>
 	<string>This app uses Contacts</string>
+	<key>NSPersistentStoreTypeKey</key>
+	<string>This app stores datas</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

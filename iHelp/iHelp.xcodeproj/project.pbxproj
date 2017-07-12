@@ -16,7 +16,7 @@
 		CE4656D11F0FD325004E3868 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE4656CF1F0FD325004E3868 /* LaunchScreen.storyboard */; };
 		CE4656DC1F0FD325004E3868 /* iHelpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4656DB1F0FD325004E3868 /* iHelpTests.swift */; };
 		CE4656E71F0FD325004E3868 /* iHelpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4656E61F0FD325004E3868 /* iHelpUITests.swift */; };
-		CE53F0841F14B773001EAC96 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE53F0831F14B773001EAC96 /* HealthKit.framework */; };
+		CE53F0841F14B773001EAC96 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE53F0831F14B773001EAC96 /* HealthKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		CE53F0861F14B810001EAC96 /* ReportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE53F0851F14B810001EAC96 /* ReportCell.swift */; };
 		CE6F83611F152E9600899CB8 /* DataCore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE6F835F1F152E9600899CB8 /* DataCore.xcdatamodeld */; };
 		CE6F836C1F15341500899CB8 /* EmergencyContact+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F836A1F15341500899CB8 /* EmergencyContact+CoreDataClass.swift */; };
@@ -29,6 +29,8 @@
 		CEA64B7E1F14B3FB0047C04C /* ReportStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA64B7D1F14B3FB0047C04C /* ReportStore.swift */; };
 		CECA12881F16864E00A1ABA7 /* ReportsHistory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA12861F16864E00A1ABA7 /* ReportsHistory+CoreDataClass.swift */; };
 		CECA12891F16864E00A1ABA7 /* ReportsHistory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA12871F16864E00A1ABA7 /* ReportsHistory+CoreDataProperties.swift */; };
+		CECA128B1F16AA7B00A1ABA7 /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CECA128A1F16AA7B00A1ABA7 /* Contacts.framework */; };
+		CECA128D1F16AA8600A1ABA7 /* ContactsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CECA128C1F16AA8600A1ABA7 /* ContactsUI.framework */; };
 		CEFC73051F14C618008C769A /* ReportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC73041F14C618008C769A /* ReportTableViewController.swift */; };
 		CEFC73091F14D317008C769A /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC73081F14D317008C769A /* Contact.swift */; };
 		CEFC730B1F14D38D008C769A /* ContactStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC730A1F14D38D008C769A /* ContactStore.swift */; };
@@ -83,6 +85,8 @@
 		CEA64B7D1F14B3FB0047C04C /* ReportStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportStore.swift; sourceTree = "<group>"; };
 		CECA12861F16864E00A1ABA7 /* ReportsHistory+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReportsHistory+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CECA12871F16864E00A1ABA7 /* ReportsHistory+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReportsHistory+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CECA128A1F16AA7B00A1ABA7 /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
+		CECA128C1F16AA8600A1ABA7 /* ContactsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ContactsUI.framework; path = System/Library/Frameworks/ContactsUI.framework; sourceTree = SDKROOT; };
 		CEFC73041F14C618008C769A /* ReportTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTableViewController.swift; sourceTree = "<group>"; };
 		CEFC73081F14D317008C769A /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		CEFC730A1F14D38D008C769A /* ContactStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactStore.swift; sourceTree = "<group>"; };
@@ -95,6 +99,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CECA128D1F16AA8600A1ABA7 /* ContactsUI.framework in Frameworks */,
+				CECA128B1F16AA7B00A1ABA7 /* Contacts.framework in Frameworks */,
 				CE53F0841F14B773001EAC96 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -129,6 +135,8 @@
 		CE3953841F136645006BFBCA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CECA128C1F16AA8600A1ABA7 /* ContactsUI.framework */,
+				CECA128A1F16AA7B00A1ABA7 /* Contacts.framework */,
 				CE53F0831F14B773001EAC96 /* HealthKit.framework */,
 			);
 			name = Frameworks;

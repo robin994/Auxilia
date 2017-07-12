@@ -20,9 +20,8 @@ class ContactTableView: UITableViewController, CNContactPickerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         contactStore = ContactStore()
-        let contacts: [EmergencyContact] = PersistanceManager.fetchDataEmergencyContact()
-        contactStore.reloadSavedData(contacts)
-        //print(contacts.description)
+        //PersistanceManager.resetCoreData()
+        contactStore.reloadSavedData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -101,7 +100,6 @@ class ContactTableView: UITableViewController, CNContactPickerDelegate {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            
             contactStore.removeContact(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {

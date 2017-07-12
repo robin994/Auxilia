@@ -19,5 +19,7 @@ extension ReportsHistory {
     @NSManaged public var contactIdentifier: String?
     @NSManaged public var creationDate: NSDate?
     @NSManaged public var message: String?
+    @NSManaged public var isMine: Bool
+    @NSManaged public var name: String?
 
 }

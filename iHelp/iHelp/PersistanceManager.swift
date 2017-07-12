@@ -28,6 +28,8 @@ class PersistanceManager {
         report.contactIdentifier = toAdd.contact.identifier
         report.creationDate = toAdd.date as NSDate
         report.message = toAdd.message
+        report.isMine = toAdd.isMine
+        report.name = toAdd.name
         
     }
     
@@ -63,7 +65,7 @@ class PersistanceManager {
     static func newEmergencyContact(toAdd: Contact) {
      
         let context = getContext()
- 
+        
         let contact = NSEntityDescription.insertNewObject(forEntityName: emergencyContactEntity, into: context) as! EmergencyContact
         contact.contactIdentifier = toAdd.contactKey
         contact.name = toAdd.name
@@ -71,16 +73,15 @@ class PersistanceManager {
         
     }
     
-    static func removeEmergencyContact(toRemove: Contact) -> Bool {
+    static func removeEmergencyContact(toRemove: Contact) {
         let context = getContext()
         let datas: [EmergencyContact] = fetchDataEmergencyContact()
         for data in datas {
-            if (data.contactIdentifier == toRemove.contactKey) {
+            if data.contactIdentifier == toRemove.contact.identifier {
+                //NSLog("Cancello: \(data.description)")
                 context.delete(data)
-                return true
             }
         }
-        return false
     }
 
     static func fetchDataEmergencyContact() -> [EmergencyContact] {
@@ -108,5 +109,24 @@ class PersistanceManager {
         } catch let error as NSError {
             print("Error in \(error.code)")
         }
+    }
+    
+    static func resetCoreData() {
+        let reportFR = NSFetchRequest<NSFetchRequestResult>(entityName: reportHistoryEntity)
+        let emergencyContactFR = NSFetchRequest<NSFetchRequestResult>(entityName: emergencyContactEntity)
+        let deleteRequestRFR = NSBatchDeleteRequest(fetchRequest: reportFR)
+        let deleteRequestECFR = NSBatchDeleteRequest(fetchRequest: emergencyContactFR)
+        
+        // get reference to the persistent container
+        let persistentContainer = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
+        
+        // perform the delete
+        do {
+            try persistentContainer.viewContext.execute(deleteRequestRFR)
+            try persistentContainer.viewContext.execute(deleteRequestECFR)
+        } catch let error as NSError {
+            print(error)
+        }
+
     }
 }

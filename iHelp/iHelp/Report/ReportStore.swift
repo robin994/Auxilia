@@ -28,12 +28,9 @@ class ReportStore: NSObject {
     }
     
     func removeReport(at: Int) {
-        if PersistanceManager.removeReportHistory(toRemove: array[at]) {
-            array.remove(at: at)
-            NSLog("Report rimosso con successo")
-        } else {
-            NSLog("Report non rimosso")
-        }
+        PersistanceManager.removeReportHistory(toRemove: array[at])
+        array.remove(at: at)
+        NSLog("Report rimosso con successo")
     }
 
     func sortByNameCresc() {

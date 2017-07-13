@@ -12,7 +12,7 @@ import CoreData
 class PersistanceManager {
     static let emergencyContactEntity = "EmergencyContact"
     static let reportHistoryEntity = "ReportHistory"
-    
+    static let userProfileEntity = "UserProfile"
     
     static func getContext() -> NSManagedObjectContext {
         
@@ -20,6 +20,47 @@ class PersistanceManager {
         
         return appDelegate.persistentContainer.viewContext
     }
+    
+    static func setUserProfile(name: String, surname: String, address: String, image: UIImage ) {
+        let context = getContext()
+        PersistanceManager.removeUserProfile()
+        let userProfile = NSEntityDescription.insertNewObject(forEntityName: userProfileEntity, into: context) as! UserProfile
+        userProfile.isSet = true
+        userProfile.address = address
+        userProfile.name = name
+        userProfile.surname = surname
+        userProfile.userPhoto = UIImageJPEGRepresentation(image, 80)! as NSData
+        NSLog("Save new User")
+    }
+    
+    static func removeUserProfile() {
+        let users = PersistanceManager.fetchDataUserProfile()
+        let context = getContext()
+        for user in users {
+            context.delete(user)
+        }
+        NSLog("Removed User")
+
+    }
+    
+    static func fetchDataUserProfile() -> [UserProfile] {
+        var users = [UserProfile]()
+        
+        let context = getContext()
+        
+        let fetchRequest = NSFetchRequest<UserProfile>(entityName: userProfileEntity)
+        
+        do {
+            try users = context.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Error in \(error.code)")
+        }
+        NSLog("Fetched data User")
+
+        return users
+    }
+    
+    
     
     static func newReportHistory(toAdd: Report) {
         let context = getContext()
@@ -33,16 +74,14 @@ class PersistanceManager {
         
     }
     
-    static func removeReportHistory(toRemove: Report) -> Bool {
+    static func removeReportHistory(toRemove: Report) {
         let context = getContext()
         let datas: [ReportsHistory] = fetchDataReportHistory()
         for data in datas {
             if (data.contactIdentifier == toRemove.contact.identifier) {
                 context.delete(data)
-                return true
             }
         }
-        return false
     }
     
     static func fetchDataReportHistory() -> [ReportsHistory] {

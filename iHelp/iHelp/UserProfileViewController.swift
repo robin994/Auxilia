@@ -1,22 +1,30 @@
 //
-//  ContactDetailViewController.swift
+//  UserProfileViewController.swift
 //  iHelp
 //
-//  Created by Tortora Roberto on 11/07/2017.
+//  Created by Tortora Roberto on 14/07/2017.
 //  Copyright © 2017 The Round Table. All rights reserved.
 //
 
 import UIKit
 
-class ContactDetailViewController: UITableViewController {
+class UserProfileViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-        
+        // Do any additional setup after loading the view.
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let users = PersistanceManager.fetchDataUserProfile()
+        imageView.image = UIImage(data: users.first?.userPhoto as! Data)
+        nameField.text = users.first?.name
+        surnameField.text = users.first?.surname
+        addressField.text = users.first?.address
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -32,20 +40,9 @@ class ContactDetailViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    override func viewWillAppear(_ animated: Bool) {
-        if currentContact.contact.imageData != nil {
-            imageView.image = UIImage(data: currentContact.contact.imageData!)
-        }
-        self.nameField.text = currentContact.name
-        self.surnameField.text = currentContact.surname
-        self.cellphoneField.text = currentContact.contact.phoneNumbers.first!.value.stringValue
-        self.addressField.text = currentContact.contact.postalAddresses.first?.value.country
-    }
 
-    var currentContact: Contact!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameField: UILabel!
     @IBOutlet weak var surnameField: UILabel!
-    @IBOutlet weak var cellphoneField: UILabel!
     @IBOutlet weak var addressField: UILabel!
 }

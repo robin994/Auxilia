@@ -14,9 +14,18 @@ class ReportTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let users: [UserProfile] = PersistanceManager.fetchDataUserProfile()
+        if users.isEmpty {
+            if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WelcomeView") as? UIViewController {
+                if let navigator = navigationController {
+                    navigator.pushViewController(viewController, animated: true)
+                }
+            }
+        }
+        
         
         reportStore = ReportStore()
-
+        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

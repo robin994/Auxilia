@@ -8,7 +8,6 @@
 
 import UIKit
 import ContactsUI
-import CoreData
 import Contacts
 
 class ContactTableView: UITableViewController, CNContactPickerDelegate {

@@ -73,10 +73,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         map.setRegion(region, animated: true)
         
         //estraggo le informazioni
-        var altitudine = userLocation.altitude
-        var velocita = userLocation.speed
-        var latitudine = userLocation.coordinate.latitude
-        var longitudine = userLocation.coordinate.longitude
+        let altitudine = userLocation.altitude
+        let velocita = userLocation.speed
+        let latitudine = userLocation.coordinate.latitude
+        let longitudine = userLocation.coordinate.longitude
         
         self.setVelocita(velocita)
         self.setAltitudine(altitudine)

@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Override point for customization after application launch.
         //create the notificationCenter
         
-        let shortcut = UIMutableApplicationShortcutItem(type: "Ask SOS",
+        let shortcut = UIMutableApplicationShortcutItem(type: "Call SOS",
                                                          localizedTitle: "SOS",
                                                          localizedSubtitle: "",
                                                          icon: UIApplicationShortcutIcon(type: .invitation),
@@ -62,6 +62,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
      */
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Registration failed!")
+    }
+    
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+    handleShortcut(shortcutItem)
+    completionHandler(true)
+}
+    private func handleShortcut(_ item: UIApplicationShortcutItem) {
+        enum ApplicationShortcutTypes: String {
+            case callSOS = "Call SOS"
+        }
+        
+        guard let actionType = ApplicationShortcutTypes(rawValue: item.type) else {
+            return
+        }
+        switch (actionType) {
+        case .callSOS:
+            NSLog("Button 3DTouch 'SOS' clicked, asking for SOS")
+            SOS.sendNotification() //AGGIUNGERE COSA FARE IN CASO DI 3D TOUCH QUI
+        }
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

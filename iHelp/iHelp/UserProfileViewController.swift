@@ -12,14 +12,26 @@ class UserProfileViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let users = PersistanceManager.fetchDataUserProfile()
+        if users.isEmpty {
+            if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WelcomeView") as? UIViewController {
+                if let navigator = navigationController {
+                    navigator.pushViewController(viewController, animated: true)
+                }
+            }
+        }
         // Do any additional setup after loading the view.
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let users = PersistanceManager.fetchDataUserProfile()
-        imageView.image = UIImage(data: users.first?.userPhoto as! Data)
+        imageView.clipsToBounds = true
+        imageView.layer.borderWidth = 1.0;
+        imageView.layer.masksToBounds = true;
+        imageView.layer.cornerRadius = imageView.frame.height / 2
+        imageView.layer.borderColor = UIColor.gray.cgColor;
+        imageView.image = UIImage(data:users.first?.userPhoto as! Data)
         nameField.text = users.first?.name
         surnameField.text = users.first?.surname
         addressField.text = users.first?.address

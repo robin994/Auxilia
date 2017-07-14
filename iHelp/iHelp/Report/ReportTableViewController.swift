@@ -44,6 +44,10 @@ class ReportTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func callSOS(_ sender: UIBarButtonItem) {
+        present(SOS.callSOS(self.navigationController), animated: true, completion: nil)
+    }
+    
     func addReport(toAdd: Report) {
         reportStore.addReport(report: toAdd)
     }

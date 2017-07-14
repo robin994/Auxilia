@@ -37,6 +37,10 @@ class SettingViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
 
+    @IBAction func callSOS(_ sender: UIBarButtonItem) {
+        present(SOS.callSOS(self.navigationController), animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 

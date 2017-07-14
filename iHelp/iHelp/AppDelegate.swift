@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Override point for customization after application launch.
         //create the notificationCenter
         
-        let shortcut = UIMutableApplicationShortcutItem(type: "SearchMusic",
+        let shortcut = UIMutableApplicationShortcutItem(type: "Ask SOS",
                                                          localizedTitle: "SOS",
                                                          localizedSubtitle: "",
                                                          icon: UIApplicationShortcutIcon(type: .invitation),

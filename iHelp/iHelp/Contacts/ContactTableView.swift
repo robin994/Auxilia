@@ -35,7 +35,7 @@ class ContactTableView: UITableViewController, CNContactPickerDelegate {
     }
     
     @IBAction func callSOS(_ sender: UIBarButtonItem) {
-        present(SOS.callSOS(), animated: true, completion: nil)
+        present(SOS.callSOS(self.navigationController), animated: true, completion: nil)
     }
     
     

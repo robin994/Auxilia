@@ -129,7 +129,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let title : String = d["title"] as! String
         print("Title:\(title) + body:\(body)")
         self.showAlertAppDelegate(title: title,message:body,buttonTitle:"ok",window:self.window!)
-        
+        // CARICARE DATI NELLO STORICO
     }
     
     @available(iOS 10.0, *)

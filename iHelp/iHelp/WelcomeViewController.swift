@@ -14,7 +14,7 @@ class WelcomeViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.setToolbarHidden(true, animated: true)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        // Do any additional setup after loading the view.
+        PersistanceManager.setEmptyProfile()
     }
 
     override func didReceiveMemoryWarning() {

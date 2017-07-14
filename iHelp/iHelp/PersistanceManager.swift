@@ -21,6 +21,19 @@ class PersistanceManager {
         return appDelegate.persistentContainer.viewContext
     }
     
+    static func setEmptyProfile() {
+        let context = getContext()
+        PersistanceManager.removeUserProfile()
+        let userProfile = NSEntityDescription.insertNewObject(forEntityName: userProfileEntity, into: context) as! UserProfile
+        userProfile.isSet = false
+        userProfile.address = "address"
+        userProfile.name = "name"
+        userProfile.surname = "surname"
+        userProfile.userPhoto = UIImageJPEGRepresentation(#imageLiteral(resourceName: "empty_avatar.jpg"), 80)! as NSData
+        NSLog(userProfile.description)
+        NSLog("Save EMPTY User")
+    }
+    
     static func setUserProfile(name: String, surname: String, address: String, image: UIImage ) {
         let context = getContext()
         PersistanceManager.removeUserProfile()

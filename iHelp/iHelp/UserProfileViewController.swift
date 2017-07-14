@@ -12,19 +12,20 @@ class UserProfileViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Do any additional setup after loading the view.
         let users = PersistanceManager.fetchDataUserProfile()
-        if users.isEmpty {
+        if users.first?.isSet == false {
             if let viewController: UIViewController  = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WelcomeView") {
                 if let navigator = navigationController {
                     navigator.pushViewController(viewController, animated: true)
                 }
             }
         }
-        // Do any additional setup after loading the view.
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         let users = PersistanceManager.fetchDataUserProfile()
         imageView.clipsToBounds = true
         imageView.layer.borderWidth = 1.0;

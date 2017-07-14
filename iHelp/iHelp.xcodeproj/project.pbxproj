@@ -367,6 +367,7 @@
 					CE4656C21F0FD325004E3868 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = K8WJKQA676;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
@@ -389,12 +390,14 @@
 					CE4656D61F0FD325004E3868 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = PTH65GSUAS;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = CE4656C21F0FD325004E3868;
 					};
 					CE4656E11F0FD325004E3868 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = PTH65GSUAS;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = CE4656C21F0FD325004E3868;
 					};

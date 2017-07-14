@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ContactDetailViewController: UIViewController {
+class ContactDetailViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,21 +33,19 @@ class ContactDetailViewController: UIViewController {
     }
     */
     override func viewWillAppear(_ animated: Bool) {
-        imageView.clipsToBounds = true
-        imageView.layer.borderWidth=1.0;
-        imageView.layer.masksToBounds = true;
-        imageView.layer.cornerRadius = imageView.frame.height / 2
-        imageView.layer.borderColor = UIColor.gray.cgColor;
         if currentContact.contact.imageData != nil {
             imageView.image = UIImage(data: currentContact.contact.imageData!)
         }
-        self.nameField.text = "\(currentContact.name) \(currentContact.surname)"
+        self.nameField.text = currentContact.name
+        self.surnameField.text = currentContact.surname
         self.cellphoneField.text = currentContact.contact.phoneNumbers.first!.value.stringValue
+        self.addressField.text = currentContact.contact.postalAddresses.first?.value.country
     }
 
-    @IBOutlet weak var tableView: UITableView!
     var currentContact: Contact!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameField: UILabel!
+    @IBOutlet weak var surnameField: UILabel!
     @IBOutlet weak var cellphoneField: UILabel!
+    @IBOutlet weak var addressField: UILabel!
 }

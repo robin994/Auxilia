@@ -8,57 +8,19 @@
 
 import UIKit
 import ContactsUI
-import CoreData
 import Contacts
 
 class ContactTableView: UITableViewController, CNContactPickerDelegate {
     
     var contactStore: ContactStore!
     var savedContacts: [Contact] = []
-    var myContactStore: CNContactStore!
-    
-    let keysToFetch: [CNKeyDescriptor] = [
-        CNContactBirthdayKey as CNKeyDescriptor,
-        CNContactDatesKey as CNKeyDescriptor,
-        CNContactDepartmentNameKey as CNKeyDescriptor,
-        CNContactEmailAddressesKey as CNKeyDescriptor,
-        CNContactFamilyNameKey as CNKeyDescriptor,
-        CNContactGivenNameKey as CNKeyDescriptor,
-        CNContactIdentifierKey as CNKeyDescriptor,
-        CNContactImageDataAvailableKey as CNKeyDescriptor,
-        CNContactImageDataKey as CNKeyDescriptor,
-        CNContactInstantMessageAddressesKey as CNKeyDescriptor,
-        CNContactJobTitleKey as CNKeyDescriptor,
-        CNContactMiddleNameKey as CNKeyDescriptor,
-        CNContactNamePrefixKey as CNKeyDescriptor,
-        CNContactNameSuffixKey as CNKeyDescriptor,
-        CNContactNicknameKey as CNKeyDescriptor,
-        CNContactNonGregorianBirthdayKey as CNKeyDescriptor,
-        CNContactNoteKey as CNKeyDescriptor,
-        CNContactOrganizationNameKey as CNKeyDescriptor,
-        CNContactPhoneNumbersKey as CNKeyDescriptor,
-        CNContactPhoneticFamilyNameKey as CNKeyDescriptor,
-        CNContactPhoneticGivenNameKey as CNKeyDescriptor,
-        CNContactPhoneticMiddleNameKey as CNKeyDescriptor,
-        CNContactPhoneticOrganizationNameKey as CNKeyDescriptor,
-        CNContactPostalAddressesKey as CNKeyDescriptor,
-        CNContactPreviousFamilyNameKey as CNKeyDescriptor,
-        CNContactRelationsKey as CNKeyDescriptor,
-        CNContactSocialProfilesKey as CNKeyDescriptor,
-        CNContactThumbnailImageDataKey as CNKeyDescriptor,
-        CNContactTypeKey as CNKeyDescriptor,
-        CNContactUrlAddressesKey as CNKeyDescriptor,
-        ]
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
         contactStore = ContactStore()
-        myContactStore = CNContactStore()
-        let contacts: [EmergencyContact] = PersistanceManager.fetchData()
-        for contact in contacts {
-            contactStore.addContact(contact: Contact(contact: getCNContact(contact.contactIdentifier!, keysToFetch: keysToFetch)!))
-        }
-        //print(contacts.description)
+        //PersistanceManager.resetCoreData()
+        contactStore.reloadSavedData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,17 +38,7 @@ class ContactTableView: UITableViewController, CNContactPickerDelegate {
         present(SOS.callSOS(), animated: true, completion: nil)
     }
     
-    func getCNContact( _ identifier: String, keysToFetch: [CNKeyDescriptor] ) -> CNContact? {
-        let contactStore = CNContactStore()
-        do {
-            let cNContact = try contactStore.unifiedContact( withIdentifier: identifier, keysToFetch: keysToFetch )
-            return cNContact
-        } catch let error as NSError {
-            NSLog("Problem getting unified contact with identifier: " + identifier)
-            NSLog(error.localizedDescription)
-            return nil
-        }
-    }
+    
     
     //Function to add new contact to the list
     @IBAction func addContact(_ sender: UIBarButtonItem) {
@@ -97,7 +49,6 @@ class ContactTableView: UITableViewController, CNContactPickerDelegate {
     
     func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
         contactStore.addContact(contact: Contact.init(contact: contact))
-        PersistanceManager.newEmergencyContact(toAdd: Contact.init(contact: contact))
           
     }
     
@@ -148,13 +99,6 @@ class ContactTableView: UITableViewController, CNContactPickerDelegate {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            
-            
-        if PersistanceManager.removeEmergencyContact(toRemove: contactStore.array[indexPath.row] )  {
-                NSLog("Contatto rimosso con successo")
-        } else {
-            NSLog("Contatto non rimosso")
-        }
             contactStore.removeContact(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {

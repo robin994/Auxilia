@@ -7,17 +7,20 @@
 //
 
 import UIKit
+import Contacts
 
 class Report: NSObject {
     var name: String
-    var reportKey: String
     var date: Date
     var isMine: Bool
+    var contact: CNContact
+    var message: String
     
-    init(name: String, isMine: Bool) {
+    init(name: String, isMine: Bool, contact: CNContact, message: String) {
         self.name = name
         date = Date()
-        reportKey = UUID().uuidString
         self.isMine = isMine
+        self.contact = contact
+        self.message = message
     }
 }

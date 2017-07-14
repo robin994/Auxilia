@@ -7,24 +7,32 @@
 //
 
 import UIKit
+import Contacts
 
 class ReportStore: NSObject {
     var array:[Report] = []
     
     
     func addReport(report : Report) {
+        PersistanceManager.newReportHistory(toAdd: report)
         array.append(report)
     }
     
-    func createEmptyReport() {
-        let report = Report.init(name: "Empty", isMine: false)
-        array.append(report)
+    func reloadSavedReports() {
+        for report in PersistanceManager.fetchDataReportHistory() {
+            let contact = ContactStore.getCNContact(report.contactIdentifier!)
+            array.append(Report(name: report.name!, isMine: report.isMine, contact: contact!, message: report.message!))
+        }
+
+        
     }
     
     func removeReport(at: Int) {
+        PersistanceManager.removeReportHistory(toRemove: array[at])
         array.remove(at: at)
+        NSLog("Report rimosso con successo")
     }
-    
+
     func sortByNameCresc() {
         array = array.sorted { $0.name < $1.name }
     }

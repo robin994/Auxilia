@@ -6,7 +6,23 @@
         <attribute name="number" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="surname" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="ReportsHistory" representedClassName=".ReportsHistory" syncable="YES">
+        <attribute name="contactIdentifier" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="isMine" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="message" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="UserProfile" representedClassName="UserProfile" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isSet" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="surname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userPhoto" optional="YES" attributeType="Binary" storedInTruthFile="YES" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="EmergencyContact" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="EmergencyContact" positionX="171" positionY="18" width="128" height="103"/>
+        <element name="ReportsHistory" positionX="-54" positionY="18" width="128" height="118"/>
+        <element name="UserProfile" positionX="63" positionY="54" width="128" height="120"/>
     </elements>
 </model>

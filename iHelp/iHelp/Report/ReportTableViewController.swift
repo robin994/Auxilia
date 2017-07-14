@@ -14,10 +14,18 @@ class ReportTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let users: [UserProfile] = PersistanceManager.fetchDataUserProfile()
+        if users.isEmpty {
+            if let viewController: UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WelcomeView") {
+                if let navigator = navigationController {
+                    navigator.pushViewController(viewController, animated: true)
+                }
+            }
+        }
+        
         
         reportStore = ReportStore()
-        reportStore.addReport(report: Report(name:"Giacchino", isMine: false))
-        reportStore.addReport(report: Report(name:"You", isMine: true))
+        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -34,6 +42,10 @@ class ReportTableViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func addReport(toAdd: Report) {
+        reportStore.addReport(report: toAdd)
     }
 
     // MARK: - Table view data source

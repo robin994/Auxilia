@@ -10,8 +10,9 @@ import UIKit
 import CoreData
 
 class PersistanceManager {
-    static let name = "EmergencyContact"
-    
+    static let emergencyContactEntity = "EmergencyContact"
+    static let reportHistoryEntity = "ReportHistory"
+    static let userProfileEntity = "UserProfile"
     
     static func getContext() -> NSManagedObjectContext {
         
@@ -20,36 +21,127 @@ class PersistanceManager {
         return appDelegate.persistentContainer.viewContext
     }
     
+    static func setEmptyProfile() {
+        let context = getContext()
+        PersistanceManager.removeUserProfile()
+        let userProfile = NSEntityDescription.insertNewObject(forEntityName: userProfileEntity, into: context) as! UserProfile
+        userProfile.isSet = false
+        userProfile.address = "address"
+        userProfile.name = "name"
+        userProfile.surname = "surname"
+        userProfile.userPhoto = UIImageJPEGRepresentation(#imageLiteral(resourceName: "empty_avatar.jpg"), 80)! as NSData
+        NSLog(userProfile.description)
+        NSLog("Save EMPTY User")
+    }
+    
+    static func setUserProfile(name: String, surname: String, address: String, image: UIImage ) {
+        let context = getContext()
+        PersistanceManager.removeUserProfile()
+        let userProfile = NSEntityDescription.insertNewObject(forEntityName: userProfileEntity, into: context) as! UserProfile
+        userProfile.isSet = true
+        userProfile.address = address
+        userProfile.name = name
+        userProfile.surname = surname
+        userProfile.userPhoto = UIImageJPEGRepresentation(image, 80)! as NSData
+        NSLog("Save new User")
+    }
+    
+    static func removeUserProfile() {
+        let users = PersistanceManager.fetchDataUserProfile()
+        let context = getContext()
+        for user in users {
+            context.delete(user)
+        }
+        NSLog("Removed User")
+
+    }
+    
+    static func fetchDataUserProfile() -> [UserProfile] {
+        var users = [UserProfile]()
+        
+        let context = getContext()
+        
+        let fetchRequest = NSFetchRequest<UserProfile>(entityName: userProfileEntity)
+        
+        do {
+            try users = context.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Error in \(error.code)")
+        }
+        NSLog("Fetched data User")
+
+        return users
+    }
+    
+    
+    
+    static func newReportHistory(toAdd: Report) {
+        let context = getContext()
+        
+        let report = NSEntityDescription.insertNewObject(forEntityName: reportHistoryEntity, into: context) as! ReportsHistory
+        report.contactIdentifier = toAdd.contact.identifier
+        report.creationDate = toAdd.date as NSDate
+        report.message = toAdd.message
+        report.isMine = toAdd.isMine
+        report.name = toAdd.name
+        
+    }
+    
+    static func removeReportHistory(toRemove: Report) {
+        let context = getContext()
+        let datas: [ReportsHistory] = fetchDataReportHistory()
+        for data in datas {
+            if (data.contactIdentifier == toRemove.contact.identifier) {
+                context.delete(data)
+            }
+        }
+    }
+    
+    static func fetchDataReportHistory() -> [ReportsHistory] {
+        var reports = [ReportsHistory]()
+        
+        let context = getContext()
+        
+        let fetchRequest = NSFetchRequest<ReportsHistory>(entityName: reportHistoryEntity)
+        
+        do {
+            try reports = context.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Error in \(error.code)")
+        }
+        
+        return reports
+    }
+
     
     static func newEmergencyContact(toAdd: Contact) {
      
         let context = getContext()
- 
-        let contact = NSEntityDescription.insertNewObject(forEntityName: name, into: context) as! EmergencyContact
+        
+        let contact = NSEntityDescription.insertNewObject(forEntityName: emergencyContactEntity, into: context) as! EmergencyContact
         contact.contactIdentifier = toAdd.contactKey
         contact.name = toAdd.name
         contact.number = toAdd.contact.phoneNumbers.first!.value.stringValue
         
     }
     
-    static func removeEmergencyContact(toRemove: Contact) -> Bool {
+    static func removeEmergencyContact(toRemove: Contact) {
         let context = getContext()
-        let datas: [EmergencyContact] = fetchData()
+        let datas: [EmergencyContact] = fetchDataEmergencyContact()
         for data in datas {
-            if (data.contactIdentifier == toRemove.contactKey) {
+            if data.contactIdentifier == toRemove.contact.identifier {
+                //NSLog("Cancello: \(data.description)")
                 context.delete(data)
-                return true
             }
         }
-        return false
     }
 
-    static func fetchData() -> [EmergencyContact] {
+    static func fetchDataEmergencyContact() -> [EmergencyContact] {
         var contacts = [EmergencyContact]()
         
         let context = getContext()
         
-        let fetchRequest = NSFetchRequest<EmergencyContact>(entityName: name)
+        let fetchRequest = NSFetchRequest<EmergencyContact>(entityName: emergencyContactEntity)
         
         do {
             try contacts = context.fetch(fetchRequest)
@@ -69,5 +161,27 @@ class PersistanceManager {
         } catch let error as NSError {
             print("Error in \(error.code)")
         }
+    }
+    
+    static func resetCoreData() {
+        let reportFR = NSFetchRequest<NSFetchRequestResult>(entityName: reportHistoryEntity)
+        let emergencyContactFR = NSFetchRequest<NSFetchRequestResult>(entityName: emergencyContactEntity)
+        let userProfileFR = NSFetchRequest<NSFetchRequestResult>(entityName: userProfileEntity)
+        let deleteRequestRFR = NSBatchDeleteRequest(fetchRequest: reportFR)
+        let deleteRequestECFR = NSBatchDeleteRequest(fetchRequest: emergencyContactFR)
+        let deleteRequestUPFR = NSBatchDeleteRequest(fetchRequest: userProfileFR)
+        
+        // get reference to the persistent container
+        let persistentContainer = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
+        
+        // perform the delete
+        do {
+            try persistentContainer.viewContext.execute(deleteRequestRFR)
+            try persistentContainer.viewContext.execute(deleteRequestECFR)
+            try persistentContainer.viewContext.execute(deleteRequestUPFR)
+        } catch let error as NSError {
+            print(error)
+        }
+
     }
 }

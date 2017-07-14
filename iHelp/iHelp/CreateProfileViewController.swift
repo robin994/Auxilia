@@ -85,7 +85,7 @@ class CreateProfileViewController: UITableViewController , UIImagePickerControll
     }
     
     func openMainView() {
-        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainView") as? UIViewController {
+        if let viewController: UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainView") {
             if let navigator = navigationController {
                 navigator.pushViewController(viewController, animated: true)
             }

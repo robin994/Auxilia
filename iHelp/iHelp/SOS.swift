@@ -22,7 +22,7 @@ class SOS: NSObject {
              */
             //Messaging.messaging().subscribe(toTopic: "/topics/Notifiche")
             let url = NSURL(string: "https://fcm.googleapis.com/fcm/send")
-            var tk = InstanceID.instanceID().token()
+            let tk = InstanceID.instanceID().token()
             
             print("\n\n \(tk!) \n\n")
             let postParams = [

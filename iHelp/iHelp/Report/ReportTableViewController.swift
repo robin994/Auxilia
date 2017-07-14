@@ -16,7 +16,7 @@ class ReportTableViewController: UITableViewController {
         super.viewDidLoad()
         let users: [UserProfile] = PersistanceManager.fetchDataUserProfile()
         if users.isEmpty {
-            if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WelcomeView") as? UIViewController {
+            if let viewController: UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WelcomeView") {
                 if let navigator = navigationController {
                     navigator.pushViewController(viewController, animated: true)
                 }

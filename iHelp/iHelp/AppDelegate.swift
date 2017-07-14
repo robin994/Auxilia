@@ -23,6 +23,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         //create the notificationCenter
+        
+        let shortcut = UIMutableApplicationShortcutItem(type: "SearchMusic",
+                                                         localizedTitle: "SOS",
+                                                         localizedSubtitle: "",
+                                                         icon: UIApplicationShortcutIcon(type: .invitation),
+                                                         userInfo: nil
+        )
+        
+        application.shortcutItems = [shortcut]
+        
+        return true
+        
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)
             UNUserNotificationCenter.current().delegate = self

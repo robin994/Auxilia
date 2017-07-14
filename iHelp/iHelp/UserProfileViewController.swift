@@ -14,7 +14,7 @@ class UserProfileViewController: UITableViewController {
         super.viewDidLoad()
         let users = PersistanceManager.fetchDataUserProfile()
         if users.isEmpty {
-            if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WelcomeView") as? UIViewController {
+            if let viewController: UIViewController  = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WelcomeView") {
                 if let navigator = navigationController {
                     navigator.pushViewController(viewController, animated: true)
                 }
@@ -31,7 +31,7 @@ class UserProfileViewController: UITableViewController {
         imageView.layer.masksToBounds = true;
         imageView.layer.cornerRadius = imageView.frame.height / 2
         imageView.layer.borderColor = UIColor.gray.cgColor;
-        imageView.image = UIImage(data:users.first?.userPhoto as! Data)
+        imageView.image = UIImage(data: (users.first?.userPhoto!.subdata(with: NSMakeRange(0, (users.first?.userPhoto?.length)!)))!)
         nameField.text = users.first?.name
         surnameField.text = users.first?.surname
         addressField.text = users.first?.address

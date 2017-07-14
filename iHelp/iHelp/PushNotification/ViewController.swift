@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     
     @IBAction func sendNotification(_ sender: Any) {
         let url = NSURL(string: "https://fcm.googleapis.com/fcm/send")
-        var tk = InstanceID.instanceID().token()
+        let tk = InstanceID.instanceID().token()
         
         print("\n\n \(tk!) \n\n")
         let postParams = [

@@ -166,8 +166,10 @@ class PersistanceManager {
     static func resetCoreData() {
         let reportFR = NSFetchRequest<NSFetchRequestResult>(entityName: reportHistoryEntity)
         let emergencyContactFR = NSFetchRequest<NSFetchRequestResult>(entityName: emergencyContactEntity)
+        let userProfileFR = NSFetchRequest<NSFetchRequestResult>(entityName: userProfileEntity)
         let deleteRequestRFR = NSBatchDeleteRequest(fetchRequest: reportFR)
         let deleteRequestECFR = NSBatchDeleteRequest(fetchRequest: emergencyContactFR)
+        let deleteRequestUPFR = NSBatchDeleteRequest(fetchRequest: userProfileFR)
         
         // get reference to the persistent container
         let persistentContainer = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
@@ -176,6 +178,7 @@ class PersistanceManager {
         do {
             try persistentContainer.viewContext.execute(deleteRequestRFR)
             try persistentContainer.viewContext.execute(deleteRequestECFR)
+            try persistentContainer.viewContext.execute(deleteRequestUPFR)
         } catch let error as NSError {
             print(error)
         }

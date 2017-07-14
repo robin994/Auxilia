@@ -13,6 +13,7 @@
 		CE0E5D6A1F181A0F00B8D1FC /* CreateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E5D691F181A0F00B8D1FC /* CreateProfileViewController.swift */; };
 		CE0E5D6C1F18258E00B8D1FC /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E5D6B1F18258E00B8D1FC /* UserProfileViewController.swift */; };
 		CE1A5EA71F13EC350086939D /* IconTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = CE1A5EA61F13EC350086939D /* IconTemplate.png */; };
+		CE37FDE11F190F4400FE0CCF /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37FDE01F190F4400FE0CCF /* SettingViewController.swift */; };
 		CE3953831F13655C006BFBCA /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3953821F13655C006BFBCA /* logo.png */; };
 		CE4656C71F0FD325004E3868 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4656C61F0FD325004E3868 /* AppDelegate.swift */; };
 		CE4656CC1F0FD325004E3868 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE4656CA1F0FD325004E3868 /* Main.storyboard */; };
@@ -67,12 +68,15 @@
 /* Begin PBXFileReference section */
 		2CE0F134E4C6397093D0CF4B /* Pods-iHelp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iHelp.release.xcconfig"; path = "Pods/Target Support Files/Pods-iHelp/Pods-iHelp.release.xcconfig"; sourceTree = "<group>"; };
 		684F2D9BFCAF1F03EEDEA154 /* Pods-iHelp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iHelp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iHelp/Pods-iHelp.debug.xcconfig"; sourceTree = "<group>"; };
+		CE0A3F911F1908ED00F1D08C /* iHelpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = iHelpTests.xctest; path = "/Users/tortoraroberto/iHelp/iHelp/build/Debug-iphoneos/iHelpTests.xctest"; sourceTree = "<absolute>"; };
+		CE0A3F921F1908ED00F1D08C /* iHelpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = iHelpUITests.xctest; path = "/Users/tortoraroberto/iHelp/iHelp/build/Debug-iphoneos/iHelpUITests.xctest"; sourceTree = "<absolute>"; };
 		CE0E5D621F180EF400B8D1FC /* UserProfile+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UserProfile+CoreDataClass.swift"; path = "../UserProfile+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CE0E5D631F180EF400B8D1FC /* UserProfile+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UserProfile+CoreDataProperties.swift"; path = "../UserProfile+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CE0E5D671F1818DA00B8D1FC /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		CE0E5D691F181A0F00B8D1FC /* CreateProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateProfileViewController.swift; sourceTree = "<group>"; };
 		CE0E5D6B1F18258E00B8D1FC /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		CE1A5EA61F13EC350086939D /* IconTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IconTemplate.png; sourceTree = "<group>"; };
+		CE37FDE01F190F4400FE0CCF /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		CE3953821F13655C006BFBCA /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = SOURCE_ROOT; };
 		CE3953891F13664E006BFBCA /* iHelp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iHelp.entitlements; sourceTree = "<group>"; };
 		CE4656C61F0FD325004E3868 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,8 +110,6 @@
 		CECA12871F16864E00A1ABA7 /* ReportsHistory+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ReportsHistory+CoreDataProperties.swift"; path = "../ReportsHistory+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CECA128A1F16AA7B00A1ABA7 /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
 		CECA128C1F16AA8600A1ABA7 /* ContactsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ContactsUI.framework; path = System/Library/Frameworks/ContactsUI.framework; sourceTree = SDKROOT; };
-		CECF15F11F18CDFB00DD60C7 /* iHelpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = iHelpTests.xctest; path = "/Users/tortoraroberto/iHelp/iHelp/build/Debug-iphoneos/iHelpTests.xctest"; sourceTree = "<absolute>"; };
-		CECF15F21F18CDFB00DD60C7 /* iHelpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = iHelpUITests.xctest; path = "/Users/tortoraroberto/iHelp/iHelp/build/Debug-iphoneos/iHelpUITests.xctest"; sourceTree = "<absolute>"; };
 		CEFC73041F14C618008C769A /* ReportTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTableViewController.swift; sourceTree = "<group>"; };
 		CEFC73081F14D317008C769A /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		CEFC730A1F14D38D008C769A /* ContactStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactStore.swift; sourceTree = "<group>"; };
@@ -190,6 +192,14 @@
 			name = User;
 			sourceTree = "<group>";
 		};
+		CE37FDDF1F190F3300FE0CCF /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				CE37FDE01F190F4400FE0CCF /* SettingViewController.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		CE3953811F1364F2006BFBCA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +237,7 @@
 		CE4656C51F0FD325004E3868 /* iHelp */ = {
 			isa = PBXGroup;
 			children = (
+				CE37FDDF1F190F3300FE0CCF /* Settings */,
 				BD5D36421F18B4FB00236472 /* PushNotification */,
 				CE0E5D661F1818C200B8D1FC /* User */,
 				CE0E5D611F180EB600B8D1FC /* CoreDataResources */,
@@ -333,7 +344,7 @@
 			);
 			name = iHelpTests;
 			productName = iHelpTests;
-			productReference = CECF15F11F18CDFB00DD60C7 /* iHelpTests.xctest */;
+			productReference = CE0A3F911F1908ED00F1D08C /* iHelpTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		CE4656E11F0FD325004E3868 /* iHelpUITests */ = {
@@ -351,7 +362,7 @@
 			);
 			name = iHelpUITests;
 			productName = iHelpUITests;
-			productReference = CECF15F21F18CDFB00DD60C7 /* iHelpUITests.xctest */;
+			productReference = CE0A3F921F1908ED00F1D08C /* iHelpUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -519,6 +530,7 @@
 				CE6F836D1F15341500899CB8 /* EmergencyContact+CoreDataProperties.swift in Sources */,
 				CE0E5D641F180EF400B8D1FC /* UserProfile+CoreDataClass.swift in Sources */,
 				CE0E5D6C1F18258E00B8D1FC /* UserProfileViewController.swift in Sources */,
+				CE37FDE11F190F4400FE0CCF /* SettingViewController.swift in Sources */,
 				CEA64B7C1F14B3500047C04C /* Report.swift in Sources */,
 				CECA12881F16864E00A1ABA7 /* ReportsHistory+CoreDataClass.swift in Sources */,
 				CECA12891F16864E00A1ABA7 /* ReportsHistory+CoreDataProperties.swift in Sources */,
@@ -696,6 +708,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = iHelp/iHelp.entitlements;
 				DEVELOPMENT_TEAM = K8WJKQA676;
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = iHelp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -715,6 +728,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = iHelp/iHelp.entitlements;
 				DEVELOPMENT_TEAM = K8WJKQA676;
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = iHelp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (

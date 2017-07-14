@@ -26,8 +26,6 @@
 		CE4656E71F0FD325004E3868 /* iHelpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4656E61F0FD325004E3868 /* iHelpUITests.swift */; };
 		CE53F0841F14B773001EAC96 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE53F0831F14B773001EAC96 /* HealthKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		CE53F0861F14B810001EAC96 /* ReportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE53F0851F14B810001EAC96 /* ReportCell.swift */; };
-		CE6F836C1F15341500899CB8 /* EmergencyContact+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F836A1F15341500899CB8 /* EmergencyContact+CoreDataClass.swift */; };
-		CE6F836D1F15341500899CB8 /* EmergencyContact+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F836B1F15341500899CB8 /* EmergencyContact+CoreDataProperties.swift */; };
 		CE6F836F1F153A5200899CB8 /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F836E1F153A5200899CB8 /* PersistanceManager.swift */; };
 		CE8714121F1513780021F74D /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8714111F1513780021F74D /* ContactDetailViewController.swift */; };
 		CE8714141F1522660021F74D /* empty_avatar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE8714131F1522660021F74D /* empty_avatar.jpg */; };
@@ -37,6 +35,8 @@
 		CE934CB71F18C97A00F8D2DF /* libPods-PushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE934CB61F18C97A00F8D2DF /* libPods-PushNotification.a */; };
 		CE934CB91F18CA0500F8D2DF /* libPods-iHelp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE934CB81F18CA0500F8D2DF /* libPods-iHelp.a */; };
 		CE954EBE1F16329E00A9A95D /* SOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE954EBD1F16329E00A9A95D /* SOS.swift */; };
+		CE9E7ABF1F1975390083C0F2 /* EmergencyContact+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E7ABD1F1975390083C0F2 /* EmergencyContact+CoreDataClass.swift */; };
+		CE9E7AC01F1975390083C0F2 /* EmergencyContact+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E7ABE1F1975390083C0F2 /* EmergencyContact+CoreDataProperties.swift */; };
 		CEA64B7C1F14B3500047C04C /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA64B7B1F14B3500047C04C /* Report.swift */; };
 		CEA64B7E1F14B3FB0047C04C /* ReportStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA64B7D1F14B3FB0047C04C /* ReportStore.swift */; };
 		CECA12881F16864E00A1ABA7 /* ReportsHistory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA12861F16864E00A1ABA7 /* ReportsHistory+CoreDataClass.swift */; };
@@ -95,8 +95,6 @@
 		CE53F0831F14B773001EAC96 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		CE53F0851F14B810001EAC96 /* ReportCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCell.swift; sourceTree = "<group>"; };
 		CE6F83601F152E9600899CB8 /* DataCore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataCore.xcdatamodel; sourceTree = "<group>"; };
-		CE6F836A1F15341500899CB8 /* EmergencyContact+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "EmergencyContact+CoreDataClass.swift"; path = "../EmergencyContact+CoreDataClass.swift"; sourceTree = "<group>"; };
-		CE6F836B1F15341500899CB8 /* EmergencyContact+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "EmergencyContact+CoreDataProperties.swift"; path = "../EmergencyContact+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CE6F836E1F153A5200899CB8 /* PersistanceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistanceManager.swift; sourceTree = "<group>"; };
 		CE8714111F1513780021F74D /* ContactDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactDetailViewController.swift; sourceTree = "<group>"; };
 		CE8714131F1522660021F74D /* empty_avatar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = empty_avatar.jpg; sourceTree = "<group>"; };
@@ -108,6 +106,8 @@
 		CE934CB81F18CA0500F8D2DF /* libPods-iHelp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libPods-iHelp.a"; sourceTree = "<group>"; };
 		CE934CBB1F18CC9F00F8D2DF /* iHelp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iHelp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE954EBD1F16329E00A9A95D /* SOS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SOS.swift; sourceTree = "<group>"; };
+		CE9E7ABD1F1975390083C0F2 /* EmergencyContact+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EmergencyContact+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CE9E7ABE1F1975390083C0F2 /* EmergencyContact+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EmergencyContact+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CEA64B7B1F14B3500047C04C /* Report.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		CEA64B7D1F14B3FB0047C04C /* ReportStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportStore.swift; sourceTree = "<group>"; };
 		CECA12861F16864E00A1ABA7 /* ReportsHistory+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ReportsHistory+CoreDataClass.swift"; path = "../ReportsHistory+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -183,12 +183,12 @@
 		CE0E5D611F180EB600B8D1FC /* CoreDataResources */ = {
 			isa = PBXGroup;
 			children = (
+				CE9E7ABD1F1975390083C0F2 /* EmergencyContact+CoreDataClass.swift */,
+				CE9E7ABE1F1975390083C0F2 /* EmergencyContact+CoreDataProperties.swift */,
 				CE0E5D621F180EF400B8D1FC /* UserProfile+CoreDataClass.swift */,
 				CE0E5D631F180EF400B8D1FC /* UserProfile+CoreDataProperties.swift */,
 				CECA12861F16864E00A1ABA7 /* ReportsHistory+CoreDataClass.swift */,
 				CECA12871F16864E00A1ABA7 /* ReportsHistory+CoreDataProperties.swift */,
-				CE6F836A1F15341500899CB8 /* EmergencyContact+CoreDataClass.swift */,
-				CE6F836B1F15341500899CB8 /* EmergencyContact+CoreDataProperties.swift */,
 				CE6F836E1F153A5200899CB8 /* PersistanceManager.swift */,
 			);
 			name = CoreDataResources;
@@ -545,9 +545,10 @@
 				CEA64B7E1F14B3FB0047C04C /* ReportStore.swift in Sources */,
 				CE0E5D681F1818DA00B8D1FC /* WelcomeViewController.swift in Sources */,
 				CE4656C71F0FD325004E3868 /* AppDelegate.swift in Sources */,
+				CE9E7ABF1F1975390083C0F2 /* EmergencyContact+CoreDataClass.swift in Sources */,
 				CE934CB51F18C51900F8D2DF /* ViewController.swift in Sources */,
-				CE6F836D1F15341500899CB8 /* EmergencyContact+CoreDataProperties.swift in Sources */,
 				CE0E5D641F180EF400B8D1FC /* UserProfile+CoreDataClass.swift in Sources */,
+				CE9E7AC01F1975390083C0F2 /* EmergencyContact+CoreDataProperties.swift in Sources */,
 				CE0E5D6C1F18258E00B8D1FC /* UserProfileViewController.swift in Sources */,
 				4CDCAA801F191C7F00DBC79D /* SOSViewController.swift in Sources */,
 				CE37FDE11F190F4400FE0CCF /* SettingViewController.swift in Sources */,
@@ -557,7 +558,6 @@
 				CE03E6681F1954C7002B6F41 /* DataCore.xcdatamodeld in Sources */,
 				CE954EBE1F16329E00A9A95D /* SOS.swift in Sources */,
 				CE0E5D6A1F181A0F00B8D1FC /* CreateProfileViewController.swift in Sources */,
-				CE6F836C1F15341500899CB8 /* EmergencyContact+CoreDataClass.swift in Sources */,
 				BD10F26A1F193CBF00516967 /* MapViewController.swift in Sources */,
 				CE0E5D651F180EF400B8D1FC /* UserProfile+CoreDataProperties.swift in Sources */,
 				CE53F0861F14B810001EAC96 /* ReportCell.swift in Sources */,

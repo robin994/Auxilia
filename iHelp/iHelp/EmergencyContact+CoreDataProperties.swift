@@ -2,7 +2,7 @@
 //  EmergencyContact+CoreDataProperties.swift
 //  iHelp
 //
-//  Created by Tortora Roberto on 11/07/2017.
+//  Created by Tortora Roberto on 14/07/2017.
 //  Copyright © 2017 The Round Table. All rights reserved.
 //
 
@@ -18,7 +18,7 @@ extension EmergencyContact {
 
     @NSManaged public var contactIdentifier: String?
     @NSManaged public var name: String?
-    @NSManaged public var surname: String?
     @NSManaged public var number: String?
+    @NSManaged public var surname: String?
 
 }

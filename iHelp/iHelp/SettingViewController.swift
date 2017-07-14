@@ -26,7 +26,7 @@ class SettingViewController: UITableViewController {
         let okAction = UIAlertAction(title: "Confirm", style: UIAlertActionStyle.default) {
             UIAlertAction in
             NSLog("Clear Data Pressed")
-           // PersistanceManager.resetCoreData()
+            PersistanceManager.resetCoreData(self.navigationController)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) {
             UIAlertAction in

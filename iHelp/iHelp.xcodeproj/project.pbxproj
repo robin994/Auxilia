@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4CDCAA801F191C7F00DBC79D /* SOSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDCAA7F1F191C7F00DBC79D /* SOSViewController.swift */; };
 		BD10F26A1F193CBF00516967 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD10F2691F193CBF00516967 /* MapViewController.swift */; };
+		CE03E6681F1954C7002B6F41 /* DataCore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE6F835F1F152E9600899CB8 /* DataCore.xcdatamodeld */; };
 		CE0E5D641F180EF400B8D1FC /* UserProfile+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E5D621F180EF400B8D1FC /* UserProfile+CoreDataClass.swift */; };
 		CE0E5D651F180EF400B8D1FC /* UserProfile+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E5D631F180EF400B8D1FC /* UserProfile+CoreDataProperties.swift */; };
 		CE0E5D681F1818DA00B8D1FC /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E5D671F1818DA00B8D1FC /* WelcomeViewController.swift */; };
@@ -25,7 +26,6 @@
 		CE4656E71F0FD325004E3868 /* iHelpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4656E61F0FD325004E3868 /* iHelpUITests.swift */; };
 		CE53F0841F14B773001EAC96 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE53F0831F14B773001EAC96 /* HealthKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		CE53F0861F14B810001EAC96 /* ReportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE53F0851F14B810001EAC96 /* ReportCell.swift */; };
-		CE6F83611F152E9600899CB8 /* DataCore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE6F835F1F152E9600899CB8 /* DataCore.xcdatamodeld */; };
 		CE6F836C1F15341500899CB8 /* EmergencyContact+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F836A1F15341500899CB8 /* EmergencyContact+CoreDataClass.swift */; };
 		CE6F836D1F15341500899CB8 /* EmergencyContact+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F836B1F15341500899CB8 /* EmergencyContact+CoreDataProperties.swift */; };
 		CE6F836F1F153A5200899CB8 /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F836E1F153A5200899CB8 /* PersistanceManager.swift */; };
@@ -551,6 +551,7 @@
 				CEA64B7C1F14B3500047C04C /* Report.swift in Sources */,
 				CECA12881F16864E00A1ABA7 /* ReportsHistory+CoreDataClass.swift in Sources */,
 				CECA12891F16864E00A1ABA7 /* ReportsHistory+CoreDataProperties.swift in Sources */,
+				CE03E6681F1954C7002B6F41 /* DataCore.xcdatamodeld in Sources */,
 				CE954EBE1F16329E00A9A95D /* SOS.swift in Sources */,
 				CE0E5D6A1F181A0F00B8D1FC /* CreateProfileViewController.swift in Sources */,
 				CE6F836C1F15341500899CB8 /* EmergencyContact+CoreDataClass.swift in Sources */,
@@ -559,7 +560,6 @@
 				CE53F0861F14B810001EAC96 /* ReportCell.swift in Sources */,
 				CE8714121F1513780021F74D /* ContactDetailViewController.swift in Sources */,
 				CEFC730B1F14D38D008C769A /* ContactStore.swift in Sources */,
-				CE6F83611F152E9600899CB8 /* DataCore.xcdatamodeld in Sources */,
 				CEFC73091F14D317008C769A /* Contact.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

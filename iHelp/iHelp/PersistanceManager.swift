@@ -11,7 +11,7 @@ import CoreData
 
 class PersistanceManager {
     static let emergencyContactEntity = "EmergencyContact"
-    static let reportHistoryEntity = "ReportHistory"
+    static let reportHistoryEntity = "ReportsHistory"
     static let userProfileEntity = "UserProfile"
     
     static func getContext() -> NSManagedObjectContext {
@@ -159,11 +159,11 @@ class PersistanceManager {
         do {
             try context.save()
         } catch let error as NSError {
-            print("Error in \(error.code)")
+            NSLog("Error in \(error.code)")
         }
     }
     
-    static func resetCoreData() {
+    static func resetCoreData(_ navigationController: UINavigationController?) {
         let reportFR = NSFetchRequest<NSFetchRequestResult>(entityName: reportHistoryEntity)
         let emergencyContactFR = NSFetchRequest<NSFetchRequestResult>(entityName: emergencyContactEntity)
         let userProfileFR = NSFetchRequest<NSFetchRequestResult>(entityName: userProfileEntity)
@@ -176,9 +176,24 @@ class PersistanceManager {
         
         // perform the delete
         do {
-            try persistentContainer.viewContext.execute(deleteRequestRFR)
-            try persistentContainer.viewContext.execute(deleteRequestECFR)
-            try persistentContainer.viewContext.execute(deleteRequestUPFR)
+            if !PersistanceManager.fetchDataReportHistory().isEmpty {
+                NSLog("Clearing report data")
+                try persistentContainer.viewContext.execute(deleteRequestRFR)
+            }
+            if !PersistanceManager.fetchDataEmergencyContact().isEmpty {
+                NSLog("Clearing emergency contacts data")
+                try persistentContainer.viewContext.execute(deleteRequestECFR)
+            }
+            if !PersistanceManager.fetchDataUserProfile().isEmpty {
+                NSLog("Clearing user data")
+                try persistentContainer.viewContext.execute(deleteRequestUPFR)
+            }
+            self.saveContext()
+            if let viewController: UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WelcomeView") {
+                if let navigator = navigationController {
+                    navigator.pushViewController(viewController, animated: true)
+                }
+            }
         } catch let error as NSError {
             print(error)
         }

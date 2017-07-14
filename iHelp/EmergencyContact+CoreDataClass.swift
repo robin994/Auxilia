@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-
+@objc(EmergencyContact)
 public class EmergencyContact: NSManagedObject {
     
 }

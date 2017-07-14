@@ -106,8 +106,8 @@
 		CECA12871F16864E00A1ABA7 /* ReportsHistory+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ReportsHistory+CoreDataProperties.swift"; path = "../ReportsHistory+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CECA128A1F16AA7B00A1ABA7 /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
 		CECA128C1F16AA8600A1ABA7 /* ContactsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ContactsUI.framework; path = System/Library/Frameworks/ContactsUI.framework; sourceTree = SDKROOT; };
-		CECF15F11F18CDFB00DD60C7 /* iHelpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iHelpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CECF15F21F18CDFB00DD60C7 /* iHelpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iHelpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CECF15F11F18CDFB00DD60C7 /* iHelpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = iHelpTests.xctest; path = "/Users/tortoraroberto/iHelp/iHelp/build/Debug-iphoneos/iHelpTests.xctest"; sourceTree = "<absolute>"; };
+		CECF15F21F18CDFB00DD60C7 /* iHelpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = iHelpUITests.xctest; path = "/Users/tortoraroberto/iHelp/iHelp/build/Debug-iphoneos/iHelpUITests.xctest"; sourceTree = "<absolute>"; };
 		CEFC73041F14C618008C769A /* ReportTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTableViewController.swift; sourceTree = "<group>"; };
 		CEFC73081F14D317008C769A /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		CEFC730A1F14D38D008C769A /* ContactStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactStore.swift; sourceTree = "<group>"; };
@@ -220,8 +220,6 @@
 				CE3953841F136645006BFBCA /* Frameworks */,
 				6D66E88BAE55E655C0F9570C /* Pods */,
 				CE934CBB1F18CC9F00F8D2DF /* iHelp.app */,
-				CECF15F11F18CDFB00DD60C7 /* iHelpTests.xctest */,
-				CECF15F21F18CDFB00DD60C7 /* iHelpUITests.xctest */,
 			);
 			indentWidth = 4;
 			sourceTree = "<group>";

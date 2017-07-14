@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4CDCAA801F191C7F00DBC79D /* SOSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDCAA7F1F191C7F00DBC79D /* SOSViewController.swift */; };
+		BD10F26A1F193CBF00516967 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD10F2691F193CBF00516967 /* MapViewController.swift */; };
 		CE0E5D641F180EF400B8D1FC /* UserProfile+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E5D621F180EF400B8D1FC /* UserProfile+CoreDataClass.swift */; };
 		CE0E5D651F180EF400B8D1FC /* UserProfile+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E5D631F180EF400B8D1FC /* UserProfile+CoreDataProperties.swift */; };
 		CE0E5D681F1818DA00B8D1FC /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E5D671F1818DA00B8D1FC /* WelcomeViewController.swift */; };
@@ -72,6 +73,7 @@
 		4CDCAA7E1F19197600DBC79D /* iHelpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iHelpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CDCAA7F1F191C7F00DBC79D /* SOSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SOSViewController.swift; path = iHelp/SOSViewController.swift; sourceTree = SOURCE_ROOT; };
 		684F2D9BFCAF1F03EEDEA154 /* Pods-iHelp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iHelp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iHelp/Pods-iHelp.debug.xcconfig"; sourceTree = "<group>"; };
+		BD10F2691F193CBF00516967 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		CE0E5D621F180EF400B8D1FC /* UserProfile+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UserProfile+CoreDataClass.swift"; path = "../UserProfile+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CE0E5D631F180EF400B8D1FC /* UserProfile+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UserProfile+CoreDataProperties.swift"; path = "../UserProfile+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CE0E5D671F1818DA00B8D1FC /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +160,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		BD10F25F1F193AB100516967 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				BD10F2691F193CBF00516967 /* MapViewController.swift */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
 		BD5D36421F18B4FB00236472 /* PushNotification */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +251,7 @@
 		CE4656C51F0FD325004E3868 /* iHelp */ = {
 			isa = PBXGroup;
 			children = (
+				BD10F25F1F193AB100516967 /* Localization */,
 				CE37FDDF1F190F3300FE0CCF /* Settings */,
 				BD5D36421F18B4FB00236472 /* PushNotification */,
 				CE0E5D661F1818C200B8D1FC /* User */,
@@ -543,6 +554,7 @@
 				CE954EBE1F16329E00A9A95D /* SOS.swift in Sources */,
 				CE0E5D6A1F181A0F00B8D1FC /* CreateProfileViewController.swift in Sources */,
 				CE6F836C1F15341500899CB8 /* EmergencyContact+CoreDataClass.swift in Sources */,
+				BD10F26A1F193CBF00516967 /* MapViewController.swift in Sources */,
 				CE0E5D651F180EF400B8D1FC /* UserProfile+CoreDataProperties.swift in Sources */,
 				CE53F0861F14B810001EAC96 /* ReportCell.swift in Sources */,
 				CE8714121F1513780021F74D /* ContactDetailViewController.swift in Sources */,

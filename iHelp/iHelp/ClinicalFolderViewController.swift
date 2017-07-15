@@ -7,37 +7,88 @@
 //
 import UIKit
 import Foundation
+import HealthKit
 class ClinicalFolderViewController: UITableViewController {
     
-   
-    @IBOutlet weak var labelAltezza: UIView!
-    @IBOutlet weak var labelDataDiNascita: UILabel!
+    
+    
+    @IBOutlet weak var sesso: UILabel!
+    
+    @IBOutlet weak var dataDiNascita: UILabel!
+    @IBOutlet weak var altezza: UILabel!
+    @IBOutlet weak var gruppoSanguigno: UILabel!
+    @IBOutlet weak var fototipo: UILabel!
+    @IBOutlet weak var ultimoBattitoRilevato: UILabel!
+    let healthManager:HealthKitManager = HealthKitManager()
+    var height: HKQuantitySample?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-     /*   let users = PersistanceManager.fetchDataUserProfile()
-        if users.first?.isSet == false {
-            if let viewController: UIViewController  = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WelcomeView") {
-                if let navigator = navigationController {
-                    navigator.pushViewController(viewController, animated: true)
-                }
-            }
-        }*/
-}
+        
+        // We cannot access the user's HealthKit data without specific permission.
+        getHealthKitPermission()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+       }
+    
+    
+    func getHealthKitPermission() {
         
-    /*    let users = PersistanceManager.fetchDataUserProfile()
-        imageView.clipsToBounds = true
-        imageView.layer.borderWidth = 1.0;
-        imageView.layer.masksToBounds = true;
-        imageView.layer.cornerRadius = imageView.frame.height / 2
-        imageView.layer.borderColor = UIColor.gray.cgColor;
-        imageView.image = UIImage(data: (users.first?.userPhoto!.subdata(with: NSMakeRange(0, (users.first?.userPhoto?.length)!)))!)
-        nameField.text = users.first?.name
-        surnameField.text = users.first?.surname
-        addressField.text = users.first?.address*/
+        // Seek authorization in HealthKitManager.swift.
+        healthManager.authorizeHealthKit { (authorized,  error) -> Void in
+            if authorized {
+                
+                // Get and set the user's height.
+                self.setHeight()
+            } else {
+                if error != nil {
+                    print("errore")
+                }
+                print("Permission denied.")
+            }
+        }
     }
+    
+    func setHeight() {
+        // Create the HKSample for Height.
+        let heightSample = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)
+        
+        // Call HealthKitManager's getSample() method to get the user's height.
+        self.healthManager.getHeight(heightSample!, completion: { (userHeight, error) -> Void in
+            
+            if( error != nil ) {
+                print("Errore: \(error?.localizedDescription)")
+                return
+            }
+            
+            var heightString = ""
+            
+            self.height = userHeight as? HKQuantitySample
+            
+            // The height is formatted to the user's locale.
+            if let meters = self.height?.quantity.doubleValue(for: HKUnit.meter()) {
+                let formatHeight = LengthFormatter()
+                formatHeight.isForPersonHeightUse = true
+                heightString = formatHeight.string(fromMeters: meters)
+            }
+            
+            // Set the label to reflect the user's height.
+            DispatchQueue.main.async(execute: { () -> Void in
+                self.altezza.text = heightString
+                
+            })
+           // self.age.text = heightString
+        })
+        
+        
+    }
+  
     
     
 }

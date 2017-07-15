@@ -79,7 +79,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         switch (actionType) {
         case .callSOS:
             NSLog("Button 3DTouch 'SOS' clicked, asking for SOS")
-            SOS.sendNotification() //AGGIUNGERE COSA FARE IN CASO DI 3D TOUCH QUI
+            //AGGIUNGERE COSA FARE IN CASO DI 3D TOUCH QUI
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            let reportViewControler = sb.instantiateViewController(withIdentifier: "SOSViewController")
+            window?.rootViewController?.present(reportViewControler, animated: true, completion: nil)
         }
     }
     

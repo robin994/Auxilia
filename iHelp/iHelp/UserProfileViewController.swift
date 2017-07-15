@@ -32,7 +32,17 @@ class UserProfileViewController: UITableViewController {
         imageView.layer.masksToBounds = true;
         imageView.layer.cornerRadius = imageView.frame.height / 2
         imageView.layer.borderColor = UIColor.gray.cgColor;
+        
+        
         imageView.image = UIImage(data: (users.first?.userPhoto!.subdata(with: NSMakeRange(0, (users.first?.userPhoto?.length)!)))!)
+        blurredImageView.image = imageView.image
+        
+        let darkBlur = UIBlurEffect(style: UIBlurEffectStyle.dark)
+        let blurView = UIVisualEffectView(effect: darkBlur)
+        blurView.frame = blurredImageView.bounds
+        blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        blurredImageView.addSubview(blurView)
+        
         nameField.text = users.first?.name
         surnameField.text = users.first?.surname
         addressField.text = users.first?.address
@@ -55,6 +65,7 @@ class UserProfileViewController: UITableViewController {
     */
 
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var blurredImageView: UIImageView!
     @IBOutlet weak var nameField: UILabel!
     @IBOutlet weak var surnameField: UILabel!
     @IBOutlet weak var addressField: UILabel!

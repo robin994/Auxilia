@@ -891,7 +891,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="empty_avatar.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="vAp-1z-e4D">
-                                                    <rect key="frame" x="127" y="15" width="120" height="120"/>
+                                                    <rect key="frame" x="116" y="4" width="143" height="143"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
@@ -1026,7 +1026,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MeC-eT-F5m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2576.8000000000002" y="-783.05847076461771"/>
+            <point key="canvasLocation" x="2576.5" y="-783.5"/>
         </scene>
         <!--Clinical Folder View Controller-->
         <scene sceneID="U0X-Yh-XOV">
@@ -1051,15 +1051,6 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MT8-q1-PDQ" id="bnz-V4-ztY">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M6n-kn-YZi">
-                                            <rect key="frame" x="8" y="11" width="42" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="7l5-QX-Pvg">
@@ -1077,9 +1068,6 @@
                             <outlet property="delegate" destination="9d3-zm-ori" id="xtP-G8-IuW"/>
                         </connections>
                     </tableView>
-                    <connections>
-                        <outlet property="label" destination="M6n-kn-YZi" id="Nli-bY-sBl"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZA7-T5-Aeb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

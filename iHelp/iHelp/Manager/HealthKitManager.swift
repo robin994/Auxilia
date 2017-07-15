@@ -41,7 +41,7 @@ class HealthKitManager {
         
         
         let dataTypesToRead = NSSet(objects:
-            dateOfBirthCharacteristic,
+                                    dateOfBirthCharacteristic,
                                     biologicalSexCharacteristic,
                                     bloodTypeCharacteristic,
                                     skinTypeCharacteristic
@@ -111,10 +111,10 @@ class HealthKitManager {
         self.healthKitStore.execute(heightQuery)
     }
     
-    func readProfile() -> ( age:Int?,  biologicalsex:HKBiologicalSex?, bloodtype:HKBloodType?)
+    func readProfile() -> ( age:String?,  biologicalsex:String?, bloodtype:String?, skin:String?)
     {
         var error:NSError?
-        var age:Int?
+        var age:String?
         //   let year = Calendar.iso8601.ordinality(of: .year, in: .era, for: now)!
         print("readProfile: \n\n\n\n")
         
@@ -130,10 +130,7 @@ class HealthKitManager {
         print(year)
         print(month)
         print(day)
-        
-        
-        
-        
+     
         //per accedere alla data di nascita
         var dateOfBirth: Date?
         
@@ -143,33 +140,22 @@ class HealthKitManager {
             
             let now = Date()
             
-            let ageComponents: DateComponents = Calendar.current.dateComponents([.year], from: dateOfBirth!, to: now)
+            let ageComponents: DateComponents = Calendar.current.dateComponents([.year, .month, .day], from: dateOfBirth!
+            )
+            print("ecco")
+            age = "\(ageComponents.day!)/\(ageComponents.month!)/\(ageComponents.year!)"
+            print("ecco2")
             
-            let userAge: Int = ageComponents.year!
-            
-            print("\n\n\n\n annoooo \(userAge)")
+            print("\n\n\n\n anno di nascita \(age!)")
             
         } catch {
             print("errore1:  \(error)")
         }
         
-        
-        
-        
-        
-        //   let fullNameArr = data.componentsSeparatedByString(".")
-        
-        //  var firstName: String = fullNameArr[0]
-        //   var lastName: String = fullNameArr[1]
-        
-        
-        
-        
         if error != nil {
             print("Error reading Birthday: \(String(describing: error))")
         }
-        
-        
+
         
         // 2. Read biological sex
         var biologicalSex:HKBiologicalSexObject?
@@ -192,6 +178,7 @@ class HealthKitManager {
         } catch {
             print("errore3:  \(error)")
         }
+        let skinLiteral = HKFitzpatrickSkinTypeLiteral(skin?.skinType)
         
         var bloodType:HKBloodTypeObject?
         do {
@@ -202,18 +189,18 @@ class HealthKitManager {
             print("errore3:  \(error)")
         }
         
-        let blood: HKBloodType? = bloodType?.bloodType
-        
+      
         let lettera:String? = bloodTypeLiteral(bloodType?.bloodType)
         print("\n\n blood letter: \(lettera!)\n\n")
         
         
         // 4. Return the information read in a tuple
         //  print("\n\n\n readprofile1: \(age) \(biologicalSex) \(blood) \n\n")
-        let a:String? = biologicalSexLiteral(bi)
-        print("\n\n biologicalsex: \(a!)")
-        return (age, bi, blood)
+        let sexType:String? = biologicalSexLiteral(bi)
+        print("\n\n biologicalsex: \(sexType!)")
+        return (age, sexType, lettera, skinLiteral)
     }
+    
     func biologicalSexLiteral(_ biologicalSex:HKBiologicalSex?)->String
     {
         var biologicalSexText = "kUnknownString";
@@ -233,6 +220,7 @@ class HealthKitManager {
         }
         return biologicalSexText;
     }
+    
     func bloodTypeLiteral(_ bloodType:HKBloodType?)->String
     {
         
@@ -255,7 +243,6 @@ class HealthKitManager {
                 bloodTypeText = "B-"
             case .abPositive:
                 bloodTypeText = "AB+"
-                
             case .abNegative:
                 bloodTypeText = "AB-"
             case .oPositive:
@@ -268,6 +255,36 @@ class HealthKitManager {
             
         }
         return bloodTypeText;
+    }
+    
+    func HKFitzpatrickSkinTypeLiteral(_ bloodType:HKFitzpatrickSkinType?)->String
+    {
+        
+        var fitzpatrickSkin = "UnknownString";
+        print("bloodType: \(bloodType!)\n\n")
+        
+        if bloodType != nil {
+            switch( bloodType! ) {
+            case .notSet:
+            fitzpatrickSkin = "not set"
+            case .I:
+            fitzpatrickSkin = "Type I"
+            case .II:
+            fitzpatrickSkin = "Type II"
+            case .III:
+            fitzpatrickSkin = "Type III"
+            case .IV:
+            fitzpatrickSkin = "Type IV"
+            case .V:
+            fitzpatrickSkin = "Type V"
+            case .VI:
+            fitzpatrickSkin = "Type VI"
+            default:
+            break;
+        }
+            
+        }
+        return fitzpatrickSkin;
     }
     
 }

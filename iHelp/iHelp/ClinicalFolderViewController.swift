@@ -27,6 +27,13 @@ class ClinicalFolderViewController: UITableViewController {
         
         // We cannot access the user's HealthKit data without specific permission.
         getHealthKitPermission()
+        let dati = self.healthManager.readProfile()
+        print("\n \n \n \(dati.age!) \(dati.biologicalsex!) \(dati.bloodtype!)")
+        dataDiNascita.text = dati.age!
+        sesso.text = dati.biologicalsex
+        fototipo.text = dati.skin
+        gruppoSanguigno.text = dati.bloodtype
+        setHeight()
     }
     
     override func didReceiveMemoryWarning() {
@@ -43,6 +50,7 @@ class ClinicalFolderViewController: UITableViewController {
         // Seek authorization in HealthKitManager.swift.
         healthManager.authorizeHealthKit { (authorized,  error) -> Void in
             if authorized {
+                print("autorizzazione ha successo")
                 
                 // Get and set the user's height.
                 self.setHeight()
@@ -83,9 +91,9 @@ class ClinicalFolderViewController: UITableViewController {
                 self.altezza.text = heightString
                 
             })
-           // self.age.text = heightString
+           self.altezza.text = heightString
         })
-        
+        print("\n\n\n setHeight")
         
     }
   

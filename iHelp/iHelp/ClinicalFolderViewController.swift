@@ -16,6 +16,7 @@ class ClinicalFolderViewController: UITableViewController {
     
     @IBOutlet weak var dataDiNascita: UILabel!
     @IBOutlet weak var altezza: UILabel!
+    @IBOutlet weak var peso: UILabel!
     @IBOutlet weak var gruppoSanguigno: UILabel!
     @IBOutlet weak var fototipo: UILabel!
     @IBOutlet weak var ultimoBattitoRilevato: UILabel!
@@ -96,6 +97,40 @@ class ClinicalFolderViewController: UITableViewController {
         print("\n\n\n setHeight")
         
     }
+  /*  func setWeight() {
+        // Create the HKSample for Height.
+        let weightSample = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)
+        
+        // Call HealthKitManager's getSample() method to get the user's height.
+        self.healthManager.getWeight(weightSample!, completion: { (userWeight, error) -> Void in
+            
+            if( error != nil ) {
+                print("Errore: \(error?.localizedDescription)")
+                return
+            }
+            
+            var weightString = "oo"
+            
+            self.weight = userWeight as? HKQuantitySample
+            
+            // The height is formatted to the user's locale.
+            if let gram = self.weight?.quantity.doubleValue(for: HKUnit.gram()) {
+                let formatWeight = MassFormatter()
+                formatWeight.isForPersonMassUse = true
+                weightString = formatWeight.string(fromKilograms: gram)
+            }
+            
+            // Set the label to reflect the user's height.
+            DispatchQueue.main.async(execute: { () -> Void in
+                self.peso.text = weightString
+                
+            })
+            self.peso.text = weightString
+        })
+        print("\n\n\n setWeight")
+        
+    }*/
+
   
     
 }

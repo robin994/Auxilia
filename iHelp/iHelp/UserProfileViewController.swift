@@ -55,6 +55,7 @@ class UserProfileViewController: UITableViewController {
     */
 
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var blurredImageView: UIImageView!
     @IBOutlet weak var nameField: UILabel!
     @IBOutlet weak var surnameField: UILabel!
     @IBOutlet weak var addressField: UILabel!

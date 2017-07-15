@@ -39,5 +39,4 @@ class ClinicalFolderViewController: UITableViewController {
         addressField.text = users.first?.address*/
     }
     
-    
 }

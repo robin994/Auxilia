@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B3803A61F1A12F3009599A6 /* ClinicalFolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3803A51F1A12F3009599A6 /* ClinicalFolderViewController.swift */; };
 		4CDCAA801F191C7F00DBC79D /* SOSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDCAA7F1F191C7F00DBC79D /* SOSViewController.swift */; };
 		BD10F26A1F193CBF00516967 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD10F2691F193CBF00516967 /* MapViewController.swift */; };
 		CE03E6681F1954C7002B6F41 /* DataCore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE6F835F1F152E9600899CB8 /* DataCore.xcdatamodeld */; };
@@ -69,6 +70,7 @@
 
 /* Begin PBXFileReference section */
 		2CE0F134E4C6397093D0CF4B /* Pods-iHelp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iHelp.release.xcconfig"; path = "Pods/Target Support Files/Pods-iHelp/Pods-iHelp.release.xcconfig"; sourceTree = "<group>"; };
+		4B3803A51F1A12F3009599A6 /* ClinicalFolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicalFolderViewController.swift; sourceTree = "<group>"; };
 		4CDCAA7D1F19197600DBC79D /* iHelpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iHelpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CDCAA7E1F19197600DBC79D /* iHelpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iHelpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CDCAA7F1F191C7F00DBC79D /* SOSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SOSViewController.swift; path = iHelp/SOSViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -200,6 +202,7 @@
 				CE0E5D671F1818DA00B8D1FC /* WelcomeViewController.swift */,
 				CE0E5D691F181A0F00B8D1FC /* CreateProfileViewController.swift */,
 				CE0E5D6B1F18258E00B8D1FC /* UserProfileViewController.swift */,
+				4B3803A51F1A12F3009599A6 /* ClinicalFolderViewController.swift */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -554,6 +557,7 @@
 				CE37FDE11F190F4400FE0CCF /* SettingViewController.swift in Sources */,
 				CEA64B7C1F14B3500047C04C /* Report.swift in Sources */,
 				CECA12881F16864E00A1ABA7 /* ReportsHistory+CoreDataClass.swift in Sources */,
+				4B3803A61F1A12F3009599A6 /* ClinicalFolderViewController.swift in Sources */,
 				CECA12891F16864E00A1ABA7 /* ReportsHistory+CoreDataProperties.swift in Sources */,
 				CE03E6681F1954C7002B6F41 /* DataCore.xcdatamodeld in Sources */,
 				CE954EBE1F16329E00A9A95D /* SOS.swift in Sources */,

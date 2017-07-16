@@ -13,11 +13,14 @@ class HealthKitManager {
     
     let healthKitStore: HKHealthStore = HKHealthStore()
     
+    var heartRate:Double = 0.0
+    
       private func dataTypesToRead() -> Set<HKObjectType> {
      
         let heightType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)!
         let weightType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)!
-        let readDataTypes: Set<HKObjectType> = [heightType, weightType]
+        let rateType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)!
+        let readDataTypes: Set<HKObjectType> = [heightType, weightType, rateType]
      
         return readDataTypes
      }
@@ -225,7 +228,7 @@ class HealthKitManager {
         let sexType:String? = biologicalSexLiteral(bi)
         print("\n\n biologicalsex: \(sexType!)")
         
-        getTodaysHeartRates()
+        
         return (age, sexType, lettera, skinLiteral, chairuseLiteral)
     }
     func wheelchairUseLiteral(_ wheelchair:HKWheelchairUse?)->String
@@ -364,71 +367,104 @@ class HealthKitManager {
     let heartRateUnit:HKUnit = HKUnit(from: "count/min")
     let heartRateType:HKQuantityType   = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)!
     var heartRateQuery:HKSampleQuery?
+    var heartRateString: String = "0"
     
     
     /*Method to get todays heart rate - this only reads data from health kit. */
-    func getTodaysHeartRates()
-    {
+    func getTodaysHeartRates()->(Double?){
         //predicate
+        print("getTodaysHeartRates")
         
         
-        let calendar = NSCalendar.current
-        let date = Date()
-        let components = calendar.dateComponents([.year, .month, .day], from: date)
+     //   let calendar = NSCalendar.current
+        let calendar = NSCalendar(identifier: NSCalendar.Identifier.gregorian)
+        let date = NSDate()
+        let components = NSDateComponents()
         
-        let year =  components.year
-        let month = components.month
-        let day = components.day
+     //   let components = calendar.dateComponents([.year, .month, .day], from: date as Date)
         
-        let startDate:Date = components.date!
+      //  let year =  components.year
+      //  let month = components.month
+      //  let day = components.day
+        
+     //   let startDate:Date = components.date!
         //  let endDate:Date? = calendar.dateByAddingUnit(.day, value: 1, toDate: startDate, options: [])
-        let endDate:Date? = calendar.date(byAdding: .day, value: 1, to: startDate)
+      
+        //let endDate:Date? = calendar.date(byAdding: .day, value: 1, to: date)
+        print("getTodaysHeartRates5")
+        let startDate = calendar?.date(from: components as DateComponents)
+
         
-        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: [])
+        let endDate = calendar?.date(byAdding: .day, value: 1, to: startDate!, options: [])
+        
+        let predicate = HKQuery.predicateForSamples(withStart: startDate as! Date, end: nil, options: [])
         
         //descriptor
         let sortDescriptors = [
             NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
         ]
+        print("getTodaysHeartRates2")
+        
+     /*   let query = HKAnchoredObjectQuery(type: heartRateType, predicate: predicate, anchor: nil, limit: Int(HKObjectQueryNoLimit)) {
+            (query, samples, deletedObjects, anchor, error) -> Void in
+            print(".....\n")
+            self.printHeartRateInfo(results: samples)
+            
+        }
+        
+        query.updateHandler = { (query, samples, deletedObjects, anchor, error) -> Void in
+            print("111....\n")
+            self.printHeartRateInfo(results: samples)
+        }*/
         
         heartRateQuery = HKSampleQuery(sampleType: heartRateType,
                                        predicate: predicate,
-                                       limit: 25,
+                                       limit: 1,
                                        sortDescriptors: sortDescriptors)
         { query, results, error in
-            guard let samples = results as? [HKQuantitySample] else {
-                fatalError("An error occured fetching the user's tracked food. In your app, try to handle this error gracefully. The error was: \(error?.localizedDescription)");
+            guard (results as? [HKQuantitySample]) != nil else {
+                fatalError("An error occured fetching the user's tracked food. In your app, try to handle this error gracefully. The error was: \(String(describing: error?.localizedDescription))");
             }
-          //  guard error == nil else { print("error"); return }
-            
             self.printHeartRateInfo(results: results)
+            guard let currData:HKQuantitySample = results![0] as? HKQuantitySample else { return }
+            self.heartRate = currData.quantity.doubleValue(for: self.heartRateUnit)
+            print("Heart Rate: \(self.heartRate)\n")
             
-         //   self.updateHistoryTableViewContent(results)
-            
-            }
-        healthKitStore.execute(heartRateQuery!)
+           // if(self.heartRate == 0.0){
+           //     self.heartRateString = "Not set"
+          //  }else{
+            self.heartRateString = String(format:"%f", self.heartRate)
+          //  }
+            print("getTodaysHeartRates1")
+           }
+        self.healthKitStore.execute(heartRateQuery!)
+        return (self.heartRate)
         
     }//eom
     
     /*used only for testing, prints heart rate info */
     private func printHeartRateInfo(results:[HKSample]?)
     {
-        var iter = 0;
-        var c: Int = (results?.count)!
-        
+       
+        let c: Int = (results?.count)!
+        if(c==0){
+            print("non c'è nnt")
+        }else{
+            print("stampo tutti i dati del battito\n\n")
+        }
         for iter in 0..<c
         {
             guard let currData:HKQuantitySample = results![iter] as? HKQuantitySample else { return }
             
             print("[\(iter)]")
-            print("Heart Rate: \(currData.quantity.doubleValue(for: heartRateUnit))")
-            print("quantityType: \(currData.quantityType)")
-            print("Start Date: \(currData.startDate)")
-            print("End Date: \(currData.endDate)")
-            print("Metadata: \(currData.metadata)")
-            print("UUID: \(currData.uuid)")
-            print("Source: \(currData.sourceRevision)")
-            print("Device: \(currData.device)")
+            print("Heart Rate: \(currData.quantity.doubleValue(for: heartRateUnit))\n")
+            print("quantityType: \(currData.quantityType)\n")
+            print("Start Date: \(currData.startDate)\n")
+            print("End Date: \(currData.endDate)\n")
+            print("Metadata: \(String(describing: currData.metadata))\n")
+            print("UUID: \(currData.uuid)\n")
+            print("Source: \(currData.sourceRevision)\n")
+            print("Device: \(String(describing: currData.device))\n")
             print("---------------------------------\n")
         }//eofl
     }//eom

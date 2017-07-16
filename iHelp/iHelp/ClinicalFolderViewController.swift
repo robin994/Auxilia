@@ -27,6 +27,7 @@ class ClinicalFolderViewController: UITableViewController {
     var heightString = ""
     var weightString = ""
     var clinicalFolderObject: ClinicalFolder?
+    var heartRate: Double = 0.0
     
     
     override func viewDidLoad() {
@@ -43,7 +44,11 @@ class ClinicalFolderViewController: UITableViewController {
         sediaArotelle.text = dati.chairUse
         setHeight()
         setWeight()
-        clinicalFolderObject = ClinicalFolder(sesso: dati.biologicalsex!, dataDiNascita: dati.age!, altezza: heightString, peso: weightString, gruppoSanguigno: dati.bloodtype!, fototipo: fototipo.text! , sediaARotelle: dati.chairUse!, ultimoBattito: "")
+        heartRate = self.healthManager.getTodaysHeartRates()!
+        ultimoBattitoRilevato.text = "\(heartRate)"
+        print("battito \(heartRate)")
+        
+        clinicalFolderObject = ClinicalFolder(sesso: dati.biologicalsex!, dataDiNascita: dati.age!, altezza: heightString, peso: weightString, gruppoSanguigno: dati.bloodtype!, fototipo: fototipo.text! , sediaARotelle: dati.chairUse!, ultimoBattito: String(describing: heartRate))
         
         
     }

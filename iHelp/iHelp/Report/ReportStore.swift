@@ -27,11 +27,11 @@ class ReportStore: NSObject {
                     phoneNumber: report.contactIdentifier!,
                     message: report.message!,
                     clinicalFolder: ClinicalFolder(sesso: report.sesso!,
-                                                   dataDiNascita: report.birthday! as Date,
-                                                   altezza: report.height,
-                                                   peso: report.weight,
+                                                   dataDiNascita: report.birthday!,
+                                                   altezza: report.height!,
+                                                   peso: report.weight!,
                                                    gruppoSanguigno: report.bloodGroup!,
-                                                   sediaARotelle: report.wheelchair,
+                                                   sediaARotelle: report.wheelchair!,
                                                    ultimoBattito: report.hearthrate!)
                 )
             )

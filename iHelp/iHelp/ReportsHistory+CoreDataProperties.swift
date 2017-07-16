@@ -24,13 +24,13 @@ extension ReportsHistory {
     @NSManaged public var latitude: Double
     @NSManaged public var longitude: Double
     @NSManaged public var velocity: Double
-    @NSManaged public var wheelchair: Bool
+    @NSManaged public var wheelchair: String?
     @NSManaged public var audioMessage: NSData?
     @NSManaged public var bloodGroup: String?
-    @NSManaged public var birthday: NSDate?
-    @NSManaged public var height: Float
+    @NSManaged public var birthday: String?
+    @NSManaged public var height: String?
     @NSManaged public var hearthrate: String?
     @NSManaged public var sesso: String?
-    @NSManaged public var weight: Float
+    @NSManaged public var weight: String?
 
 }

@@ -19,9 +19,11 @@ class ClinicalFolderViewController: UITableViewController {
     @IBOutlet weak var peso: UILabel!
     @IBOutlet weak var gruppoSanguigno: UILabel!
     @IBOutlet weak var fototipo: UILabel!
+    @IBOutlet weak var sediaArotelle: UILabel!
     @IBOutlet weak var ultimoBattitoRilevato: UILabel!
     let healthManager:HealthKitManager = HealthKitManager()
     var height: HKQuantitySample?
+    var weight: HKQuantitySample?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +36,9 @@ class ClinicalFolderViewController: UITableViewController {
         sesso.text = dati.biologicalsex
         fototipo.text = dati.skin
         gruppoSanguigno.text = dati.bloodtype
+        sediaArotelle.text = dati.chairUse
         setHeight()
+        setWeight()
     }
     
     override func didReceiveMemoryWarning() {
@@ -90,14 +94,12 @@ class ClinicalFolderViewController: UITableViewController {
             // Set the label to reflect the user's height.
             DispatchQueue.main.async(execute: { () -> Void in
                 self.altezza.text = heightString
-                
             })
-           self.altezza.text = heightString
         })
         print("\n\n\n setHeight")
         
     }
-  /*  func setWeight() {
+    func setWeight() {
         // Create the HKSample for Height.
         let weightSample = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)
         
@@ -120,16 +122,19 @@ class ClinicalFolderViewController: UITableViewController {
                 weightString = formatWeight.string(fromKilograms: gram)
             }
             
+          //  let weightInt: Int = Int(gram)!
+           // let w:Int = weightInt/1000
+           // print("\n weightint \(w)")
+            
             // Set the label to reflect the user's height.
             DispatchQueue.main.async(execute: { () -> Void in
                 self.peso.text = weightString
-                
             })
-            self.peso.text = weightString
+         
         })
         print("\n\n\n setWeight")
         
-    }*/
+    }
 
   
     

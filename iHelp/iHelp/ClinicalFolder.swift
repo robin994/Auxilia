@@ -18,7 +18,9 @@ class ClinicalFolder: NSObject {
     var ultimoBattito: String?
     
     
+
     init(sesso: String, dataDiNascita: String, altezza: String, peso: String, gruppoSanguigno: String, fototipo: String, sediaARotelle: String, ultimoBattito: String) {
+
         self.sesso = sesso
         self.dataDiNascita = dataDiNascita
         self.altezza = altezza

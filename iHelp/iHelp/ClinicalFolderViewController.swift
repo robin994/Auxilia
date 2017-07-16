@@ -142,6 +142,7 @@ class ClinicalFolderViewController: UITableViewController {
         print("\n\n\n setWeight")
         
     }
+   
 
   
     

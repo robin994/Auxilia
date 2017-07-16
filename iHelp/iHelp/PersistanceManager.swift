@@ -17,7 +17,6 @@ class PersistanceManager {
     static func getContext() -> NSManagedObjectContext {
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        
         return appDelegate.persistentContainer.viewContext
     }
     
@@ -96,6 +95,8 @@ class PersistanceManager {
             }
         }
     }
+
+
     
     static func fetchDataReportHistory() -> [ReportsHistory] {
         var reports = [ReportsHistory]()

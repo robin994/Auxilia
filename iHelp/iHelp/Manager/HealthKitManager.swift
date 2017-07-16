@@ -15,13 +15,11 @@ class HealthKitManager {
     
       private func dataTypesToRead() -> Set<HKObjectType> {
      
-     let heightType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)!
-     let weightType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)!
- 
+        let heightType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)!
+        let weightType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)!
+        let readDataTypes: Set<HKObjectType> = [heightType, weightType]
      
-     let readDataTypes: Set<HKObjectType> = [heightType, weightType]
-     
-     return readDataTypes
+        return readDataTypes
      }
     
     
@@ -69,7 +67,7 @@ class HealthKitManager {
                                             read: dataTypesToRead as? Set<HKObjectType>,
                                             completion: { (success, error) -> Void in
                                                 if success {
-                                                    print("success authorization")
+                                                    print("success authorization1")
                                                 } else {
                                                     print(error!)
                                                 }
@@ -90,8 +88,10 @@ class HealthKitManager {
                 
                 //todo nsjnxj
               //  completion(success: success, error: error as! NSError)
+                print("success authorization2")
             }
         }
+        
         
     }
     
@@ -224,6 +224,8 @@ class HealthKitManager {
         //  print("\n\n\n readprofile1: \(age) \(biologicalSex) \(blood) \n\n")
         let sexType:String? = biologicalSexLiteral(bi)
         print("\n\n biologicalsex: \(sexType!)")
+        
+        getTodaysHeartRates()
         return (age, sexType, lettera, skinLiteral, chairuseLiteral)
     }
     func wheelchairUseLiteral(_ wheelchair:HKWheelchairUse?)->String
@@ -359,7 +361,77 @@ class HealthKitManager {
         // Time to execute the query.
         self.healthKitStore.execute(weightQuery)
     }
+    let heartRateUnit:HKUnit = HKUnit(from: "count/min")
+    let heartRateType:HKQuantityType   = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)!
+    var heartRateQuery:HKSampleQuery?
     
+    
+    /*Method to get todays heart rate - this only reads data from health kit. */
+    func getTodaysHeartRates()
+    {
+        //predicate
+        
+        
+        let calendar = NSCalendar.current
+        let date = Date()
+        let components = calendar.dateComponents([.year, .month, .day], from: date)
+        
+        let year =  components.year
+        let month = components.month
+        let day = components.day
+        
+        let startDate:Date = components.date!
+        //  let endDate:Date? = calendar.dateByAddingUnit(.day, value: 1, toDate: startDate, options: [])
+        let endDate:Date? = calendar.date(byAdding: .day, value: 1, to: startDate)
+        
+        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: [])
+        
+        //descriptor
+        let sortDescriptors = [
+            NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
+        ]
+        
+        heartRateQuery = HKSampleQuery(sampleType: heartRateType,
+                                       predicate: predicate,
+                                       limit: 25,
+                                       sortDescriptors: sortDescriptors)
+        { query, results, error in
+            guard let samples = results as? [HKQuantitySample] else {
+                fatalError("An error occured fetching the user's tracked food. In your app, try to handle this error gracefully. The error was: \(error?.localizedDescription)");
+            }
+          //  guard error == nil else { print("error"); return }
+            
+            self.printHeartRateInfo(results: results)
+            
+         //   self.updateHistoryTableViewContent(results)
+            
+            }
+        healthKitStore.execute(heartRateQuery!)
+        
+    }//eom
+    
+    /*used only for testing, prints heart rate info */
+    private func printHeartRateInfo(results:[HKSample]?)
+    {
+        var iter = 0;
+        var c: Int = (results?.count)!
+        
+        for iter in 0..<c
+        {
+            guard let currData:HKQuantitySample = results![iter] as? HKQuantitySample else { return }
+            
+            print("[\(iter)]")
+            print("Heart Rate: \(currData.quantity.doubleValue(for: heartRateUnit))")
+            print("quantityType: \(currData.quantityType)")
+            print("Start Date: \(currData.startDate)")
+            print("End Date: \(currData.endDate)")
+            print("Metadata: \(currData.metadata)")
+            print("UUID: \(currData.uuid)")
+            print("Source: \(currData.sourceRevision)")
+            print("Device: \(currData.device)")
+            print("---------------------------------\n")
+        }//eofl
+    }//eom
     
 
 }

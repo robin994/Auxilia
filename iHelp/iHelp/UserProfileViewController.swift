@@ -21,6 +21,12 @@ class UserProfileViewController: UITableViewController {
                 }
             }
         }
+        //crea immagine sfocata
+        let darkBlur = UIBlurEffect(style: UIBlurEffectStyle.dark)
+        let blurView = UIVisualEffectView(effect: darkBlur)
+        blurView.frame = blurredImageView.bounds
+        blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        blurredImageView.addSubview(blurView)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,12 +42,6 @@ class UserProfileViewController: UITableViewController {
         
         imageView.image = UIImage(data: (users.first?.userPhoto!.subdata(with: NSMakeRange(0, (users.first?.userPhoto?.length)!)))!)
         blurredImageView.image = imageView.image
-        
-        let darkBlur = UIBlurEffect(style: UIBlurEffectStyle.dark)
-        let blurView = UIVisualEffectView(effect: darkBlur)
-        blurView.frame = blurredImageView.bounds
-        blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        blurredImageView.addSubview(blurView)
         
         nameField.text = users.first?.name
         surnameField.text = users.first?.surname

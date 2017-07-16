@@ -61,11 +61,10 @@ class HealthKitManager {
                                     skinTypeCharacteristic,
                                     wheelchairCharacteristic
             
-            
         )
         
         healthKitStore.requestAuthorization(toShare: nil,
-                                            read: dataTypesToRead as! Set<HKObjectType>,
+                                            read: dataTypesToRead as? Set<HKObjectType>,
                                             completion: { (success, error) -> Void in
                                                 if success {
                                                     print("success authorization")
@@ -128,7 +127,7 @@ class HealthKitManager {
     
     func readProfile() -> ( age:String?,  biologicalsex:String?, bloodtype:String?, skin:String?, chairUse:String?)
     {
-        var error:NSError?
+
         var age:String?
         //   let year = Calendar.iso8601.ordinality(of: .year, in: .era, for: now)!
         print("readProfile: \n\n\n\n")
@@ -142,9 +141,9 @@ class HealthKitManager {
         let month = components.month
         let day = components.day
         
-        print(year)
-        print(month)
-        print(day)
+        print(year ?? 1900)
+        print(month ?? 1)
+        print(day ?? 1)
      
         //per accedere alla data di nascita
         var dateOfBirth: Date?
@@ -153,7 +152,7 @@ class HealthKitManager {
             
             dateOfBirth = try healthKitStore.dateOfBirth()
             
-            let now = Date()
+            //let now = Date()
             
             let ageComponents: DateComponents = Calendar.current.dateComponents([.year, .month, .day], from: dateOfBirth!
             )
@@ -163,13 +162,12 @@ class HealthKitManager {
             
             print("\n\n\n\n anno di nascita \(age!)")
             
-        } catch {
+        } catch let error as NSError{
             print("errore1:  \(error)")
+            print("Error reading Birthday: \(error.code)")
+
         }
-        
-        if error != nil {
-            print("Error reading Birthday: \(String(describing: error))")
-        }
+
 
         
         // 2. Read biological sex
@@ -296,8 +294,6 @@ class HealthKitManager {
                 bloodTypeText = "O+"
             case .oNegative:
                 bloodTypeText = "O-"
-            default:
-                break;
             }
             
         }
@@ -326,8 +322,6 @@ class HealthKitManager {
             fitzpatrickSkin = "Type V"
             case .VI:
             fitzpatrickSkin = "Type VI"
-            default:
-            break;
         }
             
         }

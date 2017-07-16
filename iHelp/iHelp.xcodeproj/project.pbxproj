@@ -12,6 +12,8 @@
 		4CDCAA801F191C7F00DBC79D /* SOSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDCAA7F1F191C7F00DBC79D /* SOSViewController.swift */; };
 		BD10F26A1F193CBF00516967 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD10F2691F193CBF00516967 /* MapViewController.swift */; };
 		CE03E6681F1954C7002B6F41 /* DataCore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE6F835F1F152E9600899CB8 /* DataCore.xcdatamodeld */; };
+		CE099F2A1F1BA31D00199904 /* ReportsHistory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE099F281F1BA31D00199904 /* ReportsHistory+CoreDataClass.swift */; };
+		CE099F2B1F1BA31D00199904 /* ReportsHistory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE099F291F1BA31D00199904 /* ReportsHistory+CoreDataProperties.swift */; };
 		CE0E5D641F180EF400B8D1FC /* UserProfile+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E5D621F180EF400B8D1FC /* UserProfile+CoreDataClass.swift */; };
 		CE0E5D651F180EF400B8D1FC /* UserProfile+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E5D631F180EF400B8D1FC /* UserProfile+CoreDataProperties.swift */; };
 		CE0E5D681F1818DA00B8D1FC /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E5D671F1818DA00B8D1FC /* WelcomeViewController.swift */; };
@@ -41,8 +43,6 @@
 		CE9E7AC01F1975390083C0F2 /* EmergencyContact+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E7ABE1F1975390083C0F2 /* EmergencyContact+CoreDataProperties.swift */; };
 		CEA64B7C1F14B3500047C04C /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA64B7B1F14B3500047C04C /* Report.swift */; };
 		CEA64B7E1F14B3FB0047C04C /* ReportStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA64B7D1F14B3FB0047C04C /* ReportStore.swift */; };
-		CECA12881F16864E00A1ABA7 /* ReportsHistory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA12861F16864E00A1ABA7 /* ReportsHistory+CoreDataClass.swift */; };
-		CECA12891F16864E00A1ABA7 /* ReportsHistory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA12871F16864E00A1ABA7 /* ReportsHistory+CoreDataProperties.swift */; };
 		CECA128B1F16AA7B00A1ABA7 /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CECA128A1F16AA7B00A1ABA7 /* Contacts.framework */; };
 		CECA128D1F16AA8600A1ABA7 /* ContactsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CECA128C1F16AA8600A1ABA7 /* ContactsUI.framework */; };
 		CEFC73051F14C618008C769A /* ReportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC73041F14C618008C769A /* ReportTableViewController.swift */; };
@@ -78,6 +78,8 @@
 		4CDCAA7F1F191C7F00DBC79D /* SOSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SOSViewController.swift; path = iHelp/SOSViewController.swift; sourceTree = SOURCE_ROOT; };
 		684F2D9BFCAF1F03EEDEA154 /* Pods-iHelp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iHelp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iHelp/Pods-iHelp.debug.xcconfig"; sourceTree = "<group>"; };
 		BD10F2691F193CBF00516967 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		CE099F281F1BA31D00199904 /* ReportsHistory+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReportsHistory+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CE099F291F1BA31D00199904 /* ReportsHistory+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReportsHistory+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CE0E5D621F180EF400B8D1FC /* UserProfile+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UserProfile+CoreDataClass.swift"; path = "../UserProfile+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CE0E5D631F180EF400B8D1FC /* UserProfile+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UserProfile+CoreDataProperties.swift"; path = "../UserProfile+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CE0E5D671F1818DA00B8D1FC /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -114,8 +116,6 @@
 		CE9E7ABE1F1975390083C0F2 /* EmergencyContact+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EmergencyContact+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CEA64B7B1F14B3500047C04C /* Report.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		CEA64B7D1F14B3FB0047C04C /* ReportStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportStore.swift; sourceTree = "<group>"; };
-		CECA12861F16864E00A1ABA7 /* ReportsHistory+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ReportsHistory+CoreDataClass.swift"; path = "../ReportsHistory+CoreDataClass.swift"; sourceTree = "<group>"; };
-		CECA12871F16864E00A1ABA7 /* ReportsHistory+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ReportsHistory+CoreDataProperties.swift"; path = "../ReportsHistory+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CECA128A1F16AA7B00A1ABA7 /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
 		CECA128C1F16AA8600A1ABA7 /* ContactsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ContactsUI.framework; path = System/Library/Frameworks/ContactsUI.framework; sourceTree = SDKROOT; };
 		CEFC73041F14C618008C769A /* ReportTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTableViewController.swift; sourceTree = "<group>"; };
@@ -195,12 +195,12 @@
 		CE0E5D611F180EB600B8D1FC /* CoreDataResources */ = {
 			isa = PBXGroup;
 			children = (
+				CE099F281F1BA31D00199904 /* ReportsHistory+CoreDataClass.swift */,
+				CE099F291F1BA31D00199904 /* ReportsHistory+CoreDataProperties.swift */,
 				CE9E7ABD1F1975390083C0F2 /* EmergencyContact+CoreDataClass.swift */,
 				CE9E7ABE1F1975390083C0F2 /* EmergencyContact+CoreDataProperties.swift */,
 				CE0E5D621F180EF400B8D1FC /* UserProfile+CoreDataClass.swift */,
 				CE0E5D631F180EF400B8D1FC /* UserProfile+CoreDataProperties.swift */,
-				CECA12861F16864E00A1ABA7 /* ReportsHistory+CoreDataClass.swift */,
-				CECA12871F16864E00A1ABA7 /* ReportsHistory+CoreDataProperties.swift */,
 				CE6F836E1F153A5200899CB8 /* PersistanceManager.swift */,
 			);
 			name = CoreDataResources;
@@ -564,17 +564,17 @@
 				CE0E5D641F180EF400B8D1FC /* UserProfile+CoreDataClass.swift in Sources */,
 				CE9E7AC01F1975390083C0F2 /* EmergencyContact+CoreDataProperties.swift in Sources */,
 				CE0E5D6C1F18258E00B8D1FC /* UserProfileViewController.swift in Sources */,
+				CE099F2A1F1BA31D00199904 /* ReportsHistory+CoreDataClass.swift in Sources */,
 				4CDCAA801F191C7F00DBC79D /* SOSViewController.swift in Sources */,
 				CE37FDE11F190F4400FE0CCF /* SettingViewController.swift in Sources */,
 				CEA64B7C1F14B3500047C04C /* Report.swift in Sources */,
-				CECA12881F16864E00A1ABA7 /* ReportsHistory+CoreDataClass.swift in Sources */,
 				4B3803A61F1A12F3009599A6 /* ClinicalFolderViewController.swift in Sources */,
-				CECA12891F16864E00A1ABA7 /* ReportsHistory+CoreDataProperties.swift in Sources */,
 				CE03E6681F1954C7002B6F41 /* DataCore.xcdatamodeld in Sources */,
 				CE954EBE1F16329E00A9A95D /* SOS.swift in Sources */,
 				CE0E5D6A1F181A0F00B8D1FC /* CreateProfileViewController.swift in Sources */,
 				BD10F26A1F193CBF00516967 /* MapViewController.swift in Sources */,
 				CE0E5D651F180EF400B8D1FC /* UserProfile+CoreDataProperties.swift in Sources */,
+				CE099F2B1F1BA31D00199904 /* ReportsHistory+CoreDataProperties.swift in Sources */,
 				CE53F0861F14B810001EAC96 /* ReportCell.swift in Sources */,
 				CE8714121F1513780021F74D /* ContactDetailViewController.swift in Sources */,
 				CEFC730B1F14D38D008C769A /* ContactStore.swift in Sources */,

@@ -229,17 +229,25 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JYn-zQ-7sv">
-                                            <rect key="frame" x="70" y="17" width="297" height="21"/>
+                                            <rect key="frame" x="622" y="17" width="48" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="empty_avatar.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Bta-AO-bTW">
-                                            <rect key="frame" x="14" y="3" width="48" height="48"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty_avatar.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Bta-AO-bTW">
+                                            <rect key="frame" x="20" y="6" width="48" height="48"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="48" id="I96-Ev-gIf"/>
+                                                <constraint firstAttribute="width" constant="48" id="NpU-gS-Oxe"/>
+                                            </constraints>
                                         </imageView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Bta-AO-bTW" firstAttribute="leading" secondItem="6SW-d7-ObT" secondAttribute="leading" constant="20" symbolic="YES" id="8a4-vX-HOB"/>
+                                        <constraint firstAttribute="bottom" secondItem="Bta-AO-bTW" secondAttribute="bottom" constant="6" id="Wje-CV-leP"/>
+                                        <constraint firstItem="Bta-AO-bTW" firstAttribute="top" secondItem="6SW-d7-ObT" secondAttribute="top" constant="6" id="yIB-wJ-svP"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="contactName" destination="JYn-zQ-7sv" id="LBK-iG-8Bd"/>

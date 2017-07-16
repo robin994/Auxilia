@@ -189,6 +189,7 @@ class PersistanceManager {
                 try persistentContainer.viewContext.execute(deleteRequestUPFR)
             }
             self.saveContext()
+            
             if let viewController: UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WelcomeView") {
                 if let navigator = navigationController {
                     navigator.pushViewController(viewController, animated: true)

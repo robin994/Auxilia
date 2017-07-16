@@ -13,14 +13,14 @@ class Report: NSObject {
     var name: String
     var date: Date
     var isMine: Bool
-    var contact: CNContact
+    var phoneNumber: String
     var message: String
     
-    init(name: String, isMine: Bool, contact: CNContact, message: String) {
+    init(name: String, isMine: Bool, phoneNumber: String, message: String) {
         self.name = name
         date = Date()
         self.isMine = isMine
-        self.contact = contact
+        self.phoneNumber = phoneNumber
         self.message = message
     }
 }

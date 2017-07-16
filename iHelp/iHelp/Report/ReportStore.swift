@@ -20,8 +20,21 @@ class ReportStore: NSObject {
     
     func reloadSavedReports() {
         for report in PersistanceManager.fetchDataReportHistory() {
-            let contact = ContactStore.getCNContact(report.contactIdentifier!)
-            array.append(Report(name: report.name!, isMine: report.isMine, contact: contact!, message: report.message!))
+            array.append(
+                Report(
+                    name: report.name!,
+                    isMine: report.isMine,
+                    phoneNumber: report.contactIdentifier!,
+                    message: report.message!,
+                    clinicalFolder: ClinicalFolder(sesso: report.sesso!,
+                                                   dataDiNascita: report.birthday! as Date,
+                                                   altezza: report.height,
+                                                   peso: report.weight,
+                                                   gruppoSanguigno: report.bloodGroup!,
+                                                   sediaARotelle: report.wheelchair,
+                                                   ultimoBattito: report.hearthrate!)
+                )
+            )
         }
 
         

@@ -26,6 +26,11 @@ extension ReportsHistory {
     @NSManaged public var velocity: Double
     @NSManaged public var wheelchair: Bool
     @NSManaged public var audioMessage: NSData?
-    @NSManaged public var bloodGroup: NSDecimalNumber?
+    @NSManaged public var bloodGroup: String?
+    @NSManaged public var birthday: NSDate?
+    @NSManaged public var height: Float
+    @NSManaged public var hearthrate: String?
+    @NSManaged public var sesso: String?
+    @NSManaged public var weight: Float
 
 }

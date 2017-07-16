@@ -9,22 +9,20 @@
 import Foundation
 class ClinicalFolder: NSObject {
     var sesso: String?
-    var dataDiNascita: String?
-    var altezza: String?
-    var peso: String?
+    var dataDiNascita: Date?
+    var altezza: Float?
+    var peso: Float?
     var gruppoSanguigno: String?
-    var fototipo: String?
-    var sediaARotelle: String?
+    var sediaARotelle: Bool?
     var ultimoBattito: String?
     
     
-    init(sesso: String, dataDiNascita: String, altezza: String, peso: String, gruppoSanguigno: String, fototipo: String, sediaARotelle: String, ultimoBattito: String) {
+    init(sesso: String, dataDiNascita: Date, altezza: Float, peso: Float, gruppoSanguigno: String, sediaARotelle: Bool, ultimoBattito: String) {
         self.sesso = sesso
         self.dataDiNascita = dataDiNascita
         self.altezza = altezza
         self.peso = peso
         self.gruppoSanguigno = gruppoSanguigno
-        self.fototipo = fototipo
         self.sediaARotelle = sediaARotelle
         self.ultimoBattito = ultimoBattito
     }

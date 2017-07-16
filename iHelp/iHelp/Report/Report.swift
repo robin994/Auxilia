@@ -15,12 +15,13 @@ class Report: NSObject {
     var isMine: Bool
     var phoneNumber: String
     var message: String
-    
-    init(name: String, isMine: Bool, phoneNumber: String, message: String) {
+    var clinicalFolder: ClinicalFolder
+    init(name: String, isMine: Bool, phoneNumber: String, message: String, clinicalFolder: ClinicalFolder) {
         self.name = name
         date = Date()
         self.isMine = isMine
         self.phoneNumber = phoneNumber
         self.message = message
+        self.clinicalFolder = clinicalFolder
     }
 }

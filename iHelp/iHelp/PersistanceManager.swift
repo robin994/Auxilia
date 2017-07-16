@@ -79,7 +79,7 @@ class PersistanceManager {
         let context = getContext()
         
         let report = NSEntityDescription.insertNewObject(forEntityName: reportHistoryEntity, into: context) as! ReportsHistory
-        report.contactIdentifier = toAdd.contact.identifier
+        report.contactIdentifier = toAdd.phoneNumber
         report.creationDate = toAdd.date as NSDate
         report.message = toAdd.message
         report.isMine = toAdd.isMine
@@ -91,7 +91,7 @@ class PersistanceManager {
         let context = getContext()
         let datas: [ReportsHistory] = fetchDataReportHistory()
         for data in datas {
-            if (data.contactIdentifier == toRemove.contact.identifier) {
+            if (data.contactIdentifier == toRemove.phoneNumber) {
                 context.delete(data)
             }
         }

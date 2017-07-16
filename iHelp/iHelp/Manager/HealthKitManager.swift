@@ -24,6 +24,8 @@ class HealthKitManager {
      return readDataTypes
      }
     
+    
+    
     func authorizeHealthKit(_ completion: ((_ success: Bool, _ error: NSError?) -> Void)!) {
       
           let readDataTypes: Set<HKObjectType> = self.dataTypesToRead()
@@ -357,4 +359,7 @@ class HealthKitManager {
         // Time to execute the query.
         self.healthKitStore.execute(weightQuery)
     }
+    
+    
+
 }

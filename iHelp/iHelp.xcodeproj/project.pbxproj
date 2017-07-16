@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4B3803A61F1A12F3009599A6 /* ClinicalFolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3803A51F1A12F3009599A6 /* ClinicalFolderViewController.swift */; };
 		4BD2D59F1F1A31DA00201A7A /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD2D59E1F1A31DA00201A7A /* HealthKitManager.swift */; };
+		4BDA9B421F1B8CC30076C349 /* ClinicalFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDA9B411F1B8CC30076C349 /* ClinicalFolder.swift */; };
 		4CDCAA801F191C7F00DBC79D /* SOSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDCAA7F1F191C7F00DBC79D /* SOSViewController.swift */; };
 		BD10F26A1F193CBF00516967 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD10F2691F193CBF00516967 /* MapViewController.swift */; };
 		CE03E6681F1954C7002B6F41 /* DataCore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE6F835F1F152E9600899CB8 /* DataCore.xcdatamodeld */; };
@@ -73,6 +74,7 @@
 		2CE0F134E4C6397093D0CF4B /* Pods-iHelp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iHelp.release.xcconfig"; path = "Pods/Target Support Files/Pods-iHelp/Pods-iHelp.release.xcconfig"; sourceTree = "<group>"; };
 		4B3803A51F1A12F3009599A6 /* ClinicalFolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicalFolderViewController.swift; sourceTree = "<group>"; };
 		4BD2D59E1F1A31DA00201A7A /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
+		4BDA9B411F1B8CC30076C349 /* ClinicalFolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicalFolder.swift; sourceTree = "<group>"; };
 		4CDCAA7D1F19197600DBC79D /* iHelpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iHelpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CDCAA7E1F19197600DBC79D /* iHelpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iHelpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CDCAA7F1F191C7F00DBC79D /* SOSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SOSViewController.swift; path = iHelp/SOSViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -202,6 +204,7 @@
 				CECA12861F16864E00A1ABA7 /* ReportsHistory+CoreDataClass.swift */,
 				CECA12871F16864E00A1ABA7 /* ReportsHistory+CoreDataProperties.swift */,
 				CE6F836E1F153A5200899CB8 /* PersistanceManager.swift */,
+				4BDA9B411F1B8CC30076C349 /* ClinicalFolder.swift */,
 			);
 			name = CoreDataResources;
 			sourceTree = "<group>";
@@ -552,6 +555,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BDA9B421F1B8CC30076C349 /* ClinicalFolder.swift in Sources */,
 				CE6F836F1F153A5200899CB8 /* PersistanceManager.swift in Sources */,
 				CEFC730D1F14D3EE008C769A /* ContactCell.swift in Sources */,
 				CEFC730F1F14D520008C769A /* ContactTableView.swift in Sources */,

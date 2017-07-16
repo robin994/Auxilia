@@ -24,6 +24,10 @@ class ClinicalFolderViewController: UITableViewController {
     let healthManager:HealthKitManager = HealthKitManager()
     var height: HKQuantitySample?
     var weight: HKQuantitySample?
+    var heightString = ""
+    var weightString = ""
+    var clinicalFolderObject: ClinicalFolder?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +43,9 @@ class ClinicalFolderViewController: UITableViewController {
         sediaArotelle.text = dati.chairUse
         setHeight()
         setWeight()
+        clinicalFolderObject = ClinicalFolder(sesso: dati.biologicalsex!, dataDiNascita: dati.age!, altezza: heightString, peso: weightString, gruppoSanguigno: dati.bloodtype!, fototipo: dati.skin!, sediaARotelle: dati.chairUse!, ultimoBattito: "")
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -80,7 +87,7 @@ class ClinicalFolderViewController: UITableViewController {
                 return
             }
             
-            var heightString = ""
+            
             
             self.height = userHeight as? HKQuantitySample
             
@@ -88,12 +95,12 @@ class ClinicalFolderViewController: UITableViewController {
             if let meters = self.height?.quantity.doubleValue(for: HKUnit.meter()) {
                 let formatHeight = LengthFormatter()
                 formatHeight.isForPersonHeightUse = true
-                heightString = formatHeight.string(fromMeters: meters)
+                self.heightString = formatHeight.string(fromMeters: meters)
             }
             
             // Set the label to reflect the user's height.
             DispatchQueue.main.async(execute: { () -> Void in
-                self.altezza.text = heightString
+                self.altezza.text = self.heightString
             })
         })
         print("\n\n\n setHeight")
@@ -111,7 +118,7 @@ class ClinicalFolderViewController: UITableViewController {
                 return
             }
             
-            var weightString = "oo"
+            
             
             self.weight = userWeight as? HKQuantitySample
             
@@ -119,7 +126,7 @@ class ClinicalFolderViewController: UITableViewController {
             if let gram = self.weight?.quantity.doubleValue(for: HKUnit.gram()) {
                 let formatWeight = MassFormatter()
                 formatWeight.isForPersonMassUse = true
-                weightString = formatWeight.string(fromKilograms: gram)
+                self.weightString = formatWeight.string(fromKilograms: gram)
             }
             
           //  let weightInt: Int = Int(gram)!
@@ -128,7 +135,7 @@ class ClinicalFolderViewController: UITableViewController {
             
             // Set the label to reflect the user's height.
             DispatchQueue.main.async(execute: { () -> Void in
-                self.peso.text = weightString
+                self.peso.text = self.weightString
             })
          
         })

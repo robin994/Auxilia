@@ -31,6 +31,7 @@ class ReportStore: NSObject {
                                                    altezza: report.height!,
                                                    peso: report.weight!,
                                                    gruppoSanguigno: report.bloodGroup!,
+                                                   fototipo: report.fototipo!,
                                                    sediaARotelle: report.wheelchair!,
                                                    ultimoBattito: report.hearthrate!)
                 )

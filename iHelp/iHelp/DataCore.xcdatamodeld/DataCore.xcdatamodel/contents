@@ -12,6 +12,7 @@
         <attribute name="bloodGroup" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="contactIdentifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="fototipo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="hearthrate" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="height" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isMine" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
@@ -33,7 +34,7 @@
     </entity>
     <elements>
         <element name="EmergencyContact" positionX="171" positionY="18" width="128" height="103"/>
-        <element name="ReportsHistory" positionX="-54" positionY="18" width="128" height="285"/>
+        <element name="ReportsHistory" positionX="-54" positionY="18" width="128" height="300"/>
         <element name="UserProfile" positionX="63" positionY="54" width="128" height="120"/>
     </elements>
 </model>

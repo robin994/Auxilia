@@ -43,7 +43,7 @@ class ClinicalFolderViewController: UITableViewController {
         sediaArotelle.text = dati.chairUse
         setHeight()
         setWeight()
-        clinicalFolderObject = ClinicalFolder(sesso: dati.biologicalsex!, dataDiNascita: dati.age!, altezza: heightString, peso: weightString, gruppoSanguigno: dati.bloodtype!, sediaARotelle: dati.chairUse!, ultimoBattito: "")
+        clinicalFolderObject = ClinicalFolder(sesso: dati.biologicalsex!, dataDiNascita: dati.age!, altezza: heightString, peso: weightString, gruppoSanguigno: dati.bloodtype!, fototipo: fototipo.text! , sediaARotelle: dati.chairUse!, ultimoBattito: "")
         
         
     }

@@ -243,15 +243,15 @@ class ReportTableViewController: UITableViewController {
         switch segue.identifier {
         case "show"? :
             if let currentindex = tableView.indexPathForSelectedRow?.row {
-                let currentContact = reportStore.array[currentindex]
+                let currentReport = reportStore.array[currentindex]
                 let dstView = segue.destination as! ReportDetailViewController
-                dstView.currentContact = currentContact
+                dstView.currentReport = currentReport
             }
         default :
             if let currentindex = tableView.indexPathForSelectedRow?.row {
-                let currentContact = contactStore.array[currentindex]
+                let currentReport = reportStore.array[currentindex]
                 let dstView = segue.destination as! ReportDetailViewController
-                dstView.currentContact = currentContact
+                dstView.currentReport = currentReport
             }
         }
     }

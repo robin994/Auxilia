@@ -12,7 +12,27 @@ class CreateProfileViewController: UITableViewController , UIImagePickerControll
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        //crea immagine sfocata
+        let darkBlur = UIBlurEffect(style: UIBlurEffectStyle.dark)
+        let blurView = UIVisualEffectView(effect: darkBlur)
+        blurView.frame = blurredImageView.bounds
+        blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        blurredImageView.addSubview(blurView)
+        
+        imageView.clipsToBounds = true
+        imageView.layer.borderWidth = 1.0;
+        imageView.layer.borderColor = UIColor.white.cgColor
+        imageView.layer.masksToBounds = true;
+        imageView.layer.cornerRadius = imageView.frame.height / 2
+        imageView.layer.borderColor = UIColor.gray.cgColor;
+        
+        confirmButton.layer.masksToBounds = true
+        confirmButton.layer.cornerRadius = 20
+        
+        nameField.underlined()
+        surnameField.underlined()
+        addressField.underlined()
         // Do any additional setup after loading the view.
     }
 
@@ -58,6 +78,7 @@ class CreateProfileViewController: UITableViewController , UIImagePickerControll
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerEditedImage] as! UIImage
         imageView.image = image
+        blurredImageView.image = imageView.image
         dismiss(animated: true, completion: nil)
     }
 
@@ -91,12 +112,13 @@ class CreateProfileViewController: UITableViewController , UIImagePickerControll
             }
         }
     }
-    
+
+    @IBOutlet weak var blurredImageView: UIImageView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var surnameField: UITextField!
     @IBOutlet weak var addressField: UITextField!
-    
+    @IBOutlet weak var confirmButton: UIButton!
     /*
     // MARK: - Navigation
 

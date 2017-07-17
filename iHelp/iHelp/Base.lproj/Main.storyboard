@@ -442,14 +442,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection id="j16-L9-dBj">
+                            <tableViewSection headerTitle="Data Usage" footerTitle="Send an SMS when data connection isn't aviable in your area. It may not be free." id="j16-L9-dBj">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="TeV-Vg-GAF">
-                                        <rect key="frame" x="0.0" y="35" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TeV-Vg-GAF" id="E4H-s6-N24">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Send as SMS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWR-QK-hGc">
+                                                    <rect key="frame" x="20" y="11" width="276" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Ar-8r-FMj">
+                                                    <rect key="frame" x="304" y="6" width="51" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </switch>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -457,7 +470,7 @@
                             <tableViewSection id="oNA-qw-MhE">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Kw3-8G-kkQ">
-                                        <rect key="frame" x="0.0" y="115" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="163.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kw3-8G-kkQ" id="fiZ-HH-mkV">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -469,7 +482,7 @@
                             <tableViewSection headerTitle="Extra" id="pND-YA-tHW">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" id="yTm-CT-gnd">
-                                        <rect key="frame" x="0.0" y="215" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="263.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yTm-CT-gnd" id="3ek-cB-IcJ">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -806,7 +819,7 @@
         <!--View Controller-->
         <scene sceneID="QJN-9t-jIP">
             <objects>
-                <viewController restorationIdentifier="SOSViewController" storyboardIdentifier="SOSViewController" id="gDR-KW-Z93" customClass="SOSViewController" customModule="iHelp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="SOSViewController" storyboardIdentifier="SOSViewController" hidesBottomBarWhenPushed="YES" id="gDR-KW-Z93" customClass="SOSViewController" customModule="iHelp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bFd-et-ccd"/>
                         <viewControllerLayoutGuide type="bottom" id="Bhp-5V-ggv"/>
@@ -815,57 +828,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="X8i-dw-LaN">
-                                <rect key="frame" x="16" y="20" width="343" height="647"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AxE-Mu-ahM">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="162"/>
-                                        <state key="normal" title="record"/>
-                                        <connections>
-                                            <action selector="recordAudio:" destination="gDR-KW-Z93" eventType="touchUpInside" id="0Da-RI-gIZ"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lv9-qh-Vtz">
-                                        <rect key="frame" x="0.0" y="162" width="343" height="161.5"/>
-                                        <state key="normal" title="stop"/>
-                                        <connections>
-                                            <action selector="stopAudio:" destination="gDR-KW-Z93" eventType="touchUpInside" id="5Cb-sS-smW"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CRl-KQ-J70">
-                                        <rect key="frame" x="0.0" y="323.5" width="343" height="162"/>
-                                        <state key="normal" title="play"/>
-                                        <connections>
-                                            <action selector="playAudio:" destination="gDR-KW-Z93" eventType="touchUpInside" id="KKM-Ul-Jua"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDP-Zz-aNT">
-                                        <rect key="frame" x="0.0" y="485.5" width="343" height="161.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lv9-qh-Vtz">
+                                <rect key="frame" x="0.0" y="567" width="190" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.079394028180000006" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="39"/>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" white="0.96999999999999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="stopAudio:" destination="gDR-KW-Z93" eventType="touchUpInside" id="5Cb-sS-smW"/>
+                                </connections>
+                            </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ZJT-Ua-AHw">
+                                <rect key="frame" x="77" y="401" width="221" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </progressView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="microphone.png" translatesAutoresizingMaskIntoConstraints="NO" id="mX2-DG-a3k">
+                                <rect key="frame" x="123" y="265" width="128" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U1z-7J-N8q">
+                                <rect key="frame" x="186" y="567" width="190" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.39189002985886034" green="0.89809560779999997" blue="0.29277348033971362" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="39"/>
+                                <state key="normal" title="✓">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="iPhone is recording and getting your actual position. Datas will be shared only with your emergency contacts." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="fTm-ed-yUl">
+                                <rect key="frame" x="16" y="28" width="343" height="151"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="X8i-dw-LaN" firstAttribute="top" secondItem="bFd-et-ccd" secondAttribute="bottom" id="DOI-Ir-Q1p"/>
-                            <constraint firstItem="Bhp-5V-ggv" firstAttribute="top" secondItem="X8i-dw-LaN" secondAttribute="bottom" id="FkG-b0-5IR"/>
-                            <constraint firstItem="X8i-dw-LaN" firstAttribute="leading" secondItem="iwx-MQ-AF2" secondAttribute="leadingMargin" id="Ybj-wI-EgS"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="X8i-dw-LaN" secondAttribute="trailing" id="lkD-w4-hxQ"/>
-                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="labelTestoTradotto" destination="fDP-Zz-aNT" id="esr-K3-ubP"/>
-                        <outlet property="playButton" destination="CRl-KQ-J70" id="WZi-bh-LRZ"/>
-                        <outlet property="recordButton" destination="AxE-Mu-ahM" id="J4n-F8-Vt1"/>
-                        <outlet property="stopButton" destination="lv9-qh-Vtz" id="uF9-r7-KNZ"/>
+                        <outlet property="cancelButton" destination="lv9-qh-Vtz" id="W4s-8v-F1H"/>
+                        <outlet property="confirmButton" destination="U1z-7J-N8q" id="CJ6-jV-k0b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nxI-ML-xwn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-116" y="1631"/>
+            <point key="canvasLocation" x="-116" y="1630.4347826086957"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bUh-0u-wwp">
@@ -1303,5 +1312,6 @@
     <resources>
         <image name="empty_avatar.jpg" width="600" height="600"/>
         <image name="logo.png" width="487" height="491"/>
+        <image name="microphone.png" width="125" height="133"/>
     </resources>
 </document>

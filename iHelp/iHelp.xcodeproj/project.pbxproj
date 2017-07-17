@@ -430,7 +430,7 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = K8WJKQA676;
 						LastSwiftMigration = 0900;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 0;
@@ -769,7 +769,8 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = iHelp/iHelp.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = K8WJKQA676;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = iHelp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -779,8 +780,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = it.unisa.iosfoundation.trt2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "255aaf0e-e6d3-4184-afe9-33cc6c84c1bf";
+				PROVISIONING_PROFILE_SPECIFIER = cirillo2;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -792,7 +793,8 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = iHelp/iHelp.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = K8WJKQA676;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = iHelp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -802,8 +804,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = it.unisa.iosfoundation.trt2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "255aaf0e-e6d3-4184-afe9-33cc6c84c1bf";
+				PROVISIONING_PROFILE_SPECIFIER = cirillo2;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

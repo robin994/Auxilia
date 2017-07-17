@@ -14,8 +14,10 @@ class ReportStore: NSObject {
     
     
     func addReport(report : Report) {
-        PersistanceManager.newReportHistory(toAdd: report)
-        array.append(report)
+        if (!PersistanceManager.isReportAlreadyInside(toCheck: report)) {
+            PersistanceManager.newReportHistory(toAdd: report)
+            array.append(report)
+        }
     }
     
     func reloadSavedReports() {

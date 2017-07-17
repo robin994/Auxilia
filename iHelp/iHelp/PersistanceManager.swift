@@ -55,6 +55,16 @@ class PersistanceManager {
 
     }
     
+    static func isReportAlreadyInside(toCheck: Report) -> Bool {
+            let reports = PersistanceManager.fetchDataReportHistory()
+        for report in reports {
+            if (toCheck.date as NSDate == report.creationDate) {
+                return true
+            }
+        }
+        return false
+    }
+    
     static func fetchDataUserProfile() -> [UserProfile] {
         var users = [UserProfile]()
         

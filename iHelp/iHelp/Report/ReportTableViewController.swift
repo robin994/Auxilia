@@ -53,17 +53,20 @@ class ReportTableViewController: UITableViewController {
         
         let ourQuery = CKQuery(recordType: "Notifiche", predicate: ourPredicate)
         
-        ourQuery.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
-        
+        ourQuery.sortDescriptors = [NSSortDescriptor(key: "contactIdentifier", ascending: false)]
+        NSLog("Fatto il sort")
+        NSLog(ourQuery.sortDescriptors!.description)
         ourDataPublicDataBase.perform(ourQuery, inZoneWith: nil) { (results, error) in
-            
+         NSLog("Fatta query")
             if error != nil {
                 print("Error \(error.debugDescription)")
             }
             else{
                 for results2 in results!{
                     self.NamesArray.append(results2)
-                    print(results2)
+                    NSLog("SONO QUI")
+                    //print(results2)
+                    self.reloadReports()
                 }
                 
                 OperationQueue.main.addOperation({ () -> Void in
@@ -76,7 +79,25 @@ class ReportTableViewController: UITableViewController {
         }
     }
     
-
+    func reloadReports() {
+        for notifica in NamesArray {
+            //NSLog(report.description)
+            let report = Report(
+                name: String(describing: notifica.value(forKey: "name")),
+                isMine: false,
+                phoneNumber: String(describing: notifica.value(forKey: "phoneNumber")),
+                message: String(describing: notifica.value(forKey: "message")),
+                clinicalFolder: ClinicalFolder(sesso: String(describing: notifica.value(forKey: "sex")),
+                                               dataDiNascita: String(describing: notifica.value(forKey: "birthday")),
+                                               altezza: String(describing: notifica.value(forKey: "height")),
+                                               peso: String(describing: notifica.value(forKey: "weight")),
+                                               gruppoSanguigno: String(describing: notifica.value(forKey: "bloodGroup")),
+                                               fototipo: String(describing: notifica.value(forKey: "fototipo")),
+                                               sediaARotelle: String(describing: notifica.value(forKey: "wheelchair")),
+                                               ultimoBattito: String(describing: notifica.value(forKey: "heartrate"))))
+         self.addReport(toAdd: report)
+        }
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

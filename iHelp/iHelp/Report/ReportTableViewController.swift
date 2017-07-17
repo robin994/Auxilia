@@ -8,7 +8,6 @@
 
 import UIKit
 import CloudKit
-import FirebaseMessaging
 
 class ReportTableViewController: UITableViewController {
     
@@ -19,23 +18,26 @@ class ReportTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let users: [UserProfile] = PersistanceManager.fetchDataUserProfile()
+        reportStore = ReportStore()
+        NSLog(users.description)
         if users.isEmpty {
+            NSLog("Errore qui")
             if let viewController: UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WelcomeView") {
                 if let navigator = navigationController {
                     navigator.pushViewController(viewController, animated: true)
                 }
             }
+        } else {
+            refresh = UIRefreshControl()
+            refresh.attributedTitle = NSAttributedString(string: "Pull to resfresh")
+            refresh.addTarget(self, action: "refreshData", for: UIControlEvents.valueChanged)
+            
+            tableView.addSubview(refresh!)
+            refresh.beginRefreshing()
+        
+            
+            refreshData()
         }
-        refresh = UIRefreshControl()
-        refresh.attributedTitle = NSAttributedString(string: "Pull to resfresh")
-        refresh.addTarget(self, action: "refreshData", for: UIControlEvents.valueChanged)
-        
-        tableView.addSubview(refresh!)
-        refresh.beginRefreshing()
-        
-        reportStore = ReportStore()
-        refreshData()
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

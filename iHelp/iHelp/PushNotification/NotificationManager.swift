@@ -10,24 +10,20 @@ import UIKit
 import Firebase
 import FirebaseMessaging
 
-class ViewController: UIViewController {
-
-    @IBOutlet weak var send: UIButton!
+class NotificationManager: NSObject {
     
-    @IBOutlet weak var topic: UIButton!
-    
-    @IBAction func subscrive(_ sender: Any) {
-        Messaging.messaging().subscribe(toTopic: "/topics/Notifiche")
+    static func subscribe(_ toSubscribe: String) {
+        Messaging.messaging().subscribe(toTopic: "/topics/\(toSubscribe)")
     }
     
-    @IBAction func sendNotification(_ sender: Any) {
+    static func sendNotification(topic: String, message: String, title: String) {
         let url = NSURL(string: "https://fcm.googleapis.com/fcm/send")
         let tk = InstanceID.instanceID().token()
         
-        print("\n\n \(tk!) \n\n")
+        //print("\n\n \(tk!) \n\n")
         let postParams = [
-            "to": "/topics/Notifiche",
-            "notification": ["body": "This is the body.", "title": "This is the title.", "icon" : "logo.png"]
+            "to": "/topics/\(topic)",
+            "notification": ["body": message, "title": title]
             ] as [String : Any]
         
         let request = NSMutableURLRequest(url: url! as URL)
@@ -62,11 +58,6 @@ class ViewController: UIViewController {
         }
         
         task.resume()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
 

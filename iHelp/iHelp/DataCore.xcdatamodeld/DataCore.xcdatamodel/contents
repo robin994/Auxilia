@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16F73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13154.30" systemVersion="16F73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="EmergencyContact" representedClassName=".EmergencyContact" syncable="YES">
         <attribute name="contactIdentifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -25,6 +25,9 @@
         <attribute name="weight" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="wheelchair" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="TopicsIscritto" representedClassName="TopicsIscritto" syncable="YES">
+        <attribute name="topic" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="UserProfile" representedClassName="UserProfile" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isSet" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
@@ -36,5 +39,6 @@
         <element name="EmergencyContact" positionX="171" positionY="18" width="128" height="103"/>
         <element name="ReportsHistory" positionX="-54" positionY="18" width="128" height="300"/>
         <element name="UserProfile" positionX="63" positionY="54" width="128" height="120"/>
+        <element name="TopicsIscritto" positionX="63" positionY="144" width="128" height="60"/>
     </elements>
 </model>

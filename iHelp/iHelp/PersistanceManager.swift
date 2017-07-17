@@ -13,12 +13,49 @@ class PersistanceManager {
     static let emergencyContactEntity = "EmergencyContact"
     static let reportHistoryEntity = "ReportsHistory"
     static let userProfileEntity = "UserProfile"
+    static let topicEntity = "TopicsIscritto"
     
     static func getContext() -> NSManagedObjectContext {
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.persistentContainer.viewContext
     }
+    
+    static func setNewTopic(toAdd: String) {
+        let context = getContext()
+        
+        let topic = NSEntityDescription.insertNewObject(forEntityName: topicEntity, into: context) as! TopicsIscritto
+        topic.topic = toAdd
+        saveContext()
+    }
+    
+    static func fetchRequestTopics() -> [TopicsIscritto] {
+        var topics = [TopicsIscritto]()
+        let context = getContext()
+        let fetchRequest = NSFetchRequest<TopicsIscritto>(entityName: topicEntity)
+        
+        do {
+            try topics = context.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Error in \(error.code)")
+        }
+        NSLog("Fetched data topics")
+        
+        return topics
+    }
+    
+    static func removeTopic(toRemove: String) {
+        let topics = PersistanceManager.fetchRequestTopics()
+        let context = getContext()
+        for topic in topics {
+            if (topic.topic == toRemove) {
+                context.delete(topic)
+                break
+            }
+        }
+        NSLog("Removed topic : \(toRemove)")
+    }
+    
     
     static func setEmptyProfile() {
         let context = getContext()

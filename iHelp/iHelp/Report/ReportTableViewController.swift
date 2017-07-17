@@ -8,6 +8,7 @@
 
 import UIKit
 import CloudKit
+import FirebaseMessaging
 
 class ReportTableViewController: UITableViewController {
     
@@ -44,7 +45,9 @@ class ReportTableViewController: UITableViewController {
     
     func refreshData() {
         NSLog("Richiesta refresh data")
-        
+        NSLog("Reload Topics")
+        reloadTopics()
+        NSLog("Reload Notifiche")
         NamesArray = Array<CKRecord>()
         let ourDataPublicDataBase = CKContainer.default().publicCloudDatabase
         
@@ -78,6 +81,49 @@ class ReportTableViewController: UITableViewController {
             }
         }
     }
+    
+    func reloadTopics() {
+        var topics = Array<CKRecord>()
+        let ourDataPublicDataBase = CKContainer.default().publicCloudDatabase
+        
+        //in order to see our data value: true
+        let numeroDiTelefono = PersistanceManager.fetchDataUserProfile().first?.address
+        NSLog(String(describing: numeroDiTelefono!))
+        
+        //in order to see our data value: true
+        let ourPredicate = NSPredicate(format: "Iscritto = '\(numeroDiTelefono!)'")
+        
+        let ourQuery = CKQuery(recordType: "Topics", predicate: ourPredicate)
+        
+        ourQuery.sortDescriptors = [NSSortDescriptor(key: "Iscritto", ascending: false)]
+        NSLog("Fatto il sort topics")
+        NSLog(ourQuery.sortDescriptors!.description)
+        ourDataPublicDataBase.perform(ourQuery, inZoneWith: nil) { (results, error) in
+            NSLog("Fatta query topics")
+            if error != nil {
+                print("Error \(error.debugDescription)")
+            }
+            else{
+                for results2 in results!{
+                    topics.append(results2)
+                    NSLog("SONO QUI")
+                    //print(results2)
+                    let numeroDiTelefonoIscritto = results2.value(forKey: "Proprietario") as! String
+                    PersistanceManager.setNewTopic(toAdd: numeroDiTelefonoIscritto)
+                    NotificationManager.subscribe(numeroDiTelefonoIscritto)
+                    //DA AGGIUNGERE RELOADS TOPICS
+                }
+                
+                OperationQueue.main.addOperation({ () -> Void in
+                    self.tableView.reloadData()
+                    self.tableView.isHidden = false
+                    self.refresh?.endRefreshing()
+                })
+                
+            }
+        }
+    }
+    
     
     func reloadReports() {
         for notifica in NamesArray {

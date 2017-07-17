@@ -112,7 +112,6 @@ class ReportTableViewController: UITableViewController {
                     NSLog("SONO QUI")
                     //print(results2)
                     let numeroDiTelefonoIscritto = results2.value(forKey: "Proprietario") as! String
-                    PersistanceManager.setNewTopic(toAdd: numeroDiTelefonoIscritto)
                     NotificationManager.subscribe(numeroDiTelefonoIscritto)
                     //DA AGGIUNGERE RELOADS TOPICS
                 }

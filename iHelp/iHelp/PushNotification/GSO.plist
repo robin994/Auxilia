@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>593199004615-3plffngkv603pqv7ngv9to98hmc2hb78.apps.googleusercontent.com</string>
+	<string>593199004615-2csiut4o8n1vcol9kbkb294berl2lflc.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.593199004615-3plffngkv603pqv7ngv9to98hmc2hb78</string>
+	<string>com.googleusercontent.apps.593199004615-2csiut4o8n1vcol9kbkb294berl2lflc</string>
 	<key>API_KEY</key>
 	<string>AIzaSyAJ4TgREvhux3kvMRWiS08bB7inMyBEsqY</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>it.unisa.iosfoundation.trt2</string>
+	<string>it.unisa.iosfoundation.trt</string>
 	<key>PROJECT_ID</key>
 	<string>pushnotification-86884</string>
 	<key>STORAGE_BUCKET</key>
@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:593199004615:ios:6dc8cf4038fac6ac</string>
+	<string>1:593199004615:ios:8ca768f251df73d7</string>
 	<key>DATABASE_URL</key>
 	<string>https://pushnotification-86884.firebaseio.com</string>
 </dict>

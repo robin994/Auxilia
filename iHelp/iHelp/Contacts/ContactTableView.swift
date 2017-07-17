@@ -123,7 +123,7 @@ class ContactTableView: UITableViewController, CNContactPickerDelegate {
     */
 
     @IBAction func iscriviti(_ sender: UIBarButtonItem) {
-        NotificationManager.subscribe("Roberto")
+        NotificationManager.subscribe("Notifiche")
     }
     
     @IBAction func inviaNotifica(_ sender: UIBarButtonItem) {

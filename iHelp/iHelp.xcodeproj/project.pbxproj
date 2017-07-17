@@ -39,7 +39,6 @@
 		CE6F836F1F153A5200899CB8 /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F836E1F153A5200899CB8 /* PersistanceManager.swift */; };
 		CE8714121F1513780021F74D /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8714111F1513780021F74D /* ContactDetailViewController.swift */; };
 		CE8714141F1522660021F74D /* empty_avatar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE8714131F1522660021F74D /* empty_avatar.jpg */; };
-		CE934CB31F18C51900F8D2DF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE934CAF1F18C51900F8D2DF /* GoogleService-Info.plist */; };
 		CE934CB41F18C51900F8D2DF /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = CE934CB01F18C51900F8D2DF /* logo.png */; };
 		CE934CB51F18C51900F8D2DF /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE934CB21F18C51900F8D2DF /* NotificationManager.swift */; };
 		CE934CB71F18C97A00F8D2DF /* libPods-PushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE934CB61F18C97A00F8D2DF /* libPods-PushNotification.a */; };
@@ -49,6 +48,7 @@
 		CE9E7AC01F1975390083C0F2 /* EmergencyContact+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E7ABE1F1975390083C0F2 /* EmergencyContact+CoreDataProperties.swift */; };
 		CEA64B7C1F14B3500047C04C /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA64B7B1F14B3500047C04C /* Report.swift */; };
 		CEA64B7E1F14B3FB0047C04C /* ReportStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA64B7D1F14B3FB0047C04C /* ReportStore.swift */; };
+		CEB6324A1F1D3AE600E43555 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CEB632491F1D3AE600E43555 /* GoogleService-Info.plist */; };
 		CECA128B1F16AA7B00A1ABA7 /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CECA128A1F16AA7B00A1ABA7 /* Contacts.framework */; };
 		CECA128D1F16AA8600A1ABA7 /* ContactsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CECA128C1F16AA8600A1ABA7 /* ContactsUI.framework */; };
 		CEFC73051F14C618008C769A /* ReportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC73041F14C618008C769A /* ReportTableViewController.swift */; };
@@ -116,7 +116,6 @@
 		CE6F836E1F153A5200899CB8 /* PersistanceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistanceManager.swift; sourceTree = "<group>"; };
 		CE8714111F1513780021F74D /* ContactDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactDetailViewController.swift; sourceTree = "<group>"; };
 		CE8714131F1522660021F74D /* empty_avatar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = empty_avatar.jpg; sourceTree = "<group>"; };
-		CE934CAF1F18C51900F8D2DF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "iHelp/PushNotification/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		CE934CB01F18C51900F8D2DF /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = iHelp/PushNotification/logo.png; sourceTree = SOURCE_ROOT; };
 		CE934CB11F18C51900F8D2DF /* PushNotification.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; name = PushNotification.entitlements; path = iHelp/PushNotification/PushNotification.entitlements; sourceTree = SOURCE_ROOT; };
 		CE934CB21F18C51900F8D2DF /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationManager.swift; path = iHelp/PushNotification/NotificationManager.swift; sourceTree = SOURCE_ROOT; };
@@ -128,6 +127,7 @@
 		CE9E7ABE1F1975390083C0F2 /* EmergencyContact+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EmergencyContact+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CEA64B7B1F14B3500047C04C /* Report.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		CEA64B7D1F14B3FB0047C04C /* ReportStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportStore.swift; sourceTree = "<group>"; };
+		CEB632491F1D3AE600E43555 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CECA128A1F16AA7B00A1ABA7 /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
 		CECA128C1F16AA8600A1ABA7 /* ContactsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ContactsUI.framework; path = System/Library/Frameworks/ContactsUI.framework; sourceTree = SDKROOT; };
 		CEFC73041F14C618008C769A /* ReportTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTableViewController.swift; sourceTree = "<group>"; };
@@ -196,7 +196,7 @@
 		BD5D36421F18B4FB00236472 /* PushNotification */ = {
 			isa = PBXGroup;
 			children = (
-				CE934CAF1F18C51900F8D2DF /* GoogleService-Info.plist */,
+				CEB632491F1D3AE600E43555 /* GoogleService-Info.plist */,
 				CE934CB01F18C51900F8D2DF /* logo.png */,
 				CE934CB11F18C51900F8D2DF /* PushNotification.entitlements */,
 				CE934CB21F18C51900F8D2DF /* NotificationManager.swift */,
@@ -501,13 +501,13 @@
 			files = (
 				CE4656D11F0FD325004E3868 /* LaunchScreen.storyboard in Resources */,
 				CE3953831F13655C006BFBCA /* logo.png in Resources */,
+				CEB6324A1F1D3AE600E43555 /* GoogleService-Info.plist in Resources */,
 				CE8714141F1522660021F74D /* empty_avatar.jpg in Resources */,
 				CE37C19A1F1CBA6D00DBDACE /* microphone.png in Resources */,
 				CE4656CE1F0FD325004E3868 /* Assets.xcassets in Resources */,
 				CE934CB41F18C51900F8D2DF /* logo.png in Resources */,
 				CE1A5EA71F13EC350086939D /* IconTemplate.png in Resources */,
 				CE4656CC1F0FD325004E3868 /* Main.storyboard in Resources */,
-				CE934CB31F18C51900F8D2DF /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

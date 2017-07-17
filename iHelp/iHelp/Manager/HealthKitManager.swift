@@ -13,7 +13,7 @@ class HealthKitManager {
     
     let healthKitStore: HKHealthStore = HKHealthStore()
     
-    var heartRate:Double = 0.0
+    var heartRate:Double? = 0.0
     
       private func dataTypesToRead() -> Set<HKObjectType> {
      
@@ -32,15 +32,15 @@ class HealthKitManager {
           let readDataTypes: Set<HKObjectType> = self.dataTypesToRead()
         
         // State the health data type(s) we want to read from HealthKit.
-        let healthDataToRead = Set(arrayLiteral:HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)!)
+       // let healthDataToRead = Set(arrayLiteral:HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)!)
   
-        let healthStore: HKHealthStore? = {
+       /* let healthStore: HKHealthStore? = {
             if HKHealthStore.isHealthDataAvailable() {
                 return HKHealthStore()
             } else {
                 return nil
             }
-        }()
+        }()*/
         
         let dateOfBirthCharacteristic = HKCharacteristicType.characteristicType(
             forIdentifier: HKCharacteristicTypeIdentifier.dateOfBirth)
@@ -76,7 +76,7 @@ class HealthKitManager {
                                                 }
         })
         // State the health data type(s) we want to write from HealthKit.
-        let healthDataToWrite = Set(arrayLiteral: HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.distanceWalkingRunning)!)
+        //let healthDataToWrite = Set(arrayLiteral: HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.distanceWalkingRunning)!)
         
         // Just in case OneHourWalker makes its way to an iPad...
         if !HKHealthStore.isHealthDataAvailable() {
@@ -86,11 +86,11 @@ class HealthKitManager {
         }
         
         // Request authorization to read and/or write the specific data.
-        healthKitStore.requestAuthorization(toShare: healthDataToWrite, read: readDataTypes) { (success, error) -> Void in
+        healthKitStore.requestAuthorization(toShare: nil, read: readDataTypes) { (success, error) -> Void in
             if( completion != nil ) {
                 
                 //todo nsjnxj
-              //  completion(success: success, error: error as! NSError)
+                completion(success, error as NSError?)
                 print("success authorization2")
             }
         }
@@ -134,7 +134,6 @@ class HealthKitManager {
     {
 
         var age:String?
-        //   let year = Calendar.iso8601.ordinality(of: .year, in: .era, for: now)!
         print("readProfile: \n\n\n\n")
         
         //per usare la data
@@ -145,14 +144,10 @@ class HealthKitManager {
         let year =  components.year
         let month = components.month
         let day = components.day
-        
-        print(year ?? 1900)
-        print(month ?? 1)
-        print(day ?? 1)
+
      
         //per accedere alla data di nascita
         var dateOfBirth: Date?
-        
         do {
             
             dateOfBirth = try healthKitStore.dateOfBirth()
@@ -161,20 +156,16 @@ class HealthKitManager {
             
             let ageComponents: DateComponents = Calendar.current.dateComponents([.year, .month, .day], from: dateOfBirth!
             )
-            print("ecco")
             age = "\(ageComponents.day!)/\(ageComponents.month!)/\(ageComponents.year!)"
-            print("ecco2")
             
-            print("\n\n\n\n anno di nascita \(age!)")
+            print(" anno di nascita \(age!)")
             
         } catch let error as NSError{
             print("errore1:  \(error)")
             print("Error reading Birthday: \(error.code)")
 
         }
-
-
-        
+    
         // 2. Read biological sex
         var biologicalSex:HKBiologicalSexObject?
         do {
@@ -367,31 +358,17 @@ class HealthKitManager {
     let heartRateUnit:HKUnit = HKUnit(from: "count/min")
     let heartRateType:HKQuantityType   = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)!
     var heartRateQuery:HKSampleQuery?
-    var heartRateString: String = "0"
+    var heartRateString: String? = "0"
     
     
     /*Method to get todays heart rate - this only reads data from health kit. */
-    func getTodaysHeartRates()->(Double?){
+    private func getHeartRates(){
         //predicate
-        print("getTodaysHeartRates")
-        
-        
-     //   let calendar = NSCalendar.current
+        print("getHeartRates")
+
         let calendar = NSCalendar(identifier: NSCalendar.Identifier.gregorian)
-        let date = NSDate()
         let components = NSDateComponents()
-        
-     //   let components = calendar.dateComponents([.year, .month, .day], from: date as Date)
-        
-      //  let year =  components.year
-      //  let month = components.month
-      //  let day = components.day
-        
-     //   let startDate:Date = components.date!
-        //  let endDate:Date? = calendar.dateByAddingUnit(.day, value: 1, toDate: startDate, options: [])
-      
-        //let endDate:Date? = calendar.date(byAdding: .day, value: 1, to: date)
-        print("getTodaysHeartRates5")
+
         let startDate = calendar?.date(from: components as DateComponents)
 
         
@@ -403,27 +380,14 @@ class HealthKitManager {
         let sortDescriptors = [
             NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
         ]
-        print("getTodaysHeartRates2")
-        
-     /*   let query = HKAnchoredObjectQuery(type: heartRateType, predicate: predicate, anchor: nil, limit: Int(HKObjectQueryNoLimit)) {
-            (query, samples, deletedObjects, anchor, error) -> Void in
-            print(".....\n")
-            self.printHeartRateInfo(results: samples)
-            
-        }
-        
-        query.updateHandler = { (query, samples, deletedObjects, anchor, error) -> Void in
-            print("111....\n")
-            self.printHeartRateInfo(results: samples)
-        }*/
+
         
         heartRateQuery = HKSampleQuery(sampleType: heartRateType,
                                        predicate: predicate,
                                        limit: 1,
-                                       sortDescriptors: sortDescriptors)
-        { query, results, error in
-            guard (results as? [HKQuantitySample]) != nil else {
-                fatalError("An error occured fetching the user's tracked food. In your app, try to handle this error gracefully. The error was: \(String(describing: error?.localizedDescription))");
+                                       sortDescriptors: sortDescriptors){
+                                        query, results, error in guard (results as? [HKQuantitySample]) != nil else {
+                fatalError("An error occured fetching the user's heart rate: \(String(describing: error?.localizedDescription))");
             }
            // self.printHeartRateInfo(results: results)
             
@@ -431,32 +395,31 @@ class HealthKitManager {
             if(c==0){
                 print("non c'è nnt")
             }else{
-                print("stampo tutti i dati del battito\n\n")
+                print("ho rilevato il battito")
                 guard let currData:HKQuantitySample = results![0] as? HKQuantitySample else { return }
                 self.heartRate = currData.quantity.doubleValue(for: self.heartRateUnit)
-                print("Heart Rate: \(self.heartRate)\n")
+                print("Heart Rate: \(self.heartRate!)\n")
+                return
+                
             }
-
-           
-            
-             if(self.heartRate == 0.0){
-                 self.heartRateString = "Not set"
-              }else{
-            self.heartRateString = String(format:"%f", self.heartRate)
-            }
-            print("getTodaysHeartRates1")
 
         }
-        self.healthKitStore.execute(heartRateQuery!)
-        NSLog("battito: \(self.heartRate)")
-        return (self.heartRate)
+       self.healthKitStore.execute(heartRateQuery!)
+        NSLog("battito: \(self.heartRate!)")
+        
         
     }//eom
     
     /*used only for testing, prints heart rate info */
+     func getTodaysHeartRates()->(Double?){
+        getHeartRates()
+        sleep(2)
+        NSLog("battito rilevato: \(self.heartRate!)")
+        return (self.heartRate!)
+    }
+    //serve solo per stampare e vedere i valori presenti nell oggetto battito
     private func printHeartRateInfo(results:[HKSample]?)
     {
-       
         let c: Int = (results?.count)!
         if(c==0){
             print("non c'è nnt")

@@ -42,15 +42,18 @@ class ClinicalFolderViewController: UITableViewController {
         fototipo.text = dati.skin
         gruppoSanguigno.text = dati.bloodtype
         sediaArotelle.text = dati.chairUse
-        setHeight()
-        setWeight()
-        heartRate = self.healthManager.getTodaysHeartRates()!
-        ultimoBattitoRilevato.text = "\(heartRate)"
-        print("battito \(heartRate)")
+        self.altezza.text = "Not set"
+        self.peso.text = "Not set"
+        
+        ultimoBattitoRilevato.text = "Not set"
+        DispatchQueue.main.async(execute: { () -> Void in
+            self.heartRate = self.healthManager.getTodaysHeartRates()!
+            print("battito ricevutoooooooooo \(self.heartRate)")
+            self.ultimoBattitoRilevato.text = "\(self.heartRate)"
+        })
+        
         
         clinicalFolderObject = ClinicalFolder(sesso: dati.biologicalsex!, dataDiNascita: dati.age!, altezza: heightString, peso: weightString, gruppoSanguigno: dati.bloodtype!, fototipo: fototipo.text! , sediaARotelle: dati.chairUse!, ultimoBattito: String(describing: heartRate))
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -71,6 +74,8 @@ class ClinicalFolderViewController: UITableViewController {
                 
                 // Get and set the user's height.
                 self.setHeight()
+                self.setWeight()
+                
             } else {
                 if error != nil {
                     print("errore")
@@ -91,9 +96,7 @@ class ClinicalFolderViewController: UITableViewController {
                 print("Errore: \(error?.localizedDescription)")
                 return
             }
-            
-            
-            
+          
             self.height = userHeight as? HKQuantitySample
             
             // The height is formatted to the user's locale.
@@ -128,15 +131,14 @@ class ClinicalFolderViewController: UITableViewController {
             self.weight = userWeight as? HKQuantitySample
             
             // The height is formatted to the user's locale.
-            if let gram = self.weight?.quantity.doubleValue(for: HKUnit.gram()) {
+            if var gram = self.weight?.quantity.doubleValue(for: HKUnit.gram()) {
+                gram = gram/1000
                 let formatWeight = MassFormatter()
                 formatWeight.isForPersonMassUse = true
                 self.weightString = formatWeight.string(fromKilograms: gram)
             }
             
-          //  let weightInt: Int = Int(gram)!
-           // let w:Int = weightInt/1000
-           // print("\n weightint \(w)")
+  
             
             // Set the label to reflect the user's height.
             DispatchQueue.main.async(execute: { () -> Void in

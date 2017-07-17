@@ -263,11 +263,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Emergency Contact" id="94N-Wi-B6B">
-                        <barButtonItem key="leftBarButtonItem" title="SOS" id="Xy9-2Z-KXF">
-                            <connections>
-                                <action selector="callSOS:" destination="aPl-5h-gSY" id="3F2-Ho-Ttw"/>
-                            </connections>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem title="SOS" id="Xy9-2Z-KXF">
+                                <connections>
+                                    <action selector="callSOS:" destination="aPl-5h-gSY" id="3F2-Ho-Ttw"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Iscrivi" id="hnM-z8-leE">
+                                <connections>
+                                    <action selector="iscriviti:" destination="aPl-5h-gSY" id="SKM-La-W3Q"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="add" id="goI-ro-D37">
                                 <connections>

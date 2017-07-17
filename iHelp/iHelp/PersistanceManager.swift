@@ -23,10 +23,23 @@ class PersistanceManager {
     
     static func setNewTopic(toAdd: String) {
         let context = getContext()
-        
-        let topic = NSEntityDescription.insertNewObject(forEntityName: topicEntity, into: context) as! TopicsIscritto
-        topic.topic = toAdd
-        saveContext()
+        if !PersistanceManager.isTopicAlreadyInside(toCheck: toAdd) {
+            let topic = NSEntityDescription.insertNewObject(forEntityName: topicEntity, into: context) as! TopicsIscritto
+            topic.topic = toAdd
+            saveContext()
+        }
+    }
+    
+    static func isTopicAlreadyInside(toCheck: String) -> Bool {
+        let topics = PersistanceManager.fetchRequestTopics()
+        for topic in topics {
+            NSLog("CONTROLLO TOPIC UGUAGLIANZA")
+            NSLog(topic.topic!)
+            if (topic.topic! == toCheck) {
+                return true
+            }
+        }
+        return false
     }
     
     static func fetchRequestTopics() -> [TopicsIscritto] {
@@ -215,10 +228,11 @@ class PersistanceManager {
         let reportFR = NSFetchRequest<NSFetchRequestResult>(entityName: reportHistoryEntity)
         let emergencyContactFR = NSFetchRequest<NSFetchRequestResult>(entityName: emergencyContactEntity)
         let userProfileFR = NSFetchRequest<NSFetchRequestResult>(entityName: userProfileEntity)
+        let topicsFR = NSFetchRequest<NSFetchRequestResult>(entityName: topicEntity)
         let deleteRequestRFR = NSBatchDeleteRequest(fetchRequest: reportFR)
         let deleteRequestECFR = NSBatchDeleteRequest(fetchRequest: emergencyContactFR)
         let deleteRequestUPFR = NSBatchDeleteRequest(fetchRequest: userProfileFR)
-        
+        let deleteRequestTFR = NSBatchDeleteRequest(fetchRequest: topicsFR)
         // get reference to the persistent container
         let persistentContainer = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
         
@@ -234,6 +248,10 @@ class PersistanceManager {
             }
             if !PersistanceManager.fetchDataUserProfile().isEmpty {
                 NSLog("Clearing user data")
+                try persistentContainer.viewContext.execute(deleteRequestUPFR)
+            }
+            if !PersistanceManager.fetchRequestTopics().isEmpty {
+                NSLog("Clearing topics data")
                 try persistentContainer.viewContext.execute(deleteRequestUPFR)
             }
             self.saveContext()

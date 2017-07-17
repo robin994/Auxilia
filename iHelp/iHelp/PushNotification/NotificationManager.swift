@@ -13,12 +13,13 @@ import FirebaseMessaging
 class NotificationManager: NSObject {
     
     static func subscribe(_ toSubscribe: String) {
+        PersistanceManager.setNewTopic(toAdd: toSubscribe)
         Messaging.messaging().subscribe(toTopic: "/topics/\(toSubscribe)")
     }
     
     static func sendNotification(topic: String, message: String, title: String) {
         let url = NSURL(string: "https://fcm.googleapis.com/fcm/send")
-        let tk = InstanceID.instanceID().token()
+        //let tk = InstanceID.instanceID().token()
         
         //print("\n\n \(tk!) \n\n")
         let postParams = [

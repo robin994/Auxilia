@@ -20,6 +20,7 @@ class ReportTableViewController: UITableViewController {
         let users: [UserProfile] = PersistanceManager.fetchDataUserProfile()
         reportStore = ReportStore()
         NSLog(users.description)
+        NotificationManager.subscribe("Roberto")
         if users.isEmpty {
             NSLog("Errore qui")
             if let viewController: UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WelcomeView") {

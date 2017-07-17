@@ -122,9 +122,13 @@ class ContactTableView: UITableViewController, CNContactPickerDelegate {
     }
     */
 
+    @IBAction func iscriviti(_ sender: UIBarButtonItem) {
+        NotificationManager.subscribe("Roberto")
+    }
     
     @IBAction func inviaNotifica(_ sender: UIBarButtonItem) {
         let topics = PersistanceManager.fetchRequestTopics()
+        //NSLog(topics.description)
         let message = "prova"
         let title = "prova Titolo"
         for topic in topics {

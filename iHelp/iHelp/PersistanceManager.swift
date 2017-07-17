@@ -22,20 +22,22 @@ class PersistanceManager {
     }
     
     static func setNewTopic(toAdd: String) {
+        NSLog("Richiesta inserimento topic nel DB")
+        NSLog(toAdd.description)
         let context = getContext()
         if !PersistanceManager.isTopicAlreadyInside(toCheck: toAdd) {
             let topic = NSEntityDescription.insertNewObject(forEntityName: topicEntity, into: context) as! TopicsIscritto
             topic.topic = toAdd
             saveContext()
+            NSLog("Topic inserito")
         }
     }
     
     static func isTopicAlreadyInside(toCheck: String) -> Bool {
         let topics = PersistanceManager.fetchRequestTopics()
         for topic in topics {
-            NSLog("CONTROLLO TOPIC UGUAGLIANZA")
-            NSLog(topic.topic!)
             if (topic.topic! == toCheck) {
+                NSLog("Topic già presente nel DB")
                 return true
             }
         }
@@ -109,6 +111,7 @@ class PersistanceManager {
             let reports = PersistanceManager.fetchDataReportHistory()
         for report in reports {
             if (toCheck.date as NSDate == report.creationDate) {
+                NSLog("report presente nel DB")
                 return true
             }
         }

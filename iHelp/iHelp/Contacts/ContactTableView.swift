@@ -129,8 +129,8 @@ class ContactTableView: UITableViewController, CNContactPickerDelegate {
     @IBAction func inviaNotifica(_ sender: UIBarButtonItem) {
         let topics = PersistanceManager.fetchRequestTopics()
         //NSLog(topics.description)
-        let message = "prova"
-        let title = "prova Titolo"
+        let message = "Sono una fottuta notifica"
+        let title = "Quasi finito"
         for topic in topics {
             NotificationManager.sendNotification(topic: topic.topic! as! String, message: message, title: title)
         }

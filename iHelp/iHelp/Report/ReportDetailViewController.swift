@@ -16,6 +16,13 @@ class ReportDetailViewController: UITableViewController {
         // Do any additional setup after loading the view.
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        nameField.text = currentReport.name
+        surnameField.text = currentReport.surname
+        messageField.text = currentReport.message
+        phoneNumberField.text = currentReport.phoneNumber
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -31,6 +38,11 @@ class ReportDetailViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBOutlet weak var nameField: UILabel!
+    @IBOutlet weak var surnameField: UILabel!
+    @IBOutlet weak var messageField: UILabel!
+    @IBOutlet weak var phoneNumberField: UILabel!
     
     var currentReport: Report!
 }

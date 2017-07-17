@@ -132,6 +132,7 @@ class ReportTableViewController: UITableViewController {
             
             let report = Report(
                 name: String(describing: notifica.value(forKey: "name")!),
+                surname: String(describing: notifica.value(forKey: "surname")!),
                 isMine: false,
                 phoneNumber: String(describing: notifica.value(forKey: "telephone")!),
                 message: String(describing: notifica.value(forKey: "message")!),

@@ -139,6 +139,7 @@ class PersistanceManager {
         report.message = toAdd.message
         report.isMine = toAdd.isMine
         report.name = toAdd.name
+        report.surname = toAdd.surname
         saveContext()
     }
     

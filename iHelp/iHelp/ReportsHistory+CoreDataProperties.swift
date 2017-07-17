@@ -2,7 +2,7 @@
 //  ReportsHistory+CoreDataProperties.swift
 //  iHelp
 //
-//  Created by Tortora Roberto on 16/07/2017.
+//  Created by Tortora Roberto on 18/07/2017.
 //  Copyright © 2017 The Round Table. All rights reserved.
 //
 
@@ -21,6 +21,7 @@ extension ReportsHistory {
     @NSManaged public var bloodGroup: String?
     @NSManaged public var contactIdentifier: String?
     @NSManaged public var creationDate: NSDate?
+    @NSManaged public var fototipo: String?
     @NSManaged public var hearthrate: String?
     @NSManaged public var height: String?
     @NSManaged public var isMine: Bool
@@ -32,6 +33,6 @@ extension ReportsHistory {
     @NSManaged public var velocity: Double
     @NSManaged public var weight: String?
     @NSManaged public var wheelchair: String?
-    @NSManaged public var fototipo: String?
+    @NSManaged public var surname: String?
 
 }

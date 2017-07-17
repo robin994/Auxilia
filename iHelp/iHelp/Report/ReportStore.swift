@@ -25,6 +25,7 @@ class ReportStore: NSObject {
             array.append(
                 Report(
                     name: report.name!,
+                    surname: report.surname!,
                     isMine: report.isMine,
                     phoneNumber: report.contactIdentifier!,
                     message: report.message!,

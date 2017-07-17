@@ -874,7 +874,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nxI-ML-xwn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-116" y="1630.4347826086957"/>
+            <point key="canvasLocation" x="-103" y="1558"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bUh-0u-wwp">
@@ -1097,6 +1097,7 @@
                         <outlet property="addressField" destination="len-BW-7NH" id="Txu-pq-OJi"/>
                         <outlet property="blurredImageView" destination="bfI-6s-uQs" id="jrJ-dS-L1a"/>
                         <outlet property="imageView" destination="vAp-1z-e4D" id="oYv-xj-zVi"/>
+                        <outlet property="imageViewCell" destination="YBh-IZ-UC2" id="eL5-wd-oSM"/>
                         <outlet property="nameField" destination="9MO-kd-wIP" id="Lqh-Ja-gBU"/>
                         <outlet property="surnameField" destination="20C-jl-2Tx" id="3md-2l-wDZ"/>
                     </connections>

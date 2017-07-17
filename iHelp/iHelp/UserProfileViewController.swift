@@ -53,7 +53,6 @@ class UserProfileViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
     /*
     // MARK: - Navigation
 
@@ -64,6 +63,7 @@ class UserProfileViewController: UITableViewController {
     }
     */
 
+    @IBOutlet weak var imageViewCell: UITableViewCell!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var blurredImageView: UIImageView!
     @IBOutlet weak var nameField: UILabel!

@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import CloudKit
 
 class ReportTableViewController: UITableViewController {
     
     var reportStore: ReportStore!
-    
+    var refresh: UIRefreshControl!
+    var NamesArray:  Array<CKRecord> = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let users: [UserProfile] = PersistanceManager.fetchDataUserProfile()
@@ -22,17 +25,58 @@ class ReportTableViewController: UITableViewController {
                 }
             }
         }
+        refresh = UIRefreshControl()
+        refresh.attributedTitle = NSAttributedString(string: "Pull to resfresh")
+        refresh.addTarget(self, action: "refreshData", for: UIControlEvents.valueChanged)
         
+        tableView.addSubview(refresh!)
+        refresh.beginRefreshing()
         
         reportStore = ReportStore()
-        
-        
+        refreshData()
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    func refreshData() {
+        NSLog("Richiesta refresh data")
+        
+        NamesArray = Array<CKRecord>()
+        let ourDataPublicDataBase = CKContainer.default().publicCloudDatabase
+        
+        //in order to see our data value: true
+        let ourPredicate = NSPredicate(value: true)
+        
+        let ourQuery = CKQuery(recordType: "Notifiche", predicate: ourPredicate)
+        
+        ourQuery.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+        
+        ourDataPublicDataBase.perform(ourQuery, inZoneWith: nil) { (results, error) in
+            
+            if error != nil {
+                print("Error \(error.debugDescription)")
+            }
+            else{
+                for results2 in results!{
+                    self.NamesArray.append(results2)
+                    print(results2)
+                }
+                
+                OperationQueue.main.addOperation({ () -> Void in
+                    self.tableView.reloadData()
+                    self.tableView.isHidden = false
+                    self.refresh?.endRefreshing()
+                })
+                
+            }
+        }
+    }
+    
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

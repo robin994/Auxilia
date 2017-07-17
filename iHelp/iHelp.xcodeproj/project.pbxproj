@@ -25,6 +25,7 @@
 		CE37C19A1F1CBA6D00DBDACE /* microphone.png in Resources */ = {isa = PBXBuildFile; fileRef = CE37C1991F1CBA6D00DBDACE /* microphone.png */; };
 		CE37FDE11F190F4400FE0CCF /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37FDE01F190F4400FE0CCF /* SettingViewController.swift */; };
 		CE3953831F13655C006BFBCA /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3953821F13655C006BFBCA /* logo.png */; };
+		CE41BDEF1F1CEC9700CB778A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE41BDEE1F1CEC9700CB778A /* CloudKit.framework */; };
 		CE4656C71F0FD325004E3868 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4656C61F0FD325004E3868 /* AppDelegate.swift */; };
 		CE4656CC1F0FD325004E3868 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE4656CA1F0FD325004E3868 /* Main.storyboard */; };
 		CE4656CE1F0FD325004E3868 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE4656CD1F0FD325004E3868 /* Assets.xcassets */; };
@@ -95,6 +96,7 @@
 		CE37FDE01F190F4400FE0CCF /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		CE3953821F13655C006BFBCA /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = SOURCE_ROOT; };
 		CE3953891F13664E006BFBCA /* iHelp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iHelp.entitlements; sourceTree = "<group>"; };
+		CE41BDEE1F1CEC9700CB778A /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		CE4656C61F0FD325004E3868 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE4656CB1F0FD325004E3868 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE4656CD1F0FD325004E3868 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				CECA128D1F16AA8600A1ABA7 /* ContactsUI.framework in Frameworks */,
 				CECA128B1F16AA7B00A1ABA7 /* Contacts.framework in Frameworks */,
 				CE934CB91F18CA0500F8D2DF /* libPods-iHelp.a in Frameworks */,
+				CE41BDEF1F1CEC9700CB778A /* CloudKit.framework in Frameworks */,
 				CE934CB71F18C97A00F8D2DF /* libPods-PushNotification.a in Frameworks */,
 				CE53F0841F14B773001EAC96 /* HealthKit.framework in Frameworks */,
 			);
@@ -254,6 +257,7 @@
 		CE3953841F136645006BFBCA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE41BDEE1F1CEC9700CB778A /* CloudKit.framework */,
 				CE934CB81F18CA0500F8D2DF /* libPods-iHelp.a */,
 				CE934CB61F18C97A00F8D2DF /* libPods-PushNotification.a */,
 				CECA128C1F16AA8600A1ABA7 /* ContactsUI.framework */,
@@ -444,7 +448,7 @@
 								enabled = 0;
 							};
 							com.apple.iCloud = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};

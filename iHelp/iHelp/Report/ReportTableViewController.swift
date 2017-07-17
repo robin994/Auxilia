@@ -129,12 +129,12 @@ class ReportTableViewController: UITableViewController {
     
     func reloadReports() {
         for notifica in NamesArray {
-            //NSLog(report.description)
+            
             let report = Report(
-                name: String(describing: notifica.value(forKey: "name")),
+                name: String(describing: notifica.value(forKey: "name")!),
                 isMine: false,
-                phoneNumber: String(describing: notifica.value(forKey: "phoneNumber")),
-                message: String(describing: notifica.value(forKey: "message")),
+                phoneNumber: String(describing: notifica.value(forKey: "telephone")!),
+                message: String(describing: notifica.value(forKey: "message")!),
                 clinicalFolder: ClinicalFolder(sesso: String(describing: notifica.value(forKey: "sex")),
                                                dataDiNascita: String(describing: notifica.value(forKey: "birthday")),
                                                altezza: String(describing: notifica.value(forKey: "height")),
@@ -143,7 +143,11 @@ class ReportTableViewController: UITableViewController {
                                                fototipo: String(describing: notifica.value(forKey: "fototipo")),
                                                sediaARotelle: String(describing: notifica.value(forKey: "wheelchair")),
                                                ultimoBattito: String(describing: notifica.value(forKey: "heartrate"))))
-         self.addReport(toAdd: report)
+            NSLog("-----------SALVO REPORT------------")
+            NSLog(report.name)
+            NSLog(report.message)
+            NSLog(report.date.description)
+            self.addReport(toAdd: report)
         }
     }
     
@@ -188,6 +192,7 @@ class ReportTableViewController: UITableViewController {
             cell.nameField.textColor = UIColor.blue
             cell.dateField.textColor = UIColor.blue
         }
+        
         return cell
     }
  
@@ -228,14 +233,28 @@ class ReportTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        switch segue.identifier {
+        case "show"? :
+            if let currentindex = tableView.indexPathForSelectedRow?.row {
+                let currentContact = reportStore.array[currentindex]
+                let dstView = segue.destination as! ReportDetailViewController
+                dstView.currentContact = currentContact
+            }
+        default :
+            if let currentindex = tableView.indexPathForSelectedRow?.row {
+                let currentContact = contactStore.array[currentindex]
+                let dstView = segue.destination as! ReportDetailViewController
+                dstView.currentContact = currentContact
+            }
+        }
     }
-    */
+   
 
 }

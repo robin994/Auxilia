@@ -8,38 +8,42 @@
 
 import UIKit
 import CloudKit
+import Foundation
 
 class CloudKitManager: NSObject {
     
+    var alert: UIAlertController!
+    let database = CKContainer.default().publicCloudDatabase
     
-    static func saveReport(toSave: Report) {
+    func saveReport(name: String, surname: String, birthday: String, height: String, weight: String, telephone: String, sesso: String, bloodGroup: String, contactIdentifier: String, heartRate: String, fototipo: String, latitudine: Double, longitudine: Double, message: String, velocity: Double, wheelchair: String, creationDate: Date, audioMessage: CKAsset) {
         
-        let store = CKRecord(recordType: "PhoneBook")
+        let store = CKRecord(recordType: "Notifiche")
+        store.setObject(name as CKRecordValue?, forKey: "name")
+        store.setObject(surname as CKRecordValue?, forKey: "surname")
+        store.setObject(birthday as CKRecordValue?, forKey: "birthday")
+        store.setObject(height as CKRecordValue?, forKey: "height")
+        store.setObject(weight as CKRecordValue?, forKey: "weight")
+        store.setObject(telephone as CKRecordValue?, forKey: "telephone")
+        store.setObject(sesso as CKRecordValue?, forKey: "sesso")
+        store.setObject(bloodGroup as CKRecordValue?, forKey: "bloodGroup")
+        store.setObject(contactIdentifier as CKRecordValue?, forKey: "contactIdentifier")
+        store.setObject(heartRate as CKRecordValue?, forKey: "heartRate")
+        store.setObject(fototipo as CKRecordValue?, forKey: "fototipo")
+        store.setObject(latitudine as CKRecordValue?, forKey: "latitudine")
+        store.setObject(longitudine as CKRecordValue?, forKey: "longitudine")
+        store.setObject(message as CKRecordValue?, forKey: "message")
+        store.setObject(velocity as CKRecordValue?, forKey: "velocity")
+        store.setObject(wheelchair as CKRecordValue?, forKey: "wheelchair")
+        store.setObject(creationDate as CKRecordValue?, forKey: "creationDate")
+        store.setObject(audioMessage as CKRecordValue?, forKey: "audioMessage")
         
-        //ADDIVERTITI xD
-        store.setObject(txtAccN.text as CKRecordValue?, forKey: "phoAccNumber")
-        store.setObject(Name.text as CKRecordValue?, forKey: "phoName")
-        store.setObject(PhoneNumber.text as CKRecordValue?, forKey: "phoPhoneNumber")
-        
-        publicDatabase.save(store) { (saveRecord, error) in
-            
+        database.save(store) { (saveRecord, error) in
             if error != nil {
-                
                 print("Error saving Data on CloudKit..---->" + (error?.localizedDescription)!)
-                
             } else {
-                
                 print("Data Save it successfully")
-                
             }
-            
-            
         }
-        
-        self.present(self.alert, animated: true, completion: nil)
-        self.txtAccN.text = ""
-        self.Name.text = ""
-        self.PhoneNumber.text = ""
     }
     
 }

@@ -123,15 +123,16 @@ class ContactTableView: UITableViewController, CNContactPickerDelegate {
     */
 
     @IBAction func iscriviti(_ sender: UIBarButtonItem) {
-        NotificationManager.subscribe("Notifiche")
+        NotificationManager.subscribe("Roberto")
     }
     
     @IBAction func inviaNotifica(_ sender: UIBarButtonItem) {
         let topics = PersistanceManager.fetchRequestTopics()
-        //NSLog(topics.description)
+        
         let message = "Sono una fottuta notifica"
         let title = "Quasi finito"
         for topic in topics {
+            //print(topic)
             NotificationManager.sendNotification(topic: topic.topic! as! String, message: message, title: title)
         }
     }

@@ -425,19 +425,30 @@ class HealthKitManager {
             guard (results as? [HKQuantitySample]) != nil else {
                 fatalError("An error occured fetching the user's tracked food. In your app, try to handle this error gracefully. The error was: \(String(describing: error?.localizedDescription))");
             }
-            self.printHeartRateInfo(results: results)
-            guard let currData:HKQuantitySample = results![0] as? HKQuantitySample else { return }
-            self.heartRate = currData.quantity.doubleValue(for: self.heartRateUnit)
-            print("Heart Rate: \(self.heartRate)\n")
+           // self.printHeartRateInfo(results: results)
             
-           // if(self.heartRate == 0.0){
-           //     self.heartRateString = "Not set"
-          //  }else{
+            let c: Int = (results?.count)!
+            if(c==0){
+                print("non c'è nnt")
+            }else{
+                print("stampo tutti i dati del battito\n\n")
+                guard let currData:HKQuantitySample = results![0] as? HKQuantitySample else { return }
+                self.heartRate = currData.quantity.doubleValue(for: self.heartRateUnit)
+                print("Heart Rate: \(self.heartRate)\n")
+            }
+
+           
+            
+             if(self.heartRate == 0.0){
+                 self.heartRateString = "Not set"
+              }else{
             self.heartRateString = String(format:"%f", self.heartRate)
-          //  }
+            }
             print("getTodaysHeartRates1")
-           }
+
+        }
         self.healthKitStore.execute(heartRateQuery!)
+        NSLog("battito: \(self.heartRate)")
         return (self.heartRate)
         
     }//eom

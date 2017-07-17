@@ -17,7 +17,6 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
 	var audioRecorder: AVAudioRecorder?
 	var soundFileURL: URL?
 	var textFromRegistration : String = ""
-    var window: UIWindow?
 
 
 	
@@ -125,11 +124,11 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
         let okAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default) {
             UIAlertAction in
             NSLog("OK Pressed")
-            if self.navigationController?.popViewController(animated: true)?.isViewLoaded == false {
+            guard (self.navigationController?.popViewController(animated: true)) != nil else {
                 NSLog("View non caricaca")
                 let sb = UIStoryboard(name: "Main", bundle: nil)
                 let reportViewControler = sb.instantiateViewController(withIdentifier: "mainView")
-                self.window?.rootViewController?.present(reportViewControler, animated: true, completion: nil)
+                return self.present(reportViewControler, animated: true, completion: nil)
             }
         }
         

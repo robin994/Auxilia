@@ -17,6 +17,8 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
 	var audioRecorder: AVAudioRecorder?
 	var soundFileURL: URL?
 	var textFromRegistration : String = ""
+    var window: UIWindow?
+
 
 	
 	    override func viewDidLoad() {
@@ -28,7 +30,13 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
             self.navigationItem.leftBarButtonItem = newBackButton
             
     }
+    @IBAction func cancelButton(_ sender: UIButton) {
+        back()
+    }
 	
+    @IBAction func sendButton(_ sender: UIButton) {
+        
+    }
     func back() {
         present(alertView(), animated: true, completion: nil)
     }
@@ -117,7 +125,12 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
         let okAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default) {
             UIAlertAction in
             NSLog("OK Pressed")
-            self.navigationController?.popViewController(animated: true)
+            if self.navigationController?.popViewController(animated: true)?.isViewLoaded == false {
+                NSLog("View non caricaca")
+                let sb = UIStoryboard(name: "Main", bundle: nil)
+                let reportViewControler = sb.instantiateViewController(withIdentifier: "mainView")
+                self.window?.rootViewController?.present(reportViewControler, animated: true, completion: nil)
+            }
         }
         
         let cancelAction = UIAlertAction(title: "No", style: UIAlertActionStyle.cancel) {

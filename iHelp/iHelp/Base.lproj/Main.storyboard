@@ -837,6 +837,7 @@
                                     <color key="titleColor" white="0.96999999999999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="cancelButton:" destination="gDR-KW-Z93" eventType="touchUpInside" id="X9I-JW-iOV"/>
                                     <action selector="stopAudio:" destination="gDR-KW-Z93" eventType="touchUpInside" id="5Cb-sS-smW"/>
                                 </connections>
                             </button>
@@ -856,6 +857,9 @@
                                 <state key="normal" title="✓">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="sendButton:" destination="gDR-KW-Z93" eventType="touchUpInside" id="0cs-xh-qT2"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="iPhone is recording and getting your actual position. Datas will be shared only with your emergency contacts." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="fTm-ed-yUl">
                                 <rect key="frame" x="16" y="28" width="343" height="151"/>
@@ -867,10 +871,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <connections>
-                        <outlet property="cancelButton" destination="lv9-qh-Vtz" id="W4s-8v-F1H"/>
-                        <outlet property="confirmButton" destination="U1z-7J-N8q" id="CJ6-jV-k0b"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nxI-ML-xwn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

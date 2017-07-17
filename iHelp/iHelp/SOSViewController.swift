@@ -17,57 +17,30 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
 	var audioRecorder: AVAudioRecorder?
 	var soundFileURL: URL?
 	var textFromRegistration : String = ""
-	@IBOutlet weak var recordButton: UIButton!
-	@IBOutlet weak var stopButton: UIButton!
-	@IBOutlet weak var playButton: UIButton!
-	@IBOutlet weak var labelTestoTradotto: UILabel!
+    var window: UIWindow?
+
+
 	
 	    override func viewDidLoad() {
         super.viewDidLoad()
 			// Do any additional setup after loading the view.
-			
-			askSpeechPermission()
-			
-			playButton.isEnabled = false
-			stopButton.isEnabled = false
-			
-			let fileManager = FileManager.default
-			
-			let dirPaths = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
-			
-			soundFileURL = dirPaths[0].appendingPathComponent("recordedAudio.caf")
-			
-			let recordSettings = [AVEncoderAudioQualityKey: AVAudioQuality.min.rawValue,
-			                      AVEncoderBitRateKey: 16,
-			                      AVNumberOfChannelsKey: 2,
-			                      AVSampleRateKey: 44100] as [String : Any]
-			
-			let audioSession = AVAudioSession.sharedInstance()
-			
-			
-			do {
-				try audioSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
-			}catch let error as NSError{
-				NSLog("audioSession error: \(error.localizedDescription)", 0)
-			}
-			
-			//il set della porta di output va DOPO audioSession.setCategory
-			do {
-				try audioSession.overrideOutputAudioPort(AVAudioSessionPortOverride.speaker)
-			}
-			catch let error as NSError{
-				NSLog("audioSession error with speakers: \(error.localizedDescription)", 0)
-			}
-
-		
-			do{
-				try audioRecorder = AVAudioRecorder(url: soundFileURL!, settings: recordSettings as [String : AnyObject])
-				audioRecorder?.prepareToRecord()
-			}catch let error as NSError{
-				NSLog("audioSession error: \(error.localizedDescription)", 0)
-			}
+            
+            self.navigationItem.hidesBackButton = true
+            let newBackButton : UIBarButtonItem = UIBarButtonItem(title: "< Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(back))
+            self.navigationItem.leftBarButtonItem = newBackButton
+            
+    }
+    @IBAction func cancelButton(_ sender: UIButton) {
+        back()
     }
 	
+    @IBAction func sendButton(_ sender: UIButton) {
+        
+    }
+    func back() {
+        present(alertView(), animated: true, completion: nil)
+    }
+    
 	func recognizeFile(url: URL){
 	
 		guard let myRecognizer = SFSpeechRecognizer() else {
@@ -90,58 +63,25 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
 			if result.isFinal {
 				// Print the speech that has been recognized so far
 				self.textFromRegistration = result.bestTranscription.formattedString
-				
-				self.labelTestoTradotto.text = self.textFromRegistration
-				self.labelTestoTradotto.sizeToFit()
 				NSLog("Il testo pronunciato è -> \(self.textFromRegistration)", 0)
 			}
 		}
 		
 		return
 	}
-	
-	func askSpeechPermission(){
-		//richesta autorizzazione al riconoscimento del messaggio vocale
-		SFSpeechRecognizer.requestAuthorization { status in
-			/* The callback may not be called on the main thread. Add an
-			operation to the main queue to update the record button's state.
-			*/
-			OperationQueue.main.addOperation {
-				switch status {
-				case .authorized:
-					self.recordButton.isEnabled = true
-				case .denied:
-					self.recordButton.isEnabled = false
-					self.recordButton.setTitle("User denied access to speech recognition", for: .disabled)
-				case .restricted:
-					self.recordButton.isEnabled = false
-					self.recordButton.setTitle("Speech recognition restricted on this device", for: .disabled)
-				case .notDetermined:
-					self.recordButton.isEnabled = false
-					self.recordButton.setTitle("Speech recognition not yet authorized", for: .disabled)
-				}
-			}
-		}
-	}
+
+    
 	@IBAction func recordAudio(_ sender: UIButton) {
 		if audioRecorder?.isRecording == false{
-			playButton.isEnabled = false
-			stopButton.isEnabled = true
 			audioRecorder?.record()
-			
 		}
 	}
 	
 	@IBAction func stopAudio(_ sender: UIButton) {
-		stopButton.isEnabled = false
-		playButton.isEnabled = true
-		recordButton.isEnabled = true
 		
 		if audioRecorder?.isRecording == true {
 			audioRecorder?.stop()
 			recognizeFile(url: soundFileURL!)
-			
-			
 		}else {
 			audioPlayer?.stop()
 		}
@@ -149,11 +89,6 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
 	
 	@IBAction func playAudio(_ sender: UIButton) {
 		if audioRecorder?.isRecording == false {
-			stopButton.isEnabled = true
-			recordButton.isEnabled = false
-			
-			
-			
 			do {
 				try audioPlayer = AVAudioPlayer(contentsOf: (audioRecorder?.url)!)
 				audioPlayer!.delegate = self
@@ -168,8 +103,6 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
 	
 	
 	func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-		recordButton.isEnabled = true
-		stopButton.isEnabled = false
 		NSLog("Audio did finish playing", 0)
 	}
 	
@@ -178,8 +111,7 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
 	}
 	
 	func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
-		recordButton.setTitle("Record again", for: .normal)
-		NSLog("Audio finish recording", 0)
+        NSLog("Audio finish recording", 0)
 	}
 	
 	
@@ -188,7 +120,27 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
 	}
 	
 	
-	
+    func alertView() -> UIAlertController {
+        let alert = UIAlertController(title: "Cancel", message: "Would you like to go back?", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default) {
+            UIAlertAction in
+            NSLog("OK Pressed")
+            if self.navigationController?.popViewController(animated: true)?.isViewLoaded == false {
+                NSLog("View non caricaca")
+                let sb = UIStoryboard(name: "Main", bundle: nil)
+                let reportViewControler = sb.instantiateViewController(withIdentifier: "mainView")
+                self.window?.rootViewController?.present(reportViewControler, animated: true, completion: nil)
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "No", style: UIAlertActionStyle.cancel) {
+            UIAlertAction in
+            NSLog("Cancel Pressed")
+        }
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        return alert
+    }
 	
 	
 	

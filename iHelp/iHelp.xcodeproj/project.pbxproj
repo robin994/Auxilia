@@ -21,6 +21,8 @@
 		CE0E5D6A1F181A0F00B8D1FC /* CreateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E5D691F181A0F00B8D1FC /* CreateProfileViewController.swift */; };
 		CE0E5D6C1F18258E00B8D1FC /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0E5D6B1F18258E00B8D1FC /* UserProfileViewController.swift */; };
 		CE1A5EA71F13EC350086939D /* IconTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = CE1A5EA61F13EC350086939D /* IconTemplate.png */; };
+		CE37C1981F1CB29500DBDACE /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37C1971F1CB29500DBDACE /* Helpers.swift */; };
+		CE37C19A1F1CBA6D00DBDACE /* microphone.png in Resources */ = {isa = PBXBuildFile; fileRef = CE37C1991F1CBA6D00DBDACE /* microphone.png */; };
 		CE37FDE11F190F4400FE0CCF /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37FDE01F190F4400FE0CCF /* SettingViewController.swift */; };
 		CE3953831F13655C006BFBCA /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3953821F13655C006BFBCA /* logo.png */; };
 		CE4656C71F0FD325004E3868 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4656C61F0FD325004E3868 /* AppDelegate.swift */; };
@@ -88,6 +90,8 @@
 		CE0E5D691F181A0F00B8D1FC /* CreateProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateProfileViewController.swift; sourceTree = "<group>"; };
 		CE0E5D6B1F18258E00B8D1FC /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		CE1A5EA61F13EC350086939D /* IconTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IconTemplate.png; sourceTree = "<group>"; };
+		CE37C1971F1CB29500DBDACE /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		CE37C1991F1CBA6D00DBDACE /* microphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = microphone.png; sourceTree = "<group>"; };
 		CE37FDE01F190F4400FE0CCF /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		CE3953821F13655C006BFBCA /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = SOURCE_ROOT; };
 		CE3953891F13664E006BFBCA /* iHelp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iHelp.entitlements; sourceTree = "<group>"; };
@@ -220,6 +224,14 @@
 			name = User;
 			sourceTree = "<group>";
 		};
+		CE37C1961F1CB26D00DBDACE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				CE37C1971F1CB29500DBDACE /* Helpers.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		CE37FDDF1F190F3300FE0CCF /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +243,7 @@
 		CE3953811F1364F2006BFBCA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CE37C1991F1CBA6D00DBDACE /* microphone.png */,
 				CE8714131F1522660021F74D /* empty_avatar.jpg */,
 				CE1A5EA61F13EC350086939D /* IconTemplate.png */,
 				CE3953821F13655C006BFBCA /* logo.png */,
@@ -267,6 +280,7 @@
 		CE4656C51F0FD325004E3868 /* iHelp */ = {
 			isa = PBXGroup;
 			children = (
+				CE37C1961F1CB26D00DBDACE /* Helpers */,
 				4BD2D59D1F1A31BF00201A7A /* Manager */,
 				BD10F25F1F193AB100516967 /* Localization */,
 				CE37FDDF1F190F3300FE0CCF /* Settings */,
@@ -478,6 +492,7 @@
 				CE4656D11F0FD325004E3868 /* LaunchScreen.storyboard in Resources */,
 				CE3953831F13655C006BFBCA /* logo.png in Resources */,
 				CE8714141F1522660021F74D /* empty_avatar.jpg in Resources */,
+				CE37C19A1F1CBA6D00DBDACE /* microphone.png in Resources */,
 				CE4656CE1F0FD325004E3868 /* Assets.xcassets in Resources */,
 				CE934CB41F18C51900F8D2DF /* logo.png in Resources */,
 				CE1A5EA71F13EC350086939D /* IconTemplate.png in Resources */,
@@ -568,6 +583,7 @@
 				CE0E5D641F180EF400B8D1FC /* UserProfile+CoreDataClass.swift in Sources */,
 				CE9E7AC01F1975390083C0F2 /* EmergencyContact+CoreDataProperties.swift in Sources */,
 				CE0E5D6C1F18258E00B8D1FC /* UserProfileViewController.swift in Sources */,
+				CE37C1981F1CB29500DBDACE /* Helpers.swift in Sources */,
 				CE099F2A1F1BA31D00199904 /* ReportsHistory+CoreDataClass.swift in Sources */,
 				4CDCAA801F191C7F00DBC79D /* SOSViewController.swift in Sources */,
 				CE37FDE11F190F4400FE0CCF /* SettingViewController.swift in Sources */,

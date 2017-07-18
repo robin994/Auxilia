@@ -141,8 +141,10 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
 		var progress : Float = 0
 		for _ in 0..<10{
 			progress = progress + 0.1
-//			NSLog("update prgress view", 0)
-			progressView.setProgress(progress, animated: true)
+			NSLog("update prgress view", 0)
+			DispatchQueue.main.async {
+				self.progressView.setProgress(progress, animated: true)
+			}
 			sleep(1)
 		}
 	}

@@ -130,25 +130,31 @@ class PersistanceManager {
     }
     
     
-    static func setClinicalFolder(clinFolder: ClinicalFolder) {
+    static func setClinicalFolder(clinFolder: ClinicalFolder?) {
         let context = getContext()
-        PersistanceManager.removeClinicaFolder()
-        let clinicalFolder = NSEntityDescription.insertNewObject(forEntityName: clinicalFolderEntity, into: context) as! ClinicalFolderData
-        clinicalFolder.sex = clinFolder.sesso
-        clinicalFolder.dateB = clinFolder.dataDiNascita
-        clinicalFolder.height = clinFolder.altezza
-        clinicalFolder.weight = clinFolder.peso
-        clinicalFolder.bloodType = clinFolder.gruppoSanguigno
-        clinicalFolder.skin = clinFolder.fototipo
-        clinicalFolder.wheelchair = clinFolder.sediaARotelle
-        clinicalFolder.heartRate = clinFolder.ultimoBattito
-        saveContext()
+        if(clinFolder != nil){
+            PersistanceManager.removeClinicaFolder()
+            let clinicalFolder = NSEntityDescription.insertNewObject(forEntityName: clinicalFolderEntity, into: context) as! ClinicalFolderData
+            clinicalFolder.sex = clinFolder?.sesso!
+            clinicalFolder.dateB = clinFolder?.dataDiNascita!
+            clinicalFolder.height = clinFolder?.altezza!
+            clinicalFolder.weight = clinFolder?.peso!
+            clinicalFolder.bloodType = clinFolder?.gruppoSanguigno!
+            clinicalFolder.skin = clinFolder?.fototipo!
+            clinicalFolder.wheelchair = clinFolder?.sediaARotelle!
+            clinicalFolder.heartRate = clinFolder?.ultimoBattito!
+            saveContext()
         NSLog("Save new Clinical Folder")
+        }else{
+            NSLog("Not Save new Clinical Folder because object is nil")
+
+        }
     }
-    func getClinicalFolder() -> ClinicalFolder{
+    static func getClinicalFolder() -> ClinicalFolder?{
         let report:ClinicalFolderData? = PersistanceManager.fetchDataClinicalFolder().first
         
-              let clin = ClinicalFolder(sesso: (report!.sex)!,
+        if(report != nil){
+                let clin = ClinicalFolder(sesso: (report!.sex)!,
                                                    dataDiNascita: (report!.dateB)!,
                                                    altezza: (report!.height)!,
                                                    peso: (report!.weight)!,
@@ -156,10 +162,11 @@ class PersistanceManager {
                                                    fototipo: (report!.skin)!,
                                                    sediaARotelle: (report!.wheelchair)!,
                                                    ultimoBattito: (report!.heartRate)!)
-        
-        
-        
-        return clin
+
+                return clin
+        }else{
+            return nil
+        }
         
     }
     static func removeClinicaFolder() {

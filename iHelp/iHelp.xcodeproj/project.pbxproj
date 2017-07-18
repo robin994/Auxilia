@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4B3803A61F1A12F3009599A6 /* ClinicalFolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3803A51F1A12F3009599A6 /* ClinicalFolderViewController.swift */; };
 		4BD2D59F1F1A31DA00201A7A /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD2D59E1F1A31DA00201A7A /* HealthKitManager.swift */; };
+		4BD5D5321F1E0890008A3211 /* ClinicalFolderData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD5D5301F1E0890008A3211 /* ClinicalFolderData+CoreDataClass.swift */; };
+		4BD5D5331F1E0890008A3211 /* ClinicalFolderData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD5D5311F1E0890008A3211 /* ClinicalFolderData+CoreDataProperties.swift */; };
 		4BDA9B421F1B8CC30076C349 /* ClinicalFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDA9B411F1B8CC30076C349 /* ClinicalFolder.swift */; };
 		4CDCAA801F191C7F00DBC79D /* SOSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDCAA7F1F191C7F00DBC79D /* SOSViewController.swift */; };
 		BD10F26A1F193CBF00516967 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD10F2691F193CBF00516967 /* MapViewController.swift */; };
@@ -27,7 +29,6 @@
 		CE37C19A1F1CBA6D00DBDACE /* microphone.png in Resources */ = {isa = PBXBuildFile; fileRef = CE37C1991F1CBA6D00DBDACE /* microphone.png */; };
 		CE37FDE11F190F4400FE0CCF /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37FDE01F190F4400FE0CCF /* SettingViewController.swift */; };
 		CE3953831F13655C006BFBCA /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3953821F13655C006BFBCA /* logo.png */; };
-		CE41BDEF1F1CEC9700CB778A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE41BDEE1F1CEC9700CB778A /* CloudKit.framework */; };
 		CE4656C71F0FD325004E3868 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4656C61F0FD325004E3868 /* AppDelegate.swift */; };
 		CE4656CC1F0FD325004E3868 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE4656CA1F0FD325004E3868 /* Main.storyboard */; };
 		CE4656CE1F0FD325004E3868 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE4656CD1F0FD325004E3868 /* Assets.xcassets */; };
@@ -81,6 +82,8 @@
 		2CE0F134E4C6397093D0CF4B /* Pods-iHelp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iHelp.release.xcconfig"; path = "Pods/Target Support Files/Pods-iHelp/Pods-iHelp.release.xcconfig"; sourceTree = "<group>"; };
 		4B3803A51F1A12F3009599A6 /* ClinicalFolderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicalFolderViewController.swift; sourceTree = "<group>"; };
 		4BD2D59E1F1A31DA00201A7A /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
+		4BD5D5301F1E0890008A3211 /* ClinicalFolderData+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ClinicalFolderData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4BD5D5311F1E0890008A3211 /* ClinicalFolderData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ClinicalFolderData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4BDA9B411F1B8CC30076C349 /* ClinicalFolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicalFolder.swift; sourceTree = "<group>"; };
 		4CDCAA7D1F19197600DBC79D /* iHelpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iHelpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CDCAA7E1F19197600DBC79D /* iHelpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iHelpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,7 +105,6 @@
 		CE37FDE01F190F4400FE0CCF /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		CE3953821F13655C006BFBCA /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = SOURCE_ROOT; };
 		CE3953891F13664E006BFBCA /* iHelp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iHelp.entitlements; sourceTree = "<group>"; };
-		CE41BDEE1F1CEC9700CB778A /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		CE4656C61F0FD325004E3868 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE4656CB1F0FD325004E3868 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE4656CD1F0FD325004E3868 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -149,7 +151,6 @@
 				CECA128D1F16AA8600A1ABA7 /* ContactsUI.framework in Frameworks */,
 				CECA128B1F16AA7B00A1ABA7 /* Contacts.framework in Frameworks */,
 				CE934CB91F18CA0500F8D2DF /* libPods-iHelp.a in Frameworks */,
-				CE41BDEF1F1CEC9700CB778A /* CloudKit.framework in Frameworks */,
 				CE934CB71F18C97A00F8D2DF /* libPods-PushNotification.a in Frameworks */,
 				CE53F0841F14B773001EAC96 /* HealthKit.framework in Frameworks */,
 			);
@@ -213,6 +214,8 @@
 		CE0E5D611F180EB600B8D1FC /* CoreDataResources */ = {
 			isa = PBXGroup;
 			children = (
+				4BD5D5301F1E0890008A3211 /* ClinicalFolderData+CoreDataClass.swift */,
+				4BD5D5311F1E0890008A3211 /* ClinicalFolderData+CoreDataProperties.swift */,
 				BD25C1E71F1CFF5F002A4D48 /* TopicsIscritto+CoreDataClass.swift */,
 				BD25C1E81F1CFF5F002A4D48 /* TopicsIscritto+CoreDataProperties.swift */,
 				CE099F281F1BA31D00199904 /* ReportsHistory+CoreDataClass.swift */,
@@ -268,7 +271,6 @@
 		CE3953841F136645006BFBCA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CE41BDEE1F1CEC9700CB778A /* CloudKit.framework */,
 				CE934CB81F18CA0500F8D2DF /* libPods-iHelp.a */,
 				CE934CB61F18C97A00F8D2DF /* libPods-PushNotification.a */,
 				CECA128C1F16AA8600A1ABA7 /* ContactsUI.framework */,
@@ -611,10 +613,12 @@
 				CE954EBE1F16329E00A9A95D /* SOS.swift in Sources */,
 				CEB6324C1F1D56FF00E43555 /* CloudKitManager.swift in Sources */,
 				CEB6324E1F1D666A00E43555 /* ReportDetailViewController.swift in Sources */,
+				4BD5D5321F1E0890008A3211 /* ClinicalFolderData+CoreDataClass.swift in Sources */,
 				CE0E5D6A1F181A0F00B8D1FC /* CreateProfileViewController.swift in Sources */,
 				BD10F26A1F193CBF00516967 /* MapViewController.swift in Sources */,
 				CE0E5D651F180EF400B8D1FC /* UserProfile+CoreDataProperties.swift in Sources */,
 				CE099F2B1F1BA31D00199904 /* ReportsHistory+CoreDataProperties.swift in Sources */,
+				4BD5D5331F1E0890008A3211 /* ClinicalFolderData+CoreDataProperties.swift in Sources */,
 				CE53F0861F14B810001EAC96 /* ReportCell.swift in Sources */,
 				CE8714121F1513780021F74D /* ContactDetailViewController.swift in Sources */,
 				CEFC730B1F14D38D008C769A /* ContactStore.swift in Sources */,

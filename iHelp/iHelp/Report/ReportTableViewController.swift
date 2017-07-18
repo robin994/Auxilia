@@ -18,6 +18,7 @@ class ReportTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let users: [UserProfile] = PersistanceManager.fetchDataUserProfile()
+        PersistanceManager.clearAllReportHistory()
         reportStore = ReportStore()
         NSLog(users.description)
         NotificationManager.subscribe("Roberto")
@@ -35,8 +36,11 @@ class ReportTableViewController: UITableViewController {
             
             tableView.addSubview(refresh!)
             refresh.beginRefreshing()
-        
             
+            clearRows()
+            NSLog("Reload Topics")
+            reloadTopics()
+            NSLog("Reload Data")
             refreshData()
         }
         // Uncomment the following line to preserve selection between presentations
@@ -46,35 +50,50 @@ class ReportTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
+    func clearRows() {
+        if reportStore.array.count != 0 {
+            for _ in 0...reportStore.array.count {
+                tableView.deleteRows(at: tableView.indexPathsForVisibleRows!, with: .fade)
+            }
+        }
+    }
+    
     func refreshData() {
+        NamesArray = []
         NSLog("Richiesta refresh data")
-        NSLog("Reload Topics")
-        reloadTopics()
         NSLog("Reload Notifiche")
         NamesArray = Array<CKRecord>()
         let ourDataPublicDataBase = CKContainer.default().publicCloudDatabase
-        
+        let numeroDiTelefono: String?
+        if PersistanceManager.fetchDataUserProfile().isEmpty == false && PersistanceManager.fetchDataUserProfile().first?.isSet == true {
+            numeroDiTelefono = PersistanceManager.fetchDataUserProfile().first?.address!
+        } else {
+            numeroDiTelefono = "0"
+        }
+        NSLog("Numero di telefono prelevato: \(numeroDiTelefono!)")
         //in order to see our data value: true
-        let ourPredicate = NSPredicate(value: true)
+        let ourPredicate = NSPredicate(format: "topic_id = '\(numeroDiTelefono!)'")
         
         let ourQuery = CKQuery(recordType: "Notifiche", predicate: ourPredicate)
         
-        ourQuery.sortDescriptors = [NSSortDescriptor(key: "contactIdentifier", ascending: false)]
+        ourQuery.sortDescriptors = [NSSortDescriptor(key: "telephone", ascending: false)]
         NSLog("Fatto il sort")
-        NSLog(ourQuery.sortDescriptors!.description)
         ourDataPublicDataBase.perform(ourQuery, inZoneWith: nil) { (results, error) in
-         NSLog("Fatta query")
+        NSLog("Fatta query")
             if error != nil {
                 print("Error \(error.debugDescription)")
             }
             else{
+                var x = 0
                 for results2 in results!{
                     self.NamesArray.append(results2)
-                    NSLog("SONO QUI")
-                    //print(results2)
-                    self.reloadReports()
+                    NSLog("Reload Reports")
+                    print(results2["name"])
+                    x = x + 1
+                    print(x)
+                    
                 }
-                
+                self.reloadReports()
                 OperationQueue.main.addOperation({ () -> Void in
                     self.tableView.reloadData()
                     self.tableView.isHidden = false
@@ -83,6 +102,7 @@ class ReportTableViewController: UITableViewController {
                 
             }
         }
+        
     }
     
     func reloadTopics() {
@@ -131,13 +151,14 @@ class ReportTableViewController: UITableViewController {
         
         for notifica in NamesArray {
             let report = Report(
-                name: String(describing: notifica.value(forKey: "name")),
-                surname: String(describing: notifica.value(forKey: "surname")),
+                name: String(describing: notifica.value(forKey: "name")!),
+                surname: String(describing: notifica.value(forKey: "surname")!),
                 isMine: false,
-                phoneNumber: String(describing: notifica.value(forKey: "telephone")),
-                message: String(describing: notifica.value(forKey: "message")),
+                phoneNumber: String(describing: notifica.value(forKey: "telephone")!),
+                message: String(describing: notifica.value(forKey: "message")!),
+                creationDate: String(describing: notifica["creationDate"]),
                 clinicalFolder: ClinicalFolder(sesso: String(describing: notifica.value(forKey: "sex")),
-                                               dataDiNascita: String(describing: notifica.value(forKey: "birthday")),
+                                               dataDiNascita: String(describing: notifica.value(forKey: "birthday")!),
                                                altezza: String(describing: notifica.value(forKey: "height")),
                                                peso: String(describing: notifica.value(forKey: "weight")),
                                                gruppoSanguigno: String(describing: notifica.value(forKey: "bloodGroup")),
@@ -147,7 +168,7 @@ class ReportTableViewController: UITableViewController {
             NSLog("-----------SALVO REPORT------------")
             NSLog(report.name)
             NSLog(report.message)
-            NSLog(report.date.description)
+            NSLog(report.creationDate.description)
             self.addReport(toAdd: report)
         }
     }
@@ -187,7 +208,7 @@ class ReportTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReportCell", for: indexPath) as! ReportCell
         
         let currentReport = reportStore.array[indexPath.row]
-        cell.dateField.text = currentReport.date.description
+        cell.dateField.text = currentReport.deliveryDate.description
         cell.nameField.text = currentReport.name
         if currentReport.isMine {
             cell.nameField.textColor = UIColor.blue

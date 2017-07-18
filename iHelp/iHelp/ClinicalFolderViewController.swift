@@ -26,8 +26,9 @@ class ClinicalFolderViewController: UITableViewController {
     var weight: HKQuantitySample?
     var heightString = ""
     var weightString = ""
-    var clinicalFolderObject: ClinicalFolder?
+    var clinicalFolderObject: ClinicalFolder? = nil
     var heartRate: Double = 0.0
+
     
     
     override func viewDidLoad() {
@@ -37,7 +38,7 @@ class ClinicalFolderViewController: UITableViewController {
         getHealthKitPermission()
         let dati = self.healthManager.readProfile()
         print("\n \n \n \(dati.age!) \(dati.biologicalsex!) \(dati.bloodtype!)")
-        dataDiNascita.text = dati.age!
+        dataDiNascita.text = dati.age
         sesso.text = dati.biologicalsex
         fototipo.text = dati.skin
         gruppoSanguigno.text = dati.bloodtype
@@ -50,10 +51,13 @@ class ClinicalFolderViewController: UITableViewController {
             self.heartRate = self.healthManager.getTodaysHeartRates()!
             print("battito ricevutoooooooooo \(self.heartRate)")
             self.ultimoBattitoRilevato.text = "\(self.heartRate)"
+            self.clinicalFolderObject = ClinicalFolder(sesso: dati.biologicalsex!, dataDiNascita: dati.age!, altezza: self.heightString, peso: self.weightString, gruppoSanguigno: dati.bloodtype!, fototipo: self.fototipo.text! , sediaARotelle: dati.chairUse!, ultimoBattito: String(describing: self.heartRate))
+                 PersistanceManager.setClinicalFolder(clinFolder: self.clinicalFolderObject!)
         })
         
+    
         
-        clinicalFolderObject = ClinicalFolder(sesso: dati.biologicalsex!, dataDiNascita: dati.age!, altezza: heightString, peso: weightString, gruppoSanguigno: dati.bloodtype!, fototipo: fototipo.text! , sediaARotelle: dati.chairUse!, ultimoBattito: String(describing: heartRate))
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -62,6 +66,7 @@ class ClinicalFolderViewController: UITableViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
        }
     
     

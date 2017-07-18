@@ -12,28 +12,48 @@ import Foundation
 
 class CloudKitManager: NSObject {
     
-    static func saveReport(name: String, surname: String, birthday: String, height: String, weight: String, telephone: String, sesso: String, bloodGroup: String, contactIdentifier: String, heartRate: String, fototipo: String, latitudine: Double, longitudine: Double, message: String, velocity: Double, wheelchair: String, creationDate: String, audioMessage: CKAsset) {
+    static func saveReport(name: String, surname: String, telephone: String, latitudine: Double, longitudine: Double, message: String, velocity: Double, creationDate: String) {
         let database = CKContainer.default().publicCloudDatabase
+        
+        let clinicalFolder: ClinicalFolder = PersistanceManager.getClinicalFolder()!
+        
+        let height = clinicalFolder.altezza
+        let weight = clinicalFolder.peso
+        let sesso = clinicalFolder.sesso
+        let wheelchair = clinicalFolder.sediaARotelle
+        let fototipo = clinicalFolder.fototipo
+        let heartRate = clinicalFolder.ultimoBattito
+        let birthday = clinicalFolder.dataDiNascita
+        let bloodGroup = clinicalFolder.gruppoSanguigno
+        
+        let datiUser = PersistanceManager.fetchDataUserProfile()
+        //print("\n\nDATI USER \(datiUser)\n\n")
+        
         NSLog("\n\n Sto provando a salvare\n\n")
         let store = CKRecord(recordType: "Notifiche")
-        store.setObject(name as CKRecordValue?, forKey: "name")
-        store.setObject(surname as CKRecordValue?, forKey: "surname")
+        //cartella clinica
+        store.setObject(bloodGroup as CKRecordValue?, forKey: "bloodGroup")
         store.setObject(birthday as CKRecordValue?, forKey: "birthday")
         store.setObject(height as CKRecordValue?, forKey: "height")
         store.setObject(weight as CKRecordValue?, forKey: "weight")
-        store.setObject(telephone as CKRecordValue?, forKey: "telephone")
         store.setObject(sesso as CKRecordValue?, forKey: "sesso")
-        store.setObject(bloodGroup as CKRecordValue?, forKey: "bloodGroup")
-        store.setObject(contactIdentifier as CKRecordValue?, forKey: "contactIdentifier")
         store.setObject(heartRate as CKRecordValue?, forKey: "heartRate")
         store.setObject(fototipo as CKRecordValue?, forKey: "fototipo")
+        store.setObject(wheelchair as CKRecordValue?, forKey: "wheelchair")
+        
+        store.setObject(name as CKRecordValue?, forKey: "name")
+        store.setObject(surname as CKRecordValue?, forKey: "surname")
+        store.setObject(telephone as CKRecordValue?, forKey: "telephone")
+        
+        //localizzazione
         store.setObject(latitudine as CKRecordValue?, forKey: "latitudine")
         store.setObject(longitudine as CKRecordValue?, forKey: "longitudine")
-        store.setObject(message as CKRecordValue?, forKey: "message")
         store.setObject(velocity as CKRecordValue?, forKey: "velocity")
-        store.setObject(wheelchair as CKRecordValue?, forKey: "wheelchair")
+        
         //store.setObject(creationDate as CKRecordValue?, forKey: "creationDate")
-        store.setObject(audioMessage as CKRecordValue?, forKey: "audioMessage")
+        //store.setObject(audioMessage as CKRecordValue?, forKey: "audioMessage")
+        store.setObject(message as CKRecordValue?, forKey: "message")
+        
         NSLog("\n\n Sto provando a salvare2\n\n")
         
         database.save(store) { (saveRecord, error) in

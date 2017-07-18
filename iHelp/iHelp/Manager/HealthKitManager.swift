@@ -267,9 +267,7 @@ class HealthKitManager {
     func bloodTypeLiteral(_ bloodType:HKBloodType?)->String
     {
         
-        var bloodTypeText = "kUnknownString";
-        print("bloodType: \(bloodType!)\n\n")
-        
+        var bloodTypeText = "kUnknownString";        
         if bloodType != nil {
             
             switch( bloodType! ) {
@@ -302,7 +300,6 @@ class HealthKitManager {
     {
         
         var fitzpatrickSkin = "UnknownString";
-        print("bloodType: \(bloodType!)\n\n")
         
         if bloodType != nil {
             switch( bloodType! ) {

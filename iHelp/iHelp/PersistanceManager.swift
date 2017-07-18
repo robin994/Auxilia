@@ -14,6 +14,7 @@ class PersistanceManager {
     static let reportHistoryEntity = "ReportsHistory"
     static let userProfileEntity = "UserProfile"
     static let topicEntity = "TopicsIscritto"
+    static let clinicalFolderEntity = "ClinicalFolderData"
     
     static func getContext() -> NSManagedObjectContext {
         
@@ -67,9 +68,9 @@ class PersistanceManager {
                 context.delete(topic)
                 NSLog("Removed topic : \(toRemove)")
                 saveContext()
-                break
             }
         }
+        saveContext()
     }
     
     
@@ -129,13 +130,107 @@ class PersistanceManager {
     }
     
     
+    static func setClinicalFolder(clinFolder: ClinicalFolder?) {
+        let context = getContext()
+        if(clinFolder != nil){
+            PersistanceManager.removeClinicaFolder()
+            let clinicalFolder = NSEntityDescription.insertNewObject(forEntityName: clinicalFolderEntity, into: context) as! ClinicalFolderData
+            clinicalFolder.sex = clinFolder?.sesso!
+            clinicalFolder.dateB = clinFolder?.dataDiNascita!
+            clinicalFolder.height = clinFolder?.altezza!
+            clinicalFolder.weight = clinFolder?.peso!
+            clinicalFolder.bloodType = clinFolder?.gruppoSanguigno!
+            clinicalFolder.skin = clinFolder?.fototipo!
+            clinicalFolder.wheelchair = clinFolder?.sediaARotelle!
+            clinicalFolder.heartRate = clinFolder?.ultimoBattito!
+            saveContext()
+        NSLog("Save new Clinical Folder")
+        }else{
+            NSLog("Not Save new Clinical Folder because object is nil")
+
+        }
+    }
+    static func getClinicalFolder() -> ClinicalFolder? {
+        NSLog(PersistanceManager.fetchDataClinicalFolder().description)
+        if let report = PersistanceManager.fetchDataClinicalFolder().first {
+            let clin = ClinicalFolder(sesso: report.sex!,
+                                      dataDiNascita: report.dateB!,
+                                      altezza: report.height!,
+                                      peso: report.weight!,
+                                      gruppoSanguigno: report.bloodType!,
+                                      fototipo: report.skin!,
+                                      sediaARotelle: report.wheelchair!,
+                                      ultimoBattito: report.heartRate!)
+            NSLog("RITORNO CARTELLA")
+            return clin
+
+        } else {
+            NSLog("RITORNO CARTELLA VUOTA")
+            return ClinicalFolder(sesso: "",
+                                  dataDiNascita: "",
+                                  altezza: "",
+                                  peso: "",
+                                  gruppoSanguigno: "",
+                                  fototipo: "",
+                                  sediaARotelle: "",
+                                  ultimoBattito: "")
+        }
+        
+//        let report: ClinicalFolderData = PersistanceManager.fetchDataClinicalFolder().first!
+//        
+//        if(report != nil){
+//                let clin = ClinicalFolder(sesso: (report!.sex)!,
+//                                                   dataDiNascita: (report!.dateB)!,
+//                                                   altezza: (report!.height)!,
+//                                                   peso: (report!.weight)!,
+//                                                   gruppoSanguigno: (report!.bloodType)!,
+//                                                   fototipo: (report!.skin)!,
+//                                                   sediaARotelle: (report!.wheelchair)!,
+//                                                   ultimoBattito: (report!.heartRate)!)
+//
+//                return clin
+//        }else{
+//            return nil
+//        }
+        
+    }
+    static func removeClinicaFolder() {
+        let clinicals = PersistanceManager.fetchDataClinicalFolder()
+        let context = getContext()
+        for clinical in clinicals {
+            context.delete(clinical)
+        }
+        saveContext()
+        NSLog("Removed User")
+        
+    }
+    
+    static func fetchDataClinicalFolder() -> [ClinicalFolderData] {
+        var clin = [ClinicalFolderData]()
+        
+        let context = getContext()
+        
+        let clinicalFolder = NSFetchRequest<ClinicalFolderData>(entityName: clinicalFolderEntity)
+        
+        do {
+            try clin = context.fetch(clinicalFolder)
+        } catch let error as NSError {
+            print("Error in \(error.code)")
+        }
+        NSLog("Fetched data User")
+        
+        return clin
+    }
+
+    
     
     static func newReportHistory(toAdd: Report) {
         let context = getContext()
         
         let report = NSEntityDescription.insertNewObject(forEntityName: reportHistoryEntity, into: context) as! ReportsHistory
         report.contactIdentifier = toAdd.phoneNumber
-        report.creationDate = toAdd.date as NSDate
+        report.creationDate = toAdd.creationDate
+        report.deliveryDate = toAdd.deliveryDate as NSDate
         report.message = toAdd.message
         report.isMine = toAdd.isMine
         report.name = toAdd.name
@@ -147,7 +242,7 @@ class PersistanceManager {
         let reports = PersistanceManager.fetchDataReportHistory()
         NSLog("Controllo uguaglianza Reports")
         for report in reports {
-            if (report.contactIdentifier! == toCheck.phoneNumber && toCheck.date.description == report.creationDate!.description && toCheck.message == report.message) {
+            if (report.contactIdentifier! == toCheck.phoneNumber && toCheck.creationDate.description == report.creationDate!.description && toCheck.message == report.message) {
                 NSLog("Report già presente nel DB")
                 return true
             }
@@ -160,12 +255,24 @@ class PersistanceManager {
         let context = getContext()
         let datas: [ReportsHistory] = fetchDataReportHistory()
         for data in datas {
-            if (data.contactIdentifier! == toRemove.phoneNumber && toRemove.date.description == data.creationDate!.description) {
+            if (data.contactIdentifier! == toRemove.phoneNumber && toRemove.creationDate.description == data.creationDate!.description) {
                 NSLog("Report rimosso: \(data.description)")
                 context.delete(data)
-                saveContext()
             }
         }
+        saveContext()
+    }
+
+    static func clearAllReportHistory() {
+        NSLog("------------ REQUEST DELETE REPORTS ---------")
+
+        let context = getContext()
+        let datas: [ReportsHistory] = fetchDataReportHistory()
+        for data in datas {
+            context.delete(data)
+        }
+        NSLog("DELETED ALL REPORTS HYSTORY")
+        saveContext()
     }
 
 
@@ -205,9 +312,9 @@ class PersistanceManager {
             if data.contactIdentifier == toRemove.contact.identifier {
                 NSLog("Cancello: \(data.description)")
                 context.delete(data)
-                saveContext()
             }
         }
+        saveContext()
     }
 
     static func fetchDataEmergencyContact() -> [EmergencyContact] {
@@ -247,33 +354,36 @@ class PersistanceManager {
         let deleteRequestUPFR = NSBatchDeleteRequest(fetchRequest: userProfileFR)
         let deleteRequestTFR = NSBatchDeleteRequest(fetchRequest: topicsFR)
         // get reference to the persistent container
-        let persistentContainer = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
+        let context = self.getContext()
         
         // perform the delete
         do {
             if !PersistanceManager.fetchDataReportHistory().isEmpty {
                 NSLog("Clearing report data")
-                try persistentContainer.viewContext.execute(deleteRequestRFR)
+                try context.execute(deleteRequestRFR)
+                self.saveContext()
             }
             if !PersistanceManager.fetchDataEmergencyContact().isEmpty {
                 NSLog("Clearing emergency contacts data")
-                try persistentContainer.viewContext.execute(deleteRequestECFR)
+                try context.execute(deleteRequestECFR)
+                self.saveContext()
             }
             if !PersistanceManager.fetchDataUserProfile().isEmpty {
                 NSLog("Clearing user data")
-                //try persistentContainer.viewContext.execute(deleteRequestUPFR)
+                try context.execute(deleteRequestUPFR)
+                self.saveContext()
             }
             if !PersistanceManager.fetchRequestTopics().isEmpty {
                 NSLog("Clearing topics data")
-                try persistentContainer.viewContext.execute(deleteRequestTFR)
+                try context.execute(deleteRequestTFR)
+                self.saveContext()
             }
-            self.saveContext()
-            /*
+            
             if let viewController: UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WelcomeView") {
                 if let navigator = navigationController {
                     navigator.pushViewController(viewController, animated: true)
                 }
-            }*/
+            }
         } catch let error as NSError {
             print(error)
         }

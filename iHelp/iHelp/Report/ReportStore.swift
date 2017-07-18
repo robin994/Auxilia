@@ -14,9 +14,11 @@ class ReportStore: NSObject {
     
     
     func addReport(report : Report) {
+        NSLog("Richiesta aggiunta report")
         if (!PersistanceManager.isReportAlreadyInside(toCheck: report)) {
             PersistanceManager.newReportHistory(toAdd: report)
             array.append(report)
+            NSLog("Aggiunto report")
         }
     }
     
@@ -29,6 +31,7 @@ class ReportStore: NSObject {
                     isMine: report.isMine,
                     phoneNumber: report.contactIdentifier!,
                     message: report.message!,
+                    creationDate: report.creationDate!,
                     clinicalFolder: ClinicalFolder(sesso: report.sesso!,
                                                    dataDiNascita: report.birthday!,
                                                    altezza: report.height!,

@@ -19,6 +19,8 @@ class NotificationManager: NSObject {
     }
     
     static func sendNotification(topic: String, message: String, title: String) {
+        CloudKitManager.saveReport(name: "String", surname: "", telephone: "", latitudine: 4, longitudine: 5, message: "String", velocity: 33, creationDate: "String")
+        
         let url = NSURL(string: "https://fcm.googleapis.com/fcm/send")
         //let tk = InstanceID.instanceID().token()
         

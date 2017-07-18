@@ -35,7 +35,8 @@ class ReportTableViewController: UITableViewController {
             
             tableView.addSubview(refresh!)
             refresh.beginRefreshing()
-        
+            
+            clearRows()
             
             refreshData()
         }
@@ -44,6 +45,14 @@ class ReportTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    func clearRows() {
+        if reportStore.array.count != 0 {
+            for _ in 0...reportStore.array.count {
+                tableView.deleteRows(at: tableView.indexPathsForVisibleRows!, with: .fade)
+            }
+        }
     }
     
     func refreshData() {
@@ -59,18 +68,17 @@ class ReportTableViewController: UITableViewController {
         
         let ourQuery = CKQuery(recordType: "Notifiche", predicate: ourPredicate)
         
-        ourQuery.sortDescriptors = [NSSortDescriptor(key: "contactIdentifier", ascending: false)]
+        ourQuery.sortDescriptors = [NSSortDescriptor(key: "telephone", ascending: false)]
         NSLog("Fatto il sort")
-        NSLog(ourQuery.sortDescriptors!.description)
         ourDataPublicDataBase.perform(ourQuery, inZoneWith: nil) { (results, error) in
-         NSLog("Fatta query")
+        NSLog("Fatta query")
             if error != nil {
                 print("Error \(error.debugDescription)")
             }
             else{
                 for results2 in results!{
                     self.NamesArray.append(results2)
-                    NSLog("SONO QUI")
+                    NSLog("Reload Reports")
                     //print(results2)
                     self.reloadReports()
                 }
@@ -131,13 +139,13 @@ class ReportTableViewController: UITableViewController {
         
         for notifica in NamesArray {
             let report = Report(
-                name: String(describing: notifica.value(forKey: "name")),
-                surname: String(describing: notifica.value(forKey: "surname")),
+                name: String(describing: notifica.value(forKey: "name")!),
+                surname: String(describing: notifica.value(forKey: "surname")!),
                 isMine: false,
-                phoneNumber: String(describing: notifica.value(forKey: "telephone")),
-                message: String(describing: notifica.value(forKey: "message")),
+                phoneNumber: String(describing: notifica.value(forKey: "telephone")!),
+                message: String(describing: notifica.value(forKey: "message")!),
                 clinicalFolder: ClinicalFolder(sesso: String(describing: notifica.value(forKey: "sex")),
-                                               dataDiNascita: String(describing: notifica.value(forKey: "birthday")),
+                                               dataDiNascita: String(describing: notifica.value(forKey: "birthday")!),
                                                altezza: String(describing: notifica.value(forKey: "height")),
                                                peso: String(describing: notifica.value(forKey: "weight")),
                                                gruppoSanguigno: String(describing: notifica.value(forKey: "bloodGroup")),
@@ -155,6 +163,8 @@ class ReportTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
+        let reports = PersistanceManager.fetchDataReportHistory()
+        NSLog(reports.description)
     }
 
     override func didReceiveMemoryWarning() {

@@ -51,6 +51,8 @@
 		CEB6324A1F1D3AE600E43555 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CEB632491F1D3AE600E43555 /* GoogleService-Info.plist */; };
 		CEB6324C1F1D56FF00E43555 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB6324B1F1D56FF00E43555 /* CloudKitManager.swift */; };
 		CEB6324E1F1D666A00E43555 /* ReportDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB6324D1F1D666A00E43555 /* ReportDetailViewController.swift */; };
+		CEB632501F1E127F00E43555 /* ClinicalFolderData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB6324F1F1E127F00E43555 /* ClinicalFolderData+CoreDataProperties.swift */; };
+		CEB632521F1E129E00E43555 /* ClinicalFolderData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB632511F1E129E00E43555 /* ClinicalFolderData+CoreDataClass.swift */; };
 		CECA128B1F16AA7B00A1ABA7 /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CECA128A1F16AA7B00A1ABA7 /* Contacts.framework */; };
 		CECA128D1F16AA8600A1ABA7 /* ContactsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CECA128C1F16AA8600A1ABA7 /* ContactsUI.framework */; };
 		CEFC73051F14C618008C769A /* ReportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC73041F14C618008C769A /* ReportTableViewController.swift */; };
@@ -132,6 +134,8 @@
 		CEB632491F1D3AE600E43555 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CEB6324B1F1D56FF00E43555 /* CloudKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		CEB6324D1F1D666A00E43555 /* ReportDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportDetailViewController.swift; sourceTree = "<group>"; };
+		CEB6324F1F1E127F00E43555 /* ClinicalFolderData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ClinicalFolderData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CEB632511F1E129E00E43555 /* ClinicalFolderData+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ClinicalFolderData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CECA128A1F16AA7B00A1ABA7 /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
 		CECA128C1F16AA8600A1ABA7 /* ContactsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ContactsUI.framework; path = System/Library/Frameworks/ContactsUI.framework; sourceTree = SDKROOT; };
 		CEFC73041F14C618008C769A /* ReportTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTableViewController.swift; sourceTree = "<group>"; };
@@ -213,6 +217,8 @@
 		CE0E5D611F180EB600B8D1FC /* CoreDataResources */ = {
 			isa = PBXGroup;
 			children = (
+				CEB632511F1E129E00E43555 /* ClinicalFolderData+CoreDataClass.swift */,
+				CEB6324F1F1E127F00E43555 /* ClinicalFolderData+CoreDataProperties.swift */,
 				BD25C1E71F1CFF5F002A4D48 /* TopicsIscritto+CoreDataClass.swift */,
 				BD25C1E81F1CFF5F002A4D48 /* TopicsIscritto+CoreDataProperties.swift */,
 				CE099F281F1BA31D00199904 /* ReportsHistory+CoreDataClass.swift */,
@@ -609,6 +615,7 @@
 				BD25C1E91F1CFF5F002A4D48 /* TopicsIscritto+CoreDataClass.swift in Sources */,
 				CE03E6681F1954C7002B6F41 /* DataCore.xcdatamodeld in Sources */,
 				CE954EBE1F16329E00A9A95D /* SOS.swift in Sources */,
+				CEB632501F1E127F00E43555 /* ClinicalFolderData+CoreDataProperties.swift in Sources */,
 				CEB6324C1F1D56FF00E43555 /* CloudKitManager.swift in Sources */,
 				CEB6324E1F1D666A00E43555 /* ReportDetailViewController.swift in Sources */,
 				CE0E5D6A1F181A0F00B8D1FC /* CreateProfileViewController.swift in Sources */,
@@ -619,6 +626,7 @@
 				CE8714121F1513780021F74D /* ContactDetailViewController.swift in Sources */,
 				CEFC730B1F14D38D008C769A /* ContactStore.swift in Sources */,
 				4BD2D59F1F1A31DA00201A7A /* HealthKitManager.swift in Sources */,
+				CEB632521F1E129E00E43555 /* ClinicalFolderData+CoreDataClass.swift in Sources */,
 				CEFC73091F14D317008C769A /* Contact.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

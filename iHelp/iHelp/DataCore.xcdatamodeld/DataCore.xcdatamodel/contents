@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16F73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ClinicalFolderData" representedClassName="ClinicalFolderData" syncable="YES">
+        <attribute name="bloodType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dateB" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="heartRate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="height" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sex" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="skin" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="weight" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="wheelchair" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="EmergencyContact" representedClassName=".EmergencyContact" syncable="YES">
         <attribute name="contactIdentifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -37,9 +47,10 @@
         <attribute name="userPhoto" optional="YES" attributeType="Binary" storedInTruthFile="YES" syncable="YES"/>
     </entity>
     <elements>
-        <element name="EmergencyContact" positionX="171" positionY="18" width="128" height="103"/>
+        <element name="EmergencyContact" positionX="171" positionY="18" width="128" height="105"/>
         <element name="ReportsHistory" positionX="-54" positionY="18" width="128" height="315"/>
         <element name="TopicsIscritto" positionX="63" positionY="144" width="128" height="60"/>
         <element name="UserProfile" positionX="63" positionY="54" width="128" height="120"/>
+        <element name="ClinicalFolderData" positionX="63" positionY="153" width="128" height="165"/>
     </elements>
 </model>

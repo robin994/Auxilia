@@ -14,6 +14,7 @@ class PersistanceManager {
     static let reportHistoryEntity = "ReportsHistory"
     static let userProfileEntity = "UserProfile"
     static let topicEntity = "TopicsIscritto"
+    static let clinicalFolderEntity = "ClinicaFolder"
     
     static func getContext() -> NSManagedObjectContext {
         
@@ -128,6 +129,51 @@ class PersistanceManager {
         return users
     }
     
+    
+    static func setClinicalFolder(clinFolder: ClinicalFolder) {
+        let context = getContext()
+        PersistanceManager.removeClinicaFolder()
+        let clinicalFolder = NSEntityDescription.insertNewObject(forEntityName: clinicalFolderEntity, into: context) as! ClinicalFolderData
+        clinicalFolder.sex = clinFolder.sesso
+        clinicalFolder.dateB = clinFolder.dataDiNascita
+        clinicalFolder.height = clinFolder.altezza
+        clinicalFolder.weight = clinFolder.peso
+        clinicalFolder.bloodType = clinFolder.gruppoSanguigno
+        clinicalFolder.skin = clinFolder.fototipo
+        clinicalFolder.wheelchair = clinFolder.sediaARotelle
+        clinicalFolder.heartRate = clinFolder.ultimoBattito
+        saveContext()
+        NSLog("Save new Clinical Folder")
+    }
+    
+    static func removeClinicaFolder() {
+        let clinicals = PersistanceManager.fetchDataClinicalFolder()
+        let context = getContext()
+        for clinical in clinicals {
+            context.delete(clinical)
+        }
+        saveContext()
+        NSLog("Removed User")
+        
+    }
+    
+    static func fetchDataClinicalFolder() -> [ClinicalFolderData] {
+        var clin = [ClinicalFolderData]()
+        
+        let context = getContext()
+        
+        let clinicalFolder = NSFetchRequest<ClinicalFolderData>(entityName: clinicalFolderEntity)
+        
+        do {
+            try clin = context.fetch(clinicalFolder)
+        } catch let error as NSError {
+            print("Error in \(error.code)")
+        }
+        NSLog("Fetched data User")
+        
+        return clin
+    }
+
     
     
     static func newReportHistory(toAdd: Report) {

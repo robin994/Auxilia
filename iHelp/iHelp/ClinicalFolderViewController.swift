@@ -54,6 +54,8 @@ class ClinicalFolderViewController: UITableViewController {
         
         
         clinicalFolderObject = ClinicalFolder(sesso: dati.biologicalsex!, dataDiNascita: dati.age!, altezza: heightString, peso: weightString, gruppoSanguigno: dati.bloodtype!, fototipo: fototipo.text! , sediaARotelle: dati.chairUse!, ultimoBattito: String(describing: heartRate))
+        PersistanceManager.setClinicalFolder(clinFolder: clinicalFolderObject!)
+
     }
     
     override func didReceiveMemoryWarning() {

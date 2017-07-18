@@ -63,6 +63,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
      geolocalizza la mappa su dove sei
      */
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("......................wwwwwww")
         let userLocation:CLLocation = locations[0] as CLLocation
         let span:MKCoordinateSpan = MKCoordinateSpanMake(0.01,0.01)
         

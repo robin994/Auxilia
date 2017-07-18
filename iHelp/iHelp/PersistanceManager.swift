@@ -125,7 +125,7 @@ class PersistanceManager {
             print("Error in \(error.code)")
         }
         NSLog("Fetched data User")
-
+        
         return users
     }
     

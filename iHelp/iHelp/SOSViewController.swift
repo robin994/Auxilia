@@ -64,7 +64,14 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
 				NSLog("audioSession error: \(error.localizedDescription)", 0)
 			}
 
-			recordAudio()
+			
+			DispatchQueue.global().async {
+				
+				self.recordAudio()
+				
+			}
+			
+			//recordAudio()
             
     }
     @IBAction func cancelButton(_ sender: UIButton) {
@@ -75,6 +82,7 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
         
     }
     func back() {
+		
         present(alertView(), animated: true, completion: nil)
     }
     
@@ -118,7 +126,10 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
 	func recordAudio() {
 		
 		if audioRecorder?.isRecording == false{
-			audioRecorder?.record()
+			
+				audioRecorder?.record()
+			
+			
 			NSLog("Audio is recording", 0)
 			progressView.setProgress(0, animated: true)
 			
@@ -127,10 +138,18 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
 //			var progress : Float = 0.1
 			
 			DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 10) {
-                self.stopAudioRecording()
+				self.stopAudioRecording(saveParameter: true)
 			}
-			DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()){
-				self.updateProgressBar()
+			DispatchQueue.global().async {
+				var progress : Float = 0
+				for _ in 0..<10{
+					progress = progress + 0.1
+					NSLog("update progress view", 0)
+					DispatchQueue.main.async {
+						self.progressView.setProgress(progress, animated: true)
+					}
+					sleep(1)
+				}
 			}
 			
 		}
@@ -141,7 +160,7 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
 		var progress : Float = 0
 		for _ in 0..<10{
 			progress = progress + 0.1
-			NSLog("update prgress view", 0)
+			NSLog("update progress view", 0)
 			DispatchQueue.main.async {
 				self.progressView.setProgress(progress, animated: true)
 			}
@@ -149,12 +168,20 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
 		}
 	}
 	
-	func stopAudioRecording() {
+	func stopAudioRecording(saveParameter: Bool) {
 		
-		if audioRecorder?.isRecording == true {
-			audioRecorder?.stop()
-			recognizeFile(url: soundFileURL!)
+		if saveParameter == true{
+			if audioRecorder?.isRecording == true {
+				audioRecorder?.stop()
+				recognizeFile(url: soundFileURL!)
+			}
+			else if saveParameter == false{
+				NSLog("DELETING RECORDING", 0)
+				audioRecorder?.stop()
+				audioRecorder?.deleteRecording()
+			}
 		}
+		
 		//else {
 		//	audioPlayer?.stop()
 		//}
@@ -222,6 +249,7 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
         let okAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default) {
             UIAlertAction in
             NSLog("OK Pressed")
+			self.stopAudioRecording(saveParameter: false)
             guard (self.navigationController?.popViewController(animated: true)) != nil else {
                 NSLog("View non caricata")
                 let sb = UIStoryboard(name: "Main", bundle: nil)

@@ -18,7 +18,7 @@ class NotificationManager: NSObject {
         Messaging.messaging().subscribe(toTopic: "/topics/\(toSubscribe)")
     }
     
-    static func sendNotification(topic: String, message: String, title: String) {
+    static func sendNotification(topic: String, message: String, title: String) {        
         let url = NSURL(string: "https://fcm.googleapis.com/fcm/send")
         //let tk = InstanceID.instanceID().token()
         

@@ -12,7 +12,7 @@ import Foundation
 
 class CloudKitManager: NSObject {
     
-    static func saveReport(name: String, surname: String, telephone: String, latitudine: Double, longitudine: Double, message: String, velocity: Double, creationDate: String) {
+    static func saveReport(latitudine: Double, longitudine: Double, velocity: Double) {
         let database = CKContainer.default().publicCloudDatabase
         
         let clinicalFolder: ClinicalFolder = PersistanceManager.getClinicalFolder()!
@@ -26,8 +26,27 @@ class CloudKitManager: NSObject {
         let birthday = clinicalFolder.dataDiNascita
         let bloodGroup = clinicalFolder.gruppoSanguigno
         
-        let datiUser = PersistanceManager.fetchDataUserProfile()
-        //print("\n\nDATI USER \(datiUser)\n\n")
+        let name = PersistanceManager.fetchDataUserProfile()[0].name!
+        let surname = PersistanceManager.fetchDataUserProfile()[0].surname!
+        let telephone = PersistanceManager.fetchDataUserProfile()[0].address!
+        
+        //LUCIO aggiungile qua
+        let message = ""
+        let audioMessage = ""
+        
+        // DATA
+        let date = NSDate()
+        var calendar = NSCalendar.current
+        calendar.dateComponents([.year, .month, .day, .hour, .minute], from: date as Date)
+        calendar.timeZone = TimeZone(identifier: "UTC")!
+        let year = calendar.component(.year, from: date as Date)
+        let month = calendar.component(.month, from: date as Date)
+        let day = calendar.component(.day, from: date as Date)
+        let hour = calendar.component(.hour, from: date as Date)
+        let minutes = calendar.component(.minute, from: date as Date)
+        let seconds = calendar.component(.second, from: date as Date)
+        let creationDate = "\(day)\\\(month)\\\(year) \(hour):\(minutes):\(seconds)"
+        
         
         NSLog("\n\n Sto provando a salvare\n\n")
         let store = CKRecord(recordType: "Notifiche")
@@ -41,6 +60,7 @@ class CloudKitManager: NSObject {
         store.setObject(fototipo as CKRecordValue?, forKey: "fototipo")
         store.setObject(wheelchair as CKRecordValue?, forKey: "wheelchair")
         
+        //dati personali
         store.setObject(name as CKRecordValue?, forKey: "name")
         store.setObject(surname as CKRecordValue?, forKey: "surname")
         store.setObject(telephone as CKRecordValue?, forKey: "telephone")
@@ -50,8 +70,8 @@ class CloudKitManager: NSObject {
         store.setObject(longitudine as CKRecordValue?, forKey: "longitudine")
         store.setObject(velocity as CKRecordValue?, forKey: "velocity")
         
-        //store.setObject(creationDate as CKRecordValue?, forKey: "creationDate")
-        //store.setObject(audioMessage as CKRecordValue?, forKey: "audioMessage")
+        store.setObject(creationDate as CKRecordValue?, forKey: "creationDate")
+        store.setObject(audioMessage as CKRecordValue?, forKey: "audioMessage")
         store.setObject(message as CKRecordValue?, forKey: "message")
         
         NSLog("\n\n Sto provando a salvare2\n\n")

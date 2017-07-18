@@ -122,7 +122,20 @@ class ContactTableView: UITableViewController, CNContactPickerDelegate {
     }
     */
 
+    @IBAction func iscriviti(_ sender: UIBarButtonItem) {
+        NotificationManager.subscribe("Roberto")
+    }
     
+    @IBAction func inviaNotifica(_ sender: UIBarButtonItem) {
+        let topics = PersistanceManager.fetchRequestTopics()
+        
+        let message = "Sono una fottuta notifica"
+        let title = "Quasi finito"
+        for topic in topics {
+            //print(topic)
+            NotificationManager.sendNotification(topic: topic.topic! as! String, message: message, title: title)
+        }
+    }
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

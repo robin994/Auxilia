@@ -12,6 +12,8 @@
 		4BDA9B421F1B8CC30076C349 /* ClinicalFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDA9B411F1B8CC30076C349 /* ClinicalFolder.swift */; };
 		4CDCAA801F191C7F00DBC79D /* SOSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDCAA7F1F191C7F00DBC79D /* SOSViewController.swift */; };
 		BD10F26A1F193CBF00516967 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD10F2691F193CBF00516967 /* MapViewController.swift */; };
+		BD25C1E91F1CFF5F002A4D48 /* TopicsIscritto+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD25C1E71F1CFF5F002A4D48 /* TopicsIscritto+CoreDataClass.swift */; };
+		BD25C1EA1F1CFF5F002A4D48 /* TopicsIscritto+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD25C1E81F1CFF5F002A4D48 /* TopicsIscritto+CoreDataProperties.swift */; };
 		CE03E6681F1954C7002B6F41 /* DataCore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE6F835F1F152E9600899CB8 /* DataCore.xcdatamodeld */; };
 		CE099F2A1F1BA31D00199904 /* ReportsHistory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE099F281F1BA31D00199904 /* ReportsHistory+CoreDataClass.swift */; };
 		CE099F2B1F1BA31D00199904 /* ReportsHistory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE099F291F1BA31D00199904 /* ReportsHistory+CoreDataProperties.swift */; };
@@ -25,6 +27,7 @@
 		CE37C19A1F1CBA6D00DBDACE /* microphone.png in Resources */ = {isa = PBXBuildFile; fileRef = CE37C1991F1CBA6D00DBDACE /* microphone.png */; };
 		CE37FDE11F190F4400FE0CCF /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37FDE01F190F4400FE0CCF /* SettingViewController.swift */; };
 		CE3953831F13655C006BFBCA /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3953821F13655C006BFBCA /* logo.png */; };
+		CE41BDEF1F1CEC9700CB778A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE41BDEE1F1CEC9700CB778A /* CloudKit.framework */; };
 		CE4656C71F0FD325004E3868 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4656C61F0FD325004E3868 /* AppDelegate.swift */; };
 		CE4656CC1F0FD325004E3868 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE4656CA1F0FD325004E3868 /* Main.storyboard */; };
 		CE4656CE1F0FD325004E3868 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE4656CD1F0FD325004E3868 /* Assets.xcassets */; };
@@ -36,9 +39,8 @@
 		CE6F836F1F153A5200899CB8 /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F836E1F153A5200899CB8 /* PersistanceManager.swift */; };
 		CE8714121F1513780021F74D /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8714111F1513780021F74D /* ContactDetailViewController.swift */; };
 		CE8714141F1522660021F74D /* empty_avatar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE8714131F1522660021F74D /* empty_avatar.jpg */; };
-		CE934CB31F18C51900F8D2DF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE934CAF1F18C51900F8D2DF /* GoogleService-Info.plist */; };
 		CE934CB41F18C51900F8D2DF /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = CE934CB01F18C51900F8D2DF /* logo.png */; };
-		CE934CB51F18C51900F8D2DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE934CB21F18C51900F8D2DF /* ViewController.swift */; };
+		CE934CB51F18C51900F8D2DF /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE934CB21F18C51900F8D2DF /* NotificationManager.swift */; };
 		CE934CB71F18C97A00F8D2DF /* libPods-PushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE934CB61F18C97A00F8D2DF /* libPods-PushNotification.a */; };
 		CE934CB91F18CA0500F8D2DF /* libPods-iHelp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE934CB81F18CA0500F8D2DF /* libPods-iHelp.a */; };
 		CE954EBE1F16329E00A9A95D /* SOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE954EBD1F16329E00A9A95D /* SOS.swift */; };
@@ -46,6 +48,9 @@
 		CE9E7AC01F1975390083C0F2 /* EmergencyContact+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E7ABE1F1975390083C0F2 /* EmergencyContact+CoreDataProperties.swift */; };
 		CEA64B7C1F14B3500047C04C /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA64B7B1F14B3500047C04C /* Report.swift */; };
 		CEA64B7E1F14B3FB0047C04C /* ReportStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA64B7D1F14B3FB0047C04C /* ReportStore.swift */; };
+		CEB6324A1F1D3AE600E43555 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CEB632491F1D3AE600E43555 /* GoogleService-Info.plist */; };
+		CEB6324C1F1D56FF00E43555 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB6324B1F1D56FF00E43555 /* CloudKitManager.swift */; };
+		CEB6324E1F1D666A00E43555 /* ReportDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB6324D1F1D666A00E43555 /* ReportDetailViewController.swift */; };
 		CECA128B1F16AA7B00A1ABA7 /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CECA128A1F16AA7B00A1ABA7 /* Contacts.framework */; };
 		CECA128D1F16AA8600A1ABA7 /* ContactsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CECA128C1F16AA8600A1ABA7 /* ContactsUI.framework */; };
 		CEFC73051F14C618008C769A /* ReportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC73041F14C618008C769A /* ReportTableViewController.swift */; };
@@ -82,6 +87,8 @@
 		4CDCAA7F1F191C7F00DBC79D /* SOSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SOSViewController.swift; path = iHelp/SOSViewController.swift; sourceTree = SOURCE_ROOT; };
 		684F2D9BFCAF1F03EEDEA154 /* Pods-iHelp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iHelp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iHelp/Pods-iHelp.debug.xcconfig"; sourceTree = "<group>"; };
 		BD10F2691F193CBF00516967 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		BD25C1E71F1CFF5F002A4D48 /* TopicsIscritto+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TopicsIscritto+CoreDataClass.swift"; sourceTree = "<group>"; };
+		BD25C1E81F1CFF5F002A4D48 /* TopicsIscritto+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TopicsIscritto+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CE099F281F1BA31D00199904 /* ReportsHistory+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReportsHistory+CoreDataClass.swift"; sourceTree = "<group>"; };
 		CE099F291F1BA31D00199904 /* ReportsHistory+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReportsHistory+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CE0E5D621F180EF400B8D1FC /* UserProfile+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UserProfile+CoreDataClass.swift"; path = "../UserProfile+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -95,6 +102,7 @@
 		CE37FDE01F190F4400FE0CCF /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		CE3953821F13655C006BFBCA /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = SOURCE_ROOT; };
 		CE3953891F13664E006BFBCA /* iHelp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iHelp.entitlements; sourceTree = "<group>"; };
+		CE41BDEE1F1CEC9700CB778A /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		CE4656C61F0FD325004E3868 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE4656CB1F0FD325004E3868 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE4656CD1F0FD325004E3868 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -110,10 +118,9 @@
 		CE6F836E1F153A5200899CB8 /* PersistanceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistanceManager.swift; sourceTree = "<group>"; };
 		CE8714111F1513780021F74D /* ContactDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactDetailViewController.swift; sourceTree = "<group>"; };
 		CE8714131F1522660021F74D /* empty_avatar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = empty_avatar.jpg; sourceTree = "<group>"; };
-		CE934CAF1F18C51900F8D2DF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "iHelp/PushNotification/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		CE934CB01F18C51900F8D2DF /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = iHelp/PushNotification/logo.png; sourceTree = SOURCE_ROOT; };
 		CE934CB11F18C51900F8D2DF /* PushNotification.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; name = PushNotification.entitlements; path = iHelp/PushNotification/PushNotification.entitlements; sourceTree = SOURCE_ROOT; };
-		CE934CB21F18C51900F8D2DF /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = iHelp/PushNotification/ViewController.swift; sourceTree = SOURCE_ROOT; };
+		CE934CB21F18C51900F8D2DF /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationManager.swift; path = iHelp/PushNotification/NotificationManager.swift; sourceTree = SOURCE_ROOT; };
 		CE934CB61F18C97A00F8D2DF /* libPods-PushNotification.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libPods-PushNotification.a"; sourceTree = "<group>"; };
 		CE934CB81F18CA0500F8D2DF /* libPods-iHelp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libPods-iHelp.a"; sourceTree = "<group>"; };
 		CE934CBB1F18CC9F00F8D2DF /* iHelp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iHelp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,6 +129,9 @@
 		CE9E7ABE1F1975390083C0F2 /* EmergencyContact+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EmergencyContact+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CEA64B7B1F14B3500047C04C /* Report.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		CEA64B7D1F14B3FB0047C04C /* ReportStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportStore.swift; sourceTree = "<group>"; };
+		CEB632491F1D3AE600E43555 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CEB6324B1F1D56FF00E43555 /* CloudKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
+		CEB6324D1F1D666A00E43555 /* ReportDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportDetailViewController.swift; sourceTree = "<group>"; };
 		CECA128A1F16AA7B00A1ABA7 /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
 		CECA128C1F16AA8600A1ABA7 /* ContactsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ContactsUI.framework; path = System/Library/Frameworks/ContactsUI.framework; sourceTree = SDKROOT; };
 		CEFC73041F14C618008C769A /* ReportTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTableViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +149,7 @@
 				CECA128D1F16AA8600A1ABA7 /* ContactsUI.framework in Frameworks */,
 				CECA128B1F16AA7B00A1ABA7 /* Contacts.framework in Frameworks */,
 				CE934CB91F18CA0500F8D2DF /* libPods-iHelp.a in Frameworks */,
+				CE41BDEF1F1CEC9700CB778A /* CloudKit.framework in Frameworks */,
 				CE934CB71F18C97A00F8D2DF /* libPods-PushNotification.a in Frameworks */,
 				CE53F0841F14B773001EAC96 /* HealthKit.framework in Frameworks */,
 			);
@@ -189,10 +200,11 @@
 		BD5D36421F18B4FB00236472 /* PushNotification */ = {
 			isa = PBXGroup;
 			children = (
-				CE934CAF1F18C51900F8D2DF /* GoogleService-Info.plist */,
+				CEB632491F1D3AE600E43555 /* GoogleService-Info.plist */,
 				CE934CB01F18C51900F8D2DF /* logo.png */,
 				CE934CB11F18C51900F8D2DF /* PushNotification.entitlements */,
-				CE934CB21F18C51900F8D2DF /* ViewController.swift */,
+				CE934CB21F18C51900F8D2DF /* NotificationManager.swift */,
+				CEB6324B1F1D56FF00E43555 /* CloudKitManager.swift */,
 			);
 			name = PushNotification;
 			path = "New Group";
@@ -201,6 +213,8 @@
 		CE0E5D611F180EB600B8D1FC /* CoreDataResources */ = {
 			isa = PBXGroup;
 			children = (
+				BD25C1E71F1CFF5F002A4D48 /* TopicsIscritto+CoreDataClass.swift */,
+				BD25C1E81F1CFF5F002A4D48 /* TopicsIscritto+CoreDataProperties.swift */,
 				CE099F281F1BA31D00199904 /* ReportsHistory+CoreDataClass.swift */,
 				CE099F291F1BA31D00199904 /* ReportsHistory+CoreDataProperties.swift */,
 				CE9E7ABD1F1975390083C0F2 /* EmergencyContact+CoreDataClass.swift */,
@@ -254,6 +268,7 @@
 		CE3953841F136645006BFBCA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE41BDEE1F1CEC9700CB778A /* CloudKit.framework */,
 				CE934CB81F18CA0500F8D2DF /* libPods-iHelp.a */,
 				CE934CB61F18C97A00F8D2DF /* libPods-PushNotification.a */,
 				CECA128C1F16AA8600A1ABA7 /* ContactsUI.framework */,
@@ -337,6 +352,7 @@
 				CEA64B7D1F14B3FB0047C04C /* ReportStore.swift */,
 				CE53F0851F14B810001EAC96 /* ReportCell.swift */,
 				CEFC73041F14C618008C769A /* ReportTableViewController.swift */,
+				CEB6324D1F1D666A00E43555 /* ReportDetailViewController.swift */,
 			);
 			path = Report;
 			sourceTree = "<group>";
@@ -444,7 +460,7 @@
 								enabled = 0;
 							};
 							com.apple.iCloud = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -491,13 +507,13 @@
 			files = (
 				CE4656D11F0FD325004E3868 /* LaunchScreen.storyboard in Resources */,
 				CE3953831F13655C006BFBCA /* logo.png in Resources */,
+				CEB6324A1F1D3AE600E43555 /* GoogleService-Info.plist in Resources */,
 				CE8714141F1522660021F74D /* empty_avatar.jpg in Resources */,
 				CE37C19A1F1CBA6D00DBDACE /* microphone.png in Resources */,
 				CE4656CE1F0FD325004E3868 /* Assets.xcassets in Resources */,
 				CE934CB41F18C51900F8D2DF /* logo.png in Resources */,
 				CE1A5EA71F13EC350086939D /* IconTemplate.png in Resources */,
 				CE4656CC1F0FD325004E3868 /* Main.storyboard in Resources */,
-				CE934CB31F18C51900F8D2DF /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -570,6 +586,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD25C1EA1F1CFF5F002A4D48 /* TopicsIscritto+CoreDataProperties.swift in Sources */,
 				4BDA9B421F1B8CC30076C349 /* ClinicalFolder.swift in Sources */,
 				CE6F836F1F153A5200899CB8 /* PersistanceManager.swift in Sources */,
 				CEFC730D1F14D3EE008C769A /* ContactCell.swift in Sources */,
@@ -579,7 +596,7 @@
 				CE0E5D681F1818DA00B8D1FC /* WelcomeViewController.swift in Sources */,
 				CE4656C71F0FD325004E3868 /* AppDelegate.swift in Sources */,
 				CE9E7ABF1F1975390083C0F2 /* EmergencyContact+CoreDataClass.swift in Sources */,
-				CE934CB51F18C51900F8D2DF /* ViewController.swift in Sources */,
+				CE934CB51F18C51900F8D2DF /* NotificationManager.swift in Sources */,
 				CE0E5D641F180EF400B8D1FC /* UserProfile+CoreDataClass.swift in Sources */,
 				CE9E7AC01F1975390083C0F2 /* EmergencyContact+CoreDataProperties.swift in Sources */,
 				CE0E5D6C1F18258E00B8D1FC /* UserProfileViewController.swift in Sources */,
@@ -589,8 +606,11 @@
 				CE37FDE11F190F4400FE0CCF /* SettingViewController.swift in Sources */,
 				CEA64B7C1F14B3500047C04C /* Report.swift in Sources */,
 				4B3803A61F1A12F3009599A6 /* ClinicalFolderViewController.swift in Sources */,
+				BD25C1E91F1CFF5F002A4D48 /* TopicsIscritto+CoreDataClass.swift in Sources */,
 				CE03E6681F1954C7002B6F41 /* DataCore.xcdatamodeld in Sources */,
 				CE954EBE1F16329E00A9A95D /* SOS.swift in Sources */,
+				CEB6324C1F1D56FF00E43555 /* CloudKitManager.swift in Sources */,
+				CEB6324E1F1D666A00E43555 /* ReportDetailViewController.swift in Sources */,
 				CE0E5D6A1F181A0F00B8D1FC /* CreateProfileViewController.swift in Sources */,
 				BD10F26A1F193CBF00516967 /* MapViewController.swift in Sources */,
 				CE0E5D651F180EF400B8D1FC /* UserProfile+CoreDataProperties.swift in Sources */,
@@ -765,6 +785,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = iHelp/iHelp.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = K8WJKQA676;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = iHelp/Info.plist;
@@ -775,8 +796,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = it.unisa.iosfoundation.trt2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "448860c1-dd5c-496c-be12-7410d07a2ef9";
-				PROVISIONING_PROFILE_SPECIFIER = grimaldi2;
+				PROVISIONING_PROFILE = "d74cd72b-0a41-4701-b5a5-eee06015e66a";
+				PROVISIONING_PROFILE_SPECIFIER = tortora;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -788,6 +809,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = iHelp/iHelp.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = K8WJKQA676;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = iHelp/Info.plist;
@@ -798,8 +820,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = it.unisa.iosfoundation.trt2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "448860c1-dd5c-496c-be12-7410d07a2ef9";
-				PROVISIONING_PROFILE_SPECIFIER = grimaldi2;
+				PROVISIONING_PROFILE = "d74cd72b-0a41-4701-b5a5-eee06015e66a";
+				PROVISIONING_PROFILE_SPECIFIER = tortora;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

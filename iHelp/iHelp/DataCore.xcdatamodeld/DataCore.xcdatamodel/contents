@@ -21,9 +21,13 @@
         <attribute name="message" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sesso" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="surname" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="velocity" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="weight" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="wheelchair" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="TopicsIscritto" representedClassName="TopicsIscritto" syncable="YES">
+        <attribute name="topic" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="UserProfile" representedClassName="UserProfile" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
@@ -34,7 +38,8 @@
     </entity>
     <elements>
         <element name="EmergencyContact" positionX="171" positionY="18" width="128" height="103"/>
-        <element name="ReportsHistory" positionX="-54" positionY="18" width="128" height="300"/>
+        <element name="ReportsHistory" positionX="-54" positionY="18" width="128" height="315"/>
+        <element name="TopicsIscritto" positionX="63" positionY="144" width="128" height="60"/>
         <element name="UserProfile" positionX="63" positionY="54" width="128" height="120"/>
     </elements>
 </model>

@@ -68,9 +68,9 @@ class PersistanceManager {
                 context.delete(topic)
                 NSLog("Removed topic : \(toRemove)")
                 saveContext()
-                break
             }
         }
+        saveContext()
     }
     
     
@@ -204,7 +204,8 @@ class PersistanceManager {
         
         let report = NSEntityDescription.insertNewObject(forEntityName: reportHistoryEntity, into: context) as! ReportsHistory
         report.contactIdentifier = toAdd.phoneNumber
-        report.creationDate = toAdd.date as NSDate
+        report.creationDate = toAdd.creationDate
+        report.deliveryDate = toAdd.deliveryDate as NSDate
         report.message = toAdd.message
         report.isMine = toAdd.isMine
         report.name = toAdd.name
@@ -216,7 +217,7 @@ class PersistanceManager {
         let reports = PersistanceManager.fetchDataReportHistory()
         NSLog("Controllo uguaglianza Reports")
         for report in reports {
-            if (report.contactIdentifier! == toCheck.phoneNumber && toCheck.date.description == report.creationDate!.description && toCheck.message == report.message) {
+            if (report.contactIdentifier! == toCheck.phoneNumber && toCheck.creationDate.description == report.creationDate!.description && toCheck.message == report.message) {
                 NSLog("Report già presente nel DB")
                 return true
             }
@@ -229,12 +230,24 @@ class PersistanceManager {
         let context = getContext()
         let datas: [ReportsHistory] = fetchDataReportHistory()
         for data in datas {
-            if (data.contactIdentifier! == toRemove.phoneNumber && toRemove.date.description == data.creationDate!.description) {
+            if (data.contactIdentifier! == toRemove.phoneNumber && toRemove.creationDate.description == data.creationDate!.description) {
                 NSLog("Report rimosso: \(data.description)")
                 context.delete(data)
-                saveContext()
             }
         }
+        saveContext()
+    }
+
+    static func clearAllReportHistory() {
+        NSLog("------------ REQUEST DELETE REPORTS ---------")
+
+        let context = getContext()
+        let datas: [ReportsHistory] = fetchDataReportHistory()
+        for data in datas {
+            context.delete(data)
+        }
+        NSLog("DELETED ALL REPORTS HYSTORY")
+        saveContext()
     }
 
 
@@ -274,9 +287,9 @@ class PersistanceManager {
             if data.contactIdentifier == toRemove.contact.identifier {
                 NSLog("Cancello: \(data.description)")
                 context.delete(data)
-                saveContext()
             }
         }
+        saveContext()
     }
 
     static func fetchDataEmergencyContact() -> [EmergencyContact] {
@@ -316,27 +329,30 @@ class PersistanceManager {
         let deleteRequestUPFR = NSBatchDeleteRequest(fetchRequest: userProfileFR)
         let deleteRequestTFR = NSBatchDeleteRequest(fetchRequest: topicsFR)
         // get reference to the persistent container
-        let persistentContainer = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
+        let context = self.getContext()
         
         // perform the delete
         do {
             if !PersistanceManager.fetchDataReportHistory().isEmpty {
                 NSLog("Clearing report data")
-                try persistentContainer.viewContext.execute(deleteRequestRFR)
+                try context.execute(deleteRequestRFR)
+                self.saveContext()
             }
             if !PersistanceManager.fetchDataEmergencyContact().isEmpty {
                 NSLog("Clearing emergency contacts data")
-                try persistentContainer.viewContext.execute(deleteRequestECFR)
+                try context.execute(deleteRequestECFR)
+                self.saveContext()
             }
             if !PersistanceManager.fetchDataUserProfile().isEmpty {
                 NSLog("Clearing user data")
-                try persistentContainer.viewContext.execute(deleteRequestUPFR)
+                try context.execute(deleteRequestUPFR)
+                self.saveContext()
             }
             if !PersistanceManager.fetchRequestTopics().isEmpty {
                 NSLog("Clearing topics data")
-                try persistentContainer.viewContext.execute(deleteRequestTFR)
+                try context.execute(deleteRequestTFR)
+                self.saveContext()
             }
-            self.saveContext()
             
             if let viewController: UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WelcomeView") {
                 if let navigator = navigationController {

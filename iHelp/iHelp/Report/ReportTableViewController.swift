@@ -128,14 +128,14 @@ class ReportTableViewController: UITableViewController {
     
     
     func reloadReports() {
+        
         for notifica in NamesArray {
-            
             let report = Report(
-                name: String(describing: notifica.value(forKey: "name")!),
-                surname: String(describing: notifica.value(forKey: "surname")!),
+                name: String(describing: notifica.value(forKey: "name")),
+                surname: String(describing: notifica.value(forKey: "surname")),
                 isMine: false,
-                phoneNumber: String(describing: notifica.value(forKey: "telephone")!),
-                message: String(describing: notifica.value(forKey: "message")!),
+                phoneNumber: String(describing: notifica.value(forKey: "telephone")),
+                message: String(describing: notifica.value(forKey: "message")),
                 clinicalFolder: ClinicalFolder(sesso: String(describing: notifica.value(forKey: "sex")),
                                                dataDiNascita: String(describing: notifica.value(forKey: "birthday")),
                                                altezza: String(describing: notifica.value(forKey: "height")),

@@ -23,7 +23,7 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
 	
 	    override func viewDidLoad() {
         super.viewDidLoad()
-			// Do any additional setup after loading the view.
+            // Do any additional setup after loading the view.
             
             self.navigationItem.hidesBackButton = true
             let newBackButton : UIBarButtonItem = UIBarButtonItem(title: "< Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(back))

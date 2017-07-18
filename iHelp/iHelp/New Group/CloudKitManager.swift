@@ -15,17 +15,19 @@ class CloudKitManager: NSObject {
     static func saveReport(name: String, surname: String, telephone: String, latitudine: Double, longitudine: Double, message: String, velocity: Double, creationDate: String) {
         let database = CKContainer.default().publicCloudDatabase
         
-        let height = PersistanceManager.getClinicalFolder()?.altezza
-        let weight = PersistanceManager.getClinicalFolder()?.peso
-        let sesso = PersistanceManager.getClinicalFolder()?.sesso
-        let wheelchair = PersistanceManager.getClinicalFolder()?.sediaARotelle
-        let fototipo = PersistanceManager.getClinicalFolder()?.fototipo
-        let heartRate = PersistanceManager.getClinicalFolder()?.ultimoBattito
-        let birthday = PersistanceManager.getClinicalFolder()?.dataDiNascita
-        let bloodGroup = PersistanceManager.getClinicalFolder()?.gruppoSanguigno
+        let clinicalFolder: ClinicalFolder = PersistanceManager.getClinicalFolder()!
+        
+        let height = clinicalFolder.altezza
+        let weight = clinicalFolder.peso
+        let sesso = clinicalFolder.sesso
+        let wheelchair = clinicalFolder.sediaARotelle
+        let fototipo = clinicalFolder.fototipo
+        let heartRate = clinicalFolder.ultimoBattito
+        let birthday = clinicalFolder.dataDiNascita
+        let bloodGroup = clinicalFolder.gruppoSanguigno
         
         let datiUser = PersistanceManager.fetchDataUserProfile()
-        print("\n\nDATI USER \(datiUser)\n\n")
+        //print("\n\nDATI USER \(datiUser)\n\n")
         
         NSLog("\n\n Sto provando a salvare\n\n")
         let store = CKRecord(recordType: "Notifiche")

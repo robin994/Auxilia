@@ -64,9 +64,15 @@ class ReportTableViewController: UITableViewController {
         NSLog("Reload Notifiche")
         NamesArray = Array<CKRecord>()
         let ourDataPublicDataBase = CKContainer.default().publicCloudDatabase
-        
+        let numeroDiTelefono: String?
+        if PersistanceManager.fetchDataUserProfile().isEmpty == false && PersistanceManager.fetchDataUserProfile().first?.isSet == true {
+            numeroDiTelefono = PersistanceManager.fetchDataUserProfile().first?.address!
+        } else {
+            numeroDiTelefono = "0"
+        }
+        NSLog("Numero di telefono prelevato: \(numeroDiTelefono!)")
         //in order to see our data value: true
-        let ourPredicate = NSPredicate(value: true)
+        let ourPredicate = NSPredicate(format: "topic_id = '\(numeroDiTelefono!)'")
         
         let ourQuery = CKQuery(recordType: "Notifiche", predicate: ourPredicate)
         

@@ -37,7 +37,7 @@ class ClinicalFolderViewController: UITableViewController {
         getHealthKitPermission()
         let dati = self.healthManager.readProfile()
         print("\n \n \n \(dati.age!) \(dati.biologicalsex!) \(dati.bloodtype!)")
-        dataDiNascita.text = dati.age!
+        dataDiNascita.text = dati.age
         sesso.text = dati.biologicalsex
         fototipo.text = dati.skin
         gruppoSanguigno.text = dati.bloodtype
@@ -55,7 +55,7 @@ class ClinicalFolderViewController: UITableViewController {
         
         clinicalFolderObject = ClinicalFolder(sesso: dati.biologicalsex!, dataDiNascita: dati.age!, altezza: heightString, peso: weightString, gruppoSanguigno: dati.bloodtype!, fototipo: fototipo.text! , sediaARotelle: dati.chairUse!, ultimoBattito: String(describing: heartRate))
         PersistanceManager.setClinicalFolder(clinFolder: clinicalFolderObject!)
-
+        
     }
     
     override func didReceiveMemoryWarning() {

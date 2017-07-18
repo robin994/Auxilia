@@ -145,7 +145,23 @@ class PersistanceManager {
         saveContext()
         NSLog("Save new Clinical Folder")
     }
-    
+    func getClinicalFolder() -> ClinicalFolder{
+        let report:ClinicalFolderData? = PersistanceManager.fetchDataClinicalFolder().first
+        
+              let clin = ClinicalFolder(sesso: (report!.sex)!,
+                                                   dataDiNascita: (report!.dateB)!,
+                                                   altezza: (report!.height)!,
+                                                   peso: (report!.weight)!,
+                                                   gruppoSanguigno: (report!.bloodType)!,
+                                                   fototipo: (report!.skin)!,
+                                                   sediaARotelle: (report!.wheelchair)!,
+                                                   ultimoBattito: (report!.heartRate)!)
+        
+        
+        
+        return clin
+        
+    }
     static func removeClinicaFolder() {
         let clinicals = PersistanceManager.fetchDataClinicalFolder()
         let context = getContext()

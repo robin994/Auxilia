@@ -307,19 +307,19 @@ class PersistanceManager {
             }
             if !PersistanceManager.fetchDataUserProfile().isEmpty {
                 NSLog("Clearing user data")
-                //try persistentContainer.viewContext.execute(deleteRequestUPFR)
+                try persistentContainer.viewContext.execute(deleteRequestUPFR)
             }
             if !PersistanceManager.fetchRequestTopics().isEmpty {
                 NSLog("Clearing topics data")
                 try persistentContainer.viewContext.execute(deleteRequestTFR)
             }
             self.saveContext()
-            /*
+            
             if let viewController: UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WelcomeView") {
                 if let navigator = navigationController {
                     navigator.pushViewController(viewController, animated: true)
                 }
-            }*/
+            }
         } catch let error as NSError {
             print(error)
         }

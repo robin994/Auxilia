@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13154.30" systemVersion="16F73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16F73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="EmergencyContact" representedClassName=".EmergencyContact" syncable="YES">
         <attribute name="contactIdentifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -21,6 +21,7 @@
         <attribute name="message" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sesso" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="surname" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="velocity" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="weight" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="wheelchair" optional="YES" attributeType="String" syncable="YES"/>
@@ -37,8 +38,8 @@
     </entity>
     <elements>
         <element name="EmergencyContact" positionX="171" positionY="18" width="128" height="103"/>
-        <element name="ReportsHistory" positionX="-54" positionY="18" width="128" height="300"/>
-        <element name="UserProfile" positionX="63" positionY="54" width="128" height="120"/>
+        <element name="ReportsHistory" positionX="-54" positionY="18" width="128" height="315"/>
         <element name="TopicsIscritto" positionX="63" positionY="144" width="128" height="60"/>
+        <element name="UserProfile" positionX="63" positionY="54" width="128" height="120"/>
     </elements>
 </model>

@@ -50,6 +50,7 @@
 		CEA64B7E1F14B3FB0047C04C /* ReportStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA64B7D1F14B3FB0047C04C /* ReportStore.swift */; };
 		CEB6324A1F1D3AE600E43555 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CEB632491F1D3AE600E43555 /* GoogleService-Info.plist */; };
 		CEB6324C1F1D56FF00E43555 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB6324B1F1D56FF00E43555 /* CloudKitManager.swift */; };
+		CEB6324E1F1D666A00E43555 /* ReportDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB6324D1F1D666A00E43555 /* ReportDetailViewController.swift */; };
 		CECA128B1F16AA7B00A1ABA7 /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CECA128A1F16AA7B00A1ABA7 /* Contacts.framework */; };
 		CECA128D1F16AA8600A1ABA7 /* ContactsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CECA128C1F16AA8600A1ABA7 /* ContactsUI.framework */; };
 		CEFC73051F14C618008C769A /* ReportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC73041F14C618008C769A /* ReportTableViewController.swift */; };
@@ -130,6 +131,7 @@
 		CEA64B7D1F14B3FB0047C04C /* ReportStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportStore.swift; sourceTree = "<group>"; };
 		CEB632491F1D3AE600E43555 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CEB6324B1F1D56FF00E43555 /* CloudKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
+		CEB6324D1F1D666A00E43555 /* ReportDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportDetailViewController.swift; sourceTree = "<group>"; };
 		CECA128A1F16AA7B00A1ABA7 /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
 		CECA128C1F16AA8600A1ABA7 /* ContactsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ContactsUI.framework; path = System/Library/Frameworks/ContactsUI.framework; sourceTree = SDKROOT; };
 		CEFC73041F14C618008C769A /* ReportTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTableViewController.swift; sourceTree = "<group>"; };
@@ -350,6 +352,7 @@
 				CEA64B7D1F14B3FB0047C04C /* ReportStore.swift */,
 				CE53F0851F14B810001EAC96 /* ReportCell.swift */,
 				CEFC73041F14C618008C769A /* ReportTableViewController.swift */,
+				CEB6324D1F1D666A00E43555 /* ReportDetailViewController.swift */,
 			);
 			path = Report;
 			sourceTree = "<group>";
@@ -607,6 +610,7 @@
 				CE03E6681F1954C7002B6F41 /* DataCore.xcdatamodeld in Sources */,
 				CE954EBE1F16329E00A9A95D /* SOS.swift in Sources */,
 				CEB6324C1F1D56FF00E43555 /* CloudKitManager.swift in Sources */,
+				CEB6324E1F1D666A00E43555 /* ReportDetailViewController.swift in Sources */,
 				CE0E5D6A1F181A0F00B8D1FC /* CreateProfileViewController.swift in Sources */,
 				BD10F26A1F193CBF00516967 /* MapViewController.swift in Sources */,
 				CE0E5D651F180EF400B8D1FC /* UserProfile+CoreDataProperties.swift in Sources */,
@@ -792,8 +796,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = it.unisa.iosfoundation.trt2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "255aaf0e-e6d3-4184-afe9-33cc6c84c1bf";
-				PROVISIONING_PROFILE_SPECIFIER = cirillo2;
+				PROVISIONING_PROFILE = "d74cd72b-0a41-4701-b5a5-eee06015e66a";
+				PROVISIONING_PROFILE_SPECIFIER = tortora;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -816,8 +820,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = it.unisa.iosfoundation.trt2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "255aaf0e-e6d3-4184-afe9-33cc6c84c1bf";
-				PROVISIONING_PROFILE_SPECIFIER = cirillo2;
+				PROVISIONING_PROFILE = "d74cd72b-0a41-4701-b5a5-eee06015e66a";
+				PROVISIONING_PROFILE_SPECIFIER = tortora;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

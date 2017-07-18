@@ -12,7 +12,7 @@ import Foundation
 
 class CloudKitManager: NSObject {
     
-    static func saveReport(name: String, surname: String, telephone: String, latitudine: Double, longitudine: Double, message: String, velocity: Double, creationDate: String, audioMessage: CKAsset) {
+    static func saveReport(name: String, surname: String, telephone: String, latitudine: Double, longitudine: Double, message: String, velocity: Double, creationDate: String) {
         let database = CKContainer.default().publicCloudDatabase
         
         let height = PersistanceManager.getClinicalFolder()?.altezza
@@ -23,6 +23,9 @@ class CloudKitManager: NSObject {
         let heartRate = PersistanceManager.getClinicalFolder()?.ultimoBattito
         let birthday = PersistanceManager.getClinicalFolder()?.dataDiNascita
         let bloodGroup = PersistanceManager.getClinicalFolder()?.gruppoSanguigno
+        
+        let datiUser = PersistanceManager.fetchDataUserProfile()
+        print("\n\nDATI USER \(datiUser)\n\n")
         
         NSLog("\n\n Sto provando a salvare\n\n")
         let store = CKRecord(recordType: "Notifiche")
@@ -46,7 +49,7 @@ class CloudKitManager: NSObject {
         store.setObject(velocity as CKRecordValue?, forKey: "velocity")
         
         //store.setObject(creationDate as CKRecordValue?, forKey: "creationDate")
-        store.setObject(audioMessage as CKRecordValue?, forKey: "audioMessage")
+        //store.setObject(audioMessage as CKRecordValue?, forKey: "audioMessage")
         store.setObject(message as CKRecordValue?, forKey: "message")
         
         NSLog("\n\n Sto provando a salvare2\n\n")

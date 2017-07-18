@@ -14,9 +14,11 @@ class ReportStore: NSObject {
     
     
     func addReport(report : Report) {
+        NSLog("Richiesta aggiunta report")
         if (!PersistanceManager.isReportAlreadyInside(toCheck: report)) {
             PersistanceManager.newReportHistory(toAdd: report)
             array.append(report)
+            NSLog("Aggiunto report")
         }
     }
     

@@ -12,11 +12,9 @@ import Foundation
 
 class CloudKitManager: NSObject {
     
-    var alert: UIAlertController!
-    let database = CKContainer.default().publicCloudDatabase
-    
-    func saveReport(name: String, surname: String, birthday: String, height: String, weight: String, telephone: String, sesso: String, bloodGroup: String, contactIdentifier: String, heartRate: String, fototipo: String, latitudine: Double, longitudine: Double, message: String, velocity: Double, wheelchair: String, creationDate: Date, audioMessage: CKAsset) {
-        
+    static func saveReport(name: String, surname: String, birthday: String, height: String, weight: String, telephone: String, sesso: String, bloodGroup: String, contactIdentifier: String, heartRate: String, fototipo: String, latitudine: Double, longitudine: Double, message: String, velocity: Double, wheelchair: String, creationDate: String, audioMessage: CKAsset) {
+        let database = CKContainer.default().publicCloudDatabase
+        NSLog("\n\n Sto provando a salvare\n\n")
         let store = CKRecord(recordType: "Notifiche")
         store.setObject(name as CKRecordValue?, forKey: "name")
         store.setObject(surname as CKRecordValue?, forKey: "surname")
@@ -34,8 +32,9 @@ class CloudKitManager: NSObject {
         store.setObject(message as CKRecordValue?, forKey: "message")
         store.setObject(velocity as CKRecordValue?, forKey: "velocity")
         store.setObject(wheelchair as CKRecordValue?, forKey: "wheelchair")
-        store.setObject(creationDate as CKRecordValue?, forKey: "creationDate")
+        //store.setObject(creationDate as CKRecordValue?, forKey: "creationDate")
         store.setObject(audioMessage as CKRecordValue?, forKey: "audioMessage")
+        NSLog("\n\n Sto provando a salvare2\n\n")
         
         database.save(store) { (saveRecord, error) in
             if error != nil {

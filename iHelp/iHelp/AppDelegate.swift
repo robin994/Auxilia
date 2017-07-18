@@ -23,7 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         //create the notificationCenter
-        
         let shortcut = UIMutableApplicationShortcutItem(type: "Call SOS",
                                                          localizedTitle: "SOS",
                                                          localizedSubtitle: "",

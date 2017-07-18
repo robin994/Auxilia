@@ -21,7 +21,8 @@
         <attribute name="birthday" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="bloodGroup" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="contactIdentifier" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="creationDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="deliveryDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="fototipo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="hearthrate" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="height" optional="YES" attributeType="String" syncable="YES"/>
@@ -47,10 +48,10 @@
         <attribute name="userPhoto" optional="YES" attributeType="Binary" storedInTruthFile="YES" syncable="YES"/>
     </entity>
     <elements>
+        <element name="ClinicalFolderData" positionX="63" positionY="153" width="128" height="165"/>
         <element name="EmergencyContact" positionX="171" positionY="18" width="128" height="105"/>
-        <element name="ReportsHistory" positionX="-54" positionY="18" width="128" height="315"/>
+        <element name="ReportsHistory" positionX="-54" positionY="18" width="128" height="330"/>
         <element name="TopicsIscritto" positionX="63" positionY="144" width="128" height="60"/>
         <element name="UserProfile" positionX="63" positionY="54" width="128" height="120"/>
-        <element name="ClinicalFolderData" positionX="63" positionY="153" width="128" height="165"/>
     </elements>
 </model>

@@ -18,6 +18,7 @@ class ReportTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let users: [UserProfile] = PersistanceManager.fetchDataUserProfile()
+        PersistanceManager.clearAllReportHistory()
         reportStore = ReportStore()
         NSLog(users.description)
         NotificationManager.subscribe("Roberto")
@@ -37,7 +38,9 @@ class ReportTableViewController: UITableViewController {
             refresh.beginRefreshing()
             
             clearRows()
-            
+            NSLog("Reload Topics")
+            reloadTopics()
+            NSLog("Reload Data")
             refreshData()
         }
         // Uncomment the following line to preserve selection between presentations
@@ -56,9 +59,8 @@ class ReportTableViewController: UITableViewController {
     }
     
     func refreshData() {
+        NamesArray = []
         NSLog("Richiesta refresh data")
-        NSLog("Reload Topics")
-        reloadTopics()
         NSLog("Reload Notifiche")
         NamesArray = Array<CKRecord>()
         let ourDataPublicDataBase = CKContainer.default().publicCloudDatabase
@@ -76,13 +78,16 @@ class ReportTableViewController: UITableViewController {
                 print("Error \(error.debugDescription)")
             }
             else{
+                var x = 0
                 for results2 in results!{
                     self.NamesArray.append(results2)
                     NSLog("Reload Reports")
-                    //print(results2)
-                    self.reloadReports()
+                    print(results2["name"])
+                    x = x + 1
+                    print(x)
+                    
                 }
-                
+                self.reloadReports()
                 OperationQueue.main.addOperation({ () -> Void in
                     self.tableView.reloadData()
                     self.tableView.isHidden = false
@@ -91,6 +96,7 @@ class ReportTableViewController: UITableViewController {
                 
             }
         }
+        
     }
     
     func reloadTopics() {
@@ -144,6 +150,7 @@ class ReportTableViewController: UITableViewController {
                 isMine: false,
                 phoneNumber: String(describing: notifica.value(forKey: "telephone")!),
                 message: String(describing: notifica.value(forKey: "message")!),
+                creationDate: String(describing: notifica["creationDate"]),
                 clinicalFolder: ClinicalFolder(sesso: String(describing: notifica.value(forKey: "sex")),
                                                dataDiNascita: String(describing: notifica.value(forKey: "birthday")!),
                                                altezza: String(describing: notifica.value(forKey: "height")),
@@ -155,7 +162,7 @@ class ReportTableViewController: UITableViewController {
             NSLog("-----------SALVO REPORT------------")
             NSLog(report.name)
             NSLog(report.message)
-            NSLog(report.date.description)
+            NSLog(report.creationDate.description)
             self.addReport(toAdd: report)
         }
     }
@@ -163,8 +170,6 @@ class ReportTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
-        let reports = PersistanceManager.fetchDataReportHistory()
-        NSLog(reports.description)
     }
 
     override func didReceiveMemoryWarning() {
@@ -197,7 +202,7 @@ class ReportTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReportCell", for: indexPath) as! ReportCell
         
         let currentReport = reportStore.array[indexPath.row]
-        cell.dateField.text = currentReport.date.description
+        cell.dateField.text = currentReport.deliveryDate.description
         cell.nameField.text = currentReport.name
         if currentReport.isMine {
             cell.nameField.textColor = UIColor.blue

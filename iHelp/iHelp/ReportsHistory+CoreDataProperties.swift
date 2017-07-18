@@ -20,7 +20,7 @@ extension ReportsHistory {
     @NSManaged public var birthday: String?
     @NSManaged public var bloodGroup: String?
     @NSManaged public var contactIdentifier: String?
-    @NSManaged public var creationDate: NSDate?
+    @NSManaged public var creationDate: String?
     @NSManaged public var fototipo: String?
     @NSManaged public var hearthrate: String?
     @NSManaged public var height: String?
@@ -30,9 +30,10 @@ extension ReportsHistory {
     @NSManaged public var message: String?
     @NSManaged public var name: String?
     @NSManaged public var sesso: String?
+    @NSManaged public var surname: String?
     @NSManaged public var velocity: Double
     @NSManaged public var weight: String?
     @NSManaged public var wheelchair: String?
-    @NSManaged public var surname: String?
+    @NSManaged public var deliveryDate: NSDate?
 
 }

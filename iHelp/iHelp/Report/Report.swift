@@ -12,15 +12,17 @@ import Contacts
 class Report: NSObject {
     var name: String
     var surname: String
-    var date: Date
+    var creationDate: String
+    var deliveryDate: Date
     var isMine: Bool
     var phoneNumber: String
     var message: String
     var clinicalFolder: ClinicalFolder
-    init(name: String,surname: String, isMine: Bool, phoneNumber: String, message: String, clinicalFolder: ClinicalFolder) {
+    init(name: String,surname: String, isMine: Bool, phoneNumber: String, message: String, creationDate: String, clinicalFolder: ClinicalFolder) {
         self.name = name
         self.surname = surname
-        date = Date()
+        self.creationDate = creationDate
+        deliveryDate = Date()
         self.isMine = isMine
         self.phoneNumber = phoneNumber
         self.message = message

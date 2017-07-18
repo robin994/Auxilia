@@ -31,6 +31,7 @@ class ReportStore: NSObject {
                     isMine: report.isMine,
                     phoneNumber: report.contactIdentifier!,
                     message: report.message!,
+                    creationDate: report.creationDate!,
                     clinicalFolder: ClinicalFolder(sesso: report.sesso!,
                                                    dataDiNascita: report.birthday!,
                                                    altezza: report.height!,

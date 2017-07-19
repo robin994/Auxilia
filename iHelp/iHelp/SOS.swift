@@ -11,25 +11,26 @@ import Firebase
 import FirebaseMessaging
 
 class SOS: NSObject {
-    static func callSOS(_ navigationController: UINavigationController?) -> UIAlertController {
-        let alert = UIAlertController(title: "SOS", message: "Need help?", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default) {
-            UIAlertAction in
+    static func callSOS(_ navigationController: UINavigationController?) //-> UIAlertController
+    {
+      //  let alert = UIAlertController(title: "SOS", message: "Need help?", preferredStyle: .alert)
+       // let okAction = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default) {
+         //   UIAlertAction in
             NSLog("OK Pressed")
             if let viewController: UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SOSViewController") {
                 if let navigator = navigationController {
                     navigator.pushViewController(viewController, animated: true)
                 }
             }
-        }
+       // }
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) {
-            UIAlertAction in
-            NSLog("Cancel Pressed")
-        }
-        alert.addAction(okAction)
-        alert.addAction(cancelAction)
-        return alert
+       // let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) {
+        //    UIAlertAction in
+         //   NSLog("Cancel Pressed")
+       // }
+       // alert.addAction(okAction)
+       // alert.addAction(cancelAction)
+       // return alert
     }
     
     static func sendNotification() {

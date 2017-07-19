@@ -77,7 +77,7 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
            
             DispatchQueue.global().async(execute: { () -> Void in
                 self.heartRate = self.healthManager.getTodaysHeartRates()!
-                print("battito ricevutoooooooooo \(self.heartRate)")
+                print("\nbattito ricevutoooooooooo in SOS  \(self.heartRate)")
                 
             })
             

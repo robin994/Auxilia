@@ -37,12 +37,13 @@ class NotificationManager: NSObject {
     
     static func sendNotification(topic: String, message: String, title: String) {
         
+        let toSend = NotificationManager.checkNumber(toCheck: topic)
         let url = NSURL(string: "https://fcm.googleapis.com/fcm/send")
         //let tk = InstanceID.instanceID().token()
         
         //print("\n\n \(tk!) \n\n")
         let postParams = [
-            "to": "/topics/\(topic)",
+            "to": "/topics/\(toSend)",
             "notification": ["body": message, "title": title]
             ] as [String : Any]
         

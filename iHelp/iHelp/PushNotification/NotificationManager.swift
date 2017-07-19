@@ -11,9 +11,26 @@ import Firebase
 import FirebaseMessaging
 import CloudKit
 
+
 class NotificationManager: NSObject {
+
     
-    static func subscribe(_ toSubscribe: String) {
+    static func checkNumber(toCheck: String) -> String {
+        var toReturn = toCheck
+        
+        if (toCheck.contains("+")) {
+           toReturn = toCheck.replacingOccurrences(of: "+39", with: "")
+        }
+        
+        if (toReturn.contains(" ")) {
+            toReturn = toReturn.replacingOccurrences(of: " ", with: "")
+        }
+        
+        return toReturn
+    }
+    
+    static func subscribe(_ toSub: String) {
+        let toSubscribe = NotificationManager.checkNumber(toCheck: toSub)
         PersistanceManager.setNewTopic(toAdd: toSubscribe)
         Messaging.messaging().subscribe(toTopic: "/topics/\(toSubscribe)")
     }

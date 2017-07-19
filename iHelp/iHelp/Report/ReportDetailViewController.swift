@@ -60,6 +60,22 @@ class ReportDetailViewController: UITableViewController {
             }
         }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        switch segue.identifier {
+        case "show"? :
+            let currentClinicalFolder = self.currentReport
+            let dstView = segue.destination as! ReportClinicalFolderViewController
+            dstView.currentReport = currentReport
+        default :
+            let currentClinicalFolder = self.currentReport
+            let dstView = segue.destination as! ReportClinicalFolderViewController
+            dstView.currentReport = currentReport
+        }
+    }
+    
+    
     @IBOutlet weak var progressAudioBar: UIProgressView!
     @IBOutlet weak var nameField: UILabel!
     @IBOutlet weak var surnameField: UILabel!

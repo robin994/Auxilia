@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13156.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="9Gc-XJ-T0H">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="9Gc-XJ-T0H">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13137.5"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -632,7 +632,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qEd-eP-Vdr">
-                                                <rect key="frame" x="118.5" y="108" width="138" height="107.5"/>
+                                                <rect key="frame" x="116" y="108" width="143" height="107.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                 <state key="normal" title="Create a profile"/>
                                                 <connections>
@@ -1582,10 +1582,8 @@
                         <outlet property="fototipo" destination="U2a-yz-fhG" id="7Tf-UN-OSg"/>
                         <outlet property="gruppoSanguigno" destination="gGd-9P-vq7" id="oZ3-VG-hOs"/>
                         <outlet property="peso" destination="nwx-1j-jDg" id="Kcy-wu-xil"/>
-                        <outlet property="sediaARotelle" destination="jlG-vh-sbi" id="EJt-cu-orA"/>
                         <outlet property="sediaArotelle" destination="1c2-5w-6OX" id="tgA-ls-eCr"/>
                         <outlet property="sesso" destination="C8B-Vv-5Tp" id="f2B-fk-DGD"/>
-                        <outlet property="ultimoBattitoRilevato" destination="cwn-De-jE0" id="XCb-MG-ELE"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qQ8-Zg-FLD" userLabel="First Responder" sceneMemberID="firstResponder"/>

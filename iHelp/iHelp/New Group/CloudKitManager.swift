@@ -107,7 +107,10 @@ class CloudKitManager: NSObject {
                 print("Error saving Data on CloudKit..---->" + (error?.localizedDescription)!)
             } else {
                 print("Data Save it successfully")
-				NotificationManager.sendNotification(topic: "", message: "Hai ricevuto una nuova richiesta!", title: "Titolo Notifica")
+                for contact in PersistanceManager.fetchDataEmergencyContact() {
+                    let topicToSend = contact.number!.replacingOccurrences(of: " ", with: "")
+                    NotificationManager.sendNotification(topic: topicToSend, message: message, title: "SOS Request")
+                }
             }
         }
     }

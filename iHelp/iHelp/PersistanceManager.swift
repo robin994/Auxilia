@@ -176,23 +176,6 @@ class PersistanceManager {
                                   ultimoBattito: "")
         }
         
-//        let report: ClinicalFolderData = PersistanceManager.fetchDataClinicalFolder().first!
-//        
-//        if(report != nil){
-//                let clin = ClinicalFolder(sesso: (report!.sex)!,
-//                                                   dataDiNascita: (report!.dateB)!,
-//                                                   altezza: (report!.height)!,
-//                                                   peso: (report!.weight)!,
-//                                                   gruppoSanguigno: (report!.bloodType)!,
-//                                                   fototipo: (report!.skin)!,
-//                                                   sediaARotelle: (report!.wheelchair)!,
-//                                                   ultimoBattito: (report!.heartRate)!)
-//
-//                return clin
-//        }else{
-//            return nil
-//        }
-        
     }
     static func removeClinicaFolder() {
         let clinicals = PersistanceManager.fetchDataClinicalFolder()

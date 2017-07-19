@@ -16,6 +16,7 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
+    let healthManager:HealthKitManager = HealthKitManager()
     
     /*
      Contiene metodi gestione push notification
@@ -52,11 +53,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         FirebaseApp.configure()
         
+         getHealthKitPermission()
+        
+        
         return true
     }
+    
+    func getHealthKitPermission() {
+        // Seek authorization in HealthKitManager.swift.
+        healthManager.authorizeHealthKit { (authorized,  error) -> Void in
+            if authorized {
+                print("autorizzazione ha successo")
+                
+                // Get the user's height and weight
+                
+            } else {
+                if error != nil {
+                    print("errore")
+                }
+                print("Permission denied.")
+            }
+        }
+    }
+    
     /*
      override per push notification
      */
+    
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Registration failed!")
     }

@@ -11,7 +11,14 @@ import HealthKit
 
 class HealthKitManager {
     
-    let healthKitStore: HKHealthStore = HKHealthStore()
+  //  let healthKitStore: HKHealthStore = HKHealthStore()
+    let healthKitStore: HKHealthStore? = {
+        if HKHealthStore.isHealthDataAvailable() {
+            return HKHealthStore()
+        } else {
+            return nil
+        }
+    }()
     
     var heartRate:Double? = 0.0
     
@@ -25,8 +32,6 @@ class HealthKitManager {
         return readDataTypes
      }
     
-    
-    
     func authorizeHealthKit(_ completion: ((_ success: Bool, _ error: NSError?) -> Void)!) {
       
           let readDataTypes: Set<HKObjectType> = self.dataTypesToRead()
@@ -34,13 +39,7 @@ class HealthKitManager {
         // State the health data type(s) we want to read from HealthKit.
        // let healthDataToRead = Set(arrayLiteral:HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)!)
   
-       /* let healthStore: HKHealthStore? = {
-            if HKHealthStore.isHealthDataAvailable() {
-                return HKHealthStore()
-            } else {
-                return nil
-            }
-        }()*/
+        NSLog("chiamo l'autorizzazione")
         
         let dateOfBirthCharacteristic = HKCharacteristicType.characteristicType(
             forIdentifier: HKCharacteristicTypeIdentifier.dateOfBirth)
@@ -58,15 +57,15 @@ class HealthKitManager {
             forIdentifier: HKCharacteristicTypeIdentifier.wheelchairUse)
         
         let dataTypesToRead = NSSet(objects:
-                                    dateOfBirthCharacteristic,
-                                    biologicalSexCharacteristic,
-                                    bloodTypeCharacteristic,
-                                    skinTypeCharacteristic,
-                                    wheelchairCharacteristic
+            dateOfBirthCharacteristic as Any,
+                                    biologicalSexCharacteristic as Any,
+                                    bloodTypeCharacteristic as Any,
+                                    skinTypeCharacteristic as Any,
+                                    wheelchairCharacteristic as Any
             
         )
         
-        healthKitStore.requestAuthorization(toShare: nil,
+        healthKitStore?.requestAuthorization(toShare: nil,
                                             read: dataTypesToRead as? Set<HKObjectType>,
                                             completion: { (success, error) -> Void in
                                                 if success {
@@ -76,7 +75,7 @@ class HealthKitManager {
                                                 }
         })
         // State the health data type(s) we want to write from HealthKit.
-        //let healthDataToWrite = Set(arrayLiteral: HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.distanceWalkingRunning)!)
+       // let healthDataToWrite = Set(arrayLiteral: HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.distanceWalkingRunning)!)
         
         // Just in case OneHourWalker makes its way to an iPad...
         if !HKHealthStore.isHealthDataAvailable() {
@@ -86,16 +85,14 @@ class HealthKitManager {
         }
         
         // Request authorization to read and/or write the specific data.
-        healthKitStore.requestAuthorization(toShare: nil, read: readDataTypes) { (success, error) -> Void in
+        healthKitStore?.requestAuthorization(toShare: nil, read: readDataTypes) { (success, error) -> Void in
             if( completion != nil ) {
-                
                 //todo nsjnxj
                 completion(success, error as NSError?)
                 print("success authorization2")
             }
         }
-        
-        
+        NSLog("fine autorizzazione")
     }
     
     
@@ -127,7 +124,7 @@ class HealthKitManager {
         }
         
         // Time to execute the query.
-        self.healthKitStore.execute(heightQuery)
+        self.healthKitStore?.execute(heightQuery)
     }
     
     func readProfile() -> ( age:String?,  biologicalsex:String?, bloodtype:String?, skin:String?, chairUse:String?)
@@ -135,22 +132,12 @@ class HealthKitManager {
 
         var age:String?
         print("readProfile: \n\n\n\n")
-        
-        //per usare la data
-        let date = Date()
-        let calendar = Calendar.current
-        let components = calendar.dateComponents([.year, .month, .day], from: date)
-        
-        let year =  components.year
-        let month = components.month
-        let day = components.day
-
      
         //per accedere alla data di nascita
         var dateOfBirth: Date?
         do {
             
-            dateOfBirth = try healthKitStore.dateOfBirth()
+            dateOfBirth = try healthKitStore?.dateOfBirth()
             
             //let now = Date()
             
@@ -169,7 +156,7 @@ class HealthKitManager {
         // 2. Read biological sex
         var biologicalSex:HKBiologicalSexObject?
         do {
-            biologicalSex = try healthKitStore.biologicalSex()
+            biologicalSex = try healthKitStore?.biologicalSex()
             print("sex: \(String(describing: biologicalSex!.biologicalSex.rawValue))")
             
         } catch {
@@ -181,7 +168,7 @@ class HealthKitManager {
         
         var skin:HKFitzpatrickSkinTypeObject?
         do {
-            skin = try healthKitStore.fitzpatrickSkinType()
+            skin = try healthKitStore?.fitzpatrickSkinType()
             print("skin: \(String(describing: skin!.skinType.rawValue))")
             
         } catch {
@@ -191,7 +178,7 @@ class HealthKitManager {
         
         var bloodType:HKBloodTypeObject?
         do {
-            bloodType = try healthKitStore.bloodType()
+            bloodType = try healthKitStore?.bloodType()
             print("blood: \(String(describing: bloodType!.bloodType.rawValue))")
             
         } catch {
@@ -205,7 +192,7 @@ class HealthKitManager {
         //read wheelchairCharacteristic
         var wheelchair:HKWheelchairUseObject?
         do {
-            wheelchair = try healthKitStore.wheelchairUse()
+            wheelchair = try healthKitStore?.wheelchairUse()
             print("wheelchair: \(String(describing: wheelchair!.wheelchairUse.rawValue))")
             
         } catch {
@@ -350,7 +337,7 @@ class HealthKitManager {
         }
         
         // Time to execute the query.
-        self.healthKitStore.execute(weightQuery)
+        self.healthKitStore?.execute(weightQuery)
     }
     let heartRateUnit:HKUnit = HKUnit(from: "count/min")
     let heartRateType:HKQuantityType   = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)!
@@ -401,7 +388,7 @@ class HealthKitManager {
             }
 
         }
-       self.healthKitStore.execute(heartRateQuery!)
+        self.healthKitStore?.execute(heartRateQuery!)
         NSLog("battito: \(self.heartRate!)")
         
         

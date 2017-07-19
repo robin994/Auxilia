@@ -184,7 +184,8 @@ class ReportTableViewController: UITableViewController {
     }
     
     @IBAction func callSOS(_ sender: UIBarButtonItem) {
-        present(SOS.callSOS(self.navigationController), animated: true, completion: nil)
+        SOS.callSOS(self.navigationController)
+      //  present(SOS.callSOS(self.navigationController), animated: true, completion: nil)
     }
     
     func addReport(toAdd: Report) {

@@ -77,7 +77,7 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
            
             DispatchQueue.global().async(execute: { () -> Void in
                 self.heartRate = self.healthManager.getTodaysHeartRates()!
-                print("battito ricevutoooooooooo \(self.heartRate)")
+                print("\nbattito ricevutoooooooooo in SOS  \(self.heartRate)")
                 
             })
             
@@ -122,11 +122,16 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
 				// Print the speech that has been recognized so far
 				self.textFromRegistration = result.bestTranscription.formattedString
 				
-				CloudKitManager.saveReport(latitudine: 2, longitudine: 2, velocity: 33)
-
-				
 				NSLog("Speech text is -> \(self.textFromRegistration)", 0)
 				NSLog("URL file: \(String(describing: self.soundFileURL))", 0)
+				
+				DispatchQueue.main.async(execute: { () -> Void in
+					self.textFromRegistration = result.bestTranscription.formattedString
+				
+					
+					CloudKitManager.saveReport(latitudine: 2, longitudine: 2, velocity: 33, audioMessage: self.soundFileURL!, message: self.textFromRegistration, heartRate: self.heartRate)
+
+				})
 				
 				
 			}
@@ -145,11 +150,7 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
 			
 			NSLog("Audio is recording", 0)
 			progressView.setProgress(0, animated: true)
-			
-//			var timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateProgressBar), userInfo: nil, repeats: true)
-			
-//			var progress : Float = 0.1
-			
+
 			DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 10) {
 				self.stopAudioRecording(saveParameter: true)
 			}
@@ -244,7 +245,8 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
 	}
 	
 	func getRecognizedText() -> String{
-		return textFromRegistration
+		NSLog("Messaggio preso da SOSViewController ---> \(self.textFromRegistration)", 0)
+		return self.textFromRegistration
 	}
 	
 	func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {

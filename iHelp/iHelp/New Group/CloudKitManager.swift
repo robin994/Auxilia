@@ -12,7 +12,7 @@ import Foundation
 
 class CloudKitManager: NSObject {
     
-	static func saveReport(latitudine: Double, longitudine: Double, velocity: Double) {
+	static func saveReport(latitudine: Double, longitudine: Double, velocity: Double, audioMessage: URL, message: String, heartRate: Double) {
         let database = CKContainer.default().publicCloudDatabase
         
         let clinicalFolder: ClinicalFolder = PersistanceManager.getClinicalFolder()!
@@ -22,7 +22,6 @@ class CloudKitManager: NSObject {
         let sesso = clinicalFolder.sesso
         let wheelchair = clinicalFolder.sediaARotelle
         let fototipo = clinicalFolder.fototipo
-        let heartRate = clinicalFolder.ultimoBattito
         let birthday = clinicalFolder.dataDiNascita
         let bloodGroup = clinicalFolder.gruppoSanguigno
         
@@ -31,7 +30,7 @@ class CloudKitManager: NSObject {
         let telephone = PersistanceManager.fetchDataUserProfile()[0].address!
         
         //data from vocal registration
-		
+
 		let fileManager = FileManager.default
 		
 		let dirPaths = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
@@ -39,11 +38,11 @@ class CloudKitManager: NSObject {
 		let soundFileURL = dirPaths[0].appendingPathComponent("recordedAudio.caf")
 		print(soundFileURL)
 		let audioMessage = dirPaths[0].absoluteString + "recordedAudio.caf"
-
+/*
 		NSLog("\(audioMessage)", 0)
 		let message : String = SOSViewController().getRecognizedText()
-		NSLog("\(message)", 0)
-
+		NSLog("Messaggio preso da SOSViewController ---> \(message)", 0)
+*/
 		
         // DATA
         let date = NSDate()
@@ -68,9 +67,12 @@ class CloudKitManager: NSObject {
         store.setObject(weight as CKRecordValue?, forKey: "weight")
         store.setObject(sesso as CKRecordValue?, forKey: "sesso")
         store.setObject(heartRate as CKRecordValue?, forKey: "heartRate")
-        store.setObject(fototipo as CKRecordValue?, forKey: "fototipo")
+		
+		NSLog("HeartRate data saved --->\(heartRate)", 0)
+		
+		store.setObject(fototipo as CKRecordValue?, forKey: "fototipo")
         store.setObject(wheelchair as CKRecordValue?, forKey: "wheelchair")
-        
+		
         //dati personali
         store.setObject(name as CKRecordValue?, forKey: "name")
         store.setObject(surname as CKRecordValue?, forKey: "surname")
@@ -96,6 +98,7 @@ class CloudKitManager: NSObject {
                 print("Error saving Data on CloudKit..---->" + (error?.localizedDescription)!)
             } else {
                 print("Data Save it successfully")
+				NotificationManager.sendNotification(topic: "", message: "Hai ricevuto una nuova richiesta!", title: "Titolo Notifica")
             }
         }
     }

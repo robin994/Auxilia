@@ -8,11 +8,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--iHelp-->
+        <!--History-->
         <scene sceneID="isW-Xl-nuW">
             <objects>
                 <tableViewController restorationIdentifier="Rptv" storyboardIdentifier="Rptv" id="Z0Y-8J-Rk9" customClass="ReportTableViewController" customModule="iHelp" customModuleProvider="target" sceneMemberID="viewController">
@@ -61,7 +60,7 @@
                             <outlet property="delegate" destination="Z0Y-8J-Rk9" id="3ex-t6-Kxl"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="iHelp" id="lQb-X5-DFh">
+                    <navigationItem key="navigationItem" title="History" id="lQb-X5-DFh">
                         <barButtonItem key="leftBarButtonItem" title="SOS" id="JwS-N9-ZkK">
                             <connections>
                                 <action selector="callSOS:" destination="Z0Y-8J-Rk9" id="ZUG-bS-xa3"/>
@@ -76,7 +75,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yIt-oa-cxC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1775" y="-54"/>
+            <point key="canvasLocation" x="1773.5999999999999" y="-54.422788605697157"/>
         </scene>
         <!--Report Detail View Controller-->
         <scene sceneID="zU1-LV-oc8">
@@ -330,30 +329,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Emergency Contact" id="94N-Wi-B6B">
-                        <leftBarButtonItems>
-                            <barButtonItem title="SOS" id="Xy9-2Z-KXF">
-                                <connections>
-                                    <action selector="callSOS:" destination="aPl-5h-gSY" id="3F2-Ho-Ttw"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Iscrivi" id="hnM-z8-leE">
-                                <connections>
-                                    <action selector="iscriviti:" destination="aPl-5h-gSY" id="SKM-La-W3Q"/>
-                                </connections>
-                            </barButtonItem>
-                        </leftBarButtonItems>
-                        <rightBarButtonItems>
-                            <barButtonItem systemItem="add" id="goI-ro-D37">
-                                <connections>
-                                    <action selector="addContact:" destination="aPl-5h-gSY" id="cic-Bq-HVv"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="INVIA" id="IkP-07-7I9">
-                                <connections>
-                                    <action selector="inviaNotifica:" destination="aPl-5h-gSY" id="xWS-nb-fxG"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="leftBarButtonItem" title="SOS" id="Xy9-2Z-KXF">
+                            <connections>
+                                <action selector="callSOS:" destination="aPl-5h-gSY" id="3F2-Ho-Ttw"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="goI-ro-D37">
+                            <connections>
+                                <action selector="addContact:" destination="aPl-5h-gSY" id="cic-Bq-HVv"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RPN-f6-IdH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -928,10 +913,12 @@
                                     <constraint firstAttribute="width" secondItem="mX2-DG-a3k" secondAttribute="height" multiplier="1:1" id="1HX-eM-Ixz"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lv9-qh-Vtz">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lv9-qh-Vtz">
                                 <rect key="frame" x="145" y="522" width="85" height="85"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.079394028180000006" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="lv9-qh-Vtz" secondAttribute="height" multiplier="1:1" id="WZm-qx-A3g"/>
+                                </constraints>
                                 <state key="normal" image="access-denied.png"/>
                                 <connections>
                                     <action selector="cancelButton:" destination="gDR-KW-Z93" eventType="touchUpInside" id="X9I-JW-iOV"/>
@@ -942,11 +929,14 @@
                         <constraints>
                             <constraint firstItem="fTm-ed-yUl" firstAttribute="top" secondItem="bFd-et-ccd" secondAttribute="bottom" constant="51" id="5Eh-1t-HQg"/>
                             <constraint firstItem="ZJT-Ua-AHw" firstAttribute="leading" secondItem="iwx-MQ-AF2" secondAttribute="leading" constant="77" id="5bZ-h0-Ztm"/>
+                            <constraint firstItem="Bhp-5V-ggv" firstAttribute="top" secondItem="lv9-qh-Vtz" secondAttribute="bottom" constant="60" id="8jj-52-w1D"/>
                             <constraint firstItem="fTm-ed-yUl" firstAttribute="leading" secondItem="iwx-MQ-AF2" secondAttribute="leading" constant="16" id="JGo-eB-hWI"/>
                             <constraint firstAttribute="trailing" secondItem="mX2-DG-a3k" secondAttribute="trailing" constant="146" id="Soc-PN-hJ1"/>
                             <constraint firstItem="mX2-DG-a3k" firstAttribute="leading" secondItem="iwx-MQ-AF2" secondAttribute="leading" constant="145" id="Xy3-8L-KvP"/>
                             <constraint firstAttribute="trailing" secondItem="ZJT-Ua-AHw" secondAttribute="trailing" constant="77" id="Z2w-Ep-t6f"/>
                             <constraint firstItem="ZJT-Ua-AHw" firstAttribute="top" secondItem="mX2-DG-a3k" secondAttribute="bottom" constant="70" id="foL-Uv-HfZ"/>
+                            <constraint firstItem="lv9-qh-Vtz" firstAttribute="leading" secondItem="iwx-MQ-AF2" secondAttribute="leading" constant="145" id="jIW-DQ-N3v"/>
+                            <constraint firstAttribute="trailing" secondItem="lv9-qh-Vtz" secondAttribute="trailing" constant="145" id="lOA-QL-Woe"/>
                             <constraint firstItem="mX2-DG-a3k" firstAttribute="top" secondItem="fTm-ed-yUl" secondAttribute="bottom" constant="111.5" id="ydE-sQ-NBB"/>
                             <constraint firstAttribute="trailing" secondItem="fTm-ed-yUl" secondAttribute="trailing" constant="16" id="zKe-cl-5Ub"/>
                         </constraints>

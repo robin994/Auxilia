@@ -34,7 +34,13 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
     override func viewDidLoad() {
         super.viewDidLoad()
             // Do any additional setup after loading the view.
-		
+        
+            DispatchQueue.main.async(execute: { () -> Void in
+                self.runLocalizzazione()
+                print("++++++++++++ \(self.latitudine2)")
+                print("++++++++++++ \(self.longitudine2)")
+            })
+        
 			//set radius cancelButton
 			cancelButton.layer.masksToBounds = true
 			cancelButton.layer.cornerRadius = 42
@@ -127,7 +133,7 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
 				NSLog("No word's can be recognized.", 0)
 				self.textFromRegistration = "No word's recognized."
 				NSLog("URL file: \(String(describing: self.soundFileURL))", 0)
-                print("++++++++++++ \(self.getLatitudine())")
+                print("++++++++++++ \(self.latitudine2)")
                 print("++++++++++++ \(self.longitudine2)")
                 CloudKitManager.saveReport(latitudine: 2, longitudine: 2, velocity: 33, audioMessage: self.soundFileURL!, message: self.textFromRegistration, heartRate: self.heartRate)
 				return
@@ -139,13 +145,12 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
 				NSLog("Speech text is -> \(self.textFromRegistration)", 0)
 				NSLog("URL file: \(String(describing: self.soundFileURL))", 0)
 				
-				DispatchQueue.main.async(execute: { () -> Void in
-					self.textFromRegistration = result.bestTranscription.formattedString
-				
-					
-					CloudKitManager.saveReport(latitudine: 2, longitudine: 2, velocity: 33, audioMessage: self.soundFileURL!, message: self.textFromRegistration, heartRate: self.heartRate)
+                    print("++++++++++++ \(self.latitudine2)")
+                    print("++++++++++++ \(self.longitudine2)")
+                    self.textFromRegistration = result.bestTranscription.formattedString
 
-				})
+					CloudKitManager.saveReport(latitudine: self.latitudine2, longitudine: self.longitudine2, velocity: 33, audioMessage: self.soundFileURL!, message: self.textFromRegistration, heartRate: self.heartRate)
+                
 				
 				
 /*                self.runLocalizzazione()
@@ -337,9 +342,6 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
         self.setVelocita(velocita)
         self.setLongitudine(longitudine)
         self.setLatitudine(latitudine)
-        print("\(getLatitudine())")
-        print("\(getLongitudine())")
-        print("\(getVelocita())")
         locationManager.stopUpdatingLocation()
     }
     
@@ -348,32 +350,13 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
      */
     func setLatitudine(_ lati: CLLocationDegrees){
         self.latitudine2 = lati
-        print("@@@@@@@@@@@@@@@ \(self.latitudine2)")
-        var ckm = MyLocalizeManager()
-        ckm.setLat(lati: Double(self.latitudine2))
+
     }
     func setLongitudine(_ long: CLLocationDegrees){
         self.longitudine2 = long
-        print("@@@@@@@@@@@@@@@ \(self.longitudine2)")
-        var ckm = MyLocalizeManager()
-        ckm.setLon(lati: Double(self.longitudine2))
     }
     func setVelocita(_ velo: CLLocationSpeed){
         self.velocita2 = velo
-        var ckm = MyLocalizeManager()
-        ckm.setVel(vel: Double(self.velocita2))
     }
     
-    /*
-     metodi getter dei dati di localizzazione attuali (live)
-     */
-    func getLatitudine() -> CLLocationDegrees{
-        return self.latitudine2
-    }
-    func getLongitudine()-> CLLocationDegrees{
-        return self.longitudine2
-    }
-    func getVelocita() -> CLLocationSpeed{
-        return velocita2
-    }
-}
+   }

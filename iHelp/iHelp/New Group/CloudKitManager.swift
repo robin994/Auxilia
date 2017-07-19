@@ -60,12 +60,10 @@ class CloudKitManager: NSObject {
         let seconds = calendar.component(.second, from: date as Date)
         let creationDate2 = "\(day)\\\(month)\\\(year) \(hour):\(minutes):\(seconds)"
         
-        var tmpLat = MyLocalizeManager().getLat()
-        var tmpLon = MyLocalizeManager().getLon()
-        var tmpVel = MyLocalizeManager().getVel()
-        NSLog("\\\\\\\\\\\\\\LATITUDINEEEE \(tmpLat)")
-        NSLog("\\\\\\\\\\\\\\LONGITUDINE \(tmpLon)")
-        NSLog("\\\\\\\\\\\\\\VELOCITA \(tmpVel)")
+
+        NSLog("\\\\\\\\\\\\\\LATITUDINEEEE \(latitudine)")
+        NSLog("\\\\\\\\\\\\\\LONGITUDINE \(longitudine)")
+        NSLog("\\\\\\\\\\\\\\VELOCITA \(velocity)")
         
         NSLog("\n\n Sto provando a salvare\n\n")
         let store = CKRecord(recordType: "Notifiche")
@@ -101,20 +99,18 @@ class CloudKitManager: NSObject {
 		NSLog("Messaggio Salvato su iCloud----> \(message)", 0)
         
         NSLog("\n\n Sto provando a salvare2\n\n")
-        
-        database.save(store) { (saveRecord, error) in
-            if error != nil {
-                print("Error saving Data on CloudKit..---->" + (error?.localizedDescription)!)
-            } else {
-                print("Data Save it successfully")
-                for contact in PersistanceManager.fetchDataEmergencyContact() {
-                    let topicToSend = contact.number!.replacingOccurrences(of: " ", with: "")
+        for contact in PersistanceManager.fetchDataEmergencyContact() {
+            let topicToSend = contact.number!.replacingOccurrences(of: " ", with: "")
+            store.setObject(topicToSend as CKRecordValue?, forKey: "topic_id")
+            
+            database.save(store) { (saveRecord, error) in
+                if error != nil {
+                    print("Error saving Data on CloudKit..---->" + (error?.localizedDescription)!)
+                } else {
+                    print("Data Save it successfully")
                     NotificationManager.sendNotification(topic: topicToSend, message: message, title: "SOS Request")
                 }
             }
         }
     }
-    
-    
-    
 }

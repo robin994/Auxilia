@@ -97,6 +97,7 @@ class PersistanceManager {
         userProfile.name = name
         userProfile.surname = surname
         userProfile.userPhoto = UIImageJPEGRepresentation(image, 80)! as NSData
+        NotificationManager.subscribe(address)
         saveContext()
         NSLog("Save new User")
     }

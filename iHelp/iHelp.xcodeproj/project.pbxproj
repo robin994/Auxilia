@@ -37,6 +37,7 @@
 		CE4656E71F0FD325004E3868 /* iHelpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4656E61F0FD325004E3868 /* iHelpUITests.swift */; };
 		CE53F0841F14B773001EAC96 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE53F0831F14B773001EAC96 /* HealthKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		CE53F0861F14B810001EAC96 /* ReportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE53F0851F14B810001EAC96 /* ReportCell.swift */; };
+		CE6AD43A1F1F8DA3001288EF /* MyLocalizeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6AD4391F1F8DA3001288EF /* MyLocalizeManager.swift */; };
 		CE6F836F1F153A5200899CB8 /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F836E1F153A5200899CB8 /* PersistanceManager.swift */; };
 		CE8714121F1513780021F74D /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8714111F1513780021F74D /* ContactDetailViewController.swift */; };
 		CE8714141F1522660021F74D /* empty_avatar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE8714131F1522660021F74D /* empty_avatar.jpg */; };
@@ -116,6 +117,7 @@
 		CE4656E81F0FD325004E3868 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE53F0831F14B773001EAC96 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		CE53F0851F14B810001EAC96 /* ReportCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCell.swift; sourceTree = "<group>"; };
+		CE6AD4391F1F8DA3001288EF /* MyLocalizeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyLocalizeManager.swift; sourceTree = "<group>"; };
 		CE6F83601F152E9600899CB8 /* DataCore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataCore.xcdatamodel; sourceTree = "<group>"; };
 		CE6F836E1F153A5200899CB8 /* PersistanceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistanceManager.swift; sourceTree = "<group>"; };
 		CE8714111F1513780021F74D /* ContactDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactDetailViewController.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 		BD10F25F1F193AB100516967 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
+				CE6AD4391F1F8DA3001288EF /* MyLocalizeManager.swift */,
 				BD10F2691F193CBF00516967 /* MapViewController.swift */,
 			);
 			path = Localization;
@@ -615,6 +618,7 @@
 				CEB6324E1F1D666A00E43555 /* ReportDetailViewController.swift in Sources */,
 				4BD5D5321F1E0890008A3211 /* ClinicalFolderData+CoreDataClass.swift in Sources */,
 				CE0E5D6A1F181A0F00B8D1FC /* CreateProfileViewController.swift in Sources */,
+				CE6AD43A1F1F8DA3001288EF /* MyLocalizeManager.swift in Sources */,
 				BD10F26A1F193CBF00516967 /* MapViewController.swift in Sources */,
 				CE0E5D651F180EF400B8D1FC /* UserProfile+CoreDataProperties.swift in Sources */,
 				CE099F2B1F1BA31D00199904 /* ReportsHistory+CoreDataProperties.swift in Sources */,

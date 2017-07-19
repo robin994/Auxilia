@@ -27,6 +27,7 @@ class ContactStore: NSObject {
         NSLog("Richiesta aggiunta contatto")
         if !isInside(contact) {
             PersistanceManager.newEmergencyContact(toAdd: contact)
+            NotificationManager.subscribe(contact.contact.phoneNumbers.first!.value.stringValue)
             array.append(contact)
             NSLog("Aggiunto contatto")
         }

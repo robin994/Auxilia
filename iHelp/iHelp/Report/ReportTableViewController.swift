@@ -165,6 +165,7 @@ class ReportTableViewController: UITableViewController {
                                                fototipo: String(describing: notifica.value(forKey: "fototipo")),
                                                sediaARotelle: String(describing: notifica.value(forKey: "wheelchair")),
                                                ultimoBattito: String(describing: notifica.value(forKey: "heartrate"))))
+            report.audioMessage = notifica["audioMessage"] as? CKAsset
             NSLog("-----------SALVO REPORT------------")
             NSLog(report.name)
             NSLog(report.message)

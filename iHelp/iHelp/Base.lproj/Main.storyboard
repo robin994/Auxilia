@@ -143,6 +143,9 @@
                                                     <rect key="frame" x="24" y="7" width="30" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Play"/>
+                                                    <connections>
+                                                        <action selector="playAudio:" destination="Ede-v8-7S8" eventType="touchUpInside" id="sne-JZ-bkp"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -245,6 +248,7 @@
                         <outlet property="messageField" destination="eVq-iM-7m7" id="Whc-Tc-6Sc"/>
                         <outlet property="nameField" destination="f2i-4S-2WE" id="mO7-o8-Mgs"/>
                         <outlet property="phoneNumberField" destination="uLY-al-wDu" id="1z7-C7-iBc"/>
+                        <outlet property="progressAudioBar" destination="5tC-kd-Seo" id="980-zS-9jn"/>
                         <outlet property="surnameField" destination="nZ1-1r-WQg" id="Epn-dQ-iT8"/>
                     </connections>
                 </tableViewController>
@@ -1391,6 +1395,6 @@
         <image name="microphone.png" width="125" height="133"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="JKM-e9-OVC"/>
+        <segue reference="Ksa-bw-pJK"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -8,6 +8,7 @@
 
 import UIKit
 import Contacts
+import CloudKit
 
 class Report: NSObject {
     var name: String
@@ -18,6 +19,9 @@ class Report: NSObject {
     var phoneNumber: String
     var message: String
     var clinicalFolder: ClinicalFolder
+    
+    var audioMessage: CKAsset?
+    
     init(name: String,surname: String, isMine: Bool, phoneNumber: String, message: String, creationDate: String, clinicalFolder: ClinicalFolder) {
         self.name = name
         self.surname = surname

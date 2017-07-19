@@ -922,44 +922,37 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lv9-qh-Vtz">
-                                <rect key="frame" x="0.0" y="567" width="375" height="100"/>
-                                <color key="backgroundColor" red="1" green="0.079394028180000006" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="lv9-qh-Vtz" secondAttribute="height" multiplier="15:4" id="wxE-pU-xoe"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="39"/>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleColor" white="0.96999999999999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="cancelButton:" destination="gDR-KW-Z93" eventType="touchUpInside" id="X9I-JW-iOV"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="microphone.png" translatesAutoresizingMaskIntoConstraints="NO" id="mX2-DG-a3k">
                                 <rect key="frame" x="145" y="247" width="84" height="84"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="mX2-DG-a3k" secondAttribute="height" multiplier="1:1" id="1HX-eM-Ixz"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lv9-qh-Vtz">
+                                <rect key="frame" x="145" y="522" width="85" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.079394028180000006" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="access-denied.png"/>
+                                <connections>
+                                    <action selector="cancelButton:" destination="gDR-KW-Z93" eventType="touchUpInside" id="X9I-JW-iOV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fTm-ed-yUl" firstAttribute="top" secondItem="bFd-et-ccd" secondAttribute="bottom" constant="51" id="5Eh-1t-HQg"/>
                             <constraint firstItem="ZJT-Ua-AHw" firstAttribute="leading" secondItem="iwx-MQ-AF2" secondAttribute="leading" constant="77" id="5bZ-h0-Ztm"/>
-                            <constraint firstAttribute="trailing" secondItem="lv9-qh-Vtz" secondAttribute="trailing" id="EZJ-C8-53J"/>
                             <constraint firstItem="fTm-ed-yUl" firstAttribute="leading" secondItem="iwx-MQ-AF2" secondAttribute="leading" constant="16" id="JGo-eB-hWI"/>
-                            <constraint firstItem="Bhp-5V-ggv" firstAttribute="top" secondItem="lv9-qh-Vtz" secondAttribute="bottom" id="OnQ-Ko-32q"/>
                             <constraint firstAttribute="trailing" secondItem="mX2-DG-a3k" secondAttribute="trailing" constant="146" id="Soc-PN-hJ1"/>
                             <constraint firstItem="mX2-DG-a3k" firstAttribute="leading" secondItem="iwx-MQ-AF2" secondAttribute="leading" constant="145" id="Xy3-8L-KvP"/>
                             <constraint firstAttribute="trailing" secondItem="ZJT-Ua-AHw" secondAttribute="trailing" constant="77" id="Z2w-Ep-t6f"/>
                             <constraint firstItem="ZJT-Ua-AHw" firstAttribute="top" secondItem="mX2-DG-a3k" secondAttribute="bottom" constant="70" id="foL-Uv-HfZ"/>
-                            <constraint firstItem="lv9-qh-Vtz" firstAttribute="leading" secondItem="iwx-MQ-AF2" secondAttribute="leading" id="jv5-c1-gSW"/>
                             <constraint firstItem="mX2-DG-a3k" firstAttribute="top" secondItem="fTm-ed-yUl" secondAttribute="bottom" constant="111.5" id="ydE-sQ-NBB"/>
                             <constraint firstAttribute="trailing" secondItem="fTm-ed-yUl" secondAttribute="trailing" constant="16" id="zKe-cl-5Ub"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cancelButton" destination="lv9-qh-Vtz" id="rYn-fY-IWD"/>
                         <outlet property="progressView" destination="ZJT-Ua-AHw" id="NhR-V9-Zxj"/>
                     </connections>
                 </viewController>
@@ -1402,11 +1395,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="access-denied.png" width="128" height="128"/>
         <image name="empty_avatar.jpg" width="600" height="600"/>
         <image name="logo.png" width="487" height="491"/>
         <image name="microphone.png" width="125" height="133"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ksa-bw-pJK"/>
+        <segue reference="JKM-e9-OVC"/>
     </inferredMetricsTieBreakers>
 </document>

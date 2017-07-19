@@ -22,6 +22,7 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
     var heartRate: Double = 0.0
     let healthManager:HealthKitManager = HealthKitManager()
 	@IBOutlet weak var progressView: UIProgressView!
+	@IBOutlet weak var cancelButton: UIButton!
     
     //variabili localizzazione
     var locationManager = CLLocationManager()
@@ -33,7 +34,12 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
     override func viewDidLoad() {
         super.viewDidLoad()
             // Do any additional setup after loading the view.
-            
+		
+			//set radius cancelButton
+			cancelButton.layer.masksToBounds = true
+			cancelButton.layer.cornerRadius = 42
+			cancelButton.contentEdgeInsets = UIEdgeInsets(top: 25, left: 25, bottom: 25, right: 25)
+		
             self.navigationItem.hidesBackButton = true
             let newBackButton : UIBarButtonItem = UIBarButtonItem(title: "< Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(back))
             self.navigationItem.leftBarButtonItem = newBackButton
@@ -95,9 +101,6 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
         back()
     }
 	
-    @IBAction func sendButton(_ sender: UIButton) {
-        
-    }
     func back() {
 		
         present(alertView(), animated: true, completion: nil)

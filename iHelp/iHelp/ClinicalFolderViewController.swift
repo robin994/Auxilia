@@ -28,6 +28,11 @@ class ClinicalFolderViewController: UITableViewController {
     var weightString = ""
     var clinicalFolderObject: ClinicalFolder? = nil
     var heartRate: Double = 0.0
+    var data = ""
+    var sex = ""
+    var skin = ""
+    var sedia = ""
+    var blood = ""
 
     
     
@@ -38,6 +43,11 @@ class ClinicalFolderViewController: UITableViewController {
         getHealthKitPermission()
         let dati = self.healthManager.readProfile()
         print("\n \n \n \(dati.age!) \(dati.biologicalsex!) \(dati.bloodtype!)")
+        data = dati.age!
+        sex = dati.biologicalsex!
+        skin = dati.skin!
+        sedia = dati.chairUse!
+        blood = dati.bloodtype!
         dataDiNascita.text = dati.age
         sesso.text = dati.biologicalsex
         fototipo.text = dati.skin
@@ -51,11 +61,13 @@ class ClinicalFolderViewController: UITableViewController {
             self.heartRate = self.healthManager.getTodaysHeartRates()!
             print("battito ricevutoooooooooo \(self.heartRate)")
             self.ultimoBattitoRilevato.text = "\(self.heartRate)"
-            self.clinicalFolderObject = ClinicalFolder(sesso: dati.biologicalsex!, dataDiNascita: dati.age!, altezza: self.heightString, peso: self.weightString, gruppoSanguigno: dati.bloodtype!, fototipo: self.fototipo.text! , sediaARotelle: dati.chairUse!, ultimoBattito: String(describing: self.heartRate))
-                 PersistanceManager.setClinicalFolder(clinFolder: self.clinicalFolderObject!)
+            print("peso \(self.weightString), altezza \(self.heightString), battito \(self.heartRate)")
+            self.clinicalFolderObject = ClinicalFolder(sesso: self.sex, dataDiNascita: self.data, altezza: self.heightString, peso: self.weightString, gruppoSanguigno: self.blood, fototipo: self.skin , sediaARotelle: self.sedia, ultimoBattito: String(describing: self.heartRate))
+            PersistanceManager.setClinicalFolder(clinFolder: self.clinicalFolderObject!)
+            
         })
         
-    
+   
         
         
     }
@@ -66,18 +78,19 @@ class ClinicalFolderViewController: UITableViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+       
+        
 
        }
     
     
     func getHealthKitPermission() {
-        
         // Seek authorization in HealthKitManager.swift.
         healthManager.authorizeHealthKit { (authorized,  error) -> Void in
             if authorized {
                 print("autorizzazione ha successo")
                 
-                // Get and set the user's height.
+                // Get the user's height and weight
                 self.setHeight()
                 self.setWeight()
                 

@@ -44,8 +44,8 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
 			soundFileURL = dirPaths[0].appendingPathComponent("recordedAudio.caf")
 			
 			let recordSettings = [AVEncoderAudioQualityKey: AVAudioQuality.min.rawValue,
-			                      AVEncoderBitRateKey: 16,
-			                      AVNumberOfChannelsKey: 2,
+			                      AVEncoderBitRateKey: 8,
+			                      AVNumberOfChannelsKey: 1,
 			                      AVSampleRateKey: 44100] as [String : Any]
 			
 			let audioSession = AVAudioSession.sharedInstance()

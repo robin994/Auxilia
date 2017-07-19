@@ -10,10 +10,11 @@ import UIKit
 import AVFoundation
 import Speech
 import CloudKit
+import CoreLocation
+import MapKit
 
-class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
-	
-	
+class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate, CLLocationManagerDelegate {
+    
 	var audioPlayer: AVAudioPlayer?
 	var audioRecorder: AVAudioRecorder?
 	var soundFileURL: URL?
@@ -21,9 +22,15 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
     var heartRate: Double = 0.0
     let healthManager:HealthKitManager = HealthKitManager()
 	@IBOutlet weak var progressView: UIProgressView!
-
+    
+    //variabili localizzazione
+    var locationManager = CLLocationManager()
+    var altitudine2:CLLocationDistance = 0.0
+    var velocita2:CLLocationSpeed = 0.0
+    var latitudine2:CLLocationDegrees = 0.0
+    var longitudine2:CLLocationDegrees = 0.0
 	
-	    override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
             // Do any additional setup after loading the view.
             
@@ -110,18 +117,22 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
 		let request = SFSpeechURLRecognitionRequest(url: url)
 		
 		myRecognizer.recognitionTask(with: request) { (result, error) in
-			
+            
+            
 			guard let result = result else {
 				// Recognition failed, so check error for details and handle it
 				NSLog("No word's can be recognized.", 0)
 				self.textFromRegistration = "No word's recognized."
 				NSLog("URL file: \(String(describing: self.soundFileURL))", 0)
+                print("++++++++++++ \(self.getLatitudine())")
+                print("++++++++++++ \(self.longitudine2)")
+                CloudKitManager.saveReport(latitudine: 2, longitudine: 2, velocity: 33, audioMessage: self.soundFileURL!, message: self.textFromRegistration, heartRate: self.heartRate)
 				return
 			}
 			if result.isFinal {
 				// Print the speech that has been recognized so far
 				self.textFromRegistration = result.bestTranscription.formattedString
-				
+                
 				NSLog("Speech text is -> \(self.textFromRegistration)", 0)
 				NSLog("URL file: \(String(describing: self.soundFileURL))", 0)
 				
@@ -134,6 +145,14 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
 				})
 				
 				
+/*                self.runLocalizzazione()
+                print("+++++++++++++2 \(self.getLatitudine())")
+                print("+++++++++++++2 \(self.longitudine2)")
+                CloudKitManager.saveReport(latitudine: Double(self.latitudine2), longitudine: Double(self.longitudine2), velocity: 33)
+                
+				NSLog("Speech text is -> \(self.textFromRegistration)", 0)
+				NSLog("URL file: \(String(describing: self.soundFileURL))", 0)*/
+ 
 			}
 		}
 		
@@ -291,14 +310,67 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
     }
 	
 	
-	/*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func runLocalizzazione(){
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
     }
-    */
-
+    
+    
+    /*
+     geolocalizza la mappa su dove sei
+     */
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let userLocation:CLLocation = locations[0] as CLLocation
+        let span:MKCoordinateSpan = MKCoordinateSpanMake(0.01,0.01)
+        
+        //estraggo le informazioni
+        let altitudine = userLocation.altitude
+        let velocita = userLocation.speed
+        let latitudine = userLocation.coordinate.latitude
+        let longitudine = userLocation.coordinate.longitude
+        
+        self.setVelocita(velocita)
+        self.setLongitudine(longitudine)
+        self.setLatitudine(latitudine)
+        print("\(getLatitudine())")
+        print("\(getLongitudine())")
+        print("\(getVelocita())")
+        locationManager.stopUpdatingLocation()
+    }
+    
+    /*
+     settaggio dei dati di locazione attuali (live)
+     */
+    func setLatitudine(_ lati: CLLocationDegrees){
+        self.latitudine2 = lati
+        print("@@@@@@@@@@@@@@@ \(self.latitudine2)")
+        var ckm = MyLocalizeManager()
+        ckm.setLat(lati: Double(self.latitudine2))
+    }
+    func setLongitudine(_ long: CLLocationDegrees){
+        self.longitudine2 = long
+        print("@@@@@@@@@@@@@@@ \(self.longitudine2)")
+        var ckm = MyLocalizeManager()
+        ckm.setLon(lati: Double(self.longitudine2))
+    }
+    func setVelocita(_ velo: CLLocationSpeed){
+        self.velocita2 = velo
+        var ckm = MyLocalizeManager()
+        ckm.setVel(vel: Double(self.velocita2))
+    }
+    
+    /*
+     metodi getter dei dati di localizzazione attuali (live)
+     */
+    func getLatitudine() -> CLLocationDegrees{
+        return self.latitudine2
+    }
+    func getLongitudine()-> CLLocationDegrees{
+        return self.longitudine2
+    }
+    func getVelocita() -> CLLocationSpeed{
+        return velocita2
+    }
 }

@@ -15,6 +15,9 @@ class CloudKitManager: NSObject {
 	static func saveReport(latitudine: Double, longitudine: Double, velocity: Double, audioMessage: URL, message: String, heartRate: Double) {
         let database = CKContainer.default().publicCloudDatabase
         
+        print("--------------- \(latitudine)")
+        print("--------------- \(longitudine)")
+        
         let clinicalFolder: ClinicalFolder = PersistanceManager.getClinicalFolder()!
         
         let height = clinicalFolder.altezza
@@ -57,6 +60,12 @@ class CloudKitManager: NSObject {
         let seconds = calendar.component(.second, from: date as Date)
         let creationDate2 = "\(day)\\\(month)\\\(year) \(hour):\(minutes):\(seconds)"
         
+        var tmpLat = MyLocalizeManager().getLat()
+        var tmpLon = MyLocalizeManager().getLon()
+        var tmpVel = MyLocalizeManager().getVel()
+        NSLog("\\\\\\\\\\\\\\LATITUDINEEEE \(tmpLat)")
+        NSLog("\\\\\\\\\\\\\\LONGITUDINE \(tmpLon)")
+        NSLog("\\\\\\\\\\\\\\VELOCITA \(tmpVel)")
         
         NSLog("\n\n Sto provando a salvare\n\n")
         let store = CKRecord(recordType: "Notifiche")
@@ -66,7 +75,7 @@ class CloudKitManager: NSObject {
         store.setObject(height as CKRecordValue?, forKey: "height")
         store.setObject(weight as CKRecordValue?, forKey: "weight")
         store.setObject(sesso as CKRecordValue?, forKey: "sesso")
-        store.setObject(heartRate as CKRecordValue?, forKey: "heartRate")
+        store.setObject(String(heartRate) as CKRecordValue?, forKey: "heartRate")
 		
 		NSLog("HeartRate data saved --->\(heartRate)", 0)
 		
@@ -85,9 +94,9 @@ class CloudKitManager: NSObject {
         
         //store.setObject(creationDate2 as CKRecordValue?, forKey: "creationDate")
 		
-		
+		var tmpAudio = CKAsset(fileURL: soundFileURL)
 		//----DA VERIFICARE IL FUNZIONAMENTO DEL CAST DA URL A STRING----
-        store.setObject(audioMessage as CKRecordValue?, forKey: "audioMessage")
+        store.setObject(tmpAudio as CKRecordValue?, forKey: "audioMessage")
         store.setObject(message as CKRecordValue?, forKey: "message")
 		NSLog("Messaggio Salvato su iCloud----> \(message)", 0)
         
@@ -102,5 +111,7 @@ class CloudKitManager: NSObject {
             }
         }
     }
+    
+    
     
 }

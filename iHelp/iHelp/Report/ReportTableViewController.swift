@@ -156,7 +156,7 @@ class ReportTableViewController: UITableViewController {
                 isMine: false,
                 phoneNumber: String(describing: notifica.value(forKey: "telephone")!),
                 message: String(describing: notifica.value(forKey: "message")!),
-                creationDate: String(describing: notifica["creationDate"]),
+                creationDate: String(describing: notifica["creationDate"]!),
                 clinicalFolder: ClinicalFolder(sesso: String(describing: notifica.value(forKey: "sex")),
                                                dataDiNascita: String(describing: notifica.value(forKey: "birthday")!),
                                                altezza: String(describing: notifica.value(forKey: "height")),
@@ -209,7 +209,7 @@ class ReportTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReportCell", for: indexPath) as! ReportCell
         
         let currentReport = reportStore.array[indexPath.row]
-        cell.dateField.text = currentReport.deliveryDate.description
+        cell.dateField.text = currentReport.creationDate.description
         cell.nameField.text = currentReport.name
         if currentReport.isMine {
             cell.nameField.textColor = UIColor.blue

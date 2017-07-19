@@ -12,7 +12,7 @@ import Foundation
 
 class CloudKitManager: NSObject {
     
-	static func saveReport(latitudine: Double, longitudine: Double, velocity: Double) {
+	static func saveReport(latitudine: Double, longitudine: Double, velocity: Double, audioMessage: URL, message: String) {
         let database = CKContainer.default().publicCloudDatabase
         
         let clinicalFolder: ClinicalFolder = PersistanceManager.getClinicalFolder()!
@@ -31,7 +31,7 @@ class CloudKitManager: NSObject {
         let telephone = PersistanceManager.fetchDataUserProfile()[0].address!
         
         //data from vocal registration
-		
+
 		let fileManager = FileManager.default
 		
 		let dirPaths = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
@@ -39,11 +39,11 @@ class CloudKitManager: NSObject {
 		let soundFileURL = dirPaths[0].appendingPathComponent("recordedAudio.caf")
 		print(soundFileURL)
 		let audioMessage = dirPaths[0].absoluteString + "recordedAudio.caf"
-
+/*
 		NSLog("\(audioMessage)", 0)
 		let message : String = SOSViewController().getRecognizedText()
-		NSLog("\(message)", 0)
-
+		NSLog("Messaggio preso da SOSViewController ---> \(message)", 0)
+*/
 		
         // DATA
         let date = NSDate()

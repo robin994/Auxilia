@@ -109,7 +109,7 @@ class CloudKitManager: NSObject {
                 print("Data Save it successfully")
                 for contact in PersistanceManager.fetchDataEmergencyContact() {
                     let topicToSend = contact.number!.replacingOccurrences(of: " ", with: "")
-                    NotificationManager.sendNotification(topic: topicToSend, message: "Hai ricevuto una nuova richiesta!", title: "Titolo Notifica")
+                    NotificationManager.sendNotification(topic: topicToSend, message: message, title: "SOS Request")
                 }
             }
         }

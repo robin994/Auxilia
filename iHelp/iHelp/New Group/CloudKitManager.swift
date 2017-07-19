@@ -12,7 +12,7 @@ import Foundation
 
 class CloudKitManager: NSObject {
     
-    static func saveReport(latitudine: Double, longitudine: Double, velocity: Double) {
+	static func saveReport(latitudine: Double, longitudine: Double, velocity: Double) {
         let database = CKContainer.default().publicCloudDatabase
         
         let clinicalFolder: ClinicalFolder = PersistanceManager.getClinicalFolder()!
@@ -30,10 +30,21 @@ class CloudKitManager: NSObject {
         let surname = PersistanceManager.fetchDataUserProfile()[0].surname!
         let telephone = PersistanceManager.fetchDataUserProfile()[0].address!
         
-        //LUCIO aggiungile qua
-        let message = ""
-        let audioMessage = ""
-        
+        //data from vocal registration
+		
+		let fileManager = FileManager.default
+		
+		let dirPaths = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
+		
+		let soundFileURL = dirPaths[0].appendingPathComponent("recordedAudio.caf")
+		print(soundFileURL)
+		let audioMessage = dirPaths[0].absoluteString + "recordedAudio.caf"
+
+		NSLog("\(audioMessage)", 0)
+		let message : String = SOSViewController().getRecognizedText()
+		NSLog("\(message)", 0)
+
+		
         // DATA
         let date = NSDate()
         var calendar = NSCalendar.current
@@ -45,7 +56,7 @@ class CloudKitManager: NSObject {
         let hour = calendar.component(.hour, from: date as Date)
         let minutes = calendar.component(.minute, from: date as Date)
         let seconds = calendar.component(.second, from: date as Date)
-        let creationDate = "\(day)\\\(month)\\\(year) \(hour):\(minutes):\(seconds)"
+        let creationDate2 = "\(day)\\\(month)\\\(year) \(hour):\(minutes):\(seconds)"
         
         
         NSLog("\n\n Sto provando a salvare\n\n")
@@ -70,9 +81,13 @@ class CloudKitManager: NSObject {
         store.setObject(longitudine as CKRecordValue?, forKey: "longitudine")
         store.setObject(velocity as CKRecordValue?, forKey: "velocity")
         
-        store.setObject(creationDate as CKRecordValue?, forKey: "creationDate")
+        //store.setObject(creationDate2 as CKRecordValue?, forKey: "creationDate")
+		
+		
+		//----DA VERIFICARE IL FUNZIONAMENTO DEL CAST DA URL A STRING----
         store.setObject(audioMessage as CKRecordValue?, forKey: "audioMessage")
         store.setObject(message as CKRecordValue?, forKey: "message")
+		NSLog("Messaggio Salvato su iCloud----> \(message)", 0)
         
         NSLog("\n\n Sto provando a salvare2\n\n")
         

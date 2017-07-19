@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import Speech
+import CloudKit
 
 class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
 	
@@ -71,7 +72,6 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
 				
 			}
 			
-			//recordAudio()
             
     }
     @IBAction func cancelButton(_ sender: UIButton) {
@@ -111,6 +111,9 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
 			if result.isFinal {
 				// Print the speech that has been recognized so far
 				self.textFromRegistration = result.bestTranscription.formattedString
+				
+				CloudKitManager.saveReport(latitudine: 2, longitudine: 2, velocity: 33)
+
 				
 				NSLog("Speech text is -> \(self.textFromRegistration)", 0)
 				NSLog("URL file: \(String(describing: self.soundFileURL))", 0)
@@ -225,6 +228,14 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
 		}
 	}
 
+	func getAudioURL() -> URL{
+	//	let audioAsset = CKAsset(fileURL: soundFileURL!)
+			return self.soundFileURL!
+	}
+	
+	func getRecognizedText() -> String{
+		return textFromRegistration
+	}
 	
 	func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
 		NSLog("Audio did finish playing", 0)

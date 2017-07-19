@@ -21,7 +21,7 @@ class UserProfileViewController: UITableViewController {
                 }
             }
         }
-        //crea immagine sfocata
+        //crea immagine sfocataa
         let darkBlur = UIBlurEffect(style: UIBlurEffectStyle.dark)
         let blurView = UIVisualEffectView(effect: darkBlur)
         blurView.frame = blurredImageView.bounds

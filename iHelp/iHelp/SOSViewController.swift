@@ -17,7 +17,8 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
 	var audioRecorder: AVAudioRecorder?
 	var soundFileURL: URL?
 	var textFromRegistration : String = ""
-
+    var heartRate: Double = 0.0
+    let healthManager:HealthKitManager = HealthKitManager()
 	@IBOutlet weak var progressView: UIProgressView!
 
 	
@@ -65,6 +66,15 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
 			}
 
 			recordAudio()
+            
+           
+            DispatchQueue.global().async(execute: { () -> Void in
+                self.heartRate = self.healthManager.getTodaysHeartRates()!
+                print("battito ricevutoooooooooo \(self.heartRate)")
+                
+            })
+            
+            
             
     }
     @IBAction func cancelButton(_ sender: UIButton) {
@@ -238,8 +248,6 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
         alert.addAction(cancelAction)
         return alert
     }
-	
-	
 	
 	
 	/*

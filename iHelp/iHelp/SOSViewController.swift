@@ -128,9 +128,8 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
 				DispatchQueue.main.async(execute: { () -> Void in
 					self.textFromRegistration = result.bestTranscription.formattedString
 				
-					NSLog("TESTOOOOOOOOOOOO -> \(self.textFromRegistration)", 0)
 					
-					CloudKitManager.saveReport(latitudine: 2, longitudine: 2, velocity: 33, audioMessage: self.soundFileURL!, message: self.textFromRegistration)
+					CloudKitManager.saveReport(latitudine: 2, longitudine: 2, velocity: 33, audioMessage: self.soundFileURL!, message: self.textFromRegistration, heartRate: self.heartRate)
 
 				})
 				

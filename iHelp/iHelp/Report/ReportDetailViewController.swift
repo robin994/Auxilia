@@ -67,12 +67,24 @@ class ReportDetailViewController: UITableViewController {
         switch segue.identifier {
         case "show"? :
             let currentClinicalFolder = self.currentReport
-            let dstView = segue.destination as! ReportClinicalFolderViewController
-            dstView.currentReport = currentReport
+            NSLog(segue.destination.nibName!)
+            NSLog(segue.destination.description)
+            if (segue.destination.description.contains("MapViewController")) {
+                let dstView = segue.destination as! MapViewController
+            } else {
+                let dstView = segue.destination as! ReportClinicalFolderViewController
+                dstView.currentReport = currentReport
+            }
         default :
             let currentClinicalFolder = self.currentReport
-            let dstView = segue.destination as! ReportClinicalFolderViewController
-            dstView.currentReport = currentReport
+            NSLog(segue.destination.nibName!)
+            NSLog(segue.destination.description)
+            if (segue.destination.description.contains("MapViewController")) {
+                 let dstView = segue.destination as! MapViewController
+            } else {
+                let dstView = segue.destination as! ReportClinicalFolderViewController
+                dstView.currentReport = currentReport
+            }
         }
     }
     

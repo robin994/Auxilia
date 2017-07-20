@@ -12,6 +12,9 @@ import AVFoundation
 
 class ReportDetailViewController: UITableViewController {
 
+	@IBOutlet weak var progressViewAudioPlayed: UIProgressView!
+	
+	
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,26 +45,43 @@ class ReportDetailViewController: UITableViewController {
     */
     
     @IBAction func playAudio(_ sender: UIButton) {
-            guard let url = currentReport.audioMessage?.fileURL else {
-                print("error")
-                return
-            }
-            
-            do {
-                try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
-                try AVAudioSession.sharedInstance().setActive(true)
-                NSLog("\nplay audio ricevuto...\n")
-                
-                player = try AVAudioPlayer(contentsOf: url)
-                guard let player = player else { return }
-                
-                player.play()
+		DispatchQueue.global().async {
+			guard let url = self.currentReport.audioMessage?.fileURL else {
+				print("error")
+				return
+			}
+			
+			do {
+				try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+				try AVAudioSession.sharedInstance().setActive(true)
+				NSLog("\nplay audio ricevuto...\n")
+				
+				self.player = try AVAudioPlayer(contentsOf: url)
+				guard let player = self.player else { return }
+				
+				player.play()
+				
+				var progress : Float = 0
+				for _ in 0..<10{
+					progress = progress + 0.1
+					NSLog("\(progress)")
+					DispatchQueue.main.async {
+						self.progressViewAudioPlayed.setProgress(progress, animated: true)
+					}
+					if self.progressViewAudioPlayed.progress != 1{
+						sleep(UInt32(1))
+					}
+				}
+				self.progressViewAudioPlayed.setProgress(0, animated: false)
+				
+			} catch let error {
+				print(error.localizedDescription)
+			}
 
-            } catch let error {
-                print(error.localizedDescription)
-            }
-        }
-    
+		}
+		
+	}
+	
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.

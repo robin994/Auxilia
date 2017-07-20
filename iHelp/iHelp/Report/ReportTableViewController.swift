@@ -38,8 +38,12 @@ class ReportTableViewController: UITableViewController {
             
             clearRows()
             NSLog("Reload Topics")
-            reloadTopics()
-            NSLog("Reload Data")
+			
+	//DA SISTEMARE CHIEDERE A ROBERTO
+	//		reloadTopics()
+			
+			
+			NSLog("Reload Data")
             refreshData()
         }
         // Uncomment the following line to preserve selection between presentations

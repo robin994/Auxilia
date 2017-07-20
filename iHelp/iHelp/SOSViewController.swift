@@ -160,16 +160,7 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
                     self.textFromRegistration = result.bestTranscription.formattedString
 
 					CloudKitManager.saveReport(latitudine: self.latitudine2, longitudine: self.longitudine2, velocity: 33, audioMessage: self.soundFileURL!, message: self.textFromRegistration, heartRate: self.heartRate)
-                
-				
-				
-/*                self.runLocalizzazione()
-                print("+++++++++++++2 \(self.getLatitudine())")
-                print("+++++++++++++2 \(self.longitudine2)")
-                CloudKitManager.saveReport(latitudine: Double(self.latitudine2), longitudine: Double(self.longitudine2), velocity: 33)
-                
-				NSLog("Speech text is -> \(self.textFromRegistration)", 0)
-				NSLog("URL file: \(String(describing: self.soundFileURL))", 0)*/
+					self.infoLabel.text = "Data Saved"
  
 			}
 		}

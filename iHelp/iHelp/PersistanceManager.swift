@@ -278,9 +278,11 @@ class PersistanceManager {
     }
     
     static func isEmergencyContactAlreadyInside(_ toCheck: Contact) -> Bool {
+        NSLog("CONTROLLO ESISTENZA CONTATTO NEL DB: \(toCheck.number)")
         let contacts = PersistanceManager.fetchDataEmergencyContact()
         for contact in contacts {
-            if (contact.number == contact.number) {
+            NSLog("CONTROLLO: \(contact.number)")
+            if (contact.number! == NotificationManager.checkNumber(toCheck: toCheck.contact.phoneNumbers.first!.value.stringValue)) {
                 NSLog("Contatto già presente nel DB")
                 return true
             }
@@ -290,13 +292,17 @@ class PersistanceManager {
 
     
     static func newEmergencyContact(toAdd: Contact) {
+        NSLog("----------RICHIESTA AGGIUNTA CONTATTO NEL DB-------------")
         if isEmergencyContactAlreadyInside(toAdd) == false {
             let context = getContext()
             let contact = NSEntityDescription.insertNewObject(forEntityName: emergencyContactEntity, into: context) as! EmergencyContact
             contact.contactIdentifier = toAdd.contactKey
             contact.name = toAdd.name
-            contact.number = toAdd.contact.phoneNumbers.first!.value.stringValue
+            contact.number = NotificationManager.checkNumber(toCheck: toAdd.contact.phoneNumbers.first!.value.stringValue)
             saveContext()
+            NSLog("CONTATTO AGGIUNTO NEL DB")
+        } else {
+            NSLog("CONTATTO NON AGGIUNTO NEL DB")
         }
     }
     

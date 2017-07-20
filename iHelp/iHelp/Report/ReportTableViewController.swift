@@ -160,14 +160,14 @@ class ReportTableViewController: UITableViewController {
                 phoneNumber: String(describing: notifica.value(forKey: "telephone")!),
                 message: String(describing: notifica.value(forKey: "message")!),
                 creationDate: String(describing: notifica["creationDate"]!),
-                clinicalFolder: ClinicalFolder(sesso: String(describing: notifica.value(forKey: "sesso")!),
-                                               dataDiNascita: String(describing: notifica.value(forKey: "birthday")!),
-                                               altezza: String(describing: notifica.value(forKey: "height")!),
-                                               peso: String(describing: notifica.value(forKey: "weight")!),
-                                               gruppoSanguigno: String(describing: notifica.value(forKey: "bloodGroup")!),
+                clinicalFolder: ClinicalFolder(sesso: String(describing: notifica.value(forKey: "sesso")! ?? "not set"),
+                                               dataDiNascita: String(describing: notifica.value(forKey: "birthday")! ?? "not set"),
+                                               altezza: String(describing: notifica.value(forKey: "height")! ?? "not set"),
+                                               peso: String(describing: notifica.value(forKey: "weight")! ?? "not set"),
+                                               gruppoSanguigno: String(describing: notifica.value(forKey: "bloodGroup")! ?? "not set"),
                                                fototipo: String(describing: notifica.value(forKey: "fototipo")!),
-                                               sediaARotelle: String(describing: notifica.value(forKey: "wheelchair")!),
-                                               ultimoBattito: String(describing: notifica.value(forKey: "heartrate"))))
+                                               sediaARotelle: String(describing: notifica.value(forKey: "wheelchair")! ?? "not set") ,
+                                               ultimoBattito: String(describing: notifica.value(forKey: "heartrate")) ?? "not set"))
             report.audioMessage = notifica["audioMessage"] as? CKAsset
             NSLog("-----------SALVO REPORT------------")
             NSLog(report.name)

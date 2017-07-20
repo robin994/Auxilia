@@ -29,7 +29,11 @@ class ReportClinicalFolderViewController: UITableViewController{
         dataDiNascita.text = currentReport.clinicalFolder.dataDiNascita!
         altezza.text = currentReport.clinicalFolder.altezza!
         peso.text = currentReport.clinicalFolder.peso!
-        battito.text = currentReport.clinicalFolder.ultimoBattito!
+        if(currentReport.clinicalFolder.ultimoBattito == nil){
+            battito.text = "not set"
+        }else{
+            battito.text = currentReport.clinicalFolder.ultimoBattito!
+        }
         fototipo.text = currentReport.clinicalFolder.fototipo!
         gruppoSanguigno.text = currentReport.clinicalFolder.gruppoSanguigno!
         sediaArotelle.text = currentReport.clinicalFolder.sediaARotelle!

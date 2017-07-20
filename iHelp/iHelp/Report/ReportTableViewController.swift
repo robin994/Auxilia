@@ -35,22 +35,11 @@ class ReportTableViewController: UITableViewController {
             
             tableView.addSubview(refresh!)
             refresh.beginRefreshing()
-            
+            refreshData()
+            //reloadTopics()
             clearRows()
             NSLog("Reload Topics")
-			
-	//DA SISTEMARE CHIEDERE A ROBERTO
-	//		reloadTopics()
-			
-			
-			NSLog("Reload Data")
-            refreshData()
         }
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     func clearRows() {
@@ -214,7 +203,7 @@ class ReportTableViewController: UITableViewController {
         
         let currentReport = reportStore.array[indexPath.row]
         cell.dateField.text = currentReport.creationDate.description
-        cell.nameField.text = currentReport.name
+        cell.nameField.text = "\(currentReport.name) \(currentReport.surname)"
         if currentReport.isMine {
             cell.nameField.textColor = UIColor.blue
             cell.dateField.textColor = UIColor.blue

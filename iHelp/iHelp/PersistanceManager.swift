@@ -276,17 +276,28 @@ class PersistanceManager {
         
         return reports
     }
+    
+    static func isEmergencyContactAlreadyInside(_ toCheck: Contact) -> Bool {
+        let contacts = PersistanceManager.fetchDataEmergencyContact()
+        for contact in contacts {
+            if (contact.number == contact.number) {
+                NSLog("Contatto già presente nel DB")
+                return true
+            }
+        }
+        return false
+    }
 
     
     static func newEmergencyContact(toAdd: Contact) {
-     
-        let context = getContext()
-        
-        let contact = NSEntityDescription.insertNewObject(forEntityName: emergencyContactEntity, into: context) as! EmergencyContact
-        contact.contactIdentifier = toAdd.contactKey
-        contact.name = toAdd.name
-        contact.number = toAdd.contact.phoneNumbers.first!.value.stringValue
-        saveContext()
+        if isEmergencyContactAlreadyInside(toAdd) == false {
+            let context = getContext()
+            let contact = NSEntityDescription.insertNewObject(forEntityName: emergencyContactEntity, into: context) as! EmergencyContact
+            contact.contactIdentifier = toAdd.contactKey
+            contact.name = toAdd.name
+            contact.number = toAdd.contact.phoneNumbers.first!.value.stringValue
+            saveContext()
+        }
     }
     
     static func removeEmergencyContact(toRemove: Contact) {

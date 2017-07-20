@@ -55,6 +55,7 @@ class ReportDetailViewController: UITableViewController {
                 guard let player = player else { return }
                 
                 player.play()
+
             } catch let error {
                 print(error.localizedDescription)
             }

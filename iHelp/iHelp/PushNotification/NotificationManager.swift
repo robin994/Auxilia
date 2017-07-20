@@ -35,9 +35,16 @@ class NotificationManager: NSObject {
         Messaging.messaging().subscribe(toTopic: "/topics/\(toSubscribe)")
     }
     
+    static func unsubscribe(_ toSub: String) {
+        let toSubscribe = NotificationManager.checkNumber(toCheck: toSub)
+        PersistanceManager.setNewTopic(toAdd: toSubscribe)
+        Messaging.messaging().unsubscribe(fromTopic: "/topics/\(toSubscribe)")
+    }
+    
     static func sendNotification(topic: String, message: String, title: String) {
         
         let toSend = NotificationManager.checkNumber(toCheck: topic)
+        NotificationManager.subscribe(topic)
         let url = NSURL(string: "https://fcm.googleapis.com/fcm/send")
         NSLog("------------ SEND NOTIFICATION ---------------")
 
@@ -82,6 +89,7 @@ class NotificationManager: NSObject {
         }
         
         task.resume()
+        NotificationManager.unsubscribe(topic)
     }
 
 

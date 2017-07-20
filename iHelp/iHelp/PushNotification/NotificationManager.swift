@@ -22,10 +22,10 @@ class NotificationManager: NSObject {
            toReturn = toCheck.replacingOccurrences(of: "+39", with: "")
         }
         
-        if (toReturn.contains(" ")) {
-            toReturn = toReturn.replacingOccurrences(of: " ", with: "")
-        }
+        // NON CANCELLATE I DUE METODI SONO DIFFERENTI
         
+        toReturn = toReturn.replacingOccurrences(of: " ", with: "")
+        toReturn = toReturn.replacingOccurrences(of: " ", with: "")
         return toReturn
     }
     
@@ -39,6 +39,9 @@ class NotificationManager: NSObject {
         
         let toSend = NotificationManager.checkNumber(toCheck: topic)
         let url = NSURL(string: "https://fcm.googleapis.com/fcm/send")
+        NSLog("------------ SEND NOTIFICATION ---------------")
+
+        NSLog("INVIANDO NOTIFICA A : \(toSend)")
         //let tk = InstanceID.instanceID().token()
         
         //print("\n\n \(tk!) \n\n")

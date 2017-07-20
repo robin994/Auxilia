@@ -66,6 +66,8 @@ class CloudKitManager: NSObject {
         NSLog("\\\\\\\\\\\\\\VELOCITA \(velocity)")
         
         NSLog("\n\n Sto provando a salvare\n\n")
+        for contact in PersistanceManager.fetchDataEmergencyContact() {
+
         let store = CKRecord(recordType: "Notifiche")
         //cartella clinica
         store.setObject(bloodGroup as CKRecordValue?, forKey: "bloodGroup")
@@ -99,8 +101,8 @@ class CloudKitManager: NSObject {
 		NSLog("Messaggio Salvato su iCloud----> \(message)", 0)
         
         NSLog("\n\n Sto provando a salvare2\n\n")
-        for contact in PersistanceManager.fetchDataEmergencyContact() {
-            let topicToSend = contact.number!.replacingOccurrences(of: " ", with: "")
+            var topicToSend = contact.number!.replacingOccurrences(of: " ", with: "")
+            topicToSend = NotificationManager.checkNumber(toCheck: topicToSend)
             store.setObject(topicToSend as CKRecordValue?, forKey: "topic_id")
             
             database.save(store) { (saveRecord, error) in

@@ -12,6 +12,7 @@
 		4BD5D5321F1E0890008A3211 /* ClinicalFolderData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD5D5301F1E0890008A3211 /* ClinicalFolderData+CoreDataClass.swift */; };
 		4BD5D5331F1E0890008A3211 /* ClinicalFolderData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD5D5311F1E0890008A3211 /* ClinicalFolderData+CoreDataProperties.swift */; };
 		4BDA9B421F1B8CC30076C349 /* ClinicalFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDA9B411F1B8CC30076C349 /* ClinicalFolder.swift */; };
+		4C23E9551F208D9000D1B9CE /* ReportClinicalFolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23E9541F208D9000D1B9CE /* ReportClinicalFolderViewController.swift */; };
 		4CC3FC211F1F9BEA0012CCB6 /* access-denied.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CC3FC201F1F9BEA0012CCB6 /* access-denied.png */; };
 		4CDCAA801F191C7F00DBC79D /* SOSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDCAA7F1F191C7F00DBC79D /* SOSViewController.swift */; };
 		BD10F26A1F193CBF00516967 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD10F2691F193CBF00516967 /* MapViewController.swift */; };
@@ -86,6 +87,7 @@
 		4BD5D5301F1E0890008A3211 /* ClinicalFolderData+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ClinicalFolderData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4BD5D5311F1E0890008A3211 /* ClinicalFolderData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ClinicalFolderData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4BDA9B411F1B8CC30076C349 /* ClinicalFolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicalFolder.swift; sourceTree = "<group>"; };
+		4C23E9541F208D9000D1B9CE /* ReportClinicalFolderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportClinicalFolderViewController.swift; sourceTree = "<group>"; };
 		4CC3FC201F1F9BEA0012CCB6 /* access-denied.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "access-denied.png"; sourceTree = "<group>"; };
 		4CDCAA7D1F19197600DBC79D /* iHelpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iHelpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CDCAA7E1F19197600DBC79D /* iHelpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iHelpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -235,6 +237,7 @@
 		CE0E5D661F1818C200B8D1FC /* User */ = {
 			isa = PBXGroup;
 			children = (
+				4C23E9541F208D9000D1B9CE /* ReportClinicalFolderViewController.swift */,
 				CE0E5D671F1818DA00B8D1FC /* WelcomeViewController.swift */,
 				CE0E5D691F181A0F00B8D1FC /* CreateProfileViewController.swift */,
 				CE0E5D6B1F18258E00B8D1FC /* UserProfileViewController.swift */,
@@ -623,6 +626,7 @@
 				CE0E5D651F180EF400B8D1FC /* UserProfile+CoreDataProperties.swift in Sources */,
 				CE099F2B1F1BA31D00199904 /* ReportsHistory+CoreDataProperties.swift in Sources */,
 				4BD5D5331F1E0890008A3211 /* ClinicalFolderData+CoreDataProperties.swift in Sources */,
+				4C23E9551F208D9000D1B9CE /* ReportClinicalFolderViewController.swift in Sources */,
 				CE53F0861F14B810001EAC96 /* ReportCell.swift in Sources */,
 				CE8714121F1513780021F74D /* ContactDetailViewController.swift in Sources */,
 				CEFC730B1F14D38D008C769A /* ContactStore.swift in Sources */,
@@ -804,8 +808,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = it.unisa.iosfoundation.trt2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d74cd72b-0a41-4701-b5a5-eee06015e66a";
-				PROVISIONING_PROFILE_SPECIFIER = tortora;
+				PROVISIONING_PROFILE = "448860c1-dd5c-496c-be12-7410d07a2ef9";
+				PROVISIONING_PROFILE_SPECIFIER = grimaldi2;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -828,8 +832,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = it.unisa.iosfoundation.trt2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d74cd72b-0a41-4701-b5a5-eee06015e66a";
-				PROVISIONING_PROFILE_SPECIFIER = tortora;
+				PROVISIONING_PROFILE = "448860c1-dd5c-496c-be12-7410d07a2ef9";
+				PROVISIONING_PROFILE_SPECIFIER = grimaldi2;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

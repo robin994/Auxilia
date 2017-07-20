@@ -62,7 +62,16 @@ class ClinicalFolderViewController: UITableViewController {
             print("battito ricevutoooooooooo \(self.heartRate)")
             self.ultimoBattitoRilevato.text = "\(self.heartRate)"
             print("peso \(self.weightString), altezza \(self.heightString), battito \(self.heartRate)")
-            self.clinicalFolderObject = ClinicalFolder(sesso: self.sex, dataDiNascita: self.data, altezza: self.heightString, peso: self.weightString, gruppoSanguigno: self.blood, fototipo: self.skin , sediaARotelle: self.sedia, ultimoBattito: String(describing: self.heartRate))
+            self.clinicalFolderObject = ClinicalFolder(
+                sesso: self.sex,
+                dataDiNascita: self.data,
+                altezza: self.heightString,
+                peso: self.weightString,
+                gruppoSanguigno: self.blood,
+                fototipo: self.skin ,
+                sediaARotelle: self.sedia,
+                ultimoBattito: String(describing: self.heartRate)
+            )
             PersistanceManager.setClinicalFolder(clinFolder: self.clinicalFolderObject!)
             
         })

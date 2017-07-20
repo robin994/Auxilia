@@ -50,6 +50,7 @@ class ReportDetailViewController: UITableViewController {
             do {
                 try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
                 try AVAudioSession.sharedInstance().setActive(true)
+                NSLog("\nplay audio ricevuto...\n")
                 
                 player = try AVAudioPlayer(contentsOf: url)
                 guard let player = player else { return }

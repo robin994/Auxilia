@@ -28,13 +28,12 @@ class ClinicalFolderViewController: UITableViewController {
     var weightString = ""
     var clinicalFolderObject: ClinicalFolder? = nil
     var heartRate: Double = 0.0
-    var data = ""
-    var sex = ""
-    var skin = ""
-    var sedia = ""
-    var blood = ""
+    var data = "Not Set"
+    var sex = "Not Set"
+    var skin = "Not Set"
+    var sedia = "Not Set"
+    var blood = "Not Set"
 
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,10 +52,10 @@ class ClinicalFolderViewController: UITableViewController {
         fototipo.text = dati.skin
         gruppoSanguigno.text = dati.bloodtype
         sediaArotelle.text = dati.chairUse
-        self.altezza.text = "Not set"
-        self.peso.text = "Not set"
+        self.altezza.text = "Not Set"
+        self.peso.text = "Not Set"
         
-        ultimoBattitoRilevato.text = "Not set"
+        ultimoBattitoRilevato.text = "Not Set"
         DispatchQueue.main.async(execute: { () -> Void in
             self.heartRate = self.healthManager.getTodaysHeartRates()!
             print("battito ricevutoooooooooo \(self.heartRate)")

@@ -21,7 +21,6 @@ class ReportTableViewController: UITableViewController {
         PersistanceManager.clearAllReportHistory()
         reportStore = ReportStore()
         NSLog(users.description)
-        NotificationManager.subscribe("Roberto")
         if users.isEmpty {
             NSLog("Errore qui")
             if let viewController: UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WelcomeView") {
@@ -76,7 +75,7 @@ class ReportTableViewController: UITableViewController {
         
         let ourQuery = CKQuery(recordType: "Notifiche", predicate: ourPredicate)
         
-        ourQuery.sortDescriptors = [NSSortDescriptor(key: "telephone", ascending: false)]
+        ourQuery.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
         NSLog("Fatto il sort")
         ourDataPublicDataBase.perform(ourQuery, inZoneWith: nil) { (results, error) in
         NSLog("Fatta query")
@@ -157,13 +156,13 @@ class ReportTableViewController: UITableViewController {
                 phoneNumber: String(describing: notifica.value(forKey: "telephone")!),
                 message: String(describing: notifica.value(forKey: "message")!),
                 creationDate: String(describing: notifica["creationDate"]!),
-                clinicalFolder: ClinicalFolder(sesso: String(describing: notifica.value(forKey: "sex")),
+                clinicalFolder: ClinicalFolder(sesso: String(describing: notifica.value(forKey: "sesso")!),
                                                dataDiNascita: String(describing: notifica.value(forKey: "birthday")!),
-                                               altezza: String(describing: notifica.value(forKey: "height")),
-                                               peso: String(describing: notifica.value(forKey: "weight")),
-                                               gruppoSanguigno: String(describing: notifica.value(forKey: "bloodGroup")),
-                                               fototipo: String(describing: notifica.value(forKey: "fototipo")),
-                                               sediaARotelle: String(describing: notifica.value(forKey: "wheelchair")),
+                                               altezza: String(describing: notifica.value(forKey: "height")!),
+                                               peso: String(describing: notifica.value(forKey: "weight")!),
+                                               gruppoSanguigno: String(describing: notifica.value(forKey: "bloodGroup")!),
+                                               fototipo: String(describing: notifica.value(forKey: "fototipo")!),
+                                               sediaARotelle: String(describing: notifica.value(forKey: "wheelchair")!),
                                                ultimoBattito: String(describing: notifica.value(forKey: "heartrate"))))
             report.audioMessage = notifica["audioMessage"] as? CKAsset
             NSLog("-----------SALVO REPORT------------")

@@ -13,6 +13,7 @@
 		4BD5D5331F1E0890008A3211 /* ClinicalFolderData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD5D5311F1E0890008A3211 /* ClinicalFolderData+CoreDataProperties.swift */; };
 		4BDA9B421F1B8CC30076C349 /* ClinicalFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDA9B411F1B8CC30076C349 /* ClinicalFolder.swift */; };
 		4C23E9551F208D9000D1B9CE /* ReportClinicalFolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23E9541F208D9000D1B9CE /* ReportClinicalFolderViewController.swift */; };
+		4C23E9571F20EF8600D1B9CE /* logoAuxilia.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C23E9561F20EF8600D1B9CE /* logoAuxilia.png */; };
 		4CC3FC211F1F9BEA0012CCB6 /* access-denied.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CC3FC201F1F9BEA0012CCB6 /* access-denied.png */; };
 		4CDCAA801F191C7F00DBC79D /* SOSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDCAA7F1F191C7F00DBC79D /* SOSViewController.swift */; };
 		BD10F26A1F193CBF00516967 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD10F2691F193CBF00516967 /* MapViewController.swift */; };
@@ -30,7 +31,6 @@
 		CE37C1981F1CB29500DBDACE /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37C1971F1CB29500DBDACE /* Helpers.swift */; };
 		CE37C19A1F1CBA6D00DBDACE /* microphone.png in Resources */ = {isa = PBXBuildFile; fileRef = CE37C1991F1CBA6D00DBDACE /* microphone.png */; };
 		CE37FDE11F190F4400FE0CCF /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37FDE01F190F4400FE0CCF /* SettingViewController.swift */; };
-		CE3953831F13655C006BFBCA /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = CE3953821F13655C006BFBCA /* logo.png */; };
 		CE4656C71F0FD325004E3868 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4656C61F0FD325004E3868 /* AppDelegate.swift */; };
 		CE4656CC1F0FD325004E3868 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE4656CA1F0FD325004E3868 /* Main.storyboard */; };
 		CE4656D11F0FD325004E3868 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE4656CF1F0FD325004E3868 /* LaunchScreen.storyboard */; };
@@ -128,6 +128,7 @@
 		4BD5D5311F1E0890008A3211 /* ClinicalFolderData+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ClinicalFolderData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4BDA9B411F1B8CC30076C349 /* ClinicalFolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClinicalFolder.swift; sourceTree = "<group>"; };
 		4C23E9541F208D9000D1B9CE /* ReportClinicalFolderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportClinicalFolderViewController.swift; sourceTree = "<group>"; };
+		4C23E9561F20EF8600D1B9CE /* logoAuxilia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoAuxilia.png; sourceTree = "<group>"; };
 		4CC3FC201F1F9BEA0012CCB6 /* access-denied.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "access-denied.png"; sourceTree = "<group>"; };
 		4CDCAA7D1F19197600DBC79D /* iHelpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iHelpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CDCAA7E1F19197600DBC79D /* iHelpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iHelpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,7 +148,6 @@
 		CE37C1971F1CB29500DBDACE /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		CE37C1991F1CBA6D00DBDACE /* microphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = microphone.png; sourceTree = "<group>"; };
 		CE37FDE01F190F4400FE0CCF /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
-		CE3953821F13655C006BFBCA /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = SOURCE_ROOT; };
 		CE3953891F13664E006BFBCA /* iHelp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iHelp.entitlements; sourceTree = "<group>"; };
 		CE4656C61F0FD325004E3868 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE4656CB1F0FD325004E3868 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -350,7 +350,6 @@
 				CE37C1991F1CBA6D00DBDACE /* microphone.png */,
 				CE8714131F1522660021F74D /* empty_avatar.jpg */,
 				CE1A5EA61F13EC350086939D /* IconTemplate.png */,
-				CE3953821F13655C006BFBCA /* logo.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -371,6 +370,7 @@
 		CE4656BA1F0FD325004E3868 = {
 			isa = PBXGroup;
 			children = (
+				4C23E9561F20EF8600D1B9CE /* logoAuxilia.png */,
 				CE4656C51F0FD325004E3868 /* iHelp */,
 				CE4656E51F0FD325004E3868 /* iHelpUITests */,
 				CE3953841F136645006BFBCA /* Frameworks */,
@@ -650,7 +650,6 @@
 				CE9C35B81F20A429006A2EE5 /* Icon-152.png in Resources */,
 				CE9C35DA1F20A429006A2EE5 /* Icon@3x.png in Resources */,
 				CE9C35B71F20A429006A2EE5 /* Icon-120.png in Resources */,
-				CE3953831F13655C006BFBCA /* logo.png in Resources */,
 				CE9C35D81F20A429006A2EE5 /* Icon.png in Resources */,
 				CE9C35C11F20A429006A2EE5 /* Icon-60.png in Resources */,
 				CE9C35CA1F20A429006A2EE5 /* Icon-hdpi.png in Resources */,
@@ -672,6 +671,7 @@
 				CE9C35D71F20A429006A2EE5 /* Icon-xxxhdpi.png in Resources */,
 				CE9C35DB1F20A429006A2EE5 /* iTunesArtwork.png in Resources */,
 				CE9C35C61F20A429006A2EE5 /* Icon-72@2x.png in Resources */,
+				4C23E9571F20EF8600D1B9CE /* logoAuxilia.png in Resources */,
 				CE9C35CB1F20A429006A2EE5 /* Icon-ldpi.png in Resources */,
 				4CC3FC211F1F9BEA0012CCB6 /* access-denied.png in Resources */,
 				CE37C19A1F1CBA6D00DBDACE /* microphone.png in Resources */,

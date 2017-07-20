@@ -151,6 +151,9 @@
                                                     <rect key="frame" x="24" y="7" width="30" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Play"/>
+                                                    <connections>
+                                                        <action selector="playAudio:" destination="Ede-v8-7S8" eventType="touchUpInside" id="JjR-yl-W4X"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -207,7 +210,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Extra" id="Gmb-Ks-5KC">
+                            <tableViewSection headerTitle="Info" id="Gmb-Ks-5KC">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Ryy-Co-lX2">
                                         <rect key="frame" x="0.0" y="392" width="375" height="44"/>
@@ -269,6 +272,7 @@
                         <outlet property="messageField" destination="eVq-iM-7m7" id="Whc-Tc-6Sc"/>
                         <outlet property="nameField" destination="f2i-4S-2WE" id="mO7-o8-Mgs"/>
                         <outlet property="phoneNumberField" destination="uLY-al-wDu" id="1z7-C7-iBc"/>
+                        <outlet property="progressAudioBar" destination="qC2-ib-Cd4" id="UVN-at-egt"/>
                         <outlet property="surnameField" destination="nZ1-1r-WQg" id="Epn-dQ-iT8"/>
                     </connections>
                 </tableViewController>
@@ -1233,7 +1237,7 @@
                             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         </tableView>
                         <sections>
-                            <tableViewSection headerTitle="Sesso" id="9gw-h9-4Jc">
+                            <tableViewSection headerTitle="Sex" id="9gw-h9-4Jc">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="UqS-lV-Ch8">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -1258,7 +1262,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Data di nascita" id="HQI-h0-J6R">
+                            <tableViewSection headerTitle="Date of Birth" id="HQI-h0-J6R">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="JyT-DS-Qv1">
                                         <rect key="frame" x="0.0" y="100" width="375" height="44"/>
@@ -1283,7 +1287,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Altezza" id="hSc-8f-lZR">
+                            <tableViewSection headerTitle="Height" id="hSc-8f-lZR">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="pIV-gu-YSk">
                                         <rect key="frame" x="0.0" y="172" width="375" height="44"/>
@@ -1308,7 +1312,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Peso" id="EXq-Ol-63h">
+                            <tableViewSection headerTitle="Weight" id="EXq-Ol-63h">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="gsp-2T-7se">
                                         <rect key="frame" x="0.0" y="244" width="375" height="44"/>
@@ -1333,7 +1337,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Gruppo sanguigno" id="VKz-m4-ZAM">
+                            <tableViewSection headerTitle="Blood Type" id="VKz-m4-ZAM">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="RUd-DD-zOP">
                                         <rect key="frame" x="0.0" y="316" width="375" height="44"/>
@@ -1358,7 +1362,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Fototipo" id="a1o-VE-EKW">
+                            <tableViewSection headerTitle="Fitzpatrick Skin Type" id="a1o-VE-EKW">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="dSL-h0-rij">
                                         <rect key="frame" x="0.0" y="388" width="375" height="44"/>
@@ -1383,7 +1387,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Sedia a rotelle" id="wg3-aS-XzP">
+                            <tableViewSection headerTitle="Wheelchair" id="wg3-aS-XzP">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="2QQ-3T-fKa">
                                         <rect key="frame" x="0.0" y="460" width="375" height="44"/>
@@ -1408,7 +1412,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Ultimo battito cardiaco rilevato" id="sKX-Zf-O31">
+                            <tableViewSection headerTitle="Last Heart Rate" id="sKX-Zf-O31">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="f3j-Dc-7Bf">
                                         <rect key="frame" x="0.0" y="532" width="375" height="44"/>
@@ -1468,7 +1472,7 @@
                             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         </tableView>
                         <sections>
-                            <tableViewSection headerTitle="Sesso" id="xfb-mx-ZMN">
+                            <tableViewSection headerTitle="Sex" id="xfb-mx-ZMN">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="42j-dl-rtx">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -1493,7 +1497,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Data di nascita" id="1Xw-NE-j7M">
+                            <tableViewSection headerTitle="Date of Birth" id="1Xw-NE-j7M">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="j19-fS-LPP">
                                         <rect key="frame" x="0.0" y="100" width="375" height="44"/>
@@ -1518,7 +1522,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Altezza" id="XAF-ze-uJR">
+                            <tableViewSection headerTitle="Height" id="XAF-ze-uJR">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="iUz-Lo-NCz">
                                         <rect key="frame" x="0.0" y="172" width="375" height="44"/>
@@ -1543,7 +1547,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Peso" id="cJX-xl-kpK">
+                            <tableViewSection headerTitle="Weight" id="cJX-xl-kpK">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="5HP-bz-YAW">
                                         <rect key="frame" x="0.0" y="244" width="375" height="44"/>
@@ -1568,7 +1572,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Gruppo sanguigno" id="Zs9-kU-TwJ">
+                            <tableViewSection headerTitle="Blood Type" id="Zs9-kU-TwJ">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="vLW-q4-RjM">
                                         <rect key="frame" x="0.0" y="316" width="375" height="44"/>
@@ -1593,7 +1597,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Fototipo" id="iXq-Tf-X56">
+                            <tableViewSection headerTitle="Fitzpatrick Skin Type" id="iXq-Tf-X56">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="jrY-Qq-eo0">
                                         <rect key="frame" x="0.0" y="388" width="375" height="44"/>
@@ -1618,7 +1622,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Sedia a rotelle" id="Mpy-kU-BAd">
+                            <tableViewSection headerTitle="Wheelchair" id="Mpy-kU-BAd">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="dBZ-bI-s8W">
                                         <rect key="frame" x="0.0" y="460" width="375" height="44"/>
@@ -1643,7 +1647,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Ultimo battito cardiaco rilevato" id="GGX-ad-fXU">
+                            <tableViewSection headerTitle="Last Heart Rate" id="GGX-ad-fXU">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="avG-db-wmo">
                                         <rect key="frame" x="0.0" y="532" width="375" height="44"/>

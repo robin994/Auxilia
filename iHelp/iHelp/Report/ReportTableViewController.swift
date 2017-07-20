@@ -21,7 +21,6 @@ class ReportTableViewController: UITableViewController {
         PersistanceManager.clearAllReportHistory()
         reportStore = ReportStore()
         NSLog(users.description)
-        NotificationManager.subscribe("Roberto")
         if users.isEmpty {
             NSLog("Errore qui")
             if let viewController: UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WelcomeView") {
@@ -76,7 +75,7 @@ class ReportTableViewController: UITableViewController {
         
         let ourQuery = CKQuery(recordType: "Notifiche", predicate: ourPredicate)
         
-        ourQuery.sortDescriptors = [NSSortDescriptor(key: "telephone", ascending: false)]
+        ourQuery.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
         NSLog("Fatto il sort")
         ourDataPublicDataBase.perform(ourQuery, inZoneWith: nil) { (results, error) in
         NSLog("Fatta query")

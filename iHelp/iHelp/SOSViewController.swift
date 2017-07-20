@@ -23,6 +23,7 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
     let healthManager:HealthKitManager = HealthKitManager()
 	@IBOutlet weak var progressView: UIProgressView!
 	@IBOutlet weak var cancelButton: UIButton!
+	@IBOutlet weak var infoLabel: UILabel!
     
     //variabili localizzazione
     var locationManager = CLLocationManager()
@@ -121,10 +122,19 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
 		}
 		if !myRecognizer.isAvailable {
 			// The recognizer is not available right now
+			DispatchQueue.main.async {
+				self.infoLabel.text = "Recognize not available.."
+				self.infoLabel.sizeToFit()
+			}
 			return
 		}
 		let request = SFSpeechURLRecognitionRequest(url: url)
 		
+		DispatchQueue.main.async {
+			self.infoLabel.text = "Recognizing text..."
+			self.infoLabel.sizeToFit()
+			
+		}
 		myRecognizer.recognitionTask(with: request) { (result, error) in
             
             
@@ -173,6 +183,13 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
 		if audioRecorder?.isRecording == false{
 			
 				audioRecorder?.record()
+			
+			DispatchQueue.main.async {
+				self.infoLabel.text = "Recording..."
+				self.infoLabel.sizeToFit()
+
+			}
+			
 			
 			
 			NSLog("Audio is recording", 0)

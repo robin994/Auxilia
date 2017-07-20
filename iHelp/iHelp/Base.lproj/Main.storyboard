@@ -939,13 +939,19 @@
                                     <constraint firstAttribute="width" secondItem="mX2-DG-a3k" secondAttribute="height" multiplier="1:1" id="1HX-eM-Ixz"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lcp-5a-U3S">
+                                <rect key="frame" x="57" y="445" width="261" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lv9-qh-Vtz">
-                                <rect key="frame" x="145" y="522" width="85" height="85"/>
+                                <rect key="frame" x="144" y="520" width="85" height="85"/>
                                 <color key="backgroundColor" red="1" green="0.079394028180000006" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="85" id="YdU-iq-OXF"/>
-                                    <constraint firstAttribute="width" constant="85" id="Yxb-CD-UF9"/>
-                                    <constraint firstAttribute="width" secondItem="lv9-qh-Vtz" secondAttribute="height" multiplier="1:1" id="vMx-rE-XYf"/>
+                                    <constraint firstAttribute="width" constant="85" id="CSX-de-TLO"/>
+                                    <constraint firstAttribute="height" constant="85" id="U6Q-DO-O8f"/>
+                                    <constraint firstAttribute="width" secondItem="lv9-qh-Vtz" secondAttribute="height" multiplier="1:1" id="rdG-aB-otw"/>
                                 </constraints>
                                 <state key="normal" image="access-denied.png"/>
                                 <connections>
@@ -955,28 +961,33 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="lv9-qh-Vtz" firstAttribute="top" secondItem="lcp-5a-U3S" secondAttribute="bottom" constant="54" id="2YG-B3-2I7"/>
+                            <constraint firstItem="lv9-qh-Vtz" firstAttribute="leading" secondItem="iwx-MQ-AF2" secondAttribute="leading" constant="144" id="4Ia-3F-CBH"/>
                             <constraint firstItem="fTm-ed-yUl" firstAttribute="top" secondItem="bFd-et-ccd" secondAttribute="bottom" constant="51" id="5Eh-1t-HQg"/>
                             <constraint firstItem="ZJT-Ua-AHw" firstAttribute="leading" secondItem="iwx-MQ-AF2" secondAttribute="leading" constant="77" id="5bZ-h0-Ztm"/>
+                            <constraint firstAttribute="trailing" secondItem="lcp-5a-U3S" secondAttribute="trailing" constant="57" id="FCl-YW-Qa3"/>
                             <constraint firstItem="fTm-ed-yUl" firstAttribute="leading" secondItem="iwx-MQ-AF2" secondAttribute="leading" constant="16" id="JGo-eB-hWI"/>
                             <constraint firstAttribute="trailing" secondItem="mX2-DG-a3k" secondAttribute="trailing" constant="146" id="Soc-PN-hJ1"/>
-                            <constraint firstItem="lv9-qh-Vtz" firstAttribute="leading" secondItem="iwx-MQ-AF2" secondAttribute="leading" constant="145" id="UOj-Lh-maz"/>
-                            <constraint firstItem="Bhp-5V-ggv" firstAttribute="top" secondItem="lv9-qh-Vtz" secondAttribute="bottom" constant="60" id="Wha-YK-796"/>
+                            <constraint firstItem="lcp-5a-U3S" firstAttribute="leading" secondItem="iwx-MQ-AF2" secondAttribute="leading" constant="57" id="XbS-bO-LTZ"/>
                             <constraint firstItem="mX2-DG-a3k" firstAttribute="leading" secondItem="iwx-MQ-AF2" secondAttribute="leading" constant="145" id="Xy3-8L-KvP"/>
+                            <constraint firstItem="lcp-5a-U3S" firstAttribute="top" secondItem="ZJT-Ua-AHw" secondAttribute="bottom" constant="42" id="YPF-47-Fe8"/>
                             <constraint firstAttribute="trailing" secondItem="ZJT-Ua-AHw" secondAttribute="trailing" constant="77" id="Z2w-Ep-t6f"/>
+                            <constraint firstAttribute="trailing" secondItem="lv9-qh-Vtz" secondAttribute="trailing" constant="146" id="fOt-go-F0z"/>
                             <constraint firstItem="ZJT-Ua-AHw" firstAttribute="top" secondItem="mX2-DG-a3k" secondAttribute="bottom" constant="70" id="foL-Uv-HfZ"/>
-                            <constraint firstAttribute="trailing" secondItem="lv9-qh-Vtz" secondAttribute="trailing" constant="145" id="p87-T1-KqA"/>
+                            <constraint firstAttribute="bottom" secondItem="lv9-qh-Vtz" secondAttribute="bottom" constant="62" id="giy-q1-aiB"/>
                             <constraint firstItem="mX2-DG-a3k" firstAttribute="top" secondItem="fTm-ed-yUl" secondAttribute="bottom" constant="111.5" id="ydE-sQ-NBB"/>
                             <constraint firstAttribute="trailing" secondItem="fTm-ed-yUl" secondAttribute="trailing" constant="16" id="zKe-cl-5Ub"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="cancelButton" destination="lv9-qh-Vtz" id="rYn-fY-IWD"/>
+                        <outlet property="infoLabel" destination="lcp-5a-U3S" id="TBL-8y-Sht"/>
                         <outlet property="progressView" destination="ZJT-Ua-AHw" id="NhR-V9-Zxj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nxI-ML-xwn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-161" y="1548"/>
+            <point key="canvasLocation" x="-162.40000000000001" y="1547.6761619190406"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bUh-0u-wwp">

@@ -214,6 +214,10 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
 		
 	}
 	
+//	func setInfoLabel(text: String){
+//		self.infoLabel.text = text
+//	}
+	
 	func updateProgressBar(){
 		var progress : Float = 0
 		for _ in 0..<10{

@@ -110,9 +110,12 @@ class CloudKitManager: NSObject {
                     print("Error saving Data on CloudKit..---->" + (error?.localizedDescription)!)
                 } else {
                     print("Data Save it successfully")
+		//				SOSViewController().setInfoLabel(text: "Data saved.")
+}
+					
                     NotificationManager.sendNotification(topic: topicToSend, message: message, title: "\(name) \(surname) : SOS Request")
                 }
             }
         }
     }
-}
+

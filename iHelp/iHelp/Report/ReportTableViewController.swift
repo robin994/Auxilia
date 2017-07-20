@@ -156,13 +156,13 @@ class ReportTableViewController: UITableViewController {
                 phoneNumber: String(describing: notifica.value(forKey: "telephone")!),
                 message: String(describing: notifica.value(forKey: "message")!),
                 creationDate: String(describing: notifica["creationDate"]!),
-                clinicalFolder: ClinicalFolder(sesso: String(describing: notifica.value(forKey: "sex")),
+                clinicalFolder: ClinicalFolder(sesso: String(describing: notifica.value(forKey: "sesso")!),
                                                dataDiNascita: String(describing: notifica.value(forKey: "birthday")!),
-                                               altezza: String(describing: notifica.value(forKey: "height")),
-                                               peso: String(describing: notifica.value(forKey: "weight")),
-                                               gruppoSanguigno: String(describing: notifica.value(forKey: "bloodGroup")),
-                                               fototipo: String(describing: notifica.value(forKey: "fototipo")),
-                                               sediaARotelle: String(describing: notifica.value(forKey: "wheelchair")),
+                                               altezza: String(describing: notifica.value(forKey: "height")!),
+                                               peso: String(describing: notifica.value(forKey: "weight")!),
+                                               gruppoSanguigno: String(describing: notifica.value(forKey: "bloodGroup")!),
+                                               fototipo: String(describing: notifica.value(forKey: "fototipo")!),
+                                               sediaARotelle: String(describing: notifica.value(forKey: "wheelchair")!),
                                                ultimoBattito: String(describing: notifica.value(forKey: "heartrate"))))
             report.audioMessage = notifica["audioMessage"] as? CKAsset
             NSLog("-----------SALVO REPORT------------")

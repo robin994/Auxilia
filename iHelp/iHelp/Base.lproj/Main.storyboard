@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13156.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="9Gc-XJ-T0H">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="9Gc-XJ-T0H">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13137.5"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -314,7 +314,7 @@
             </objects>
             <point key="canvasLocation" x="4297" y="171"/>
         </scene>
-        <!--Emergency Contact-->
+        <!--Favourite Contact-->
         <scene sceneID="ZlC-m4-3Po">
             <objects>
                 <tableViewController id="aPl-5h-gSY" customClass="ContactTableView" customModule="iHelp" customModuleProvider="target" sceneMemberID="viewController">
@@ -363,7 +363,7 @@
                             <outlet property="delegate" destination="aPl-5h-gSY" id="k4o-oW-C83"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Emergency Contact" id="94N-Wi-B6B">
+                    <navigationItem key="navigationItem" title="Favourite Contact" id="94N-Wi-B6B">
                         <barButtonItem key="leftBarButtonItem" title="SOS" id="Xy9-2Z-KXF">
                             <color key="tintColor" red="0.99162179231643677" green="0.01067675556987524" blue="0.0088053885847330093" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
@@ -563,22 +563,10 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="oNA-qw-MhE">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Kw3-8G-kkQ">
-                                        <rect key="frame" x="0.0" y="163.5" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kw3-8G-kkQ" id="fiZ-HH-mkV">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                             <tableViewSection headerTitle="Extra" id="pND-YA-tHW">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" id="yTm-CT-gnd">
-                                        <rect key="frame" x="0.0" y="263.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="183.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yTm-CT-gnd" id="3ek-cB-IcJ">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -658,7 +646,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qEd-eP-Vdr">
-                                                <rect key="frame" x="118.5" y="108" width="138" height="107.5"/>
+                                                <rect key="frame" x="116" y="108" width="143" height="107.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                 <state key="normal" title="Create a profile"/>
                                                 <connections>

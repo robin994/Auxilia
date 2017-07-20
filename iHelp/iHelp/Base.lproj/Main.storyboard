@@ -62,6 +62,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="History" id="lQb-X5-DFh">
                         <barButtonItem key="leftBarButtonItem" title="SOS" id="JwS-N9-ZkK">
+                            <color key="tintColor" red="0.99162179231643677" green="0.01067675556987524" blue="0.0088053885847330093" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="callSOS:" destination="Z0Y-8J-Rk9" id="ZUG-bS-xa3"/>
                             </connections>
@@ -143,7 +144,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5tC-kd-Seo">
+                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5tC-kd-Seo">
                                                     <rect key="frame" x="80" y="21" width="283" height="2"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </progressView>
@@ -273,6 +274,7 @@
                         <outlet property="nameField" destination="f2i-4S-2WE" id="mO7-o8-Mgs"/>
                         <outlet property="phoneNumberField" destination="uLY-al-wDu" id="1z7-C7-iBc"/>
                         <outlet property="progressAudioBar" destination="qC2-ib-Cd4" id="UVN-at-egt"/>
+                        <outlet property="progressViewAudioPlayed" destination="5tC-kd-Seo" id="0WL-Tf-nhV"/>
                         <outlet property="surnameField" destination="nZ1-1r-WQg" id="Epn-dQ-iT8"/>
                     </connections>
                 </tableViewController>

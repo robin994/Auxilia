@@ -218,11 +218,11 @@ class HealthKitManager {
             switch( wheelchair! )
             {
             case .notSet:
-                wheelchairText = "Not set"
+                wheelchairText = "not set"
             case .yes:
                 wheelchairText = "Yes"
             case .no:
-                wheelchairText = "Not"
+                wheelchairText = "No"
             default:
                 break;
             }

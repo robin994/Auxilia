@@ -156,7 +156,7 @@ class ReportTableViewController: UITableViewController {
                                                gruppoSanguigno: String(describing: notifica.value(forKey: "bloodGroup")!),
                                                fototipo: String(describing: notifica.value(forKey: "fototipo")!),
                                                sediaARotelle: String(describing: notifica.value(forKey: "wheelchair")!) ,
-                                               ultimoBattito: String(describing: notifica.value(forKey: "heartrate"))))
+                                               ultimoBattito: String(describing: notifica.value(forKey: "heartRate"))))
             report.audioMessage = notifica["audioMessage"] as? CKAsset
             report.longitute = notifica["longitudine"] as? Double
             report.latitude = notifica["latitudine"] as? Double

@@ -164,6 +164,7 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
 				
 				DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 4){
 					self.infoLabel.text = "Notification Sent."
+					self.cancelButton.backgroundColor = UIColor.green
 				}
 				
 				

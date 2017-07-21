@@ -13,6 +13,7 @@
 		4BD5D5331F1E0890008A3211 /* ClinicalFolderData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD5D5311F1E0890008A3211 /* ClinicalFolderData+CoreDataProperties.swift */; };
 		4BDA9B421F1B8CC30076C349 /* ClinicalFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDA9B411F1B8CC30076C349 /* ClinicalFolder.swift */; };
 		4C23E9551F208D9000D1B9CE /* ReportClinicalFolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23E9541F208D9000D1B9CE /* ReportClinicalFolderViewController.swift */; };
+		4C903AB51F21FE5900507CCA /* checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C903AB41F21FE5900507CCA /* checked.png */; };
 		4CC3FC211F1F9BEA0012CCB6 /* access-denied.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CC3FC201F1F9BEA0012CCB6 /* access-denied.png */; };
 		4CDCAA801F191C7F00DBC79D /* SOSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDCAA7F1F191C7F00DBC79D /* SOSViewController.swift */; };
 		BD10F26A1F193CBF00516967 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD10F2691F193CBF00516967 /* MapViewController.swift */; };
@@ -131,6 +132,7 @@
 		4C4AB6431F21EACE00189B7D /* iHelp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iHelp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C4AB6441F21EACE00189B7D /* iHelpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iHelpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C4AB6451F21EACE00189B7D /* iHelpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iHelpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C903AB41F21FE5900507CCA /* checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checked.png; path = ../../../../Downloads/checked.png; sourceTree = "<group>"; };
 		4CC3FC201F1F9BEA0012CCB6 /* access-denied.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "access-denied.png"; sourceTree = "<group>"; };
 		4CDCAA7F1F191C7F00DBC79D /* SOSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SOSViewController.swift; path = iHelp/SOSViewController.swift; sourceTree = SOURCE_ROOT; };
 		684F2D9BFCAF1F03EEDEA154 /* Pods-iHelp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iHelp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iHelp/Pods-iHelp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -346,6 +348,7 @@
 		CE3953811F1364F2006BFBCA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4C903AB41F21FE5900507CCA /* checked.png */,
 				4CC3FC201F1F9BEA0012CCB6 /* access-denied.png */,
 				CE37C1991F1CBA6D00DBDACE /* microphone.png */,
 				CE8714131F1522660021F74D /* empty_avatar.jpg */,
@@ -667,6 +670,7 @@
 				CE9C35BE1F20A429006A2EE5 /* Icon-40.png in Resources */,
 				CE9C35DD1F20A429006A2EE5 /* upload.png in Resources */,
 				CE9C35D31F20A429006A2EE5 /* Icon-Small@2x.png in Resources */,
+				4C903AB51F21FE5900507CCA /* checked.png in Resources */,
 				CE9C35E21F20AF36006A2EE5 /* Assets.xcassets in Resources */,
 				CE9C35CF1F20A429006A2EE5 /* Icon-Small-40@3x.png in Resources */,
 				CE9C35D71F20A429006A2EE5 /* Icon-xxxhdpi.png in Resources */,

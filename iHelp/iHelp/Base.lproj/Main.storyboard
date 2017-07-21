@@ -285,7 +285,7 @@
         <!--Map View Controller-->
         <scene sceneID="OnA-8b-cfg">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="UZm-Z4-du4" customClass="MapViewController" customModule="iHelp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="UZm-Z4-du4" customClass="MapViewController" customModule="iHelp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="G3I-83-H9f"/>
                         <viewControllerLayoutGuide type="bottom" id="bIj-2E-UaW"/>
@@ -297,6 +297,16 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ad3-Dz-mpx">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hU7-7v-3bV">
+                                <rect key="frame" x="112" y="595" width="150" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Open Maps"/>
+                                <connections>
+                                    <action selector="openMappe:" destination="UZm-Z4-du4" eventType="touchUpInside" id="xc8-zw-OZk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -306,13 +316,16 @@
                             <constraint firstItem="ad3-Dz-mpx" firstAttribute="leading" secondItem="nC0-dF-y7h" secondAttribute="leading" id="xda-QP-nrt"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="map" destination="ad3-Dz-mpx" id="OS7-Iv-2ne"/>
+                        <outlet property="openMap" destination="hU7-7v-3bV" id="F7F-9C-bfQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nrE-xd-uea" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4297" y="171"/>
+            <point key="canvasLocation" x="4296.8000000000002" y="170.46476761619192"/>
         </scene>
         <!--Favourite Contact-->
         <scene sceneID="ZlC-m4-3Po">

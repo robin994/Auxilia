@@ -12,7 +12,10 @@ import CoreLocation
 import MapKit
 
 class MapViewController: UIViewController, CLLocationManagerDelegate {
-    @IBOutlet weak var localizza: UIButton!
+    
+    
+    
+    @IBOutlet weak var openMap: UIButton!
     @IBOutlet weak var map: MKMapView!
     
     var locationManager = CLLocationManager()
@@ -27,18 +30,36 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+        
+        
+        openMap.layer.masksToBounds = true
+        openMap.layer.cornerRadius = 20
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        
         // Dispose of any resources that can be recreated.
     }
     
     /*
      Azione del pulsante click
      */
-    @IBAction func setLocalizzazione(_ sender: Any) {
-        openExternalMap(40.294838, 29.4848)
+    @IBAction func openMappe(_ sender: Any) {
+        let alert = UIAlertController(title: "Proced?", message: "", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Confirm", style: UIAlertActionStyle.default) {
+           UIAlertAction in
+            NSLog("OK Pressed")
+            self.openExternalMap(self.latitudine2, self.longitudine2)
+        }
+        
+         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) {
+            UIAlertAction in
+           NSLog("Cancel Pressed")
+         }
+         alert.addAction(okAction)
+         alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
     }
     
     //il metodo apre l'applicazione maps con i parametri passati
@@ -64,11 +85,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
      */
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("......................wwwwwww")
-        let userLocation:CLLocation = locations[0] as CLLocation
+        //let userLocation:CLLocation = locations[0] as CLLocation
+        let userLocation = CLLocation(latitude: self.latitudine2, longitude: self.longitudine2)
         let span:MKCoordinateSpan = MKCoordinateSpanMake(0.01,0.01)
         
         //se al posto dei parametri, inserisco i valori di latitudine e longitudine, punta direttamente alla posizione indicata
-        let myLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(userLocation.coordinate.latitude, userLocation.coordinate.longitude)
+        let myLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(self.latitudine2, self.longitudine2)
         
         let region:MKCoordinateRegion = MKCoordinateRegionMake(myLocation, span)
         map.setRegion(region, animated: true)
@@ -76,8 +98,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         //estraggo le informazioni
         let altitudine = userLocation.altitude
         let velocita = userLocation.speed
-        let latitudine = userLocation.coordinate.latitude
-        let longitudine = userLocation.coordinate.longitude
+        let latitudine = self.latitudine2
+        let longitudine = self.longitudine2
+        let annotation = MKPointAnnotation()
+        
+        annotation.coordinate = CLLocationCoordinate2D(latitude: self.latitudine2, longitude: self.longitudine2)
+        self.map.addAnnotation(annotation)
         
         self.setVelocita(velocita)
         self.setAltitudine(altitudine)
@@ -88,6 +114,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         print("\(getAltitudine())")
         print("\(getVelocita())")
         self.map.showsUserLocation = true
+        locationManager.stopUpdatingLocation()
     }
     
     /*

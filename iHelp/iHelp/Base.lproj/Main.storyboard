@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="9Gc-XJ-T0H">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.19" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="9Gc-XJ-T0H">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.16"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -170,19 +170,23 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eVq-iM-7m7">
-                                                    <rect key="frame" x="20" y="12" width="335" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eVq-iM-7m7">
+                                                    <rect key="frame" x="20" y="0.0" width="335" height="43.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="eVq-iM-7m7" secondAttribute="trailing" constant="20" id="B8W-NW-9yR"/>
-                                                <constraint firstItem="eVq-iM-7m7" firstAttribute="top" secondItem="hIy-vE-SuZ" secondAttribute="top" constant="12" id="W21-27-sHT"/>
-                                                <constraint firstItem="eVq-iM-7m7" firstAttribute="leading" secondItem="hIy-vE-SuZ" secondAttribute="leading" constant="20" id="vii-tB-Mfq"/>
+                                                <constraint firstAttribute="trailing" secondItem="eVq-iM-7m7" secondAttribute="trailing" constant="20" id="2Ud-NN-NQV"/>
+                                                <constraint firstAttribute="bottom" secondItem="eVq-iM-7m7" secondAttribute="bottom" id="aYU-jx-8Fa"/>
+                                                <constraint firstItem="eVq-iM-7m7" firstAttribute="top" secondItem="hIy-vE-SuZ" secondAttribute="top" id="n1v-Yz-Yqm"/>
+                                                <constraint firstItem="eVq-iM-7m7" firstAttribute="leading" secondItem="hIy-vE-SuZ" secondAttribute="leading" constant="20" id="upd-kY-4iz"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" notEnabled="YES"/>
+                                        </accessibility>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -659,7 +663,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qEd-eP-Vdr">
-                                                <rect key="frame" x="116" y="108" width="143" height="107.5"/>
+                                                <rect key="frame" x="118.5" y="108" width="138" height="107.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                 <state key="normal" title="Create a profile"/>
                                                 <connections>

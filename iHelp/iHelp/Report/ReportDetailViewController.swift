@@ -16,8 +16,7 @@ class ReportDetailViewController: UITableViewController {
 	
 	
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
+        super.viewDidLoad()		
         // Do any additional setup after loading the view.
     }
 
@@ -25,6 +24,10 @@ class ReportDetailViewController: UITableViewController {
         nameField.text = currentReport.name
         surnameField.text = currentReport.surname
         messageField.text = currentReport.message
+		messageField.numberOfLines = 0
+		messageField.lineBreakMode = .byWordWrapping
+		messageField.frame.size.width = 300
+		messageField.sizeToFit()
         phoneNumberField.text = currentReport.phoneNumber
     }
     

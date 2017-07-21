@@ -87,21 +87,24 @@ class ReportDetailViewController: UITableViewController {
         // Pass the selected object to the new view controller.
         switch segue.identifier {
         case "show"? :
-            let currentClinicalFolder = self.currentReport
             NSLog(segue.destination.nibName!)
             NSLog(segue.destination.description)
             if (segue.destination.description.contains("MapViewController")) {
                 let dstView = segue.destination as! MapViewController
+                dstView.latitudine2 = currentReport.latitude!
+                dstView.longitudine2 = currentReport.longitute!
+                
             } else {
                 let dstView = segue.destination as! ReportClinicalFolderViewController
                 dstView.currentReport = currentReport
             }
         default :
-            let currentClinicalFolder = self.currentReport
             NSLog(segue.destination.nibName!)
             NSLog(segue.destination.description)
             if (segue.destination.description.contains("MapViewController")) {
-                 let dstView = segue.destination as! MapViewController
+                let dstView = segue.destination as! MapViewController
+                dstView.latitudine2 = currentReport.latitude!
+                dstView.longitudine2 = currentReport.longitute!
             } else {
                 let dstView = segue.destination as! ReportClinicalFolderViewController
                 dstView.currentReport = currentReport

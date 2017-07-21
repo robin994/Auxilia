@@ -20,6 +20,9 @@ class Report: NSObject {
     var message: String
     var clinicalFolder: ClinicalFolder
     
+    var longitute: Double?
+    var latitude: Double?
+    
     var audioMessage: CKAsset?
     
     init(name: String,surname: String, isMine: Bool, phoneNumber: String, message: String, creationDate: String, clinicalFolder: ClinicalFolder) {

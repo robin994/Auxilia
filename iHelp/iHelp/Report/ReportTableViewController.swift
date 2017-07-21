@@ -158,6 +158,8 @@ class ReportTableViewController: UITableViewController {
                                                sediaARotelle: String(describing: notifica.value(forKey: "wheelchair")!) ,
                                                ultimoBattito: String(describing: notifica.value(forKey: "heartrate"))))
             report.audioMessage = notifica["audioMessage"] as? CKAsset
+            report.longitute = notifica["longitude"] as? Double
+            report.latitude = notifica["latitude"] as? Double
             NSLog("-----------SALVO REPORT------------")
             NSLog(report.name)
             NSLog(report.message)

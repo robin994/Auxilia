@@ -114,6 +114,9 @@ class CloudKitManager: NSObject {
 }
 					
                     NotificationManager.sendNotification(topic: topicToSend, message: message, title: "\(name) \(surname) : SOS Request")
+				
+//				let alert = UIAlertController(title: "Notification Sent.", message: "Message", preferredStyle: .actionSheet)
+				
                 }
             }
         }

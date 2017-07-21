@@ -160,7 +160,13 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
                     self.textFromRegistration = result.bestTranscription.formattedString
 
 					CloudKitManager.saveReport(latitudine: self.latitudine2, longitudine: self.longitudine2, velocity: 33, audioMessage: self.soundFileURL!, message: self.textFromRegistration, heartRate: self.heartRate)
-					self.infoLabel.text = "Data Saved"
+					self.infoLabel.text = "Saving data..."
+				
+				DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 4){
+					self.infoLabel.text = "Notification Sent."
+				}
+				
+				
  
 			}
 		}

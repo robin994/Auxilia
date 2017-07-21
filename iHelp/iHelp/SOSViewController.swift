@@ -44,7 +44,7 @@ class SOSViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPlaye
         
 			//set radius cancelButton
 			cancelButton.layer.masksToBounds = true
-			cancelButton.layer.cornerRadius = 42
+			cancelButton.layer.cornerRadius = cancelButton.frame.height / 2
 			cancelButton.contentEdgeInsets = UIEdgeInsets(top: 25, left: 25, bottom: 25, right: 25)
 		
             self.navigationItem.hidesBackButton = true

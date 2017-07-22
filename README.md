@@ -1,5 +1,6 @@
-# iHelp
+# Auxilia
 
+Project renamed from "iHelp" to "Auxilia"
 Just an iOS 10 Application created to help nowdays people. 
 
 Main functions
